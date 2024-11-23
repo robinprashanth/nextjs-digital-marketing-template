@@ -1,0 +1,74 @@
+"use client";
+import { FC, useState } from "react";
+import { motion } from "motion/react";
+import { IndustryCard } from "./Industries/IndustryCard";
+import { IndustryDetail } from "./Industries/IndustryDetail";
+import { industries } from "./Industries/industries";
+
+export const IndustriesSection: FC = () => {
+  const [activeIndustry, setActiveIndustry] = useState(industries[0]);
+
+  return (
+    <section className="bg-gray-50 py-24 dark:bg-gray-900">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-16 max-w-2xl text-center"
+        >
+          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            INDUSTRIES WE SERVE
+          </span>
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            Expertise Across Industries
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400">
+            We bring deep industry knowledge and specialized expertise to
+            deliver exceptional results across diverse sectors.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* Industry Cards */}
+          <div className="space-y-4">
+            {industries.map((industry, index) => (
+              <IndustryCard
+                key={industry.id}
+                industry={industry}
+                isActive={activeIndustry.id === industry.id}
+                onClick={() => setActiveIndustry(industry)}
+                delay={index * 0.1}
+              />
+            ))}
+          </div>
+
+          {/* Industry Detail */}
+          <div className="lg:col-span-2">
+            <IndustryDetail industry={activeIndustry} />
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 p-8 text-center text-white"
+        >
+          <h3 className="mb-4 text-2xl font-bold">
+            Ready to Transform Your Industry?
+          </h3>
+          <p className="mb-6">
+            Let&apos;s discuss how our expertise can drive growth for your
+            business.
+          </p>
+          <button className="rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition-transform hover:scale-105">
+            Schedule a Consultation
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};

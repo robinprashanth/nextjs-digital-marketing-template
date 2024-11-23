@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Main circle background -->
+  <circle cx="256" cy="256" r="240" fill="#0866FF"/>
+  
+  <!-- Facebook 'f' mark -->
+  <path d="M279.6 148.2v45.4h46.4l-7.4 47h-39v152.4h-56V240.6h-37v-47h37v-45.4c0-36.6 22.4-56.6 55-56.6 15.6 0 29 1.2 33 1.7v38.3h-22.6c-17.8 0-21.4 8.4-21.4 20.8v41.2z" 
+        fill="#FFFFFF"/>
+</svg>

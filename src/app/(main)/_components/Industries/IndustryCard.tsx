@@ -1,0 +1,65 @@
+import { FC } from "react";
+import { motion } from "motion/react";
+import { Star } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import type { Industry } from "@/types";
+
+interface IndustryCardProps {
+  industry: Industry;
+  isActive: boolean;
+  onClick: () => void;
+  delay?: number;
+}
+
+export const IndustryCard: FC<IndustryCardProps> = ({
+  industry,
+  isActive,
+  onClick,
+  delay = 0,
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay }}
+    viewport={{ once: true }}
+  >
+    <Card
+      className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
+        isActive ? "ring-2 ring-purple-500" : ""
+      }`}
+      onClick={onClick}
+    >
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <div className="rounded-full bg-purple-100 p-3 dark:bg-purple-900/30">
+            {industry.icon}
+          </div>
+          <div className="flex items-center gap-1">
+            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+            <span className="font-medium text-gray-900 dark:text-white">
+              {industry.expertise}%
+            </span>
+          </div>
+        </div>
+        <CardTitle className="text-xl">{industry.name}</CardTitle>
+        <CardDescription>{industry.description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="flex justify-between text-sm">
+          <span className="text-gray-600 dark:text-gray-400">
+            Expertise Level
+          </span>
+          <span className="text-purple-600">{industry.expertise}%</span>
+        </div>
+        <Progress value={industry.expertise} className="mt-2" />
+      </CardContent>
+    </Card>
+  </motion.div>
+);

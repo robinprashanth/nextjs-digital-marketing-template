@@ -1,0 +1,70 @@
+"use client";
+import { FC, useState } from "react";
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import { PricingCard } from "./Pricing/PricingCard";
+import { PricingToggle } from "./Pricing/PricingToggle";
+import { pricingPlans } from "./Pricing/pricingPlans";
+
+export const PricingSection: FC = () => {
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
+    "monthly",
+  );
+
+  return (
+    <section className="bg-gray-50 py-24 dark:bg-gray-900">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-16 max-w-2xl text-center"
+        >
+          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            PRICING PLANS
+          </span>
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            Choose the Right Plan for Your Growth
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400">
+            Flexible pricing options designed to scale with your business needs
+          </p>
+
+          <PricingToggle
+            billingPeriod={billingPeriod}
+            onToggle={setBillingPeriod}
+          />
+        </motion.div>
+
+        {/* Pricing Grid */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {pricingPlans.map((plan) => (
+            <PricingCard
+              key={plan.id}
+              plan={plan}
+              billingPeriod={billingPeriod}
+            />
+          ))}
+        </div>
+
+        {/* Enterprise CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 p-8 text-center text-white"
+        >
+          <h3 className="mb-4 text-2xl font-bold">Need a Custom Solution?</h3>
+          <p className="mb-6">
+            Contact our team for a tailored package that meets your specific
+            needs and objectives.
+          </p>
+          <button className="rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition-transform hover:scale-105">
+            Contact Sales <ArrowRight className="ml-2 inline-block h-4 w-4" />
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};

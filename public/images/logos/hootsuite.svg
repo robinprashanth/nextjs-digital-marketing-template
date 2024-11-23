@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Main owl face shape -->
+  <path d="M256 64c-106 0-192 86-192 192s86 192 192 192 192-86 192-192S362 64 256 64zm0 352c-88.2 0-160-71.8-160-160s71.8-160 160-160 160 71.8 160 160-71.8 160-160 160z" fill="#4B4B4B"/>
+  
+  <!-- Eyes -->
+  <circle cx="196" cy="236" r="40" fill="#4B4B4B"/>
+  <circle cx="316" cy="236" r="40" fill="#4B4B4B"/>
+  
+  <!-- Inner eye highlights -->
+  <circle cx="196" cy="226" r="12" fill="#FFFFFF"/>
+  <circle cx="316" cy="226" r="12" fill="#FFFFFF"/>
+  
+  <!-- Beak -->
+  <path d="M286 276h-60c-11 0-20 9-20 20v20c0 27.6 22.4 50 50 50s50-22.4 50-50v-20c0-11-9-20-20-20z" fill="#4B4B4B"/>
+  
+  <!-- Ear tufts -->
+  <path d="M196 156l-40-40c-8-8-20-8-28 0s-8 20 0 28l40 40c8 8 20 8 28 0s8-20 0-28z" fill="#4B4B4B"/>
+  <path d="M316 156l40-40c8-8 20-8 28 0s8 20 0 28l-40 40c-8 8-20 8-28 0s-8-20 0-28z" fill="#4B4B4B"/>
+  
+  <!-- Optional wing shapes -->
+  <path d="M136 256c-22 0-40-18-40-40s18-40 40-40" fill="#4B4B4B"/>
+  <path d="M376 256c22 0 40-18 40-40s-18-40-40-40" fill="#4B4B4B"/>
+</svg>

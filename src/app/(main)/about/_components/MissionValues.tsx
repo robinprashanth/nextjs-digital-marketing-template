@@ -1,0 +1,160 @@
+"use client";
+import { FC } from "react";
+import { motion } from "motion/react";
+import { Target, Heart, Users, Lightbulb, Shield, Rocket } from "lucide-react";
+
+interface ValueCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  delay?: number;
+}
+
+const ValueCard: FC<ValueCardProps> = ({
+  icon,
+  title,
+  description,
+  delay = 0,
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+    className="group relative"
+  >
+    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+      {/* Icon */}
+      <div className="mb-4 inline-flex rounded-lg bg-purple-500/10 p-3 text-purple-500">
+        {icon}
+      </div>
+
+      {/* Content */}
+      <h3 className="mb-2 text-xl font-semibold text-foreground">{title}</h3>
+      <p className="text-muted-foreground">{description}</p>
+    </div>
+  </motion.div>
+);
+
+export const MissionValues: FC = () => {
+  const values = [
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "Result-Driven Approach",
+      description:
+        "We focus on delivering measurable results that directly impact our clients' business growth and success.",
+    },
+    {
+      icon: <Heart className="h-6 w-6" />,
+      title: "Client-Centric Focus",
+      description:
+        "Our clients' success is our success. We build lasting partnerships through dedication and commitment.",
+    },
+    {
+      icon: <Lightbulb className="h-6 w-6" />,
+      title: "Innovation First",
+      description:
+        "We constantly push boundaries and embrace new technologies to stay ahead in the digital landscape.",
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: "Collaborative Spirit",
+      description:
+        "We believe in the power of teamwork, both internally and with our clients, to achieve exceptional results.",
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Integrity & Trust",
+      description:
+        "We maintain the highest standards of professionalism, transparency, and ethical business practices.",
+    },
+    {
+      icon: <Rocket className="h-6 w-6" />,
+      title: "Continuous Growth",
+      description:
+        "We're committed to continuous learning and improvement in our pursuit of excellence.",
+    },
+  ];
+
+  return (
+    <section className="relative border-t border-gray-800 py-24">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-20 max-w-3xl text-center"
+        >
+          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            Mission & Values
+          </span>
+          <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
+            Guided by{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+              Excellence
+            </span>
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Our mission is to empower businesses with innovative digital
+            solutions that drive growth and create lasting impact. We&apos;re
+            guided by core values that define who we are and how we work.
+          </p>
+        </motion.div>
+
+        {/* Mission Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-20 max-w-4xl"
+        >
+          <div className="rounded-2xl border border-gray-800 bg-card p-8 text-center md:p-12">
+            <h3 className="mb-4 text-2xl font-bold text-foreground">
+              Our Mission
+            </h3>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              &ldquo;To revolutionize digital marketing through innovation and
+              excellence, helping businesses thrive in the digital age while
+              setting new standards for creativity, results, and client
+              satisfaction.&ldquo;
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Values Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {values.map((value, index) => (
+            <ValueCard
+              key={index}
+              icon={value.icon}
+              title={value.title}
+              description={value.description}
+              delay={index * 0.1}
+            />
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="mx-auto mt-20 max-w-3xl text-center"
+        >
+          <p className="mb-6 text-lg text-muted-foreground">
+            Join us in our mission to transform the digital landscape and create
+            meaningful impact for businesses worldwide.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-8 py-3 text-base font-semibold text-white transition-all hover:brightness-110"
+          >
+            Partner With Us
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};

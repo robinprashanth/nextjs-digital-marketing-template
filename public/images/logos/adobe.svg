@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Adobe "A" shape -->
+  <path d="M316.8 64L480 448H376.5L338 349.3H174L135.5 448H32L195.2 64H316.8ZM256 155.9L196.8 292H315.2L256 155.9Z" fill="#ED2224"/>
+  
+  <!-- Optional alternate red version:
+  <path d="M316.8 64L480 448H376.5L338 349.3H174L135.5 448H32L195.2 64H316.8ZM256 155.9L196.8 292H315.2L256 155.9Z" fill="#FF0000"/>
+  -->
+</svg>
