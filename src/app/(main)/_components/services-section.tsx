@@ -9,6 +9,7 @@ import {
   MessageSquareText,
   ArrowUpRight,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const ServiceCard = ({
   icon,
@@ -17,6 +18,7 @@ const ServiceCard = ({
   color,
   delay = 0,
   gradient,
+  href,
 }: {
   icon: React.ReactNode;
   title: string;
@@ -24,33 +26,39 @@ const ServiceCard = ({
   color: string;
   delay?: number;
   gradient: string;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay }}
-    className="group relative cursor-pointer overflow-hidden"
-  >
-    <div
-      className={`${color} ${gradient} relative z-10 h-full rounded-3xl p-8 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl`}
+  href: string;
+}) => {
+  const router = useRouter();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay }}
+      className="group relative cursor-pointer overflow-hidden"
+      onClick={() => router.push(href)}
     >
-      {/* Top Content */}
-      <div className="mb-6 flex items-start justify-between">
-        <div className={`rounded-2xl bg-white/10 p-3`}>{icon}</div>
-        <ArrowUpRight className="h-6 w-6 transform text-white/50 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" />
-      </div>
+      <div
+        className={`${color} ${gradient} relative z-10 h-full rounded-3xl p-8 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl`}
+      >
+        {/* Top Content */}
+        <div className="mb-6 flex items-start justify-between">
+          <div className={`rounded-2xl bg-white/10 p-3`}>{icon}</div>
+          <ArrowUpRight className="h-6 w-6 transform text-white/50 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" />
+        </div>
 
-      {/* Title and Description */}
-      <div>
-        <h3 className="mb-4 text-2xl font-bold text-white">{title}</h3>
-        <p className="leading-relaxed text-white/75">{description}</p>
-      </div>
+        {/* Title and Description */}
+        <div>
+          <h3 className="mb-4 text-2xl font-bold text-white">{title}</h3>
+          <p className="leading-relaxed text-white/75">{description}</p>
+        </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-white/5 blur-xl transition-all duration-500 group-hover:scale-150" />
-    </div>
-  </motion.div>
-);
+        {/* Decorative Elements */}
+        <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-white/5 blur-xl transition-all duration-500 group-hover:scale-150" />
+      </div>
+    </motion.div>
+  );
+};
 
 export const ServicesSection = () => {
   const services = [
@@ -61,6 +69,7 @@ export const ServicesSection = () => {
         "Data-driven campaigns that maximize your ROI through targeted advertising, analytics, and continuous optimization across all digital channels.",
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       gradient: "bg-[linear-gradient(45deg,#FF8145,#FF6B2B)]",
+      href: "/services/performance-marketing",
     },
     {
       icon: <MonitorSmartphone className="h-6 w-6 text-white" />,
@@ -69,6 +78,7 @@ export const ServicesSection = () => {
         "Comprehensive digital strategy including website optimization, UX improvements, and cross-platform brand consistency to enhance your online presence.",
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       gradient: "bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)]",
+      href: "/services/digital-marketing",
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-white" />,
@@ -77,6 +87,7 @@ export const ServicesSection = () => {
         "Transform data into actionable insights with advanced tracking, custom reporting, and strategic recommendations for growth.",
       color: "bg-gradient-to-br from-red-500 to-red-600",
       gradient: "bg-[linear-gradient(45deg,#FF4D4D,#FF3333)]",
+      href: "/services/analytics",
     },
     {
       icon: <Mail className="h-6 w-6 text-white" />,
@@ -85,6 +96,7 @@ export const ServicesSection = () => {
         "Strategic email campaigns that nurture leads, boost engagement, and drive conversions through personalized communication flows.",
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
       gradient: "bg-[linear-gradient(45deg,#3B82F6,#2563EB)]",
+      href: "/services/email-marketing",
     },
     {
       icon: <Globe className="h-6 w-6 text-white" />,
@@ -93,6 +105,7 @@ export const ServicesSection = () => {
         "Boost your organic visibility with technical SEO, content optimization, and strategic keyword targeting that drives quality traffic.",
       color: "bg-gradient-to-br from-emerald-500 to-emerald-600",
       gradient: "bg-[linear-gradient(45deg,#10B981,#059669)]",
+      href: "/services/seo",
     },
     {
       icon: <MessageSquareText className="h-6 w-6 text-white" />,
@@ -101,6 +114,7 @@ export const ServicesSection = () => {
         "Compelling content that tells your story, engages your audience, and establishes your brand as an industry authority.",
       color: "bg-gradient-to-br from-pink-500 to-pink-600",
       gradient: "bg-[linear-gradient(45deg,#EC4899,#DB2777)]",
+      href: "/services/content-strategy",
     },
   ];
 

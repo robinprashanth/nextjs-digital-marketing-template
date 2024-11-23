@@ -1,156 +1,117 @@
 "use client";
-import { FC, useState } from "react";
+
+import { FC, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
 import Image from "next/image";
-import { PortfolioItemProps } from "@/types";
+import { useRouter } from "next/navigation";
+import type { CaseStudy } from "@/types";
 
-const PortfolioCard: FC<PortfolioItemProps> = ({
+interface CaseStudiesProps {
+  initialCaseStudies: CaseStudy[];
+}
+const PortfolioCard: FC<CaseStudy> = ({
   title,
   category,
   metrics,
   image,
   color,
   gradient,
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    className="group cursor-pointer"
-  >
-    <div className={`relative overflow-hidden rounded-3xl ${color} p-1`}>
-      <div className="relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-900">
-        {/* Image Section */}
-        <div className="relative h-64 overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div className={`absolute inset-0 ${gradient} opacity-40`} />
+  slug,
+}) => {
+  const router = useRouter();
 
-          {/* Category Tag */}
-          <div className="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-1 text-sm font-medium backdrop-blur-sm">
-            {category}
-          </div>
-        </div>
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="group cursor-pointer"
+      onClick={() => router.push(`/case-studies/${slug}`)}
+    >
+      <div className={`relative overflow-hidden rounded-3xl ${color} p-1`}>
+        <div className="relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-900">
+          {/* Image Section */}
+          <div className="relative h-64 overflow-hidden">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className={`absolute inset-0 ${gradient} opacity-40`} />
 
-        {/* Content Section */}
-        <div className="p-6">
-          <div className="mb-4 flex items-start justify-between">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-              {title}
-            </h3>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="rounded-full bg-gray-100 p-2 dark:bg-gray-800"
-            >
-              <ArrowUpRight className="h-4 w-4" />
-            </motion.div>
+            {/* Category Tag */}
+            <div className="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-1 text-sm font-medium backdrop-blur-sm">
+              {category}
+            </div>
           </div>
 
-          {/* Metrics Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {metrics.map((metric, index) => (
-              <div key={index} className="space-y-1">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {metric.label}
-                </p>
-                <p className="text-lg font-bold text-gray-900 dark:text-white">
-                  {metric.value}
-                </p>
-                <p className="flex items-center gap-1 text-sm text-green-600">
-                  <TrendingUp className="h-4 w-4" />
-                  {metric.change}
-                </p>
-              </div>
-            ))}
+          {/* Content Section */}
+          <div className="p-6">
+            <div className="mb-4 flex items-start justify-between">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                {title}
+              </h3>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="rounded-full bg-gray-100 p-2 dark:bg-gray-800"
+              >
+                <ArrowUpRight className="h-4 w-4" />
+              </motion.div>
+            </div>
+
+            {/* Metrics Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {metrics.map((metric, index) => (
+                <div key={index} className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {metric.label}
+                  </p>
+                  <p className="text-lg font-bold text-gray-900 dark:text-white">
+                    {metric.value}
+                  </p>
+                  <p className="flex items-center gap-1 text-sm text-green-600">
+                    <TrendingUp className="h-4 w-4" />
+                    {metric.change}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
-const categories = [
-  "All",
-  "E-commerce",
-  "SaaS",
-  "Healthcare",
-  "Real Estate",
-  "Technology",
-];
-
-export const PortfolioSection: FC = () => {
+export const PortfolioSection: FC<CaseStudiesProps> = ({
+  initialCaseStudies,
+}) => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
+  const [categories, setCategories] = useState<string[]>(["All"]);
+  const router = useRouter();
 
-  const portfolioItems: PortfolioItemProps[] = [
-    {
-      title: "E-commerce Revenue Boost",
-      category: "E-commerce",
-      metrics: [
-        {
-          label: "Revenue Increase",
-          value: "$2.4M",
-          change: "+127% YoY",
-        },
-        {
-          label: "Conversion Rate",
-          value: "4.8%",
-          change: "+89% YoY",
-        },
-      ],
-      image: "/images/portfolio/ecommerce.jpg",
-      color: "bg-purple-500/10",
-      gradient: "bg-gradient-to-br from-purple-600 to-pink-600",
-    },
-    {
-      title: "SaaS Growth Strategy",
-      category: "SaaS",
-      metrics: [
-        {
-          label: "User Acquisition",
-          value: "15K+",
-          change: "+204% YoY",
-        },
-        {
-          label: "Customer LTV",
-          value: "$2,850",
-          change: "+65% YoY",
-        },
-      ],
-      image: "/images/portfolio/saas.jpg",
-      color: "bg-blue-500/10",
-      gradient: "bg-gradient-to-br from-blue-600 to-cyan-600",
-    },
-    {
-      title: "Healthcare Tech Platform",
-      category: "Healthcare",
-      metrics: [
-        {
-          label: "Patient Engagement",
-          value: "98%",
-          change: "+45% YoY",
-        },
-        {
-          label: "Cost Reduction",
-          value: "32%",
-          change: "Cost Savings",
-        },
-      ],
-      image: "/images/portfolio/healthcare.jpg",
-      color: "bg-emerald-500/10",
-      gradient: "bg-gradient-to-br from-emerald-600 to-teal-600",
-    },
-    // Add more items as needed
-  ];
+  useEffect(() => {
+    const fetchCaseStudies = async () => {
+      const studies = initialCaseStudies;
+      setCaseStudies(initialCaseStudies);
+
+      // Extract unique categories from case studies
+      const uniqueCategories = Array.from(
+        new Set(studies.map((study) => study.category)),
+      );
+      setCategories(["All", ...uniqueCategories]);
+    };
+
+    fetchCaseStudies();
+  }, []);
 
   const filteredItems =
     activeCategory === "All"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === activeCategory);
+      ? caseStudies
+      : caseStudies.filter((item) => item.category === activeCategory);
 
   return (
     <section className="bg-gray-50 py-24 dark:bg-gray-900">
@@ -213,7 +174,10 @@ export const PortfolioSection: FC = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <button className="rounded-full bg-purple-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl">
+          <button
+            onClick={() => router.push("/case-studies")}
+            className="rounded-full bg-purple-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl"
+          >
             View All Case Studies
           </button>
         </motion.div>

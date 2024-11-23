@@ -1,0 +1,412 @@
+"use client";
+import { FC } from "react";
+import { motion } from "motion/react";
+import {
+  Search,
+  FileText,
+  Link,
+  BarChart2,
+  Globe,
+  Smartphone,
+  ArrowUpRight,
+  BarChart,
+  MonitorCog,
+} from "lucide-react";
+import Image from "next/image";
+import { features, metrics, processSteps, toolsUsed } from "../data/content";
+
+const iconMap = {
+  Search,
+  FileText,
+  Link,
+  BarChart2,
+  Globe,
+  Smartphone,
+  BarChart,
+  MonitorCog,
+};
+
+export const SEO: FC = () => {
+  return (
+    <main>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] overflow-hidden bg-navy">
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0B1E] to-[#1A1A2E] opacity-50" />
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at top right, rgba(16, 185, 129, 0.1), transparent 50%)",
+          }}
+        />
+
+        {/* Floating Shapes */}
+        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-emerald-500/20 blur-xl" />
+        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-blue-500/20 blur-xl" />
+
+        {/* Content */}
+        <div className="container relative mx-auto px-4 py-24 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl"
+          >
+            <div className="mb-6 inline-block rounded-full bg-emerald-500/10 px-4 py-1 text-sm text-emerald-400">
+              SEO EXCELLENCE
+            </div>
+            <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              Dominate Search Results
+              <br />
+              With Data-Driven SEO
+            </h1>
+            <p className="mb-8 max-w-2xl text-lg text-gray-400">
+              Boost your organic visibility and drive qualified traffic through
+              strategic search engine optimization that delivers measurable
+              results.
+            </p>
+
+            {/* Metrics Grid */}
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {metrics.map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
+                >
+                  <p className="text-sm text-gray-400">{metric.label}</p>
+                  <p className="text-2xl font-bold text-white">
+                    {metric.value}
+                  </p>
+                  <p className="flex items-center gap-1 text-sm text-green-400">
+                    <ArrowUpRight className="h-4 w-4" />
+                    {metric.change}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Grid Section */}
+      <section className="bg-white py-24 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-16 max-w-2xl text-center"
+          >
+            <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              COMPREHENSIVE SEO SERVICES
+            </span>
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+              Full-Spectrum SEO
+              <br />
+              Solutions
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Strategic SEO services designed to improve your search rankings,
+              drive organic traffic, and increase conversions.
+            </p>
+          </motion.div>
+
+          {/* Features Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, index) => {
+              const IconComponent =
+                iconMap[feature.icon as keyof typeof iconMap];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800">
+                    <div
+                      className={`mb-6 inline-block rounded-2xl p-3 ${feature.gradient}`}
+                    >
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
+
+                    <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      {feature.description}
+                    </p>
+
+                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-emerald-500/10 to-blue-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="relative overflow-hidden bg-gray-50 py-24 dark:bg-gray-900">
+        <div className="container relative mx-auto px-4 sm:px-6">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="max-w-xl"
+            >
+              <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+                OUR PROCESS
+              </span>
+              <h2 className="mb-8 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+                Strategic Approach to
+                <br />
+                SEO Success
+              </h2>
+
+              <div className="space-y-6">
+                {processSteps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <span className="text-2xl font-bold text-emerald-600">
+                      {step.number}
+                    </span>
+                    <div>
+                      <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Tools Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Professional Tools & Technology
+                </h3>
+                <div className="grid gap-6 sm:grid-cols-2">
+                  {toolsUsed.map((tool, index) => {
+                    const IconComponent =
+                      iconMap[tool.icon as keyof typeof iconMap];
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
+                      >
+                        <div className="mb-4 rounded-xl bg-emerald-500/10 p-2 dark:bg-emerald-500/5">
+                          <IconComponent className="h-6 w-6 text-emerald-600" />
+                        </div>
+                        <h4 className="mb-2 font-bold text-gray-900 dark:text-white">
+                          {tool.name}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {tool.description}
+                        </p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Dashboard Preview */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-12"
+              >
+                <div className="relative h-[400px] overflow-hidden rounded-3xl">
+                  <Image
+                    src="/images/services/seo-dashboard.jpg"
+                    alt="SEO Dashboard"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/20 to-blue-600/20" />
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section (continued) */}
+      <section className="bg-navy py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
+              Ready to Improve Your
+              <br />
+              Search Rankings?
+            </h2>
+            <p className="mb-12 text-lg text-gray-400">
+              Let&apos;s develop a customized SEO strategy that drives organic
+              growth and delivers measurable results for your business.
+            </p>
+            <button className="rounded-full bg-gradient-to-r from-emerald-600 to-blue-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              Get Free SEO Audit
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Results Section */}
+      <section className="bg-white py-24 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-16 max-w-2xl text-center"
+          >
+            <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              PROVEN RESULTS
+            </span>
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+              Real Results for
+              <br />
+              Real Businesses
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Our data-driven approach consistently delivers outstanding results
+              across various industries and business sizes.
+            </p>
+          </motion.div>
+
+          {/* Results Grid */}
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "E-commerce Growth",
+                metric: "312%",
+                description: "Increase in organic traffic",
+                duration: "6 months",
+                icon: "ShoppingCart",
+              },
+              {
+                title: "Local Business",
+                metric: "5X",
+                description: "Increase in local pack visibility",
+                duration: "3 months",
+                icon: "MapPin",
+              },
+              {
+                title: "SaaS Company",
+                metric: "89%",
+                description: "Growth in organic conversions",
+                duration: "12 months",
+                icon: "Box",
+              },
+            ].map((result, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800"
+              >
+                <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                  {result.title}
+                </h3>
+                <div className="mb-2 text-4xl font-bold text-emerald-600">
+                  {result.metric}
+                </div>
+                <p className="mb-2 text-gray-600 dark:text-gray-400">
+                  {result.description}
+                </p>
+                <p className="text-sm text-gray-500">in {result.duration}</p>
+                <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-emerald-500/5 blur-xl" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-gray-50 py-24 dark:bg-gray-900/50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-16 max-w-2xl text-center"
+          >
+            <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              FAQ
+            </span>
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <div className="mx-auto max-w-3xl space-y-6">
+            {[
+              {
+                question: "How long does it take to see results from SEO?",
+                answer:
+                  "While initial improvements can be seen within 3-6 months, significant results typically manifest within 6-12 months. This timeline varies based on factors like competition, current site health, and target keywords.",
+              },
+              {
+                question: "What makes your SEO services different?",
+                answer:
+                  "We combine technical expertise with data-driven strategies, custom reporting, and transparent communication. Our approach is holistic, covering technical SEO, content optimization, and strategic link building.",
+              },
+              {
+                question: "Do you guarantee first page rankings?",
+                answer:
+                  "While we can't guarantee specific rankings due to search engines' ever-evolving algorithms, we guarantee a systematic, white-hat approach focused on sustainable growth and measurable improvements in visibility and traffic.",
+              },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
+              >
+                <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-white">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};

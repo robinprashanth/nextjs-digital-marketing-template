@@ -17,19 +17,19 @@ export const features: NavSection[] = [
     items: [
       {
         title: "Performance Metrics",
-        href: "/features/metrics",
+        href: "analytics/performance-metrics",
         description: "Track and analyze your marketing performance",
         icon: BarChart,
       },
       {
         title: "Campaign Management",
-        href: "/features/campaigns",
+        href: "/",
         description: "Manage all your campaigns in one place",
         icon: Target,
       },
       {
         title: "ROI Tracking",
-        href: "/features/roi",
+        href: "/",
         description: "Monitor and optimize your return on investment",
         icon: TrendingUp,
       },
@@ -40,19 +40,19 @@ export const features: NavSection[] = [
     items: [
       {
         title: "Workflow Builder",
-        href: "/features/workflow",
+        href: "automation/workflow-builder",
         description: "Create automated marketing workflows",
         icon: Settings,
       },
       {
         title: "Integration Hub",
-        href: "/features/integrations",
+        href: "/",
         description: "Connect with your favorite tools",
         icon: Terminal,
       },
       {
         title: "Security",
-        href: "/features/security",
+        href: "/",
         description: "Enterprise-grade security features",
         icon: Shield,
       },
@@ -63,19 +63,19 @@ export const features: NavSection[] = [
     items: [
       {
         title: "Team Tools",
-        href: "/features/team",
+        href: "/collaboration/team-tools",
         description: "Tools for team collaboration",
         icon: Users,
       },
       {
         title: "Communication",
-        href: "/features/communication",
+        href: "/",
         description: "Built-in team communication tools",
         icon: MessageSquare,
       },
       {
         title: "Growth Tools",
-        href: "/features/growth",
+        href: "/",
         description: "Tools to accelerate your growth",
         icon: Rocket,
       },
@@ -96,12 +96,40 @@ export const services: NavLink[] = [
   },
   {
     title: "Content Strategy",
-    href: "/services/content",
+    href: "/services/content-strategy",
     description: "Content creation and strategy services",
   },
   {
     title: "Social Media",
-    href: "/services/social",
+    href: "/services/social-media",
     description: "Social media management and growth",
+  },
+  {
+    title: "Performance Marketing",
+    href: "/services/performance-marketing",
+    description: "Data-driven campaign optimization",
+  },
+  {
+    title: "Email Marketing",
+    href: "/services/email-marketing",
+    description: "Strategic email campaign management",
+  },
+];
+
+export const more: NavLink[] = [
+  {
+    title: "Case Studies",
+    href: "/case-studies",
+    description: "Success Case Studies",
+  },
+  {
+    title: "Knowledge Base",
+    href: "/knowledge-base",
+    description: "Knowledge base",
+  },
+  {
+    title: "Blog",
+    href: "/Blog",
+    description: "Blog Content",
   },
 ];

@@ -9,9 +9,11 @@ import { TeamSection } from "./_components/TeamSection";
 import { TechStackSection } from "./_components/TechStackSection";
 import { TestimonialsSection } from "./_components/TestimonialsSection";
 import { WorkingMethodSection } from "./_components/working-method-section";
+import { getAllCaseStudies } from "@/lib/case-studies";
 
 // page.tsx
-export default function Home() {
+export default async function Home() {
+  const caseStudies = await getAllCaseStudies();
   return (
     <main>
       {/* Hero and Stats Section with Dark Background */}
@@ -38,7 +40,7 @@ export default function Home() {
       {/* Additional Sections */}
       <ServicesSection />
       <WorkingMethodSection />
-      <PortfolioSection />
+      <PortfolioSection initialCaseStudies={caseStudies} />
       <TestimonialsSection />
       <TeamSection />
       <PricingSection />

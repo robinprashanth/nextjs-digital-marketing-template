@@ -1,0 +1,92 @@
+"use client";
+import { FC } from "react";
+import { motion } from "motion/react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+} from "recharts";
+import type { ChartConfig, PerformanceData } from "../data/content";
+
+interface PerformanceChartProps {
+  config: ChartConfig;
+  data: PerformanceData[];
+  type: "line" | "area";
+  dataKeys: string[];
+}
+
+export const PerformanceChart: FC<PerformanceChartProps> = ({
+  config,
+  data,
+  type,
+  dataKeys,
+}) => {
+  const ChartComponent = type === "line" ? LineChart : AreaChart;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
+    >
+      <div className="mb-6 flex items-center justify-between">
+        <div>
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+            {config.title}
+          </h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            {config.subtitle}
+          </p>
+        </div>
+        {config.legends && (
+          <div className="flex gap-4">
+            {config.legends.map((legend, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <div className={`h-3 w-3 rounded-full ${legend.color}`} />
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  {legend.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="h-80">
+        <ResponsiveContainer width="100%" height="100%">
+          <ChartComponent data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="month" />
+            <YAxis />
+            <Tooltip />
+            {type === "line"
+              ? dataKeys.map((key) => (
+                  <Line
+                    key={key}
+                    type="monotone"
+                    dataKey={key}
+                    stroke={config.colors[key]}
+                    strokeWidth={2}
+                  />
+                ))
+              : dataKeys.map((key) => (
+                  <Area
+                    key={key}
+                    type="monotone"
+                    dataKey={key}
+                    stroke={config.colors[key]}
+                    fill={config.colors[key]}
+                    fillOpacity={0.2}
+                  />
+                ))}
+          </ChartComponent>
+        </ResponsiveContainer>
+      </div>
+    </motion.div>
+  );
+};

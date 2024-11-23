@@ -10,6 +10,7 @@ interface MobileMenuProps {
   onClose: () => void;
   features: NavSection[];
   services: NavLink[];
+  more: NavLink[];
 }
 
 export const MobileMenu: FC<MobileMenuProps> = ({
@@ -17,6 +18,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
   onClose,
   features,
   services,
+  more,
 }) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
@@ -145,6 +147,24 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                     </div>
                     <div className="space-y-1">
                       {services.map((service) => (
+                        <Link
+                          key={service.title}
+                          href={service.href}
+                          onClick={onClose}
+                          className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                        >
+                          <span>{service.title}</span>
+                          <ChevronRight className="h-4 w-4 text-gray-500" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                      More
+                    </div>
+                    <div className="space-y-1">
+                      {more.map((service) => (
                         <Link
                           key={service.title}
                           href={service.href}

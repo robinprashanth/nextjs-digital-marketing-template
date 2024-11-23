@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { MegaMenu } from "./MegaMenu";
 import { DropdownMenu } from "./DropdownMenu";
 import { MobileMenu } from "./MobileMenu";
-import { features, services } from "@/data/navigation";
+import { features, services, more } from "@/data/navigation";
 
 interface HoverState {
   features: boolean;
@@ -117,11 +117,11 @@ export const Navbar: FC = () => {
                 More
               </button>
               <AnimatePresence>
-                {hoveredItem.services && (
+                {hoveredItem.more && (
                   <DropdownMenu
-                    items={services}
-                    isOpen={hoveredItem.services}
-                    onClose={() => handleHover("services", false)}
+                    items={more}
+                    isOpen={hoveredItem.more}
+                    onClose={() => handleHover("more", false)}
                   />
                 )}
               </AnimatePresence>
@@ -157,6 +157,7 @@ export const Navbar: FC = () => {
             onClose={() => setIsMobileMenuOpen(false)}
             features={features}
             services={services}
+            more={more}
           />
         )}
       </AnimatePresence>
