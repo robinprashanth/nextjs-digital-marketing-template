@@ -1,14 +1,14 @@
 import { ContactSection } from "./_components/ContactForm";
-import { HeroSection } from "./_components/hero-content";
+import { HeroSection } from "./_components/HeroContent";
 import { IndustriesSection } from "./_components/IndustriesSection";
 import { PortfolioSection } from "./_components/PortfolioSection";
 import { PricingSection } from "./_components/PricingSection";
-import { ServicesSection } from "./_components/services-section";
-import { StatsGrid } from "./_components/stats-grid";
+import { ServicesSection } from "./_components/ServicesSection";
+import { StatsGrid } from "./_components/StatsGrid";
 import { TeamSection } from "./_components/TeamSection";
 import { TechStackSection } from "./_components/TechStackSection";
 import { TestimonialsSection } from "./_components/TestimonialsSection";
-import { WorkingMethodSection } from "./_components/working-method-section";
+import { WorkingMethodSection } from "./_components/WorkingMethodSection";
 import { getAllCaseStudies } from "@/lib/case-studies";
 
 // page.tsx
