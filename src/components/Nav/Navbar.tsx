@@ -9,6 +9,7 @@ import { DropdownMenu } from "./DropdownMenu";
 import { MobileMenu } from "./MobileMenu";
 import { features, services, more, moreMenuSections } from "@/data/navigation";
 import { AdvancedMegaMenu } from "./AdvancedMegaMenu";
+import { siteConfig } from "@/config";
 
 interface HoverState {
   features: boolean;
@@ -50,7 +51,7 @@ export const Navbar: FC = () => {
               </div>
             </div>
             <span className="bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent">
-              REVENTO
+              {siteConfig.appName}
             </span>
           </Link>
 

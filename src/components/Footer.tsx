@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Newsletter } from "./Footer/Newsletter";
 import { SocialLinks } from "./Footer/SocialLinks";
+import { siteConfig } from "@/config";
 
 const footerLinks = {
   Solutions: [
@@ -48,7 +49,7 @@ export const Footer: FC = () => {
                   </div>
                 </div>
                 <span className="bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-2xl font-bold text-transparent">
-                  REVENTO
+                {siteConfig.appName}
                 </span>
               </div>
               <p className="text-theme-neutral-400">
