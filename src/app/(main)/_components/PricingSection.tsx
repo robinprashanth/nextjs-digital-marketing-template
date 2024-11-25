@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { PricingCard } from "./Pricing/PricingCard";
 import { PricingToggle } from "./Pricing/PricingToggle";
 import { pricingPlans } from "./Pricing/pricingPlans";
+import { Button } from "@/components/ui/button";
 
 export const PricingSection: FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
@@ -60,9 +61,9 @@ export const PricingSection: FC = () => {
             Contact our team for a tailored package that meets your specific
             needs and objectives.
           </p>
-          <button className="rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition-transform hover:scale-105">
+          <Button variant="white-action" size="fluid" rounded="full">
             Contact Sales <ArrowRight className="ml-2 inline-block h-4 w-4" />
-          </button>
+          </Button>
         </motion.div>
       </div>
     </section>

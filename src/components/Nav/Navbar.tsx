@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { MegaMenu } from "./MegaMenu";
 import { DropdownMenu } from "./DropdownMenu";
 import { MobileMenu } from "./MobileMenu";
-import { features, services, more } from "@/data/navigation";
+import { features, services, more, moreMenuSections } from "@/data/navigation";
+import { AdvancedMegaMenu } from "./AdvancedMegaMenu";
 
 interface HoverState {
   features: boolean;
@@ -118,10 +119,19 @@ export const Navbar: FC = () => {
               </button>
               <AnimatePresence>
                 {hoveredItem.more && (
-                  <DropdownMenu
-                    items={more}
+                  <AdvancedMegaMenu
+                    sections={moreMenuSections}
                     isOpen={hoveredItem.more}
                     onClose={() => handleHover("more", false)}
+                    featuredImage={{
+                      src: "/images/featured-cta.jpg",
+                      alt: "Get Started",
+                      title: "Ready to Get Started?",
+                      description:
+                        "Join thousands of companies already using our platform",
+                      ctaText: "Start Free Trial",
+                      ctaHref: "/trial",
+                    }}
                   />
                 )}
               </AnimatePresence>
@@ -130,12 +140,9 @@ export const Navbar: FC = () => {
 
           {/* CTA Buttons */}
           <div className="hidden items-center gap-4 md:flex">
-            <Button variant="ghost" className="text-gray-400 hover:text-white">
-              Sign In
-            </Button>
-            <Button className="relative overflow-hidden rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-6">
+            <Button variant="secondary">Sign In</Button>
+            <Button variant="submit" rounded="full">
               <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-white/10 opacity-0 transition-opacity hover:opacity-100" />
             </Button>
           </div>
 
@@ -158,6 +165,7 @@ export const Navbar: FC = () => {
             features={features}
             services={services}
             more={more}
+            moreMenuSections={moreMenuSections}
           />
         )}
       </AnimatePresence>

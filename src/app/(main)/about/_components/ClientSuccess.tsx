@@ -12,6 +12,7 @@ import {
   Globe,
 } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 interface Metric {
   label: string;
@@ -148,10 +149,10 @@ const CaseStudyCard: FC<CaseStudyCardProps> = ({
 
     {/* View Case Study Button */}
     <div className="mt-6 text-right">
-      <button className="inline-flex items-center gap-2 text-sm font-medium text-purple-400 transition-colors hover:text-purple-300">
+      <Button variant="text-link">
         View Case Study
-        <ArrowUpRight className="h-4 w-4" />
-      </button>
+        <ArrowUpRight />
+      </Button>
     </div>
   </motion.div>
 );
@@ -266,13 +267,10 @@ export const ClientSuccess: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mt-16 flex max-w-3xl flex-col items-center space-y-8"
         >
-          <a
-            href="/case-studies"
-            className="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-6 py-3 text-purple-400 transition-colors hover:bg-purple-500/20"
-          >
+          <Button variant="soft" size="fluid" className="group">
             View More Case Studies
-            <ChevronRight className="h-4 w-4" />
-          </a>
+            <ChevronRight />
+          </Button>
 
           {/* Success Metrics */}
           <div className="grid w-full grid-cols-3 gap-8 rounded-2xl border border-gray-800 bg-card p-8">

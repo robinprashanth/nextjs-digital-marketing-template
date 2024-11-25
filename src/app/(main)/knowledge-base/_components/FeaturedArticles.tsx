@@ -17,8 +17,8 @@ export const FeaturedArticles: FC<FeaturedArticlesProps> = ({
   selectedCategory,
   onSelectCategory,
 }) => (
-  <section className="border-t border-gray-800 bg-card">
-    <div className="container mx-auto px-4 py-24 sm:px-6">
+  <section className="bg-card">
+    <div className="container mx-auto px-4 py-10 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -29,7 +29,7 @@ export const features = [
     gradient: "bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)]",
   },
   {
-    icon: "Link",
+    icon: "LinkIcon",
     title: "Link Building",
     description:
       "Strategic outreach and relationship building to earn high-quality backlinks from authoritative sources.",
@@ -98,7 +98,7 @@ export const toolsUsed = [
   },
   {
     name: "Ahrefs",
-    icon: "Link",
+    icon: "LinkIcon",
     description: "Comprehensive backlink and keyword analysis",
   },
   {

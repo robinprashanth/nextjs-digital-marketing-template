@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { IndustryCard } from "./Industries/IndustryCard";
 import { IndustryDetail } from "./Industries/IndustryDetail";
 import { industries } from "./Industries/industries";
+import { Button } from "@/components/ui/button";
 
 export const IndustriesSection: FC = () => {
   const [activeIndustry, setActiveIndustry] = useState(industries[0]);
@@ -64,9 +65,9 @@ export const IndustriesSection: FC = () => {
             Let&apos;s discuss how our expertise can drive growth for your
             business.
           </p>
-          <button className="rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition-transform hover:scale-105">
+          <Button variant="white-action" size="fluid" rounded="full">
             Schedule a Consultation
-          </button>
+          </Button>
         </motion.div>
       </div>
     </section>

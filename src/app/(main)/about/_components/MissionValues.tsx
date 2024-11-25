@@ -2,6 +2,8 @@
 import { FC } from "react";
 import { motion } from "motion/react";
 import { Target, Heart, Users, Lightbulb, Shield, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface ValueCardProps {
   icon: React.ReactNode;
@@ -147,12 +149,11 @@ export const MissionValues: FC = () => {
             Join us in our mission to transform the digital landscape and create
             meaningful impact for businesses worldwide.
           </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-8 py-3 text-base font-semibold text-white transition-all hover:brightness-110"
-          >
-            Partner With Us
-          </a>
+          <Button variant="cta" size="fluid" asChild>
+            <Link href="/contact" className="group">
+              Partner With Us
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

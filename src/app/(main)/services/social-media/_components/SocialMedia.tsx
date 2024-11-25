@@ -36,6 +36,8 @@ import {
   successStories,
   tools,
 } from "../data/content";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const iconMap = {
   Instagram,
@@ -442,9 +444,11 @@ export const SocialMedia: FC = () => {
               Let&apos;s create engaging social media strategies that build your
               brand and drive measurable results.
             </p>
-            <button className="rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              Schedule a Strategy Call
-            </button>
+            <Button variant="glass" size="xl">
+              <Link href="/contact" className="group">
+                Schedule a Strategy Call
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

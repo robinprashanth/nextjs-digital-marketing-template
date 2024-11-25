@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import {
   Search,
   FileText,
-  Link,
+  LinkIcon,
   BarChart2,
   Globe,
   Smartphone,
@@ -14,11 +14,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { features, metrics, processSteps, toolsUsed } from "../data/content";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const iconMap = {
   Search,
   FileText,
-  Link,
+  LinkIcon,
   BarChart2,
   Globe,
   Smartphone,
@@ -275,9 +277,11 @@ export const SEO: FC = () => {
               Let&apos;s develop a customized SEO strategy that drives organic
               growth and delivers measurable results for your business.
             </p>
-            <button className="rounded-full bg-gradient-to-r from-emerald-600 to-blue-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              Get Free SEO Audit
-            </button>
+            <Button variant="action" size="xl">
+              <Link href="/contact" className="group">
+                Schedule a Strategy Call
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

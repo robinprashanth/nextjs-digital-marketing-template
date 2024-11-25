@@ -88,23 +88,13 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
 
       {/* Article Content */}
       <div className="container mx-auto px-4 py-16 sm:px-6">
-        <div className="prose prose-lg dark:prose-invert prose-headings:text-foreground prose-a:text-purple-400 prose-blockquote:border-purple-400 mx-auto max-w-3xl">
+        <div className="prose prose-lg mx-auto max-w-3xl dark:prose-invert prose-headings:text-foreground prose-a:text-purple-400 prose-blockquote:border-purple-400">
           {children}
         </div>
 
         {/* Article Footer */}
         <div className="mx-auto mt-16 max-w-3xl border-t border-gray-800 pt-8">
           <div className="flex items-center justify-between">
-            {/* <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-2 text-purple-400 transition-colors hover:bg-purple-500/20">
-                <ThumbsUp className="h-4 w-4" />
-                Helpful
-              </button>
-              <button className="flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-2 text-purple-400 transition-colors hover:bg-purple-500/20">
-                <Tag className="h-4 w-4" />
-                Save
-              </button>
-            </div> */}
             <div className="flex items-center gap-4">
               <Link
                 href="/knowledge-base"

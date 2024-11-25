@@ -3,6 +3,8 @@ import { FC } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Linkedin, Twitter, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface TeamMember {
   name: string;
@@ -175,12 +177,13 @@ export const TeamSection: FC = () => {
         {/* Department Filter */}
         <div className="mb-12 flex flex-wrap justify-center gap-2">
           {departments.map((dept, index) => (
-            <button
+            <Button
+              variant="tag"
               key={index}
               className="rounded-full bg-purple-500/10 px-6 py-2 text-sm font-medium text-purple-400 transition-colors hover:bg-purple-500/20"
             >
               {dept}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -206,12 +209,11 @@ export const TeamSection: FC = () => {
             growing team. Check out our open positions and become part of our
             success story.
           </p>
-          <a
-            href="/careers"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-8 py-3 text-base font-semibold text-white transition-all hover:brightness-110"
-          >
-            View Open Positions
-          </a>
+          <Button variant="cta" size="fluid" asChild>
+            <Link href="/contact" className="group">
+              View Open Positions
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

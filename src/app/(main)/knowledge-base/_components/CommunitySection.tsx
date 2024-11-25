@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { motion } from "motion/react";
 import { Users, Video, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const CommunitySection: FC = () => (
   <section className="border-t border-gray-800">
@@ -37,9 +38,9 @@ export const CommunitySection: FC = () => (
               User groups & meetups
             </li>
           </ul>
-          <button className="rounded-full bg-purple-500 px-6 py-2 text-white transition-all hover:bg-purple-600">
+          <Button variant="action" size="lg-rounded">
             Join Community
-          </button>
+          </Button>
         </motion.div>
 
         {/* Video Tutorials */}
@@ -72,9 +73,9 @@ export const CommunitySection: FC = () => (
               Expert tutorials
             </li>
           </ul>
-          <button className="rounded-full bg-purple-500 px-6 py-2 text-white transition-all hover:bg-purple-600">
+          <Button variant="action" size="lg-rounded">
             Watch Tutorials
-          </button>
+          </Button>
         </motion.div>
       </div>
     </div>

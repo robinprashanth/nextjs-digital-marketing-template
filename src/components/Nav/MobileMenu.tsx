@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { X, ChevronRight, ChevronDown } from "lucide-react";
-import type { NavSection, NavLink } from "@/types";
+import type { NavSection, NavLink, MegaMenuSection } from "@/types";
 import { Button } from "@/components/ui/button";
 
 interface MobileMenuProps {
@@ -11,6 +11,7 @@ interface MobileMenuProps {
   features: NavSection[];
   services: NavLink[];
   more: NavLink[];
+  moreMenuSections: MegaMenuSection[];
 }
 
 export const MobileMenu: FC<MobileMenuProps> = ({
@@ -19,6 +20,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
   features,
   services,
   more,
+  moreMenuSections,
 }) => {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
@@ -159,24 +161,67 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                       ))}
                     </div>
                   </div>
+
+                  {/* More Links */}
                   <div>
                     <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
                       More
                     </div>
                     <div className="space-y-1">
-                      {more.map((service) => (
+                      {more.map((item) => (
                         <Link
-                          key={service.title}
-                          href={service.href}
+                          key={item.title}
+                          href={item.href}
                           onClick={onClose}
                           className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
                         >
-                          <span>{service.title}</span>
+                          <span>{item.title}</span>
                           <ChevronRight className="h-4 w-4 text-gray-500" />
                         </Link>
                       ))}
                     </div>
                   </div>
+
+                  {/* More Menu Sections */}
+                  {moreMenuSections.map((section) => (
+                    <div key={section.title}>
+                      <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                        {section.title}
+                      </div>
+                      <div className="space-y-1">
+                        {section.items.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            onClick={onClose}
+                            className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                          >
+                            <div className="flex items-center gap-3">
+                              {item.icon && (
+                                <span className="rounded-lg bg-purple-500/10 p-2">
+                                  <item.icon className="h-5 w-5" />
+                                </span>
+                              )}
+                              <div>
+                                <span>{item.title}</span>
+                                {item.description && (
+                                  <p className="text-sm text-gray-500">
+                                    {item.description}
+                                  </p>
+                                )}
+                                {item.badge && (
+                                  <span className="ml-2 inline-flex items-center rounded-full bg-purple-500/10 px-2 py-0.5 text-xs font-medium text-purple-400">
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <ChevronRight className="h-4 w-4 text-gray-500" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
 
                   {/* Additional Links */}
                   <div className="border-t border-white/10 pt-6">

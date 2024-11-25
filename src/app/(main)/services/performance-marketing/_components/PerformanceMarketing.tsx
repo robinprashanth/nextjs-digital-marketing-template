@@ -40,6 +40,8 @@ import {
   platforms,
   tools,
 } from "../data/content";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const iconMap = {
   Search,
@@ -510,9 +512,11 @@ export const PerformanceMarketing: FC = () => {
               Let&apos;s create data-driven campaigns that deliver measurable
               results and drive business growth.
             </p>
-            <button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              Schedule a Strategy Call
-            </button>
+            <Button variant="glass" size="xl">
+              <Link href="/contact" className="group">
+                Schedule a Strategy Call
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

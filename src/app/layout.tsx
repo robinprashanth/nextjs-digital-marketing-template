@@ -4,6 +4,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
+import { getSEOTags } from "@/lib/seo";
+import { SchemaMarkup } from "@/components/SchemaMarkup";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,14 +16,9 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s - AI Resume Builder",
-    absolute: "AI Resume Builder",
-  },
-  description:
-    "AI Resume Builder is the easiest way to create a professional resume that will help you land your dream job.",
-};
+export const metadata: Metadata = getSEOTags({
+  canonicalUrlRelative: "/",
+});
 
 export default function RootLayout({
   children,
@@ -30,6 +27,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <SchemaMarkup />
+        {/* Analytics can go here */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            {/* Google Analytics */}
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'YOUR-GA-ID');
+                `,
+              }}
+            />
+          </>
+        )}
+      </head>
       <body
         className={cn(
           "relative font-sans antialiased",

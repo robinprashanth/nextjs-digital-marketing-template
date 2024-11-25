@@ -14,6 +14,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 // Form Schema
 const contactFormSchema = z.object({
@@ -407,8 +408,10 @@ const Contact: FC = () => {
                 )}
 
                 {/* Submit Button */}
-                <button
+                <Button
                   type="submit"
+                  variant="action"
+                  size="lg"
                   disabled={isSubmitting}
                   className="relative w-full rounded-lg bg-purple-500 px-8 py-3 text-white transition-all hover:bg-purple-600 disabled:cursor-not-allowed disabled:opacity-70"
                 >
@@ -425,7 +428,7 @@ const Contact: FC = () => {
                       <div className="h-6 w-6 animate-spin rounded-full border-2 border-white border-t-transparent" />
                     </div>
                   )}
-                </button>
+                </Button>
               </form>
             </motion.div>
           </div>

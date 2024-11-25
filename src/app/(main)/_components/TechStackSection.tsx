@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { TechCard } from "./TechStack/TechCard";
 import { TechCategories } from "./TechStack/TechCategories";
 import { techTools } from "./TechStack/techTools";
+import { Button } from "@/components/ui/button";
 
 export const TechStackSection: FC = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -71,9 +72,9 @@ export const TechStackSection: FC = () => {
             Our team holds multiple certifications from leading platforms,
             ensuring the highest standards of digital marketing expertise.
           </p>
-          <button className="rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition-transform hover:scale-105">
+          <Button variant="white-action" size="fluid" rounded="full">
             View All Certifications
-          </button>
+          </Button>
         </motion.div>
       </div>
     </section>

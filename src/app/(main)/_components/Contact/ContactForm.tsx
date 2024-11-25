@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { ContactFormData } from "@/types";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -218,13 +219,14 @@ export const ContactForm: FC<ContactFormProps> = ({ onSuccess }) => {
           )}
         />
 
-        <button
+        <Button
+          variant="action"
           type="submit"
           disabled={isSubmitting}
           className="w-full rounded-full bg-purple-600 px-8 py-4 font-semibold text-white transition-all hover:bg-purple-700 disabled:opacity-70"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
-        </button>
+        </Button>
       </form>
     </Form>
   );

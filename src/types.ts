@@ -333,3 +333,31 @@ export interface BlogPostMetadata {
 export interface BlogPost extends BlogPostMetadata {
   slug: string;
 }
+
+export type BadgeType = "new" | "soon" | "beta" | "hiring";
+
+export type StatusType =
+  | "new"
+  | "soon"
+  | "beta"
+  | "hiring"
+  | "active"
+  | "pending"
+  | "closed"
+  | "success"
+  | "error"
+  | "warning"
+  | "info";
+
+export interface MegaMenuItem {
+  title: string;
+  href: string;
+  description?: string;
+  badge?: StatusType;
+}
+
+export interface MegaMenuSection {
+  title: string;
+  items: MegaMenuItem[];
+  layout?: "grid" | "list";
+}

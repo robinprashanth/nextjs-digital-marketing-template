@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { motion } from "motion/react";
 import { Share2, Globe, Shield, Network } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface StatCardProps {
   icon: typeof Globe;
@@ -91,12 +92,16 @@ const PartnersHero: FC = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <button className="rounded-full bg-purple-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-purple-700">
+              <Button variant="action" size="lg-rounded">
                 Become a Partner
-              </button>
-              <button className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10">
+              </Button>
+              <Button
+                variant="action"
+                size="lg-rounded"
+                className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+              >
                 Partner Directory
-              </button>
+              </Button>
             </div>
           </motion.div>
 

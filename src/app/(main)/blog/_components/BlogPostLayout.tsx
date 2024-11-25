@@ -171,41 +171,6 @@ export const BlogPostLayout: FC<BlogPostLayoutProps> = ({
           </div>
         </div>
       </div>
-
-      {/* Related Posts */}
-      {/* Add related posts section here */}
-
-      {/* Newsletter Section */}
-      {/* <section className="border-t border-border bg-card">
-        <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <h2 className="mb-4 text-2xl font-bold text-foreground">
-              Subscribe to Our Newsletter
-            </h2>
-            <p className="mb-8 text-muted-foreground">
-              Get the latest posts delivered right to your inbox.
-            </p>
-            <form className="flex gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 rounded-full border border-border bg-background px-6 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="rounded-full bg-primary px-8 py-3 font-semibold text-primary-foreground transition-all hover:bg-primary/90"
-              >
-                Subscribe
-              </button>
-            </form>
-          </motion.div>
-        </div>
-      </section> */}
     </article>
   );
 };

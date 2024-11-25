@@ -11,6 +11,8 @@ import {
   Globe,
   LucideIcon,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface Statistic {
   value: string;
@@ -169,12 +171,11 @@ export const WhyChooseUs: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-purple-700 px-8 py-3 text-base font-semibold text-white transition-all hover:brightness-110"
-          >
-            Start Your Digital Journey
-          </a>
+          <Button variant="cta" size="fluid" asChild>
+            <Link href="/contact" className="group">
+              Start Your Digital Journey
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

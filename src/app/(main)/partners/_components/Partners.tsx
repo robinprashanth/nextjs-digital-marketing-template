@@ -15,6 +15,8 @@ import {
   Mail,
 } from "lucide-react";
 import PartnersHero from "./PartnersHero";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface Partner {
   name: string;
@@ -215,10 +217,10 @@ const Partners: FC = () => {
                   </div>
 
                   {/* Action Button */}
-                  <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-purple-400 transition-colors hover:text-purple-300">
+                  <Button variant="text-link">
                     Learn More
                     <ArrowUpRight className="h-4 w-4" />
-                  </button>
+                  </Button>
                 </motion.div>
               ))}
           </div>
@@ -382,9 +384,11 @@ const Partners: FC = () => {
               <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100">
                 Apply Now
               </button>
-              <button className="rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20">
-                Schedule a Call
-              </button>
+              <Button variant="glass" size="xl">
+                <Link href="/contact" className="group">
+                  Schedule a Strategy Call
+                </Link>
+              </Button>
             </div>
           </motion.div>
         </div>

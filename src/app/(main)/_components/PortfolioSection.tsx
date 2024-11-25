@@ -6,6 +6,7 @@ import { ArrowUpRight, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { CaseStudy } from "@/types";
+import { Button } from "@/components/ui/button";
 
 interface CaseStudiesProps {
   initialCaseStudies: CaseStudy[];
@@ -174,12 +175,15 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <button
+          <Button
+            variant="action"
+            size="fluid"
+            rounded="full"
             onClick={() => router.push("/case-studies")}
             className="rounded-full bg-purple-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl"
           >
             View All Case Studies
-          </button>
+          </Button>
         </motion.div>
       </div>
     </section>

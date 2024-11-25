@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { Twitter, Github, Dribbble } from "lucide-react";
 import { TeamMember } from "@/types";
+import { Button } from "@/components/ui/button";
 
 const socialIcons = {
   twitter: Twitter,
@@ -150,9 +151,9 @@ export const TeamSection: FC = () => {
             growing team. Check out our open positions and become part of our
             success story.
           </p>
-          <button className="rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition-transform hover:scale-105">
+          <Button variant="white-action" size="fluid" rounded="full">
             View Open Positions
-          </button>
+          </Button>
         </motion.div>
       </div>
     </section>

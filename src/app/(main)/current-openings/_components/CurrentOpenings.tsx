@@ -11,6 +11,7 @@ import {
   Users,
   Building2,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface JobPosting {
   id: string;
@@ -354,10 +355,15 @@ const CurrentOpenings: FC = () => {
                         <DollarSign className="h-4 w-4" />
                         {job.salary}
                       </div>
-                      <button className="inline-flex items-center gap-2 rounded-full bg-purple-500 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-purple-600">
+                      <Button
+                        type="submit"
+                        variant="action"
+                        size="sm-rounded"
+                        rounded="full"
+                      >
                         Apply Now
                         <ChevronRight className="h-4 w-4" />
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </motion.div>

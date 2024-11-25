@@ -11,6 +11,7 @@ import { CommunitySection } from "./CommunitySection";
 import { NewsletterSection } from "./NewsletterSection";
 import { KnowledgeArticle } from "@/types";
 import { categories } from "../data/categories";
+import { Button } from "@/components/ui/button";
 
 interface KnowledgeBaseProps {
   articles: KnowledgeArticle[];
@@ -113,14 +114,14 @@ export const KnowledgeBase: FC<KnowledgeBaseProps> = ({
               personalized assistance.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <button className="flex items-center gap-2 rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100">
+              <Button variant="secondary" size="xl">
                 <MessagesSquare className="h-5 w-5" />
                 Contact Support
-              </button>
-              <button className="flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20">
+              </Button>
+              <Button variant="glass" size="xl" className="gap-2 py-3">
                 <Video className="h-5 w-5" />
                 Schedule a Demo
-              </button>
+              </Button>
             </div>
           </motion.div>
         </div>

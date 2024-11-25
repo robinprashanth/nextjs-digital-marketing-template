@@ -9,7 +9,7 @@ import {
   Target,
   TrendingUp,
 } from "lucide-react";
-import type { NavLink, NavSection } from "@/types";
+import type { MegaMenuSection, NavLink, NavSection } from "@/types";
 
 export const features: NavSection[] = [
   {
@@ -133,3 +133,97 @@ export const more: NavLink[] = [
     description: "Blog Content",
   },
 ];
+
+export const moreMenuSections: MegaMenuSection[] = [
+  {
+    title: "Main Pages",
+    items: [
+      {
+        title: "Case Studies",
+        href: "/case-studies",
+        description: "Success stories and results",
+      },
+      {
+        title: "Blog",
+        href: "/blog",
+        description: "Latest insights and updates",
+      },
+      {
+        title: "Knowledge Base",
+        href: "/knowledge-base",
+        description: "Guides and documentation",
+      },
+      {
+        title: "FAQs",
+        href: "/faqs",
+        description: "Frequently asked questions",
+        badge: "new",
+      },
+    ],
+  },
+  {
+    title: "Resources",
+    items: [
+      {
+        title: "Documentation",
+        href: "/docs",
+        description: "API and integration guides",
+      },
+      {
+        title: "Resources",
+        href: "/resources",
+        description: "Downloads and templates",
+      },
+      {
+        title: "Partners",
+        href: "/partners",
+        description: "Partner ecosystem",
+        badge: "new",
+      },
+    ],
+  },
+  {
+    title: "UI Components",
+    items: [
+      {
+        title: "Buttons",
+        href: "/user-interface/buttons",
+        description: "Interactive button styles and variants",
+        badge: "new",
+      },
+      {
+        title: "Cards",
+        href: "/user-interface/cards",
+        description: "Versatile card components and layouts",
+        badge: "new",
+      },
+      {
+        title: "Animations",
+        href: "/user-interface/animations",
+        description: "Motion and transition effects",
+        badge: "new",
+      },
+    ],
+  },
+  {
+    title: "Company",
+    items: [
+      {
+        title: "Careers",
+        href: "/careers",
+        description: "Join our team",
+        badge: "hiring",
+      },
+      {
+        title: "Press",
+        href: "/press",
+        description: "News and media",
+      },
+      {
+        title: "Terms",
+        href: "/terms",
+        description: "Terms and conditions",
+      },
+    ],
+  },
+] as const;

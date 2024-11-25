@@ -9,9 +9,12 @@ import {
   Zap,
   LineChart,
   ArrowUpRight,
+  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
 import { features, metrics, processSteps } from "../data/content";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const iconMap = {
   Mail,
@@ -235,9 +238,12 @@ export const EmailMarketing: FC = () => {
               Let&apos;s create data-driven email campaigns that engage your
               audience and drive measurable results.
             </p>
-            <button className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              Schedule a Strategy Call
-            </button>
+            <Button variant="cta2" size="fluid" rounded="full" asChild>
+              <Link href="/contact" className="group">
+                Schedule a Strategy Call
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

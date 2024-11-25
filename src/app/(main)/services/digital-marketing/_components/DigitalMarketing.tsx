@@ -15,6 +15,7 @@ import {
   Target,
   FileText,
   BarChart2,
+  ArrowRight,
 } from "lucide-react";
 import {
   features,
@@ -24,6 +25,8 @@ import {
   successStories,
   services,
 } from "../data/content";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const iconMap = {
   BarChart,
@@ -409,9 +412,12 @@ export const DigitalMarketing: FC = () => {
               Let&apos;s create a customized digital marketing strategy that
               drives growth and delivers measurable results for your business.
             </p>
-            <button className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              Schedule a Strategy Call
-            </button>
+            <Button variant="cta2" size="fluid" rounded="full" asChild>
+              <Link href="/schedule" className="group">
+                Schedule a Strategy Call
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

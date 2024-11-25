@@ -104,17 +104,13 @@ export const Newsletter: FC = () => {
                           ) : null}
                         </div>
                       </div>
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-8 hover:from-purple-700 hover:to-blue-700"
-                      >
+                      <Button variant="submit" rounded="full">
                         {isSubmitting ? (
                           <Loader2 className="h-4 w-4 animate-spin" />
                         ) : (
                           <>
-                            Subscribe
-                            <ArrowRight className="ml-2 h-4 w-4" />
+                            {" "}
+                            Subscribe <ArrowRight className="ml-2 h-4 w-4" />{" "}
                           </>
                         )}
                       </Button>
