@@ -25,9 +25,9 @@ const ValueCard: FC<ValueCardProps> = ({
     transition={{ duration: 0.5, delay }}
     className="group relative"
   >
-    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
       {/* Icon */}
-      <div className="mb-4 inline-flex rounded-lg bg-purple-500/10 p-3 text-purple-500">
+      <div className="mb-4 inline-flex rounded-lg bg-theme-primary-500/10 p-3 text-theme-primary-500">
         {icon}
       </div>
 
@@ -88,12 +88,12 @@ export const MissionValues: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Mission & Values
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Guided by{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Excellence
             </span>
           </h2>

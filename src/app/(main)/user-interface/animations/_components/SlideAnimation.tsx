@@ -11,10 +11,10 @@ export function SlideAnimation() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="rounded-lg bg-purple-500/10 p-4"
+            className="rounded-lg bg-theme-primary-500/10 p-4"
           >
             <h4 className="text-lg font-medium">Slide from Left</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-theme-neutral-600 dark:text-gray-300">
               Content slides in from the left
             </p>
           </motion.div>
@@ -25,7 +25,7 @@ export function SlideAnimation() {
             className="rounded-lg bg-blue-500/10 p-4"
           >
             <h4 className="text-lg font-medium">Slide from Right</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-theme-neutral-600 dark:text-gray-300">
               Content slides in from the right
             </p>
           </motion.div>

@@ -134,13 +134,13 @@ export const WorkflowBuilder: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block text-sm font-semibold text-purple-600">
+            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               WORKFLOW TEMPLATES
             </span>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
               Start with Pre-built Templates
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+            <p className="mt-4 text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Choose from our library of pre-built templates or create your own
               custom workflow
             </p>
@@ -202,7 +202,7 @@ export const WorkflowBuilder: FC = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <span className="text-sm font-semibold text-purple-600">
+              <span className="text-sm font-semibold text-theme-primary-600">
                 KEY FEATURES
               </span>
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
@@ -210,7 +210,7 @@ export const WorkflowBuilder: FC = () => {
                 <br />
                 Automate Your Marketing
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
                 Powerful features that make it easy to build, test, and optimize
                 your marketing workflows
               </p>
@@ -225,7 +225,7 @@ export const WorkflowBuilder: FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-900"
+                      className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white p-6 dark:border-theme-neutral-700 dark:bg-gray-900"
                     >
                       <div
                         className={`rounded-xl ${feature.color.replace("text", "bg")}/10 p-3`}
@@ -236,7 +236,7 @@ export const WorkflowBuilder: FC = () => {
                         <h3 className="font-bold text-gray-900 dark:text-white">
                           {feature.title}
                         </h3>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400">
+                        <p className="mt-1 text-theme-neutral-600 dark:text-theme-neutral-400">
                           {feature.description}
                         </p>
                       </div>
@@ -263,19 +263,19 @@ export const WorkflowBuilder: FC = () => {
                       const IconComponent = getIcon(step.icon);
                       return (
                         <div key={index} className="flex items-start gap-4">
-                          <div className="rounded-full bg-purple-500/10 p-3">
-                            <IconComponent className="h-5 w-5 text-purple-500" />
+                          <div className="rounded-full bg-theme-primary-500/10 p-3">
+                            <IconComponent className="h-5 w-5 text-theme-primary-500" />
                           </div>
                           <div>
                             <h4 className="font-bold text-gray-900 dark:text-white">
                               {step.title}
                             </h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                            <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                               {step.description}
                             </p>
                           </div>
                           {index < workflowSteps.length - 1 && (
-                            <div className="absolute left-6 mt-12 h-16 w-px bg-gradient-to-b from-purple-500/50 to-transparent" />
+                            <div className="absolute left-6 mt-12 h-16 w-px bg-gradient-to-b from-theme-primary-500/50 to-transparent" />
                           )}
                         </div>
                       );
@@ -297,13 +297,13 @@ export const WorkflowBuilder: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block text-sm font-semibold text-purple-600">
+            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               INTEGRATIONS
             </span>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
               Connect with Your Favorite Tools
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+            <p className="mt-4 text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Seamlessly integrate with popular marketing and business tools
             </p>
           </motion.div>
@@ -318,10 +318,10 @@ export const WorkflowBuilder: FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-purple-500/20 dark:border-gray-700 dark:bg-gray-900"
+                  className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-gray-900"
                 >
-                  <div className="mx-auto mb-4 rounded-xl bg-purple-500/10 p-3 transition-colors group-hover:bg-purple-500/20">
-                    <IconComponent className="mx-auto h-6 w-6 text-purple-500" />
+                  <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
+                    <IconComponent className="mx-auto h-6 w-6 text-theme-primary-500" />
                   </div>
                   <h3 className="font-medium text-gray-900 dark:text-white">
                     {integration.name}
@@ -353,7 +353,7 @@ export const WorkflowBuilder: FC = () => {
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="rounded-full bg-white px-8 py-4 font-semibold text-purple-600 shadow-lg transition-shadow hover:shadow-xl"
+              className="rounded-full bg-white px-8 py-4 font-semibold text-theme-primary-600 shadow-lg transition-shadow hover:shadow-xl"
             >
               Get Started Now
             </motion.button>
@@ -362,7 +362,7 @@ export const WorkflowBuilder: FC = () => {
 
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl" />
+          <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-theme-primary-500/20 blur-3xl" />
           <div className="absolute right-1/4 top-1/2 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
         </div>
       </section>

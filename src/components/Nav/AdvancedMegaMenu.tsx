@@ -49,7 +49,7 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
               <div className="grid grid-cols-4 gap-12">
                 {sections.map((section) => (
                   <div key={section.title} className="space-y-4">
-                    <h3 className="text-sm font-semibold text-gray-400 dark:text-gray-500">
+                    <h3 className="text-sm font-semibold text-theme-neutral-400 dark:text-theme-neutral-500">
                       {section.title}
                     </h3>
                     <ul className="space-y-1">
@@ -74,12 +74,12 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
                                 )}
                               </div>
                               {item.description && (
-                                <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+                                <p className="line-clamp-2 text-sm text-theme-neutral-500 dark:text-theme-neutral-400">
                                   {item.description}
                                 </p>
                               )}
                             </div>
-                            <ArrowUpRight className="h-4 w-4 text-gray-400 opacity-0 transition-all group-hover:text-gray-900 group-hover:opacity-100 dark:text-gray-500 dark:group-hover:text-gray-300" />
+                            <ArrowUpRight className="h-4 w-4 text-theme-neutral-400 opacity-0 transition-all group-hover:text-gray-900 group-hover:opacity-100 dark:text-theme-neutral-500 dark:group-hover:text-gray-300" />
                           </Link>
                         </li>
                       ))}

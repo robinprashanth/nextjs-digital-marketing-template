@@ -30,7 +30,7 @@ export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
       {tool.certification && (
         <Badge
           variant="secondary"
-          className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+          className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-theme-tulip-400"
         >
           Certified
         </Badge>
@@ -41,17 +41,17 @@ export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
         {tool.name}
       </h3>
-      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+      <p className="mt-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
         {tool.description}
       </p>
     </div>
 
     <div className="mt-4">
       <div className="flex items-center justify-between text-sm">
-        <span className="text-gray-600 dark:text-gray-400">
+        <span className="text-theme-neutral-600 dark:text-theme-neutral-400">
           Expertise Level
         </span>
-        <span className="font-medium text-purple-600">{tool.expertise}%</span>
+        <span className="font-medium text-theme-primary-600">{tool.expertise}%</span>
       </div>
       <Progress value={tool.expertise} className="mt-2" />
     </div>

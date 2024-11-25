@@ -31,14 +31,14 @@ export const IndustryDetail: FC<IndustryDetailProps> = ({ industry }) => (
         {industry.metrics.map((metric, index) => (
           <div
             key={index}
-            className="rounded-lg bg-gray-50 p-4 text-center dark:bg-gray-700"
+            className="rounded-lg bg-gray-50 p-4 text-center dark:bg-theme-neutral-700"
           >
-            <div className="text-2xl font-bold text-purple-600">
+            <div className="text-2xl font-bold text-theme-primary-600">
               {metric.prefix}
               {metric.value}
               {metric.suffix}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
               {metric.label}
             </div>
           </div>
@@ -54,7 +54,7 @@ export const IndustryDetail: FC<IndustryDetailProps> = ({ industry }) => (
           {industry.cases.map((caseStat, index) => (
             <div
               key={index}
-              className="rounded-lg bg-gray-50 p-4 dark:bg-gray-700"
+              className="rounded-lg bg-gray-50 p-4 dark:bg-theme-neutral-700"
             >
               <div className="mb-3 flex items-center gap-2">
                 <div className="relative h-8 w-8">
@@ -69,7 +69,7 @@ export const IndustryDetail: FC<IndustryDetailProps> = ({ industry }) => (
                   {caseStat.clientName}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                 {caseStat.result}
               </p>
             </div>

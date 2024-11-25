@@ -28,9 +28,9 @@ export const Hero: FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-1.5"
+                className="inline-flex items-center rounded-full border border-theme-primary-500/20 bg-theme-primary-500/10 px-4 py-1.5"
               >
-                <span className="text-sm text-purple-400">
+                <span className="text-sm text-theme-primary-400">
                   About Our Company
                 </span>
               </motion.div>
@@ -40,7 +40,7 @@ export const Hero: FC = () => {
                 <span className="block text-5xl font-bold text-white md:text-6xl lg:text-7xl">
                   We Build
                 </span>
-                <span className="block text-5xl font-bold text-gray-500 md:text-6xl lg:text-7xl">
+                <span className="block text-5xl font-bold text-theme-neutral-500 md:text-6xl lg:text-7xl">
                   Digital Success
                 </span>
                 <span className="block text-5xl font-bold text-white md:text-6xl lg:text-7xl">
@@ -49,7 +49,7 @@ export const Hero: FC = () => {
               </h1>
 
               {/* Description */}
-              <p className="max-w-xl text-lg text-gray-400">
+              <p className="max-w-xl text-lg text-theme-neutral-400">
                 We`&apos;re a team of passionate digital marketers, strategists,
                 and creatives dedicated to helping businesses thrive in the
                 digital age. With over a decade of experience, we`&apos;ve
@@ -74,10 +74,10 @@ export const Hero: FC = () => {
                     <div className="relative z-10 text-3xl font-bold text-white md:text-4xl">
                       {stat.number}
                     </div>
-                    <div className="relative z-10 mt-1 text-sm text-gray-400">
+                    <div className="relative z-10 mt-1 text-sm text-theme-neutral-400">
                       {stat.text}
                     </div>
-                    <div className="absolute -left-4 top-0 h-16 w-16 rounded-full bg-purple-500/10 blur-xl" />
+                    <div className="absolute -left-4 top-0 h-16 w-16 rounded-full bg-theme-primary-500/10 blur-xl" />
                   </motion.div>
                 ))}
               </div>
@@ -115,7 +115,7 @@ export const Hero: FC = () => {
                   <div className="mt-1 rounded-full bg-emerald-500 p-1.5" />
                   <div>
                     <div className="font-medium text-white">Always Active</div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-theme-neutral-400">
                       24/7 Support Available
                     </div>
                   </div>
@@ -134,7 +134,7 @@ export const Hero: FC = () => {
                   <div className="mt-1 rounded-full bg-orange-500 p-1.5" />
                   <div>
                     <div className="font-medium text-white">Global Reach</div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-theme-neutral-400">
                       Serving Clients Worldwide
                     </div>
                   </div>
@@ -151,9 +151,9 @@ export const Hero: FC = () => {
             >
               <div className="rounded-xl bg-[#1A1A2E]/80 p-4 shadow-lg backdrop-blur-sm">
                 <div className="flex items-center gap-4">
-                  <div className="rounded-lg bg-purple-500/20 p-2">
+                  <div className="rounded-lg bg-theme-primary-500/20 p-2">
                     <svg
-                      className="h-6 w-6 text-purple-500"
+                      className="h-6 w-6 text-theme-primary-500"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -166,7 +166,7 @@ export const Hero: FC = () => {
                     <div className="font-medium text-white">
                       Industry Leaders
                     </div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-theme-neutral-400">
                       Top 1% in Digital Marketing
                     </div>
                   </div>

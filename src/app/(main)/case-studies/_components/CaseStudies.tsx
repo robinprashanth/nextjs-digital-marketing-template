@@ -110,8 +110,8 @@ export const CaseStudies: FC<CaseStudiesProps> = ({ initialCaseStudies }) => {
                 }}
                 className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 ${
                   activeCategory === category
-                    ? "bg-purple-600 text-white shadow-lg"
-                    : "bg-card text-muted-foreground hover:bg-purple-500/10"
+                    ? "bg-theme-primary-600 text-white shadow-lg"
+                    : "bg-card text-muted-foreground hover:bg-theme-primary-500/10"
                 }`}
               >
                 {category}
@@ -136,7 +136,7 @@ export const CaseStudies: FC<CaseStudiesProps> = ({ initialCaseStudies }) => {
 
           {loading && (
             <div className="mt-8 text-center">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-500 border-r-transparent align-[-0.125em]" />
+              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-theme-primary-500 border-r-transparent align-[-0.125em]" />
             </div>
           )}
 

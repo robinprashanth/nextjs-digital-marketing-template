@@ -24,14 +24,14 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
           <li key={item.title}>
             <Link
               href={item.href}
-              className="group flex items-center justify-between rounded-lg p-3 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700"
+              className="group flex items-center justify-between rounded-lg p-3 transition-colors hover:bg-gray-50 dark:hover:bg-theme-neutral-700"
             >
               <div>
                 <span className="font-medium text-gray-900 dark:text-white">
                   {item.title}
                 </span>
                 {item.description && (
-                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                  <p className="mt-1 text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {item.description}
                   </p>
                 )}

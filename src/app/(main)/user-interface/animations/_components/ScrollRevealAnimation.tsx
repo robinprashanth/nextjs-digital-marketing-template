@@ -14,10 +14,10 @@ export function ScrollRevealAnimation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-lg bg-purple-500/10 p-6"
+              className="rounded-lg bg-theme-primary-500/10 p-6"
             >
               <h4 className="text-lg font-medium">Scroll Reveal Item {i}</h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-theme-neutral-600 dark:text-gray-300">
                 This item reveals as you scroll with a slight delay.
               </p>
             </motion.div>

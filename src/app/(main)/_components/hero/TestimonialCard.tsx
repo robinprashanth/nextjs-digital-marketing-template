@@ -29,10 +29,10 @@ export const TestimonialCard: FC<TestimonialCardProps> = ({
       </div>
       <div>
         <div className="font-medium text-white">{name}</div>
-        <div className="text-sm text-gray-400">{role}</div>
+        <div className="text-sm text-theme-neutral-400">{role}</div>
         <div className="mt-1 flex items-center gap-1">
           {Array.from({ length: rating }).map((_, i) => (
-            <div key={i} className="text-yellow-400">
+            <div key={i} className="text-theme-sunflower-400">
               ★
             </div>
           ))}

@@ -42,20 +42,20 @@ const FeatureCard: FC<FeatureCardProps> = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.1 }}
-    className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+    className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
-    <div className="mb-4 inline-flex rounded-xl bg-purple-500/10 p-3">
-      <Icon className="h-6 w-6 text-purple-400" />
+    <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+      <Icon className="h-6 w-6 text-theme-primary-400" />
     </div>
 
     <h3 className="mb-2 text-xl font-semibold text-foreground">{title}</h3>
     <p className="mb-4 text-muted-foreground">{description}</p>
 
     {stats && (
-      <div className="mt-4 grid grid-cols-2 gap-4 rounded-xl bg-purple-500/5 p-4">
+      <div className="mt-4 grid grid-cols-2 gap-4 rounded-xl bg-theme-primary-500/5 p-4">
         {stats.map((stat, idx) => (
           <div key={idx} className="text-center">
-            <div className="text-2xl font-bold text-purple-400">
+            <div className="text-2xl font-bold text-theme-primary-400">
               {stat.value}
             </div>
             <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -140,12 +140,12 @@ export const WhyChooseUs: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/40 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Why Choose Us
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Driving{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Digital Excellence
             </span>{" "}
             Through Innovation

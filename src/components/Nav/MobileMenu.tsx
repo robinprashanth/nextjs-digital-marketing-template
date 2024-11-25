@@ -58,18 +58,18 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                   onClick={onClose}
                 >
                   <div className="relative h-8 w-8">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 blur-sm" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-blue-600 blur-sm" />
                     <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
                       <span className="text-xl">⬡</span>
                     </div>
                   </div>
-                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent">
+                  <span className="bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent">
                     REVENTO
                   </span>
                 </Link>
                 <button
                   onClick={onClose}
-                  className="absolute right-4 rounded-full p-2 text-gray-400 transition-colors hover:bg-white/10"
+                  className="absolute right-4 rounded-full p-2 text-theme-neutral-400 transition-colors hover:bg-white/10"
                 >
                   <X className="h-6 w-6" />
                 </button>
@@ -80,7 +80,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                 <div className="space-y-6 py-6">
                   {/* Features */}
                   <div>
-                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-theme-neutral-400">
                       Features
                     </div>
                     <div className="space-y-1">
@@ -114,10 +114,10 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                                       key={item.title}
                                       href={item.href}
                                       onClick={onClose}
-                                      className="flex items-center gap-3 rounded-lg p-2 text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
+                                      className="flex items-center gap-3 rounded-lg p-2 text-theme-neutral-400 transition-colors hover:bg-white/5 hover:text-white"
                                     >
                                       {item.icon && (
-                                        <span className="rounded-lg bg-purple-500/10 p-2">
+                                        <span className="rounded-lg bg-theme-primary-500/10 p-2">
                                           <item.icon className="h-5 w-5" />
                                         </span>
                                       )}
@@ -126,7 +126,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                                           {item.title}
                                         </div>
                                         {item.description && (
-                                          <p className="text-xs text-gray-500">
+                                          <p className="text-xs text-theme-neutral-500">
                                             {item.description}
                                           </p>
                                         )}
@@ -144,7 +144,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
 
                   {/* Services */}
                   <div>
-                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-theme-neutral-400">
                       Services
                     </div>
                     <div className="space-y-1">
@@ -156,7 +156,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                           className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
                         >
                           <span>{service.title}</span>
-                          <ChevronRight className="h-4 w-4 text-gray-500" />
+                          <ChevronRight className="h-4 w-4 text-theme-neutral-500" />
                         </Link>
                       ))}
                     </div>
@@ -164,7 +164,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
 
                   {/* More Links */}
                   <div>
-                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-theme-neutral-400">
                       More
                     </div>
                     <div className="space-y-1">
@@ -176,7 +176,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                           className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
                         >
                           <span>{item.title}</span>
-                          <ChevronRight className="h-4 w-4 text-gray-500" />
+                          <ChevronRight className="h-4 w-4 text-theme-neutral-500" />
                         </Link>
                       ))}
                     </div>
@@ -185,7 +185,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                   {/* More Menu Sections */}
                   {moreMenuSections.map((section) => (
                     <div key={section.title}>
-                      <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                      <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-theme-neutral-400">
                         {section.title}
                       </div>
                       <div className="space-y-1">
@@ -198,25 +198,25 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                           >
                             <div className="flex items-center gap-3">
                               {item.icon && (
-                                <span className="rounded-lg bg-purple-500/10 p-2">
+                                <span className="rounded-lg bg-theme-primary-500/10 p-2">
                                   <item.icon className="h-5 w-5" />
                                 </span>
                               )}
                               <div>
                                 <span>{item.title}</span>
                                 {item.description && (
-                                  <p className="text-sm text-gray-500">
+                                  <p className="text-sm text-theme-neutral-500">
                                     {item.description}
                                   </p>
                                 )}
                                 {item.badge && (
-                                  <span className="ml-2 inline-flex items-center rounded-full bg-purple-500/10 px-2 py-0.5 text-xs font-medium text-purple-400">
+                                  <span className="ml-2 inline-flex items-center rounded-full bg-theme-primary-500/10 px-2 py-0.5 text-xs font-medium text-theme-primary-400">
                                     {item.badge}
                                   </span>
                                 )}
                               </div>
                             </div>
-                            <ChevronRight className="h-4 w-4 text-gray-500" />
+                            <ChevronRight className="h-4 w-4 text-theme-neutral-500" />
                           </Link>
                         ))}
                       </div>
@@ -256,7 +256,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                     Sign In
                   </Button>
                   <Button
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+                    className="w-full bg-gradient-to-r from-theme-primary-600 to-blue-600 text-white"
                     onClick={onClose}
                   >
                     Get Started

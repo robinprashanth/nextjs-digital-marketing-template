@@ -59,6 +59,38 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        theme: {
+          primary: {
+            "300": "hsl(var(--theme-primary-300))",
+            "400": "hsl(var(--theme-primary-400))",
+            "500": "hsl(var(--theme-primary-500))",
+            "600": "hsl(var(--theme-primary-600))",
+            "700": "hsl(var(--theme-primary-700))",
+          },
+          secondary: {
+            "300": "hsl(var(--theme-secondary-300))",
+            "400": "hsl(var(--theme-secondary-400))",
+            "500": "hsl(var(--theme-secondary-500))",
+            "600": "hsl(var(--theme-secondary-600))",
+          },
+          neutral: {
+            "300": "hsl(var(--theme-neutral-300))",
+            "400": "hsl(var(--theme-neutral-400))",
+            "500": "hsl(var(--theme-neutral-500))",
+            "600": "hsl(var(--theme-neutral-600))",
+            "700": "hsl(var(--theme-neutral-700))",
+          },
+          sunflower: {
+            "400": "hsl(var(--theme-sunflower-400))",
+            "500": "hsl(var(--theme-sunflower-500))",
+            "600": "hsl(var(--theme-sunflower-600))",
+          },
+          tulip: {
+            "400": "hsl(var(--theme-tulip-400))",
+            "500": "hsl(var(--theme-tulip-500))",
+            "600": "hsl(var(--theme-tulip-600))",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

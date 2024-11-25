@@ -16,37 +16,37 @@ const ContactInfo = () => (
   <div className="space-y-6">
     <div className="flex items-center gap-4">
       <div className="rounded-full bg-purple-100 p-3 dark:bg-purple-900/30">
-        <Phone className="h-6 w-6 text-purple-600" />
+        <Phone className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
         <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3>
-        <p className="text-gray-600 dark:text-gray-400">+1 (555) 000-0000</p>
+        <p className="text-theme-neutral-600 dark:text-theme-neutral-400">+1 (555) 000-0000</p>
       </div>
     </div>
     <div className="flex items-center gap-4">
       <div className="rounded-full bg-purple-100 p-3 dark:bg-purple-900/30">
-        <Mail className="h-6 w-6 text-purple-600" />
+        <Mail className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
         <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
           contact@youragency.com
         </p>
       </div>
     </div>
     <div className="flex items-center gap-4">
       <div className="rounded-full bg-purple-100 p-3 dark:bg-purple-900/30">
-        <MapPin className="h-6 w-6 text-purple-600" />
+        <MapPin className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
         <h3 className="font-semibold text-gray-900 dark:text-white">Address</h3>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
           123 Marketing St, Digital City, DC 12345
         </p>
       </div>
     </div>
 
-    <div className="mt-8 border-t border-gray-200 pt-8 dark:border-gray-700">
+    <div className="mt-8 border-t border-gray-200 pt-8 dark:border-theme-neutral-700">
       <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
         Follow Us
       </h3>
@@ -55,7 +55,7 @@ const ContactInfo = () => (
           <a
             key={index}
             href="#"
-            className="rounded-full bg-gray-100 p-3 text-gray-600 transition-colors hover:bg-purple-100 hover:text-purple-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-purple-900/30 dark:hover:text-purple-400"
+            className="rounded-full bg-gray-100 p-3 text-theme-neutral-600 transition-colors hover:bg-purple-100 hover:text-theme-primary-600 dark:bg-gray-800 dark:text-theme-neutral-400 dark:hover:bg-purple-900/30 dark:hover:text-theme-primary-400"
           >
             <Icon className="h-5 w-5" />
           </a>
@@ -76,13 +76,13 @@ export const ContactSection: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             GET IN TOUCH
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
             Let&apos;s Discuss Your Project
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
             We&apos;re here to help you grow your business. Tell us about your
             project, and we&apos;ll get back to you with a customized solution.
           </p>

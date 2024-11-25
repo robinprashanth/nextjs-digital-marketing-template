@@ -59,7 +59,7 @@ export const DigitalMarketing: FC = () => {
         />
 
         {/* Floating Shapes */}
-        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-purple-500/20 blur-xl" />
+        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-primary-500/20 blur-xl" />
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-pink-500/20 blur-xl" />
 
         {/* Content */}
@@ -69,7 +69,7 @@ export const DigitalMarketing: FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <div className="mb-6 inline-block rounded-full bg-purple-500/10 px-4 py-1 text-sm text-purple-400">
+            <div className="mb-6 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1 text-sm text-theme-primary-400">
               DIGITAL MARKETING SOLUTIONS
             </div>
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -77,7 +77,7 @@ export const DigitalMarketing: FC = () => {
               <br />
               Marketing Strategy
             </h1>
-            <p className="mb-8 max-w-2xl text-lg text-gray-400">
+            <p className="mb-8 max-w-2xl text-lg text-muted-foreground">
               Data-driven digital marketing solutions that drive growth,
               engagement, and measurable results across all digital channels.
             </p>
@@ -92,11 +92,11 @@ export const DigitalMarketing: FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-gray-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
-                  <p className="flex items-center gap-1 text-sm text-green-400">
+                  <p className="flex items-center gap-1 text-sm text-theme-tulip-400">
                     <ArrowUpRight className="h-4 w-4" />
                     {metric.change}
                   </p>
@@ -116,7 +116,7 @@ export const DigitalMarketing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR SERVICES
             </span>
             <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
@@ -124,7 +124,7 @@ export const DigitalMarketing: FC = () => {
               <br />
               Marketing Solutions
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Integrated marketing strategies that drive growth across all
               digital channels and platforms.
             </p>
@@ -143,14 +143,14 @@ export const DigitalMarketing: FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800"
                 >
-                  <div className="mb-6 inline-block rounded-2xl bg-purple-500/10 p-3 dark:bg-purple-500/5">
-                    <IconComponent className="h-6 w-6 text-purple-600" />
+                  <div className="mb-6 inline-block rounded-2xl bg-theme-primary-500/10 p-3 dark:bg-theme-primary-500/5">
+                    <IconComponent className="h-6 w-6 text-theme-primary-600" />
                   </div>
 
                   <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
                     {service.title}
                   </h3>
-                  <p className="mb-6 text-gray-600 dark:text-gray-400">
+                  <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
                     {service.description}
                   </p>
 
@@ -158,15 +158,15 @@ export const DigitalMarketing: FC = () => {
                     {service.bullets.map((bullet, bulletIndex) => (
                       <li
                         key={bulletIndex}
-                        className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
                       >
-                        <div className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+                        <div className="h-1.5 w-1.5 rounded-full bg-theme-primary-600" />
                         {bullet}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
+                  <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
                 </motion.div>
               );
             })}
@@ -183,7 +183,7 @@ export const DigitalMarketing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               ADVERTISING PLATFORMS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
@@ -206,13 +206,13 @@ export const DigitalMarketing: FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
                 >
-                  <div className="mb-4 rounded-xl bg-purple-500/10 p-2 dark:bg-purple-500/5">
-                    <IconComponent className="h-6 w-6 text-purple-600" />
+                  <div className="mb-4 rounded-xl bg-theme-primary-500/10 p-2 dark:bg-theme-primary-500/5">
+                    <IconComponent className="h-6 w-6 text-theme-primary-600" />
                   </div>
                   <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
                     {platform.name}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {platform.description}
                   </p>
                 </motion.div>
@@ -231,7 +231,7 @@ export const DigitalMarketing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               SUCCESS STORIES
             </span>
             <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
@@ -239,7 +239,7 @@ export const DigitalMarketing: FC = () => {
               <br />
               Real Businesses
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               See how our digital marketing strategies have transformed
               businesses across different industries.
             </p>
@@ -267,7 +267,7 @@ export const DigitalMarketing: FC = () => {
                 <div className="space-y-4">
                   {story.results.map((result, resultIndex) => (
                     <div key={resultIndex}>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                         {result.metric}
                       </p>
                       <p className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -277,11 +277,11 @@ export const DigitalMarketing: FC = () => {
                   ))}
                 </div>
 
-                <div className="mt-6 text-sm text-gray-500">
+                <div className="mt-6 text-sm text-theme-neutral-500">
                   Achieved in {story.duration}
                 </div>
 
-                <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
+                <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
               </motion.div>
             ))}
           </div>
@@ -297,7 +297,7 @@ export const DigitalMarketing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-400 to-pink-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR PROCESS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
@@ -318,16 +318,16 @@ export const DigitalMarketing: FC = () => {
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
-                  <div className="mb-4 text-3xl font-bold text-purple-400">
+                  <div className="mb-4 text-3xl font-bold text-theme-primary-400">
                     {step.number}
                   </div>
                   <h3 className="mb-4 text-xl font-bold text-white">
                     {step.title}
                   </h3>
-                  <p className="text-gray-400">{step.description}</p>
+                  <p className="text-theme-neutral-400">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-purple-400 to-transparent md:block" />
+                  <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-theme-primary-400 to-transparent md:block" />
                 )}
               </motion.div>
             ))}
@@ -344,7 +344,7 @@ export const DigitalMarketing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               KEY FEATURES
             </span>
             <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
@@ -352,7 +352,7 @@ export const DigitalMarketing: FC = () => {
               <br />
               Capabilities
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Cutting-edge features and tools to maximize your marketing
               performance.
             </p>
@@ -381,11 +381,11 @@ export const DigitalMarketing: FC = () => {
                     <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
                       {feature.description}
                     </p>
 
-                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
+                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
                   </div>
                 </motion.div>
               );
@@ -408,7 +408,7 @@ export const DigitalMarketing: FC = () => {
               <br />
               Digital Marketing Strategy?
             </h2>
-            <p className="mb-12 text-lg text-gray-400">
+            <p className="mb-12 text-lg text-theme-neutral-400">
               Let&apos;s create a customized digital marketing strategy that
               drives growth and delivers measurable results for your business.
             </p>

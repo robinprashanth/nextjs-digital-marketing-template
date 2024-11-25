@@ -126,14 +126,14 @@ export const FAQs: FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setActiveCategory(category.id)}
-                className={`group relative overflow-hidden rounded-2xl border p-6 text-left transition-all hover:border-purple-500/20 ${
+                className={`group relative overflow-hidden rounded-2xl border p-6 text-left transition-all hover:border-theme-primary-500/20 ${
                   activeCategory === category.id
-                    ? "border-purple-500/20 bg-purple-500/5"
+                    ? "border-theme-primary-500/20 bg-theme-primary-500/5"
                     : "border-gray-800"
                 }`}
               >
-                <div className="mb-4 inline-block rounded-xl bg-purple-500/10 p-3">
-                  <HelpCircle className="h-6 w-6 text-purple-400" />
+                <div className="mb-4 inline-block rounded-xl bg-theme-primary-500/10 p-3">
+                  <HelpCircle className="h-6 w-6 text-theme-primary-400" />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-foreground">
                   {category.name}
@@ -141,7 +141,7 @@ export const FAQs: FC = () => {
                 <p className="text-sm text-muted-foreground">
                   {category.description}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-sm text-purple-500">
+                <div className="mt-4 flex items-center gap-2 text-sm text-theme-primary-500">
                   <span>View articles</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -188,7 +188,7 @@ export const FAQs: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto mt-24 max-w-3xl rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 p-8 text-center"
+            className="mx-auto mt-24 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-theme-primary-600 p-8 text-center"
           >
             <h2 className="text-2xl font-bold text-white">
               Still have questions?

@@ -35,8 +35,8 @@ const Milestone: FC<MilestoneProps> = ({
       {/* Card */}
       <div className="relative rounded-2xl border border-gray-800 bg-card p-6">
         {/* Year Badge */}
-        <div className="inline-flex items-center rounded-full bg-purple-500/10 px-3 py-1">
-          <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-sm font-semibold text-transparent">
+        <div className="inline-flex items-center rounded-full bg-theme-primary-500/10 px-3 py-1">
+          <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-sm font-semibold text-transparent">
             {year}
           </span>
         </div>
@@ -50,7 +50,7 @@ const Milestone: FC<MilestoneProps> = ({
           <div className={`mt-4 grid grid-cols-${stats.length} gap-4`}>
             {stats.map((stat, index) => (
               <div key={index} className="space-y-1">
-                <div className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-2xl font-bold text-transparent">
+                <div className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-2xl font-bold text-transparent">
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">
@@ -67,16 +67,16 @@ const Milestone: FC<MilestoneProps> = ({
             isLeft
               ? "right-[-2rem] md:right-[-3rem]"
               : "left-[-2rem] md:left-[-3rem]"
-          } h-px w-8 bg-gradient-to-r from-purple-500/50 to-transparent`}
+          } h-px w-8 bg-gradient-to-r from-theme-primary-500/50 to-transparent`}
         />
 
         {/* Dot */}
         <div
           className={`absolute top-8 ${
             isLeft ? "right-[-2.25rem]" : "left-[-2.25rem]"
-          } h-3 w-3 rounded-full bg-purple-500`}
+          } h-3 w-3 rounded-full bg-theme-primary-500`}
         >
-          <div className="absolute inset-0 animate-ping rounded-full bg-purple-500 opacity-75" />
+          <div className="absolute inset-0 animate-ping rounded-full bg-theme-primary-500 opacity-75" />
         </div>
       </div>
     </div>
@@ -147,12 +147,12 @@ export const OurStory: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Our Journey
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             A Decade of Digital{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Excellence
             </span>
           </h2>
@@ -166,7 +166,7 @@ export const OurStory: FC = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Center Line - Desktop */}
-          <div className="absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-px -translate-x-1/2 bg-gradient-to-b from-purple-500/50 via-purple-500/25 to-transparent md:block" />
+          <div className="absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-px -translate-x-1/2 bg-gradient-to-b from-theme-primary-500/50 via-theme-primary-500/25 to-transparent md:block" />
 
           {/* Milestones */}
           <div className="space-y-16">

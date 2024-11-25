@@ -17,7 +17,7 @@ export function FloatingCardsAnimation() {
               <div className="mt-1 rounded-full bg-emerald-500 p-1.5" />
               <div>
                 <div className="font-medium text-white">Floating Card 1</div>
-                <div className="text-sm text-gray-400">With blur effect</div>
+                <div className="text-sm text-theme-neutral-400">With blur effect</div>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@ export function FloatingCardsAnimation() {
               <div className="mt-1 rounded-full bg-orange-500 p-1.5" />
               <div>
                 <div className="font-medium text-white">Floating Card 2</div>
-                <div className="text-sm text-gray-400">With backdrop blur</div>
+                <div className="text-sm text-theme-neutral-400">With backdrop blur</div>
               </div>
             </div>
           </div>

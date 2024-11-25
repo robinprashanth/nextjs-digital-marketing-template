@@ -45,7 +45,7 @@ const FAQItem: FC<FAQ & { isOpen: boolean; toggle: () => void }> = ({
     >
       <span className="text-lg font-medium text-foreground">{question}</span>
       <ChevronDown
-        className={`h-5 w-5 text-purple-400 transition-transform ${
+        className={`h-5 w-5 text-theme-primary-400 transition-transform ${
           isOpen ? "rotate-180" : ""
         }`}
       />
@@ -68,12 +68,12 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
         viewport={{ once: true }}
         className="mx-auto mb-16 max-w-3xl text-center"
       >
-        <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+        <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
           Pricing
         </span>
         <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
           Simple,{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
             Transparent
           </span>{" "}
           Pricing
@@ -93,12 +93,12 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
             transition={{ delay: index * 0.1 }}
             className={`relative rounded-2xl border ${
               tier.isPopular
-                ? "border-purple-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+                ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
                 : "border-gray-800"
             } bg-card p-8`}
           >
             {tier.isPopular && (
-              <div className="absolute -top-4 right-6 rounded-full bg-purple-500 px-4 py-1 text-sm font-medium text-white">
+              <div className="absolute -top-4 right-6 rounded-full bg-theme-primary-500 px-4 py-1 text-sm font-medium text-white">
                 Most Popular
               </div>
             )}
@@ -117,7 +117,7 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
             <ul className="mt-8 space-y-4">
               {tier.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center gap-3">
-                  <Check className="h-5 w-5 text-purple-400" />
+                  <Check className="h-5 w-5 text-theme-primary-400" />
                   <span className="text-muted-foreground">{feature}</span>
                 </li>
               ))}
@@ -126,8 +126,8 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
             <button
               className={`mt-8 w-full rounded-full ${
                 tier.isPopular
-                  ? "bg-purple-500 text-white hover:bg-purple-600"
-                  : "border border-purple-500 text-purple-400 hover:bg-purple-500/10"
+                  ? "bg-theme-primary-500 text-white hover:bg-theme-primary-600"
+                  : "border border-theme-primary-500 text-theme-primary-400 hover:bg-theme-primary-500/10"
               } px-6 py-3 font-medium transition-colors`}
             >
               Get Started
@@ -149,12 +149,12 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
         viewport={{ once: true }}
         className="mx-auto mb-16 max-w-3xl text-center"
       >
-        <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+        <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
           Case Studies
         </span>
         <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
           Client{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
             Success
           </span>{" "}
           Stories
@@ -171,8 +171,8 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
             className="grid gap-8 rounded-2xl border border-gray-800 bg-card p-8 md:grid-cols-2"
           >
             <div>
-              <div className="mb-4 inline-flex rounded-full bg-purple-500/10 px-3 py-1">
-                <span className="text-sm font-medium text-purple-400">
+              <div className="mb-4 inline-flex rounded-full bg-theme-primary-500/10 px-3 py-1">
+                <span className="text-sm font-medium text-theme-primary-400">
                   {study.industry}
                 </span>
               </div>
@@ -195,14 +195,14 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
 
               <div className="grid grid-cols-2 gap-4">
                 {study.results.map((result, idx) => (
-                  <div key={idx} className="rounded-xl bg-purple-500/5 p-4">
-                    <div className="text-2xl font-bold text-purple-400">
+                  <div key={idx} className="rounded-xl bg-theme-primary-500/5 p-4">
+                    <div className="text-2xl font-bold text-theme-primary-400">
                       {result.value}
                     </div>
                     <div className="text-sm text-muted-foreground">
                       {result.label}
                     </div>
-                    <div className="mt-1 text-sm text-green-500">
+                    <div className="mt-1 text-sm text-theme-tulip-500">
                       ↑ {result.change}
                     </div>
                   </div>
@@ -238,12 +238,12 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             FAQ
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Questions
             </span>
           </h2>
@@ -272,7 +272,7 @@ export const CTA: FC = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 p-12 text-center"
+        className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
       >
         <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
           Ready to Transform Your Digital Presence?
@@ -284,7 +284,7 @@ export const CTA: FC = () => (
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <a
             href="/contact"
-            className="rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100"
+            className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100"
           >
             Get Started
           </a>

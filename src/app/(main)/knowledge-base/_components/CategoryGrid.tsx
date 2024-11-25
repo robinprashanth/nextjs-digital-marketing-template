@@ -24,12 +24,12 @@ export const CategoryGrid: FC<CategoryGridProps> = ({
         onClick={() => onSelectCategory(category.id)}
         className={`group relative rounded-2xl border ${
           selectedCategory === category.id
-            ? "border-purple-500 bg-purple-500/5"
-            : "border-gray-800 bg-card hover:border-purple-500/20"
+            ? "border-theme-primary-500 bg-theme-primary-500/5"
+            : "border-gray-800 bg-card hover:border-theme-primary-500/20"
         } p-6 text-left transition-all duration-300`}
       >
-        <div className="mb-4 inline-flex rounded-xl bg-purple-500/10 p-3">
-          <category.icon className="h-6 w-6 text-purple-400" />
+        <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+          <category.icon className="h-6 w-6 text-theme-primary-400" />
         </div>
         <h3 className="mb-2 text-xl font-semibold text-foreground">
           {category.name}

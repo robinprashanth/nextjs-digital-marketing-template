@@ -75,7 +75,7 @@ export const StatsGrid: FC = () => (
             <br />
             SPEND CONSISTENTLY!
           </div>
-          <div className="mt-3 text-sm text-gray-400 sm:mt-4 sm:text-base">
+          <div className="mt-3 text-sm text-theme-neutral-400 sm:mt-4 sm:text-base">
             AVERAGE <span className="text-blue-400">INCREASE IN ROI</span>
             <br className="hidden sm:block" />
             FOR OUR CLIENTS.
@@ -112,13 +112,13 @@ export const StatsGrid: FC = () => (
       >
         {/* Decorative elements */}
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
-          <div className="h-1 w-20 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent" />
+          <div className="h-1 w-20 bg-gradient-to-r from-transparent via-theme-neutral-400/20 to-transparent" />
         </div>
 
         <h3 className="mb-3 text-lg font-medium text-white sm:text-xl">
           Driving Growth Through Innovation
         </h3>
-        <p className="px-4 text-sm leading-relaxed text-gray-400 sm:text-base">
+        <p className="px-4 text-sm leading-relaxed text-theme-neutral-400 sm:text-base">
           Helping brands thrive with strategic campaigns, creative content, and
           results-focused marketing precision. Our data-driven approach ensures
           measurable success and sustainable growth.
@@ -126,7 +126,7 @@ export const StatsGrid: FC = () => (
 
         {/* Bottom decoration */}
         <div className="mt-6 flex items-center justify-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-purple-400/40" />
+          <span className="h-2 w-2 rounded-full bg-theme-primary-400/40" />
           <span className="h-2 w-2 rounded-full bg-orange-400/40" />
           <span className="h-2 w-2 rounded-full bg-emerald-400/40" />
         </div>

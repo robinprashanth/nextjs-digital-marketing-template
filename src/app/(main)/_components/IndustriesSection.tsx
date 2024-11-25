@@ -19,13 +19,13 @@ export const IndustriesSection: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             INDUSTRIES WE SERVE
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
             Expertise Across Industries
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
             We bring deep industry knowledge and specialized expertise to
             deliver exceptional results across diverse sectors.
           </p>
@@ -56,7 +56,7 @@ export const IndustriesSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 p-8 text-center text-white"
+          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-blue-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">
             Ready to Transform Your Industry?

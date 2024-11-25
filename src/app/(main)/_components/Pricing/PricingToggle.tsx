@@ -14,8 +14,8 @@ export const PricingToggle: FC<PricingToggleProps> = ({
       onClick={() => onToggle("monthly")}
       className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
         billingPeriod === "monthly"
-          ? "bg-purple-600 text-white"
-          : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          ? "bg-theme-primary-600 text-white"
+          : "text-theme-neutral-600 hover:text-gray-900 dark:text-theme-neutral-400 dark:hover:text-white"
       }`}
     >
       Monthly
@@ -24,12 +24,12 @@ export const PricingToggle: FC<PricingToggleProps> = ({
       onClick={() => onToggle("yearly")}
       className={`relative rounded-full px-6 py-2 text-sm font-medium transition-all ${
         billingPeriod === "yearly"
-          ? "bg-purple-600 text-white"
-          : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          ? "bg-theme-primary-600 text-white"
+          : "text-theme-neutral-600 hover:text-gray-900 dark:text-theme-neutral-400 dark:hover:text-white"
       }`}
     >
       Yearly
-      <span className="absolute -right-2 -top-2 rounded-full bg-green-500 px-2 py-1 text-xs text-white">
+      <span className="absolute -right-2 -top-2 rounded-full bg-theme-tulip-500 px-2 py-1 text-xs text-white">
         -20%
       </span>
     </button>

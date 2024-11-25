@@ -10,10 +10,10 @@ export function HoverAnimation() {
           {/* Scale on Hover */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="rounded-lg bg-purple-500/10 p-6"
+            className="rounded-lg bg-theme-primary-500/10 p-6"
           >
             <h4 className="text-lg font-medium">Scale on Hover</h4>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-theme-neutral-600 dark:text-gray-300">
               This card scales up when hovered.
             </p>
           </motion.div>
@@ -24,7 +24,7 @@ export function HoverAnimation() {
             className="rounded-lg bg-blue-500/10 p-6"
           >
             <h4 className="text-lg font-medium">Float on Hover</h4>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-theme-neutral-600 dark:text-gray-300">
               This card floats up when hovered.
             </p>
           </motion.div>

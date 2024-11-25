@@ -90,15 +90,15 @@ const TeamCard: FC<{ member: TeamMember }> = ({ member }) => (
       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
         {member.name}
       </h3>
-      <p className="text-purple-600 dark:text-purple-400">{member.role}</p>
-      <p className="text-sm text-gray-600 dark:text-gray-300">{member.bio}</p>
+      <p className="text-theme-primary-600 dark:text-theme-primary-400">{member.role}</p>
+      <p className="text-sm text-theme-neutral-600 dark:text-gray-300">{member.bio}</p>
 
       {/* Expertise Tags */}
       <div className="flex flex-wrap justify-center gap-2 pt-2">
         {member.expertise.map((skill, index) => (
           <span
             key={index}
-            className="rounded-full bg-purple-50 px-3 py-1 text-xs text-purple-600 dark:bg-purple-900/30 dark:text-purple-400"
+            className="rounded-full bg-purple-50 px-3 py-1 text-xs text-theme-primary-600 dark:bg-purple-900/30 dark:text-theme-primary-400"
           >
             {skill}
           </span>
@@ -119,13 +119,13 @@ export const TeamSection: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             OUR EXPERTS
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
             Meet Our Leadership Team
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
             We bring together expertise across strategy, design, and technology
             to deliver exceptional results for our clients.
           </p>
@@ -143,7 +143,7 @@ export const TeamSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 p-8 text-center text-white"
+          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-blue-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">Join Our Team</h3>
           <p className="mb-6">

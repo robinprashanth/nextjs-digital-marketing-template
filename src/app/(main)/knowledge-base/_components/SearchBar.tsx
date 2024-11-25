@@ -19,7 +19,7 @@ export const SearchBar: FC<SearchBarProps> = ({
   ],
 }) => (
   <motion.div className="mx-auto max-w-3xl text-center">
-    <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+    <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
       KNOWLEDGE BASE
     </span>
     <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
@@ -38,13 +38,13 @@ export const SearchBar: FC<SearchBarProps> = ({
       className="mt-8"
     >
       <div className="relative mx-auto max-w-2xl">
-        <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+        <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-theme-neutral-400" />
         <input
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="Search articles, tutorials, and more..."
-          className="w-full rounded-full border border-white/10 bg-white/10 px-12 py-4 text-white placeholder-gray-400 backdrop-blur-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+          className="w-full rounded-full border border-white/10 bg-white/10 px-12 py-4 text-white placeholder-theme-neutral-400 backdrop-blur-sm focus:border-theme-primary-500 focus:outline-none focus:ring-2 focus:ring-theme-primary-500/20"
         />
       </div>
     </motion.div>

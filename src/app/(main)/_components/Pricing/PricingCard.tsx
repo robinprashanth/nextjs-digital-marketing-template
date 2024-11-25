@@ -26,12 +26,12 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className={`relative rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-gray-800 ${
-        plan.isPopular ? "ring-2 ring-purple-500" : ""
+        plan.isPopular ? "ring-2 ring-theme-primary-500" : ""
       }`}
     >
       {plan.isPopular && (
         <Badge
-          className="absolute -top-3 left-1/2 -translate-x-1/2 bg-purple-500"
+          className="absolute -top-3 left-1/2 -translate-x-1/2 bg-theme-primary-500"
           variant="secondary"
         >
           Most Popular
@@ -43,7 +43,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
         <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
           {plan.name}
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
           {plan.description}
         </p>
       </div>
@@ -59,11 +59,11 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
           <span className="text-4xl font-bold text-gray-900 dark:text-white">
             ${price}
           </span>
-          <span className="text-gray-600 dark:text-gray-400">
+          <span className="text-theme-neutral-600 dark:text-theme-neutral-400">
             /{billingPeriod === "monthly" ? "mo" : "yr"}
           </span>
           {billingPeriod === "yearly" && (
-            <div className="mt-1 text-sm text-green-500">
+            <div className="mt-1 text-sm text-theme-tulip-500">
               Save ${(plan.monthlyPrice - plan.yearlyPrice) * 12} yearly
             </div>
           )}
@@ -77,18 +77,18 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
             {typeof feature.included === "boolean" ? (
               <div className="mt-1">
                 {feature.included ? (
-                  <Check className="h-5 w-5 text-green-500" />
+                  <Check className="h-5 w-5 text-theme-tulip-500" />
                 ) : (
                   <X className="h-5 w-5 text-red-500" />
                 )}
               </div>
             ) : typeof feature.included === "number" ? (
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-purple-100 text-xs font-bold text-purple-600">
+              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-purple-100 text-xs font-bold text-theme-primary-600">
                 {feature.included}
               </div>
             ) : (
               <div className="mt-1">
-                <Check className="h-5 w-5 text-yellow-500" />
+                <Check className="h-5 w-5 text-theme-sunflower-500" />
               </div>
             )}
             <div>
@@ -99,7 +99,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
-                      <HelpCircle className="h-4 w-4 text-gray-400" />
+                      <HelpCircle className="h-4 w-4 text-theme-neutral-400" />
                     </TooltipTrigger>
                     <TooltipContent>{feature.description}</TooltipContent>
                   </Tooltip>
@@ -114,8 +114,8 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
       <Button
         className={`w-full rounded-full px-6 py-3 text-center font-semibold transition-transform hover:scale-105 ${
           plan.isPopular
-            ? "bg-purple-600 text-white hover:bg-purple-700"
-            : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
+            ? "bg-theme-primary-600 text-white hover:bg-purple-700"
+            : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-theme-neutral-700 dark:text-white dark:hover:bg-theme-neutral-600"
         }`}
       >
         {plan.cta.text}

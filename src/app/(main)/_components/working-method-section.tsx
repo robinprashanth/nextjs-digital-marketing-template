@@ -115,14 +115,14 @@ const MethodStep: FC<MethodStepProps> = ({
       {/* Number and Content */}
       <div className="flex-1">
         <div className="flex items-start gap-4 md:gap-6">
-          <span className="bg-gradient-to-br from-purple-400 to-purple-600 bg-clip-text font-mono text-3xl font-bold text-transparent md:text-4xl">
+          <span className="bg-gradient-to-br from-theme-primary-400 to-theme-primary-600 bg-clip-text font-mono text-3xl font-bold text-transparent md:text-4xl">
             {number}
           </span>
           <div className="flex-1">
             <h3 className="mb-3 text-lg font-bold text-gray-900 md:text-xl">
               {title}
             </h3>
-            <p className="text-sm leading-relaxed text-gray-600 md:text-base">
+            <p className="text-sm leading-relaxed text-theme-neutral-600 md:text-base">
               {description}
             </p>
           </div>
@@ -219,7 +219,7 @@ export const WorkingMethodSection: FC = () => {
           viewport={{ once: true }}
           className="mb-16 max-w-2xl"
         >
-          <span className="mb-4 block bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-red-500 to-theme-primary-500 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             OUR METHODOLOGY
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
@@ -227,7 +227,7 @@ export const WorkingMethodSection: FC = () => {
             <br />
             Into Digital Success
           </h2>
-          <p className="text-base text-gray-600 md:text-lg">
+          <p className="text-base text-theme-neutral-600 md:text-lg">
             Our proven four-step methodology combines strategic thinking with
             technical expertise to deliver exceptional results in the digital
             landscape.
@@ -255,11 +255,11 @@ export const WorkingMethodSection: FC = () => {
               whileHover={{ y: -5 }}
               className="rounded-2xl bg-gradient-to-br from-gray-50 to-white p-6 text-center shadow-lg transition-all duration-300 hover:shadow-xl"
             >
-              <div className="mb-2 bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-3xl font-bold text-transparent">
+              <div className="mb-2 bg-gradient-to-r from-theme-primary-600 to-theme-primary-400 bg-clip-text text-3xl font-bold text-transparent">
                 {stat.value}
               </div>
               <div className="mb-1 font-medium text-gray-900">{stat.title}</div>
-              <div className="text-sm text-gray-600">{stat.description}</div>
+              <div className="text-sm text-theme-neutral-600">{stat.description}</div>
             </motion.div>
           ))}
         </motion.div>

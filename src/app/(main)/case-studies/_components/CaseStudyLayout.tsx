@@ -97,7 +97,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
                   <div className="mt-1 text-sm text-white/60">
                     {metric.label}
                   </div>
-                  <div className="mt-2 flex items-center gap-1 text-sm text-green-400">
+                  <div className="mt-2 flex items-center gap-1 text-sm text-theme-tulip-400">
                     <TrendingUp className="h-4 w-4" />
                     {metric.change}
                   </div>
@@ -137,7 +137,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
                 ].map((platform) => (
                   <button
                     key={platform.name}
-                    className="rounded-full bg-purple-500/10 p-2 text-purple-400 transition-colors hover:bg-purple-500/20"
+                    className="rounded-full bg-theme-primary-500/10 p-2 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20"
                     aria-label={`Share on ${platform.name}`}
                   >
                     <Share2 className="h-4 w-4" />
@@ -159,7 +159,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 p-12 text-center"
+            className="mt-16 rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white">
               Ready to Achieve Similar Results?
@@ -171,7 +171,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100"
+                className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100"
               >
                 Start Your Project
               </Link>
@@ -192,7 +192,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
           <div className="flex items-center justify-between">
             <Link
               href="/case-studies"
-              className="flex items-center gap-2 text-purple-400 hover:text-purple-300"
+              className="flex items-center gap-2 text-theme-primary-400 hover:text-purple-300"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Case Studies

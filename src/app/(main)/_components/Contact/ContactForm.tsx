@@ -223,7 +223,7 @@ export const ContactForm: FC<ContactFormProps> = ({ onSuccess }) => {
           variant="action"
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-full bg-purple-600 px-8 py-4 font-semibold text-white transition-all hover:bg-purple-700 disabled:opacity-70"
+          className="w-full rounded-full bg-theme-primary-600 px-8 py-4 font-semibold text-white transition-all hover:bg-purple-700 disabled:opacity-70"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </Button>

@@ -56,7 +56,7 @@ export const TeamTools: FC = () => {
 
             {/* CTA Buttons */}
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              <button className="group relative inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-purple-600 transition-all hover:scale-105">
+              <button className="group relative inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-theme-primary-600 transition-all hover:scale-105">
                 Get Started Free
                 <ArrowRight className="h-5 w-5" />
               </button>
@@ -100,7 +100,7 @@ export const TeamTools: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block text-sm font-semibold text-purple-600">
+            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               KEY FEATURES
             </span>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
@@ -108,7 +108,7 @@ export const TeamTools: FC = () => {
               <br />
               Seamless Collaboration
             </h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">
+            <p className="mt-4 text-theme-neutral-600 dark:text-theme-neutral-400">
               Powerful features to help your team work better together
             </p>
           </motion.div>
@@ -123,7 +123,7 @@ export const TeamTools: FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group rounded-2xl border border-gray-200 bg-white p-8 transition-all hover:border-purple-500/20 dark:border-gray-800 dark:bg-gray-900"
+                  className="group rounded-2xl border border-gray-200 bg-white p-8 transition-all hover:border-theme-primary-500/20 dark:border-gray-800 dark:bg-gray-900"
                 >
                   <div
                     className={`mb-6 inline-block rounded-xl ${feature.color.replace("text", "bg")}/10 p-3`}
@@ -134,7 +134,7 @@ export const TeamTools: FC = () => {
                   <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="mb-6 text-gray-600 dark:text-gray-400">
+                  <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
                     {feature.description}
                   </p>
 
@@ -142,9 +142,9 @@ export const TeamTools: FC = () => {
                     {feature.benefits.map((benefit, benefitIndex) => (
                       <li
                         key={benefitIndex}
-                        className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
                       >
-                        <Check className="h-4 w-4 text-purple-600" />
+                        <Check className="h-4 w-4 text-theme-primary-600" />
                         {benefit}
                       </li>
                     ))}
@@ -165,7 +165,7 @@ export const TeamTools: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block text-sm font-semibold text-purple-600">
+            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               TEAM TOOLS
             </span>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
@@ -190,13 +190,13 @@ export const TeamTools: FC = () => {
                   <div
                     className={`mb-6 inline-block rounded-xl ${tool.gradient.replace("bg-", "bg-opacity-10")} p-3`}
                   >
-                    <IconComponent className="h-6 w-6 text-purple-600" />
+                    <IconComponent className="h-6 w-6 text-theme-primary-600" />
                   </div>
 
                   <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                     {tool.title}
                   </h3>
-                  <p className="mb-6 text-gray-600 dark:text-gray-400">
+                  <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
                     {tool.description}
                   </p>
 
@@ -204,9 +204,9 @@ export const TeamTools: FC = () => {
                     {tool.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
+                        className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
                       >
-                        <div className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+                        <div className="h-1.5 w-1.5 rounded-full bg-theme-primary-600" />
                         {feature}
                       </li>
                     ))}
@@ -227,7 +227,7 @@ export const TeamTools: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block text-sm font-semibold text-purple-600">
+            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               INTEGRATIONS
             </span>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
@@ -247,10 +247,10 @@ export const TeamTools: FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-purple-500/20 dark:border-gray-700 dark:bg-gray-900"
+                  className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-gray-900"
                 >
-                  <div className="mx-auto mb-4 rounded-xl bg-purple-500/10 p-3 transition-colors group-hover:bg-purple-500/20">
-                    <IconComponent className="mx-auto h-6 w-6 text-purple-500" />
+                  <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
+                    <IconComponent className="mx-auto h-6 w-6 text-theme-primary-500" />
                   </div>
                   <h3 className="font-medium text-gray-900 dark:text-white">
                     {integration.name}
@@ -263,7 +263,7 @@ export const TeamTools: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-purple-600 py-24">
+      <section className="relative overflow-hidden bg-theme-primary-600 py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

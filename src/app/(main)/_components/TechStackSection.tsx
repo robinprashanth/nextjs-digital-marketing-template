@@ -32,13 +32,13 @@ export const TechStackSection: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             OUR TECH STACK
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
             Powered by Leading Technology
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
             We leverage industry-leading tools and platforms to deliver
             exceptional results for our clients.
           </p>
@@ -65,7 +65,7 @@ export const TechStackSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 p-8 text-center text-white"
+          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-blue-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">Certified Excellence</h3>
           <p className="mb-6">

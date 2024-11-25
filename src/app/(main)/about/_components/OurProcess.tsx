@@ -47,20 +47,20 @@ const ProcessCard: FC<ProcessCardProps> = ({
   >
     {/* Left side with icon and connector */}
     <div className="flex flex-col items-center md:w-32">
-      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/10">
-        <Icon className="h-8 w-8 text-purple-400" />
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-theme-primary-500/10">
+        <Icon className="h-8 w-8 text-theme-primary-400" />
       </div>
       {index !== totalSteps - 1 && (
-        <div className="mt-4 h-full w-px bg-gradient-to-b from-purple-500/50 to-transparent" />
+        <div className="mt-4 h-full w-px bg-gradient-to-b from-theme-primary-500/50 to-transparent" />
       )}
     </div>
 
     {/* Right side content */}
     <div className="flex-1 pb-12">
-      <div className="rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+      <div className="rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
         {/* Phase badge */}
-        <div className="mb-4 inline-flex rounded-full bg-purple-500/10 px-3 py-1">
-          <span className="text-sm font-semibold text-purple-400">
+        <div className="mb-4 inline-flex rounded-full bg-theme-primary-500/10 px-3 py-1">
+          <span className="text-sm font-semibold text-theme-primary-400">
             Phase {index + 1}: {phase}
           </span>
         </div>
@@ -80,7 +80,7 @@ const ProcessCard: FC<ProcessCardProps> = ({
           <ul className="grid gap-2">
             {deliverables.map((deliverable, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-purple-400" />
+                <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-theme-primary-400" />
                 <span className="text-sm text-muted-foreground">
                   {deliverable}
                 </span>
@@ -191,12 +191,12 @@ export const OurProcess: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Our Process
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Our{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Proven Methodology
             </span>{" "}
             for Success

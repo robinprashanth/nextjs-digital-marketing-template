@@ -53,15 +53,15 @@ const AwardCard: FC<AwardCardProps> = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: 0.1 * index }}
-    className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+    className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     <div className="flex items-start justify-between gap-4">
       <div className="relative h-16 w-16 overflow-hidden rounded-xl">
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
       {category && (
-        <div className="rounded-full bg-purple-500/10 px-3 py-1">
-          <span className="text-sm font-medium text-purple-400">
+        <div className="rounded-full bg-theme-primary-500/10 px-3 py-1">
+          <span className="text-sm font-medium text-theme-primary-400">
             {category}
           </span>
         </div>
@@ -69,7 +69,7 @@ const AwardCard: FC<AwardCardProps> = ({
     </div>
 
     <h3 className="mt-4 text-xl font-semibold text-foreground">{name}</h3>
-    <p className="mt-1 text-sm font-medium text-purple-400">{organization}</p>
+    <p className="mt-1 text-sm font-medium text-theme-primary-400">{organization}</p>
     <p className="mt-3 text-sm text-muted-foreground">{description}</p>
 
     <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
@@ -122,20 +122,20 @@ const PressFeatureCard: FC<PressFeature & { index: number }> = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: 0.1 * index }}
-    className="group flex items-center gap-4 rounded-xl border border-gray-800 bg-card p-4 transition-all duration-300 hover:border-purple-500/20"
+    className="group flex items-center gap-4 rounded-xl border border-gray-800 bg-card p-4 transition-all duration-300 hover:border-theme-primary-500/20"
   >
     <div className="relative h-12 w-12 overflow-hidden rounded-lg">
       <Image src={logo} alt={publication} fill className="object-contain" />
     </div>
     <div className="flex-1">
-      <h4 className="font-medium text-foreground group-hover:text-purple-400">
+      <h4 className="font-medium text-foreground group-hover:text-theme-primary-400">
         {title}
       </h4>
       <p className="text-sm text-muted-foreground">
         {publication} • {date}
       </p>
     </div>
-    <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-purple-400" />
+    <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-theme-primary-400" />
   </motion.a>
 );
 
@@ -224,12 +224,12 @@ export const Awards: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Recognition
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Our{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Achievements
             </span>{" "}
             & Recognition
@@ -297,7 +297,7 @@ export const Awards: FC = () => {
               transition={{ delay: 0.1 * index }}
               className="text-center"
             >
-              <metric.icon className="mx-auto mb-2 h-6 w-6 text-purple-400" />
+              <metric.icon className="mx-auto mb-2 h-6 w-6 text-theme-primary-400" />
               <div className="text-2xl font-bold text-foreground">
                 {metric.value}
               </div>

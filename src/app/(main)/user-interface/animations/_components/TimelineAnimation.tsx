@@ -7,7 +7,7 @@ export function TimelineAnimation() {
       <h3 className="mb-4 text-xl font-semibold">Timeline Animations</h3>
       <div className="relative">
         {/* Center Line */}
-        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-purple-500/50 to-transparent" />
+        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-theme-primary-500/50 to-transparent" />
 
         <div className="space-y-8">
           {[1, 2].map((i) => (
@@ -19,24 +19,24 @@ export function TimelineAnimation() {
               transition={{ delay: i * 0.1 }}
               className={`flex w-full ${i % 2 === 0 ? "justify-end" : ""}`}
             >
-              <div className="relative w-[calc(50%-2rem)] rounded-lg bg-purple-500/10 p-4">
+              <div className="relative w-[calc(50%-2rem)] rounded-lg bg-theme-primary-500/10 p-4">
                 <h4 className="text-lg font-medium">Timeline Event {i}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-theme-neutral-600 dark:text-gray-300">
                   Timeline event description
                 </p>
                 {/* Connector */}
                 <div
                   className={`absolute top-4 ${
                     i % 2 === 0 ? "left-[-2rem]" : "right-[-2rem]"
-                  } h-px w-8 bg-gradient-to-r from-purple-500/50 to-transparent`}
+                  } h-px w-8 bg-gradient-to-r from-theme-primary-500/50 to-transparent`}
                 />
                 {/* Dot */}
                 <div
                   className={`absolute top-4 ${
                     i % 2 === 0 ? "left-[-2.25rem]" : "right-[-2.25rem]"
-                  } h-3 w-3 rounded-full bg-purple-500`}
+                  } h-3 w-3 rounded-full bg-theme-primary-500`}
                 >
-                  <div className="absolute inset-0 animate-ping rounded-full bg-purple-500 opacity-75" />
+                  <div className="absolute inset-0 animate-ping rounded-full bg-theme-primary-500 opacity-75" />
                 </div>
               </div>
             </motion.div>

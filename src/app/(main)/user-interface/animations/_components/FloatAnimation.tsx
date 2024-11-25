@@ -22,7 +22,7 @@ export function FloatAnimation() {
             }}
             className="absolute left-1/4 top-1/4"
           >
-            <div className="h-16 w-16 rounded-full bg-purple-500/20 blur-lg" />
+            <div className="h-16 w-16 rounded-full bg-theme-primary-500/20 blur-lg" />
           </motion.div>
 
           <motion.div
@@ -54,7 +54,7 @@ export function FloatAnimation() {
             }}
             className="absolute bottom-1/4 left-1/3"
           >
-            <div className="text-4xl text-purple-400">✦</div>
+            <div className="text-4xl text-theme-primary-400">✦</div>
           </motion.div>
         </div>
         <div className="mt-4 rounded-lg bg-gray-900 p-4">

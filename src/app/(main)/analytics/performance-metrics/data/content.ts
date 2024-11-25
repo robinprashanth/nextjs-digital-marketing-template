@@ -67,7 +67,7 @@ export const keyMetrics: MetricCard[] = [
     value: "8.72%",
     change: "+2.4% vs last month",
     icon: "Target",
-    color: "text-purple-600",
+    color: "text-theme-primary-600",
   },
   {
     title: "Avg. Session Duration",
@@ -91,7 +91,7 @@ export const chartConfigs: Record<string, ChartConfig> = {
     subtitle: "Visitors and conversions over time",
     legends: [
       { label: "Visitors", color: "bg-blue-500" },
-      { label: "Conversions", color: "bg-purple-500" },
+      { label: "Conversions", color: "bg-theme-primary-500" },
     ],
     colors: {
       visitors: "#3B82F6",
@@ -119,8 +119,8 @@ export const additionalMetrics: AdditionalMetric[] = [
     title: "Social Shares",
     value: "2,845",
     icon: "Share2",
-    color: "text-purple-600",
-    bgColor: "bg-purple-500/10",
+    color: "text-theme-primary-600",
+    bgColor: "bg-theme-primary-500/10",
   },
   {
     title: "Growth Rate",

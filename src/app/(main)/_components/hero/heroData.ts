@@ -11,8 +11,8 @@ export const stats = [
     icon: "📈",
     title: "Revenue Growth",
     value: "+125% in 3 months",
-    gradient: "bg-gradient-to-r from-purple-500/20 to-purple-500/10",
-    borderColor: "border-purple-500/20",
+    gradient: "bg-gradient-to-r from-theme-primary-500/20 to-theme-primary-500/10",
+    borderColor: "border-theme-primary-500/20",
     position: "right-10 top-80",
   },
   {

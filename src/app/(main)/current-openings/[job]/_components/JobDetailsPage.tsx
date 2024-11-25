@@ -136,7 +136,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
           <h1 className="text-2xl font-bold">Job not found</h1>
           <Link
             href="/current-openings"
-            className="mt-4 inline-flex items-center text-purple-400 hover:text-purple-500"
+            className="mt-4 inline-flex items-center text-theme-primary-400 hover:text-theme-primary-500"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to all openings
@@ -236,7 +236,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                         key={index}
                         className="flex items-start gap-3 text-muted-foreground"
                       >
-                        <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-purple-400" />
+                        <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-theme-primary-400" />
                         {item}
                       </li>
                     ))}
@@ -254,7 +254,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                         key={index}
                         className="flex items-start gap-3 text-muted-foreground"
                       >
-                        <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-purple-400" />
+                        <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-theme-primary-400" />
                         {item}
                       </li>
                     ))}
@@ -272,7 +272,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                         key={index}
                         className="flex items-start gap-3 text-muted-foreground"
                       >
-                        <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-purple-400" />
+                        <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-theme-primary-400" />
                         {item}
                       </li>
                     ))}
@@ -302,7 +302,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("firstName")}
                       type="text"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.firstName && (
                       <p className="mt-1 text-sm text-red-500">
@@ -317,7 +317,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("lastName")}
                       type="text"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.lastName && (
                       <p className="mt-1 text-sm text-red-500">
@@ -336,7 +336,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("email")}
                       type="email"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-500">
@@ -351,7 +351,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("phone")}
                       type="tel"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.phone && (
                       <p className="mt-1 text-sm text-red-500">
@@ -370,7 +370,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("linkedin")}
                       type="url"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                       placeholder="https://linkedin.com/in/..."
                     />
                     {errors.linkedin && (
@@ -386,7 +386,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("portfolio")}
                       type="url"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                       placeholder="https://..."
                     />
                     {errors.portfolio && (
@@ -402,7 +402,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("currentCompany")}
                       type="text"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                   </div>
                   <div>
@@ -411,7 +411,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     </label>
                     <select
                       {...register("yearsOfExperience")}
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     >
                       <option value="">Select experience</option>
                       <option value="0-2">0-2 years</option>
@@ -444,11 +444,11 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                       htmlFor="resume-upload"
                       className="cursor-pointer space-y-2"
                     >
-                      <div className="mx-auto w-fit rounded-full bg-purple-500/10 p-3">
-                        <Upload className="h-6 w-6 text-purple-400" />
+                      <div className="mx-auto w-fit rounded-full bg-theme-primary-500/10 p-3">
+                        <Upload className="h-6 w-6 text-theme-primary-400" />
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        <span className="text-purple-400">Click to upload</span>{" "}
+                        <span className="text-theme-primary-400">Click to upload</span>{" "}
                         or drag and drop
                       </div>
                       <div className="text-xs text-muted-foreground">
@@ -466,7 +466,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   <textarea
                     {...register("coverLetter")}
                     rows={5}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="Tell us why you're interested in this position..."
                   />
                   {errors.coverLetter && (
@@ -483,7 +483,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   </label>
                   <select
                     {...register("heardAbout")}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   >
                     <option value="">Select an option</option>
                     <option value="linkedin">LinkedIn</option>
@@ -505,9 +505,9 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="rounded-lg bg-green-500/10 p-4"
+                    className="rounded-lg bg-theme-tulip-500/10 p-4"
                   >
-                    <div className="flex items-center gap-2 text-green-500">
+                    <div className="flex items-center gap-2 text-theme-tulip-500">
                       <CheckCircle2 className="h-5 w-5" />
                       <p className="text-sm font-medium">
                         Your application has been submitted successfully!
@@ -536,7 +536,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   variant="action"
                   size="lg"
                   disabled={isSubmitting}
-                  className="relative w-full rounded-lg bg-purple-500 px-8 py-3 text-white transition-all hover:bg-purple-600 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="relative w-full rounded-lg bg-theme-primary-500 px-8 py-3 text-white transition-all hover:bg-theme-primary-600 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   <span
                     className={`flex items-center justify-center gap-2 ${

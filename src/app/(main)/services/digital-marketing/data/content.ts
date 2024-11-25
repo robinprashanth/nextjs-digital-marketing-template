@@ -111,7 +111,7 @@ export const successStories = [
       { metric: "New Customers", value: "15,000+" },
     ],
     duration: "6 months",
-    gradient: "from-purple-600 to-pink-600",
+    gradient: "from-theme-primary-600 to-pink-600",
   },
   {
     title: "B2B Lead Generation",

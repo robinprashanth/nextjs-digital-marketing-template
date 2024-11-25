@@ -40,7 +40,7 @@ export const PerformanceChart: FC<PerformanceChartProps> = ({
           <h3 className="text-lg font-bold text-gray-900 dark:text-white">
             {config.title}
           </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
             {config.subtitle}
           </p>
         </div>
@@ -49,7 +49,7 @@ export const PerformanceChart: FC<PerformanceChartProps> = ({
             {config.legends.map((legend, index) => (
               <div key={index} className="flex items-center gap-2">
                 <div className={`h-3 w-3 rounded-full ${legend.color}`} />
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                   {legend.label}
                 </span>
               </div>

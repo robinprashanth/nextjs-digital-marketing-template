@@ -11,27 +11,27 @@ export const NavSection = () => (
     className="container mx-auto flex items-center justify-between px-6 py-4"
   >
     <div className="flex items-center gap-2">
-      <span className="text-2xl text-purple-400">⬡</span>
+      <span className="text-2xl text-theme-primary-400">⬡</span>
       <span className="text-xl font-bold text-white">NEVTECH</span>
     </div>
     <div className="flex items-center gap-4">
       <div className="hidden space-x-8 text-sm text-white/70 md:flex">
-        <a href="#" className="transition-colors hover:text-purple-400">
+        <a href="#" className="transition-colors hover:text-theme-primary-400">
           HOME
         </a>
-        <a href="#" className="transition-colors hover:text-purple-400">
+        <a href="#" className="transition-colors hover:text-theme-primary-400">
           FEATURES
         </a>
-        <a href="#" className="transition-colors hover:text-purple-400">
+        <a href="#" className="transition-colors hover:text-theme-primary-400">
           REVIEWS
         </a>
-        <a href="#" className="transition-colors hover:text-purple-400">
+        <a href="#" className="transition-colors hover:text-theme-primary-400">
           ABOUT US
         </a>
       </div>
       <Button
         size="sm"
-        className="rounded-full bg-purple-500 text-white hover:bg-purple-600"
+        className="rounded-full bg-theme-primary-500 text-white hover:bg-theme-primary-600"
       >
         SIGN UP
       </Button>

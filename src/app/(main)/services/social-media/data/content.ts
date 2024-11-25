@@ -200,7 +200,7 @@ export const successStories = [
       { label: "Sales from Social", value: "+165%" },
     ],
     image: "/images/clients/fashion-hub.jpg",
-    gradient: "from-purple-600 to-pink-600",
+    gradient: "from-theme-primary-600 to-pink-600",
   },
   {
     title: "B2B Lead Generation",

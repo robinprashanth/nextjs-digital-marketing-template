@@ -14,7 +14,7 @@ const StatCard: FC<StatCardProps> = ({ icon: Icon, value, label }) => (
     <div className="absolute bottom-0 left-0 right-0 top-0 rounded-2xl bg-gradient-to-b from-white/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
     <div className="relative z-10 flex flex-col">
       <div className="mb-3">
-        <Icon className="h-6 w-6 text-purple-400" />
+        <Icon className="h-6 w-6 text-theme-primary-400" />
       </div>
       <div className="text-2xl font-bold text-white">{value}</div>
       <div className="text-sm text-white/60">{label}</div>
@@ -34,7 +34,7 @@ const PartnersHero: FC = () => {
       {[...Array(50)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute h-1 w-1 rounded-full bg-purple-400/20"
+          className="absolute h-1 w-1 rounded-full bg-theme-primary-400/20"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -58,9 +58,9 @@ const PartnersHero: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-2 backdrop-blur-sm">
-            <Share2 className="h-4 w-4 text-purple-400" />
-            <span className="text-sm font-medium text-purple-400">
+          <div className="inline-flex items-center gap-2 rounded-full bg-theme-primary-500/10 px-4 py-2 backdrop-blur-sm">
+            <Share2 className="h-4 w-4 text-theme-primary-400" />
+            <span className="text-sm font-medium text-theme-primary-400">
               Partner Ecosystem
             </span>
           </div>
@@ -78,7 +78,7 @@ const PartnersHero: FC = () => {
               <div>Building</div>
               <div>
                 the{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
                   Future
                 </span>
               </div>

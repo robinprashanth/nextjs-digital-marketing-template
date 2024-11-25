@@ -12,12 +12,12 @@ export const Benefits: FC<{ benefits: BenefitProps[] }> = ({ benefits }) => (
         viewport={{ once: true }}
         className="mx-auto mb-16 max-w-3xl text-center"
       >
-        <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+        <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
           Benefits
         </span>
         <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
           Why Choose Our{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
             Solution
           </span>
         </h2>
@@ -33,7 +33,7 @@ export const Benefits: FC<{ benefits: BenefitProps[] }> = ({ benefits }) => (
             transition={{ delay: index * 0.1 }}
             className="rounded-2xl border border-gray-800 bg-card p-6"
           >
-            <div className="mb-4 inline-flex rounded-xl bg-purple-500/10 p-3">
+            <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
               {benefit.icon}
             </div>
             <h3 className="mb-2 text-xl font-semibold text-foreground">

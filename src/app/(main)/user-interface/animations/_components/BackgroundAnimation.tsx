@@ -14,14 +14,14 @@ export function BackgroundAnimation() {
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgb(17,17,17))]" />
 
         {/* Animated Gradient Spots */}
-        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-purple-500/20 blur-xl" />
+        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-primary-500/20 blur-xl" />
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-violet-500/20 blur-xl" />
 
         {/* Animated Dots */}
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute h-1 w-1 rounded-full bg-purple-400/20"
+            className="absolute h-1 w-1 rounded-full bg-theme-primary-400/20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -47,8 +47,8 @@ export function BackgroundAnimation() {
             transition={{ delay: 0.2 }}
             className="space-y-4"
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-2 backdrop-blur-sm">
-              <span className="text-sm font-medium text-purple-400">
+            <div className="inline-flex items-center gap-2 rounded-full bg-theme-primary-500/10 px-4 py-2 backdrop-blur-sm">
+              <span className="text-sm font-medium text-theme-primary-400">
                 Animated Background
               </span>
             </div>
@@ -75,7 +75,7 @@ export function BackgroundAnimation() {
   {[...Array(30)].map((_, i) => (
     <motion.div
       key={i}
-      className="absolute h-1 w-1 rounded-full bg-purple-400/20"
+      className="absolute h-1 w-1 rounded-full bg-theme-primary-400/20"
       style={{
         left: \`\${Math.random() * 100}%\`,
         top: \`\${Math.random() * 100}%\`,
@@ -94,7 +94,7 @@ export function BackgroundAnimation() {
   ))}
 
   {/* Gradient Spots */}
-  <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-purple-500/20 blur-xl" />
+  <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-primary-500/20 blur-xl" />
   <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-violet-500/20 blur-xl" />
 </div>`}
             </pre>

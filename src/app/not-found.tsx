@@ -27,7 +27,7 @@ const NotFound: FC = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-purple-500/20 blur-3xl"
+          className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-theme-primary-500/20 blur-3xl"
         />
         <motion.div
           initial={{ scale: 1.2, opacity: 0.5 }}
@@ -53,7 +53,7 @@ const NotFound: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative inline-block before:absolute before:left-0.5 before:top-0.5 before:-z-10 before:text-purple-500/50 before:content-['404'] after:absolute after:-left-0.5 after:-top-0.5 after:-z-10 after:text-indigo-500/50 after:content-['404']"
+            className="relative inline-block before:absolute before:left-0.5 before:top-0.5 before:-z-10 before:text-theme-primary-500/50 before:content-['404'] after:absolute after:-left-0.5 after:-top-0.5 after:-z-10 after:text-indigo-500/50 after:content-['404']"
           >
             404
           </motion.span>
@@ -84,7 +84,7 @@ const NotFound: FC = () => {
         >
           <Link
             href="/"
-            className="group flex items-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100"
+            className="group flex items-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100"
           >
             <Home className="h-5 w-5" />
             Back to Home

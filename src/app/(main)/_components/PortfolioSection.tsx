@@ -66,7 +66,7 @@ const PortfolioCard: FC<CaseStudy> = ({
             <div className="grid grid-cols-2 gap-4">
               {metrics.map((metric, index) => (
                 <div key={index} className="space-y-1">
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {metric.label}
                   </p>
                   <p className="text-lg font-bold text-gray-900 dark:text-white">
@@ -124,7 +124,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             SUCCESS STORIES
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
@@ -132,7 +132,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
             <br />
             Through Digital Excellence
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
             Explore our portfolio of successful partnerships and discover how
             we&apos;ve helped businesses achieve exceptional growth through
             innovative digital strategies.
@@ -147,8 +147,8 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
               onClick={() => setActiveCategory(category)}
               className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-purple-600 text-white shadow-lg"
-                  : "bg-white text-gray-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
+                  ? "bg-theme-primary-600 text-white shadow-lg"
+                  : "bg-white text-theme-neutral-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
               } `}
             >
               {category}
@@ -180,7 +180,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
             size="fluid"
             rounded="full"
             onClick={() => router.push("/case-studies")}
-            className="rounded-full bg-purple-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl"
+            className="rounded-full bg-theme-primary-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl"
           >
             View All Case Studies
           </Button>

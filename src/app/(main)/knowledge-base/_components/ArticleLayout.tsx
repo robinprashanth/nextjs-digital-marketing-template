@@ -37,7 +37,7 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
                 {metadata.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-purple-500/10 px-3 py-1 text-sm text-purple-400"
+                    className="rounded-full bg-theme-primary-500/10 px-3 py-1 text-sm text-theme-primary-400"
                   >
                     {tag}
                   </span>
@@ -88,7 +88,7 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
 
       {/* Article Content */}
       <div className="container mx-auto px-4 py-16 sm:px-6">
-        <div className="prose prose-lg mx-auto max-w-3xl dark:prose-invert prose-headings:text-foreground prose-a:text-purple-400 prose-blockquote:border-purple-400">
+        <div className="prose prose-lg mx-auto max-w-3xl dark:prose-invert prose-headings:text-foreground prose-a:text-theme-primary-400 prose-blockquote:border-theme-primary-400">
           {children}
         </div>
 
@@ -98,7 +98,7 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
             <div className="flex items-center gap-4">
               <Link
                 href="/knowledge-base"
-                className="text-sm text-purple-400 hover:text-purple-300"
+                className="text-sm text-theme-primary-400 hover:text-purple-300"
               >
                 Browse more articles
               </Link>

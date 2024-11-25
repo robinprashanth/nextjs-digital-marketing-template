@@ -25,7 +25,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {sections.map((section) => (
               <div key={section.title} className="space-y-6">
-                <h3 className="text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <h3 className="text-sm font-medium uppercase tracking-wider text-theme-neutral-500 dark:text-theme-neutral-400">
                   {section.title}
                 </h3>
                 <ul className="space-y-4">
@@ -37,7 +37,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
                       >
                         <div className="rounded-lg bg-purple-50 p-2 dark:bg-purple-900/20">
                           {item.icon && (
-                            <item.icon className="h-5 w-5 text-purple-600" />
+                            <item.icon className="h-5 w-5 text-theme-primary-600" />
                           )}
                         </div>
                         <div className="flex-1">
@@ -48,7 +48,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
                             <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
                           </div>
                           {item.description && (
-                            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                            <p className="mt-1 text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                               {item.description}
                             </p>
                           )}

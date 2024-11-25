@@ -173,12 +173,12 @@ const Pricing: FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               Pricing Plans
             </span>
             <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
               Choose the Right Plan for Your{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
                 Growth
               </span>
             </h1>
@@ -200,8 +200,8 @@ const Pricing: FC = () => {
                 onClick={() => setIsAnnual(false)}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                   !isAnnual
-                    ? "bg-purple-500 text-white"
-                    : "text-gray-400 hover:text-white"
+                    ? "bg-theme-primary-500 text-white"
+                    : "text-theme-neutral-400 hover:text-white"
                 }`}
               >
                 Monthly
@@ -210,12 +210,12 @@ const Pricing: FC = () => {
                 onClick={() => setIsAnnual(true)}
                 className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all ${
                   isAnnual
-                    ? "bg-purple-500 text-white"
-                    : "text-gray-400 hover:text-white"
+                    ? "bg-theme-primary-500 text-white"
+                    : "text-theme-neutral-400 hover:text-white"
                 }`}
               >
                 Annual
-                <span className="absolute -right-2 -top-2 rounded-full bg-green-500 px-2 py-0.5 text-xs font-semibold text-white">
+                <span className="absolute -right-2 -top-2 rounded-full bg-theme-tulip-500 px-2 py-0.5 text-xs font-semibold text-white">
                   Save 20%
                 </span>
               </button>
@@ -247,18 +247,18 @@ const Pricing: FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className={`relative rounded-2xl border ${
                   tier.popular
-                    ? "border-purple-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+                    ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
                     : "border-gray-800"
                 } bg-card p-8`}
               >
                 {tier.popular && (
-                  <div className="absolute -top-5 right-8 rounded-full bg-purple-500 px-4 py-1 text-sm font-medium text-white">
+                  <div className="absolute -top-5 right-8 rounded-full bg-theme-primary-500 px-4 py-1 text-sm font-medium text-white">
                     Most Popular
                   </div>
                 )}
 
-                <div className="mb-6 inline-flex rounded-xl bg-purple-500/10 p-3">
-                  <tier.icon className="h-6 w-6 text-purple-400" />
+                <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+                  <tier.icon className="h-6 w-6 text-theme-primary-400" />
                 </div>
 
                 <h3 className="mb-2 text-2xl font-bold text-foreground">
@@ -288,8 +288,8 @@ const Pricing: FC = () => {
                   whileTap={{ scale: 0.98 }}
                   className={`mb-8 w-full rounded-full ${
                     tier.popular
-                      ? "bg-purple-500 text-white hover:bg-purple-600"
-                      : "border border-purple-500 text-purple-400 hover:bg-purple-500/10"
+                      ? "bg-theme-primary-500 text-white hover:bg-theme-primary-600"
+                      : "border border-theme-primary-500 text-theme-primary-400 hover:bg-theme-primary-500/10"
                   } px-6 py-3 font-medium transition-all`}
                 >
                   {tier.cta}
@@ -301,7 +301,7 @@ const Pricing: FC = () => {
                       key={idx}
                       className="flex items-center gap-3 text-muted-foreground"
                     >
-                      <Check className="h-5 w-5 text-purple-400" />
+                      <Check className="h-5 w-5 text-theme-primary-400" />
                       {feature}
                     </li>
                   ))}
@@ -375,7 +375,7 @@ const Pricing: FC = () => {
                     <td className="px-6 py-4 text-center">
                       {typeof feature.starter === "boolean" ? (
                         feature.starter ? (
-                          <Check className="mx-auto h-5 w-5 text-green-500" />
+                          <Check className="mx-auto h-5 w-5 text-theme-tulip-500" />
                         ) : (
                           <X className="mx-auto h-5 w-5 text-red-500" />
                         )
@@ -388,7 +388,7 @@ const Pricing: FC = () => {
                     <td className="px-6 py-4 text-center">
                       {typeof feature.professional === "boolean" ? (
                         feature.professional ? (
-                          <Check className="mx-auto h-5 w-5 text-green-500" />
+                          <Check className="mx-auto h-5 w-5 text-theme-tulip-500" />
                         ) : (
                           <X className="mx-auto h-5 w-5 text-red-500" />
                         )
@@ -401,7 +401,7 @@ const Pricing: FC = () => {
                     <td className="px-6 py-4 text-center">
                       {typeof feature.enterprise === "boolean" ? (
                         feature.enterprise ? (
-                          <Check className="mx-auto h-5 w-5 text-green-500" />
+                          <Check className="mx-auto h-5 w-5 text-theme-tulip-500" />
                         ) : (
                           <X className="mx-auto h-5 w-5 text-red-500" />
                         )
@@ -427,7 +427,7 @@ const Pricing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               FAQ
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -498,7 +498,7 @@ const Pricing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               TESTIMONIALS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -548,7 +548,7 @@ const Pricing: FC = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="inline-block h-5 w-5 fill-purple-400 text-purple-400"
+                      className="inline-block h-5 w-5 fill-theme-primary-400 text-theme-primary-400"
                     />
                   ))}
                 </div>
@@ -587,7 +587,7 @@ const Pricing: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 p-12 text-center"
+            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Ready to Get Started?
@@ -597,7 +597,7 @@ const Pricing: FC = () => {
               their digital presence. Start your 14-day free trial today.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100">
+              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100">
                 Start Free Trial
               </button>
               <button className="rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20">

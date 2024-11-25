@@ -17,7 +17,7 @@ export const HeroSection: FC = () => {
 
       {/* Floating Shapes */}
       <FloatingShape className="left-[10%] top-[20%]">
-        <div className="h-16 w-16 rounded-full bg-purple-500/20 blur-lg md:h-24 md:w-24" />
+        <div className="h-16 w-16 rounded-full bg-theme-primary-500/20 blur-lg md:h-24 md:w-24" />
       </FloatingShape>
 
       <FloatingShape className="right-[15%] top-[15%]" delay={0.2}>
@@ -28,20 +28,20 @@ export const HeroSection: FC = () => {
         <div className="h-24 w-24 rounded-full bg-blue-500/20 blur-lg" />
       </FloatingShape>
       <FloatingShape className="bottom-[80%] right-[40%]" delay={0.6}>
-        <div className="text-4xl text-purple-400">✦</div>
+        <div className="text-4xl text-theme-primary-400">✦</div>
       </FloatingShape>
       <FloatingShape className="bottom-[40%] right-[20%]" delay={0.6}>
-        <div className="text-4xl text-purple-400">✦</div>
+        <div className="text-4xl text-theme-primary-400">✦</div>
       </FloatingShape>
       <FloatingShape className="bottom-[60%] right-[20%]" delay={0.6}>
-        <div className="text-4xl text-purple-400">✦</div>
+        <div className="text-4xl text-theme-primary-400">✦</div>
       </FloatingShape>
       <FloatingShape className="bottom-[50%] right-[50%]" delay={0.6}>
-        <div className="text-4xl text-purple-400">✦</div>
+        <div className="text-4xl text-theme-primary-400">✦</div>
       </FloatingShape>
 
       <FloatingShape className="bottom-[30%] right-[25%]" delay={0.6}>
-        <div className="text-4xl text-purple-400">✦</div>
+        <div className="text-4xl text-theme-primary-400">✦</div>
       </FloatingShape>
 
       <FloatingShape className="left-[40%] top-[30%]" delay={0.8}>
@@ -74,7 +74,7 @@ export const HeroSection: FC = () => {
               <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
                 <span className="text-white">ELEVATE</span>
                 <br />
-                <span className="text-purple-400">YOUR DIGITAL</span>
+                <span className="text-theme-primary-400">YOUR DIGITAL</span>
                 <br />
                 <span className="scale-105 text-orange-400">PRESENCE</span>
                 <br />
@@ -86,7 +86,7 @@ export const HeroSection: FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mt-8 max-w-xl text-lg text-gray-400"
+              className="mt-8 max-w-xl text-lg text-theme-neutral-400"
             >
               Transform your brand with data-driven strategies, innovative
               solutions, and measurable results that drive real business growth.
@@ -113,7 +113,7 @@ export const HeroSection: FC = () => {
                 </div>
                 <div className="text-sm">
                   <span className="font-bold text-white">500+</span>{" "}
-                  <span className="text-gray-400">Happy Clients</span>
+                  <span className="text-theme-neutral-400">Happy Clients</span>
                 </div>
               </div>
             </motion.div>

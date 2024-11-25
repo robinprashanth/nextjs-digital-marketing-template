@@ -55,8 +55,8 @@ const ClientMetric: FC<Metric & { index: number }> = ({
     transition={{ delay: 0.1 * index }}
     className="flex flex-col items-center space-y-2 text-center"
   >
-    <div className="rounded-full bg-purple-500/10 p-3">
-      <Icon className="h-6 w-6 text-purple-400" />
+    <div className="rounded-full bg-theme-primary-500/10 p-3">
+      <Icon className="h-6 w-6 text-theme-primary-400" />
     </div>
     <div className="text-2xl font-bold text-foreground">{value}</div>
     <div className="text-sm text-muted-foreground">{label}</div>
@@ -79,7 +79,7 @@ const TestimonialCard: FC<Testimonial & { index: number }> = ({
     className="relative rounded-2xl border border-gray-800 bg-card p-6"
   >
     <div className="mb-6">
-      <Quote className="h-12 w-12 text-purple-400 opacity-20" />
+      <Quote className="h-12 w-12 text-theme-primary-400 opacity-20" />
     </div>
     <p className="mb-6 text-lg text-muted-foreground">{content}</p>
     <div className="flex items-center gap-4">
@@ -96,7 +96,7 @@ const TestimonialCard: FC<Testimonial & { index: number }> = ({
     {/* Rating */}
     <div className="absolute right-6 top-6 flex">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className="h-4 w-4 fill-purple-400 text-purple-400" />
+        <Star key={i} className="h-4 w-4 fill-theme-primary-400 text-theme-primary-400" />
       ))}
     </div>
   </motion.div>
@@ -117,13 +117,13 @@ const CaseStudyCard: FC<CaseStudyCardProps> = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: 0.1 * index }}
-    className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+    className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     {/* Header */}
     <div className="mb-6 flex items-start justify-between">
       <div>
-        <div className="mb-2 inline-flex rounded-full bg-purple-500/10 px-3 py-1">
-          <span className="text-sm font-medium text-purple-400">
+        <div className="mb-2 inline-flex rounded-full bg-theme-primary-500/10 px-3 py-1">
+          <span className="text-sm font-medium text-theme-primary-400">
             {industry}
           </span>
         </div>
@@ -237,12 +237,12 @@ export const ClientSuccess: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Success Stories
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Delivering{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Exceptional Results
             </span>{" "}
             for Our Clients

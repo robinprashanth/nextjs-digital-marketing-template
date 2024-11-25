@@ -41,7 +41,7 @@ export const EmailMarketing: FC = () => {
         />
 
         {/* Floating Shapes */}
-        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-purple-500/20 blur-xl" />
+        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-primary-500/20 blur-xl" />
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-blue-500/20 blur-xl" />
 
         {/* Content */}
@@ -51,7 +51,7 @@ export const EmailMarketing: FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <div className="mb-6 inline-block rounded-full bg-purple-500/10 px-4 py-1 text-sm text-purple-400">
+            <div className="mb-6 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1 text-sm text-theme-primary-400">
               EMAIL MARKETING SOLUTIONS
             </div>
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -59,7 +59,7 @@ export const EmailMarketing: FC = () => {
               <br />
               Marketing Strategy
             </h1>
-            <p className="mb-8 max-w-2xl text-lg text-gray-400">
+            <p className="mb-8 max-w-2xl text-lg text-theme-neutral-400">
               Drive engagement, boost conversions, and build lasting
               relationships with your audience through data-driven email
               marketing campaigns.
@@ -75,11 +75,11 @@ export const EmailMarketing: FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-gray-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
-                  <p className="flex items-center gap-1 text-sm text-green-400">
+                  <p className="flex items-center gap-1 text-sm text-theme-tulip-400">
                     <ArrowUpRight className="h-4 w-4" />
                     {metric.change}
                   </p>
@@ -99,7 +99,7 @@ export const EmailMarketing: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               FEATURES & CAPABILITIES
             </span>
             <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
@@ -107,7 +107,7 @@ export const EmailMarketing: FC = () => {
               <br />
               Platform Features
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Our comprehensive suite of email marketing tools and features
               designed to maximize your campaign performance and ROI.
             </p>
@@ -139,12 +139,12 @@ export const EmailMarketing: FC = () => {
                     <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
                       {feature.description}
                     </p>
 
                     {/* Hover Effect */}
-                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
+                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-blue-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
                   </div>
                 </motion.div>
               );
@@ -163,7 +163,7 @@ export const EmailMarketing: FC = () => {
               viewport={{ once: true }}
               className="max-w-xl"
             >
-              <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 OUR PROCESS
               </span>
               <h2 className="mb-8 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
@@ -183,14 +183,14 @@ export const EmailMarketing: FC = () => {
                     transition={{ delay: index * 0.1 }}
                     className="flex gap-4"
                   >
-                    <span className="text-2xl font-bold text-purple-600">
+                    <span className="text-2xl font-bold text-theme-primary-600">
                       {step.number}
                     </span>
                     <div>
                       <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
                         {step.description}
                       </p>
                     </div>
@@ -213,7 +213,7 @@ export const EmailMarketing: FC = () => {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-600/20 to-blue-600/20" />
               </div>
             </motion.div>
           </div>
@@ -234,7 +234,7 @@ export const EmailMarketing: FC = () => {
               <br />
               Email Marketing Strategy?
             </h2>
-            <p className="mb-12 text-lg text-gray-400">
+            <p className="mb-12 text-lg text-theme-neutral-400">
               Let&apos;s create data-driven email campaigns that engage your
               audience and drive measurable results.
             </p>

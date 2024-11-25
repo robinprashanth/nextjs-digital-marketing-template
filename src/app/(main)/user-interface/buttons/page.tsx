@@ -19,7 +19,7 @@ export default function ButtonsPage() {
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Button Components
           </h1>
-          <p className="mx-auto max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="mx-auto max-w-[700px] text-theme-neutral-500 dark:text-theme-neutral-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             A collection of beautiful and functional button components for your
             application.
           </p>

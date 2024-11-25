@@ -44,7 +44,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
           viewport={{ once: true }}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             TRENDING TOPICS
           </span>
           <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -87,8 +87,8 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
                     </span>
                   </div>
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10">
-                  <Star className="h-5 w-5 text-purple-400" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-theme-primary-500/10">
+                  <Star className="h-5 w-5 text-theme-primary-400" />
                 </div>
               </div>
 
@@ -101,10 +101,10 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
                     <li key={article.slug}>
                       <Link
                         href={`/knowledge-base/${article.slug}`}
-                        className="group flex items-center justify-between rounded-lg border border-gray-800 p-4 transition-all hover:border-purple-500/20"
+                        className="group flex items-center justify-between rounded-lg border border-gray-800 p-4 transition-all hover:border-theme-primary-500/20"
                       >
                         <div className="flex-1">
-                          <span className="line-clamp-1 text-muted-foreground group-hover:text-purple-400">
+                          <span className="line-clamp-1 text-muted-foreground group-hover:text-theme-primary-400">
                             {article.title}
                           </span>
                           <div className="mt-1 flex items-center gap-3 text-xs text-muted-foreground">
@@ -115,7 +115,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
                             <span>{article.readTime}</span>
                           </div>
                         </div>
-                        <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-purple-400" />
+                        <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-theme-primary-400" />
                       </Link>
                     </li>
                   ))}
@@ -125,7 +125,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
               <div className="mt-6 text-center">
                 <Link
                   href={`/knowledge-base/categories/${categoryGroup.category}`}
-                  className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300"
+                  className="inline-flex items-center gap-2 text-sm text-theme-primary-400 hover:text-purple-300"
                 >
                   View all articles in{" "}
                   {categoryGroup.category
@@ -174,8 +174,8 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
               transition={{ delay: 0.1 * index }}
               className="flex items-center gap-4"
             >
-              <div className="rounded-xl bg-purple-500/10 p-3">
-                <stat.icon className="h-6 w-6 text-purple-400" />
+              <div className="rounded-xl bg-theme-primary-500/10 p-3">
+                <stat.icon className="h-6 w-6 text-theme-primary-400" />
               </div>
               <div>
                 <div className="text-2xl font-bold text-foreground">

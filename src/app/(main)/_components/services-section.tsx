@@ -76,7 +76,7 @@ export const ServicesSection = () => {
       title: "Digital Presence",
       description:
         "Comprehensive digital strategy including website optimization, UX improvements, and cross-platform brand consistency to enhance your online presence.",
-      color: "bg-gradient-to-br from-purple-500 to-purple-600",
+      color: "bg-gradient-to-br from-theme-primary-500 to-theme-primary-600",
       gradient: "bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)]",
       href: "/services/digital-marketing",
     },
@@ -136,7 +136,7 @@ export const ServicesSection = () => {
               <br />
               Tailored to Your Growth
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-theme-neutral-600">
               We combine strategic thinking, cutting-edge technology, and
               creative expertise to deliver measurable results that accelerate
               your business growth in the digital landscape.
@@ -167,7 +167,7 @@ export const ServicesSection = () => {
               <div className="mb-2 text-4xl font-bold text-gray-900">
                 {stat.number}
               </div>
-              <div className="text-gray-600">{stat.text}</div>
+              <div className="text-theme-neutral-600">{stat.text}</div>
             </div>
           ))}
         </motion.div>

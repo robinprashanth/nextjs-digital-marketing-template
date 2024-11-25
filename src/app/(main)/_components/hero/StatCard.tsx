@@ -21,7 +21,7 @@ export const StatCard: FC<StatCardProps> = ({
       </div>
       <div>
         <div className="font-medium text-white">{title}</div>
-        <div className="text-purple-400">{value}</div>
+        <div className="text-theme-primary-400">{value}</div>
       </div>
     </div>
   </motion.div>

@@ -45,9 +45,9 @@ export const Newsletter: FC = () => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500/10 via-purple-500/5 to-transparent p-8 backdrop-blur-sm">
+    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-theme-primary-500/10 via-theme-primary-500/5 to-transparent p-8 backdrop-blur-sm">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-theme-primary-500/10 to-transparent opacity-20" />
 
       {/* Content */}
       <div className="relative z-10 space-y-6">
@@ -56,7 +56,7 @@ export const Newsletter: FC = () => {
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-2 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent"
+            className="mb-2 bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent"
           >
             Stay Ahead of the Curve
           </motion.h3>
@@ -64,7 +64,7 @@ export const Newsletter: FC = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400"
+            className="text-theme-neutral-400"
           >
             Get exclusive digital marketing insights delivered to your inbox
           </motion.p>
@@ -86,20 +86,20 @@ export const Newsletter: FC = () => {
                       <div className="relative flex-1">
                         <Input
                           placeholder="Enter your email"
-                          className="rounded-full border-purple-500/20 bg-white/5 pr-12 backdrop-blur-sm placeholder:text-gray-500 focus:border-purple-500/40 focus:ring-purple-500/40"
+                          className="rounded-full border-theme-primary-500/20 bg-white/5 pr-12 backdrop-blur-sm placeholder:text-theme-neutral-500 focus:border-theme-primary-500/40 focus:ring-theme-primary-500/40"
                           {...field}
                         />
                         {/* Email icon or validation status */}
                         <div className="absolute right-4 top-1/2 -translate-y-1/2">
                           {isSubmitting ? (
-                            <Loader2 className="h-5 w-5 animate-spin text-purple-500" />
+                            <Loader2 className="h-5 w-5 animate-spin text-theme-primary-500" />
                           ) : form.formState.isValid && field.value ? (
                             <motion.div
                               initial={{ scale: 0 }}
                               animate={{ scale: 1 }}
-                              className="h-5 w-5 rounded-full bg-green-500/20 p-1"
+                              className="h-5 w-5 rounded-full bg-theme-tulip-500/20 p-1"
                             >
-                              <div className="h-full w-full rounded-full bg-green-500" />
+                              <div className="h-full w-full rounded-full bg-theme-tulip-500" />
                             </motion.div>
                           ) : null}
                         </div>
@@ -128,7 +128,7 @@ export const Newsletter: FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xs text-gray-500"
+          className="text-xs text-theme-neutral-500"
         >
           By subscribing, you agree to our Privacy Policy and consent to receive
           updates.
@@ -136,7 +136,7 @@ export const Newsletter: FC = () => {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-purple-500/10 blur-2xl" />
+      <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-theme-primary-500/10 blur-2xl" />
       <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />
     </div>
   );

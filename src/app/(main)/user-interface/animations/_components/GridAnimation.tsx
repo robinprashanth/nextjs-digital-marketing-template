@@ -12,14 +12,14 @@ export function GridAnimation() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="group relative overflow-hidden rounded-xl bg-purple-500/10 p-6"
+            className="group relative overflow-hidden rounded-xl bg-theme-primary-500/10 p-6"
           >
             <h4 className="mb-2 text-lg font-semibold">Grid Item {i}</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-theme-neutral-600 dark:text-gray-300">
               Grid item with staggered animation and hover effect.
             </p>
             {/* Animated background blur */}
-            <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-purple-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
+            <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-theme-primary-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
           </motion.div>
         ))}
       </div>
@@ -37,7 +37,7 @@ export function GridAnimation() {
     >
       {/* Content */}
       <div className="absolute -bottom-20 -right-20 h-40 w-40 
-        rounded-full bg-purple-500/10 blur-xl 
+        rounded-full bg-theme-primary-500/10 blur-xl 
         transition-all duration-500 
         group-hover:scale-150" 
       />

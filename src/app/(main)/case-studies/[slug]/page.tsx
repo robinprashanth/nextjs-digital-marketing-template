@@ -20,7 +20,7 @@ export default async function CaseStudyPage({
 
     return (
       <CaseStudyLayout metadata={frontMatter}>
-        <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-pre:bg-gray-800 prose-pre:border prose-pre:border-gray-700 prose-img:rounded-xl max-w-none">
+        <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-pre:bg-gray-800 prose-pre:border prose-pre:border-theme-neutral-700 prose-img:rounded-xl max-w-none">
           <MDXRemote source={content} />
         </div>
       </CaseStudyLayout>

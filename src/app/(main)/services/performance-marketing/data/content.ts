@@ -221,7 +221,7 @@ export const results = [
       { label: "Lead Quality", value: "+85%" },
     ],
     image: "/images/clients/tech-store.jpg",
-    gradient: "from-purple-600 to-pink-600",
+    gradient: "from-theme-primary-600 to-pink-600",
   },
   {
     title: "App Growth",

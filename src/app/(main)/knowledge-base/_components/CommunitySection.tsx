@@ -14,8 +14,8 @@ export const CommunitySection: FC = () => (
           viewport={{ once: true }}
           className="rounded-2xl border border-gray-800 bg-card p-8"
         >
-          <div className="mb-6 inline-flex rounded-xl bg-purple-500/10 p-3">
-            <Users className="h-6 w-6 text-purple-400" />
+          <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+            <Users className="h-6 w-6 text-theme-primary-400" />
           </div>
           <h3 className="mb-4 text-2xl font-bold text-foreground">
             Join Our Community
@@ -26,15 +26,15 @@ export const CommunitySection: FC = () => (
           </p>
           <ul className="mb-8 space-y-4">
             <li className="flex items-center gap-2 text-muted-foreground">
-              <Check className="h-5 w-5 text-purple-400" />
+              <Check className="h-5 w-5 text-theme-primary-400" />
               Access to community forums
             </li>
             <li className="flex items-center gap-2 text-muted-foreground">
-              <Check className="h-5 w-5 text-purple-400" />
+              <Check className="h-5 w-5 text-theme-primary-400" />
               Weekly live Q&A sessions
             </li>
             <li className="flex items-center gap-2 text-muted-foreground">
-              <Check className="h-5 w-5 text-purple-400" />
+              <Check className="h-5 w-5 text-theme-primary-400" />
               User groups & meetups
             </li>
           </ul>
@@ -50,8 +50,8 @@ export const CommunitySection: FC = () => (
           viewport={{ once: true }}
           className="rounded-2xl border border-gray-800 bg-card p-8"
         >
-          <div className="mb-6 inline-flex rounded-xl bg-purple-500/10 p-3">
-            <Video className="h-6 w-6 text-purple-400" />
+          <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+            <Video className="h-6 w-6 text-theme-primary-400" />
           </div>
           <h3 className="mb-4 text-2xl font-bold text-foreground">
             Video Tutorials
@@ -61,15 +61,15 @@ export const CommunitySection: FC = () => (
           </p>
           <ul className="mb-8 space-y-4">
             <li className="flex items-center gap-2 text-muted-foreground">
-              <Check className="h-5 w-5 text-purple-400" />
+              <Check className="h-5 w-5 text-theme-primary-400" />
               Step-by-step guides
             </li>
             <li className="flex items-center gap-2 text-muted-foreground">
-              <Check className="h-5 w-5 text-purple-400" />
+              <Check className="h-5 w-5 text-theme-primary-400" />
               Monthly webinars
             </li>
             <li className="flex items-center gap-2 text-muted-foreground">
-              <Check className="h-5 w-5 text-purple-400" />
+              <Check className="h-5 w-5 text-theme-primary-400" />
               Expert tutorials
             </li>
           </ul>

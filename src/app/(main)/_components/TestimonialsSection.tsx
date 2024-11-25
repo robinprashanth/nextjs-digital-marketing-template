@@ -70,13 +70,13 @@ export const TestimonialsSection: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             CLIENT SUCCESS STORIES
           </span>
           <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
             What Our Clients Say
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
             Discover how we&apos;ve helped businesses achieve their digital
             marketing goals and drive remarkable results.
           </p>
@@ -113,8 +113,8 @@ export const TestimonialsSection: FC = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2 rounded-full transition-all ${
                   index === currentIndex
-                    ? "w-6 bg-purple-600"
-                    : "w-2 bg-gray-300 hover:bg-gray-400"
+                    ? "w-6 bg-theme-primary-600"
+                    : "w-2 bg-gray-300 hover:bg-theme-neutral-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

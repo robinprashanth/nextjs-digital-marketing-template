@@ -104,7 +104,7 @@ export const KnowledgeBase: FC<KnowledgeBaseProps> = ({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 p-12 text-center"
+            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Can&apos;t find what you&apos;re looking for?

@@ -175,10 +175,10 @@ const Contact: FC = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20"
+                    className="flex items-start gap-4 rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                   >
-                    <div className="rounded-xl bg-purple-500/10 p-3">
-                      <item.icon className="h-6 w-6 text-purple-400" />
+                    <div className="rounded-xl bg-theme-primary-500/10 p-3">
+                      <item.icon className="h-6 w-6 text-theme-primary-400" />
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">
@@ -217,7 +217,7 @@ const Contact: FC = () => {
                   <input
                     {...register("name")}
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="John Doe"
                   />
                   {errors.name && (
@@ -238,7 +238,7 @@ const Contact: FC = () => {
                   <input
                     {...register("email")}
                     type="email"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="john@example.com"
                   />
                   {errors.email && (
@@ -259,7 +259,7 @@ const Contact: FC = () => {
                   <input
                     {...register("phone")}
                     type="tel"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="+1 (555) 123-4567"
                   />
                   {errors.phone && (
@@ -280,7 +280,7 @@ const Contact: FC = () => {
                   <input
                     {...register("company")}
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="Your Company"
                   />
                 </div>
@@ -296,7 +296,7 @@ const Contact: FC = () => {
                   <input
                     {...register("subject")}
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="How can we help?"
                   />
                   {errors.subject && (
@@ -318,7 +318,7 @@ const Contact: FC = () => {
                           type="checkbox"
                           value={service}
                           {...register("services")}
-                          className="rounded border-gray-800 bg-background text-purple-500 focus:ring-purple-500"
+                          className="rounded border-gray-800 bg-background text-theme-primary-500 focus:ring-theme-primary-500"
                         />
                         <span className="text-sm text-muted-foreground">
                           {service}
@@ -340,7 +340,7 @@ const Contact: FC = () => {
                   </label>
                   <select
                     {...register("budget")}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   >
                     <option value="">Select a budget range</option>
                     {budgetOptions.map((option) => (
@@ -367,7 +367,7 @@ const Contact: FC = () => {
                   <textarea
                     {...register("message")}
                     rows={4}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="Tell us about your project..."
                   />
                   {errors.message && (
@@ -382,9 +382,9 @@ const Contact: FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="rounded-lg bg-green-500/10 p-4"
+                    className="rounded-lg bg-theme-tulip-500/10 p-4"
                   >
-                    <div className="flex items-center gap-2 text-green-500">
+                    <div className="flex items-center gap-2 text-theme-tulip-500">
                       <CheckCircle2 className="h-5 w-5" />
                       <p className="text-sm font-medium">
                         Your message has been sent successfully! We&apos;ll get
@@ -413,7 +413,7 @@ const Contact: FC = () => {
                   variant="action"
                   size="lg"
                   disabled={isSubmitting}
-                  className="relative w-full rounded-lg bg-purple-500 px-8 py-3 text-white transition-all hover:bg-purple-600 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="relative w-full rounded-lg bg-theme-primary-500 px-8 py-3 text-white transition-all hover:bg-theme-primary-600 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   <span
                     className={`flex items-center justify-center gap-2 ${

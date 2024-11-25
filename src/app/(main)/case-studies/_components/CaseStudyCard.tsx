@@ -54,9 +54,9 @@ export const CaseStudyCard: FC<CaseStudyCardProps> = ({ caseStudy, index }) => (
               </div>
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="rounded-full bg-purple-500/10 p-2"
+                className="rounded-full bg-theme-primary-500/10 p-2"
               >
-                <ArrowUpRight className="h-4 w-4 text-purple-400" />
+                <ArrowUpRight className="h-4 w-4 text-theme-primary-400" />
               </motion.div>
             </div>
 
@@ -70,7 +70,7 @@ export const CaseStudyCard: FC<CaseStudyCardProps> = ({ caseStudy, index }) => (
                   <p className="text-lg font-bold text-foreground">
                     {metric.value}
                   </p>
-                  <p className="flex items-center gap-1 text-sm text-green-500">
+                  <p className="flex items-center gap-1 text-sm text-theme-tulip-500">
                     <TrendingUp className="h-4 w-4" />
                     {metric.change}
                   </p>

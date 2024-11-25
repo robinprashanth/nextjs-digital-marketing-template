@@ -33,11 +33,11 @@ export const NewsletterSection: FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex-1 rounded-full border border-gray-800 bg-background px-6 py-3 text-foreground placeholder:text-muted-foreground focus:border-purple-500 focus:outline-none"
+              className="flex-1 rounded-full border border-gray-800 bg-background px-6 py-3 text-foreground placeholder:text-muted-foreground focus:border-theme-primary-500 focus:outline-none"
             />
             <button
               type="submit"
-              className="rounded-full bg-purple-500 px-8 py-3 font-semibold text-white transition-all hover:bg-purple-600"
+              className="rounded-full bg-theme-primary-500 px-8 py-3 font-semibold text-white transition-all hover:bg-theme-primary-600"
             >
               Subscribe
             </button>

@@ -173,11 +173,11 @@ const Partners: FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20"
+                  className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                 >
                   {/* Partner Level Badge */}
-                  <div className="absolute right-6 top-6 rounded-full bg-purple-500/10 px-3 py-1">
-                    <span className="text-sm font-medium text-purple-400">
+                  <div className="absolute right-6 top-6 rounded-full bg-theme-primary-500/10 px-3 py-1">
+                    <span className="text-sm font-medium text-theme-primary-400">
                       {partner.level} Partner
                     </span>
                   </div>
@@ -209,7 +209,7 @@ const Partners: FC = () => {
                           key={idx}
                           className="flex items-center gap-2 text-sm text-muted-foreground"
                         >
-                          <CheckCircle2 className="h-4 w-4 text-purple-400" />
+                          <CheckCircle2 className="h-4 w-4 text-theme-primary-400" />
                           {benefit}
                         </li>
                       ))}
@@ -236,7 +236,7 @@ const Partners: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               PARTNERSHIP LEVELS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -258,8 +258,8 @@ const Partners: FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl border border-gray-800 bg-background p-6"
               >
-                <div className="mb-6 inline-flex rounded-xl bg-purple-500/10 p-3">
-                  <Shield className="h-6 w-6 text-purple-400" />
+                <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+                  <Shield className="h-6 w-6 text-theme-primary-400" />
                 </div>
                 <h3 className="mb-2 text-xl font-semibold text-foreground">
                   {level.name}
@@ -273,7 +273,7 @@ const Partners: FC = () => {
                       key={idx}
                       className="flex items-start gap-2 text-sm text-muted-foreground"
                     >
-                      <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-purple-400" />
+                      <CheckCircle2 className="mt-1 h-4 w-4 flex-shrink-0 text-theme-primary-400" />
                       {req}
                     </div>
                   ))}
@@ -293,7 +293,7 @@ const Partners: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               PARTNER BENEFITS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -351,8 +351,8 @@ const Partners: FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl border border-gray-800 bg-card p-6"
               >
-                <div className="mb-4 inline-flex rounded-xl bg-purple-500/10 p-3">
-                  <benefit.icon className="h-6 w-6 text-purple-400" />
+                <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
+                  <benefit.icon className="h-6 w-6 text-theme-primary-400" />
                 </div>
                 <h3 className="mb-2 text-xl font-semibold text-foreground">
                   {benefit.title}
@@ -371,7 +371,7 @@ const Partners: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 p-12 text-center"
+            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Ready to Become a Partner?
@@ -381,7 +381,7 @@ const Partners: FC = () => {
               create digital success stories together.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100">
+              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100">
                 Apply Now
               </button>
               <Button variant="glass" size="xl">
@@ -403,7 +403,7 @@ const Partners: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               FAQs
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -502,8 +502,8 @@ const Partners: FC = () => {
                     key={index}
                     className="flex items-start gap-4 rounded-2xl border border-gray-800 bg-card p-6"
                   >
-                    <div className="rounded-xl bg-purple-500/10 p-3">
-                      <item.icon className="h-6 w-6 text-purple-400" />
+                    <div className="rounded-xl bg-theme-primary-500/10 p-3">
+                      <item.icon className="h-6 w-6 text-theme-primary-400" />
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">
@@ -540,7 +540,7 @@ const Partners: FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <div>
@@ -549,7 +549,7 @@ const Partners: FC = () => {
                   </label>
                   <input
                     type="email"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <div>
@@ -558,7 +558,7 @@ const Partners: FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <div>
@@ -567,12 +567,12 @@ const Partners: FC = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-purple-500 px-8 py-3 text-white transition-all hover:bg-purple-600"
+                  className="w-full rounded-lg bg-theme-primary-500 px-8 py-3 text-white transition-all hover:bg-theme-primary-600"
                 >
                   Send Message
                 </button>

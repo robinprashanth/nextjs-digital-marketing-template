@@ -48,7 +48,7 @@ export const workflowStats: WorkflowStat[] = [
     label: "Workflows Created",
     change: "+28% vs last month",
     icon: "GitBranch",
-    color: "text-purple-600",
+    color: "text-theme-primary-600",
   },
   {
     value: "98.5%",
@@ -137,13 +137,13 @@ export const features: AutomationFeature[] = [
     description:
       "Create sophisticated workflows with if/then conditions and branching paths",
     icon: "GitBranch",
-    color: "text-purple-500",
+    color: "text-theme-primary-500",
   },
   {
     title: "Multi-Channel",
     description: "Automate across email, SMS, social media, and other channels",
     icon: "Share",
-    color: "text-green-500",
+    color: "text-theme-tulip-500",
   },
   {
     title: "Templates",

@@ -48,7 +48,7 @@ export const teamStats: TeamStat[] = [
     label: "Faster Delivery",
     change: "+45% vs last month",
     icon: "Timer",
-    color: "text-purple-600",
+    color: "text-theme-primary-600",
   },
   {
     value: "45%",
@@ -84,7 +84,7 @@ export const collaborationFeatures: CollaborationFeature[] = [
     description:
       "Keep track of projects and tasks with powerful management tools",
     icon: "FolderKanban",
-    color: "text-purple-500",
+    color: "text-theme-primary-500",
     benefits: [
       "Kanban boards",
       "Task tracking",

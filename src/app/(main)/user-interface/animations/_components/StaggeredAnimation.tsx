@@ -15,10 +15,10 @@ export function StaggeredAnimation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-lg bg-purple-500/10 p-4"
+              className="rounded-lg bg-theme-primary-500/10 p-4"
             >
               <h4 className="text-lg font-medium">Staggered Item {i}</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-theme-neutral-600 dark:text-gray-300">
                 Appears with delay: {i * 0.1}s
               </p>
             </motion.div>

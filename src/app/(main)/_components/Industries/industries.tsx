@@ -8,7 +8,7 @@ export const industries: Industry[] = [
     name: "E-commerce",
     description: "Digital solutions for online retail success",
     icon: React.createElement(ShoppingBag, {
-      className: "h-6 w-6 text-purple-600",
+      className: "h-6 w-6 text-theme-primary-600",
     }),
     image: "/images/industries/ecommerce.jpg",
     expertise: 95,
@@ -41,7 +41,7 @@ export const industries: Industry[] = [
     name: "Healthcare",
     description: "Digital marketing for healthcare providers",
     icon: React.createElement(Stethoscope, {
-      className: "h-6 w-6 text-purple-600",
+      className: "h-6 w-6 text-theme-primary-600",
     }),
     image: "/images/industries/healthcare.jpg",
     expertise: 90,

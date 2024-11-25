@@ -30,13 +30,13 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
         {Array.from({ length: rating }).map((_, index) => (
           <Star
             key={index}
-            className="h-5 w-5 fill-yellow-400 text-yellow-400"
+            className="h-5 w-5 fill-theme-sunflower-400 text-theme-sunflower-400"
           />
         ))}
       </div>
 
       {/* Testimonial Content */}
-      <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      <p className="mb-8 text-lg leading-relaxed text-theme-neutral-700 dark:text-gray-300">
         {content}
       </p>
 
@@ -48,7 +48,7 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
           </div>
           <div>
             <h4 className="font-bold text-gray-900 dark:text-white">{name}</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
               {role} at {company}
             </p>
           </div>

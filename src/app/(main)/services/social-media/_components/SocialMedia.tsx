@@ -95,7 +95,7 @@ export const SocialMedia: FC = () => {
               <br />
               Media Presence
             </h1>
-            <p className="mb-8 max-w-2xl text-lg text-gray-400">
+            <p className="mb-8 max-w-2xl text-lg text-theme-neutral-400">
               Strategic social media management that builds engaged communities,
               drives brand awareness, and generates measurable results.
             </p>
@@ -109,11 +109,11 @@ export const SocialMedia: FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-gray-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
-                  <p className="flex items-center gap-1 text-sm text-green-400">
+                  <p className="flex items-center gap-1 text-sm text-theme-tulip-400">
                     <ArrowUpRight className="h-4 w-4" />
                     {metric.change}
                   </p>
@@ -141,7 +141,7 @@ export const SocialMedia: FC = () => {
               <br />
               Social Excellence
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Comprehensive social media management across all major platforms.
             </p>
           </motion.div>
@@ -209,7 +209,7 @@ export const SocialMedia: FC = () => {
               <br />
               Media Solutions
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Full-service social media management tailored to your business
               goals.
             </p>
@@ -228,7 +228,7 @@ export const SocialMedia: FC = () => {
                 <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                   {service.title}
                 </h3>
-                <p className="mb-8 text-gray-600 dark:text-gray-400">
+                <p className="mb-8 text-theme-neutral-600 dark:text-theme-neutral-400">
                   {service.description}
                 </p>
 
@@ -248,7 +248,7 @@ export const SocialMedia: FC = () => {
                           <h4 className="font-bold text-gray-900 dark:text-white">
                             {feature.name}
                           </h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                             {feature.description}
                           </p>
                         </div>
@@ -370,7 +370,7 @@ export const SocialMedia: FC = () => {
                   <h3 className="mb-4 text-xl font-bold text-white">
                     {step.title}
                   </h3>
-                  <p className="text-gray-400">{step.description}</p>
+                  <p className="text-theme-neutral-400">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
                   <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-indigo-400 to-transparent md:block" />
@@ -416,7 +416,7 @@ export const SocialMedia: FC = () => {
                   <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
                     {tool.name}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {tool.description}
                   </p>
                 </motion.div>
@@ -440,7 +440,7 @@ export const SocialMedia: FC = () => {
               <br />
               Social Media Presence?
             </h2>
-            <p className="mb-12 text-lg text-gray-400">
+            <p className="mb-12 text-lg text-theme-neutral-400">
               Let&apos;s create engaging social media strategies that build your
               brand and drive measurable results.
             </p>

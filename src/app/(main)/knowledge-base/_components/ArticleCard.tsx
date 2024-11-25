@@ -16,7 +16,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.1 }}
-    className="group rounded-2xl border border-gray-800 bg-background p-6 transition-all duration-300 hover:border-purple-500/20"
+    className="group rounded-2xl border border-gray-800 bg-background p-6 transition-all duration-300 hover:border-theme-primary-500/20"
   >
     <Link href={`/knowledge-base/${article.slug}`}>
       <div className="mb-4 flex items-center justify-between">
@@ -36,7 +36,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article, index }) => (
         )}
       </div>
 
-      <h3 className="mb-2 text-xl font-semibold text-foreground group-hover:text-purple-400">
+      <h3 className="mb-2 text-xl font-semibold text-foreground group-hover:text-theme-primary-400">
         {article.title}
       </h3>
       <p className="mb-4 text-sm text-muted-foreground">{article.excerpt}</p>
@@ -45,7 +45,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article, index }) => (
         {article.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full bg-purple-500/10 px-2.5 py-0.5 text-xs font-medium text-purple-400"
+            className="rounded-full bg-theme-primary-500/10 px-2.5 py-0.5 text-xs font-medium text-theme-primary-400"
           >
             {tag}
           </span>

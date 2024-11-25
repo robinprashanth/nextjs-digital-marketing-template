@@ -113,7 +113,7 @@ function PersonalInfoHeader({ resumeData }: ResumeSectionProps) {
             {jobTitle}
           </p>
         </div>
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-theme-neutral-500">
           {city}
           {city && country ? ", " : ""}
           {country}

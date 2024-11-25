@@ -258,7 +258,7 @@ const CurrentOpenings: FC = () => {
                   placeholder="Search positions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full rounded-lg border border-gray-800 bg-background py-2.5 pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                  className="w-full rounded-lg border border-gray-800 bg-background py-2.5 pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                 />
               </div>
 
@@ -267,7 +267,7 @@ const CurrentOpenings: FC = () => {
                 <select
                   value={selectedDepartment}
                   onChange={(e) => setSelectedDepartment(e.target.value)}
-                  className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                  className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                 >
                   {departments.map((dept) => (
                     <option key={dept} value={dept}>
@@ -282,7 +282,7 @@ const CurrentOpenings: FC = () => {
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                  className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                 >
                   {jobTypes.map((type) => (
                     <option key={type} value={type}>
@@ -297,7 +297,7 @@ const CurrentOpenings: FC = () => {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                  className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                 >
                   {locations.map((loc) => (
                     <option key={loc} value={loc}>
@@ -322,13 +322,13 @@ const CurrentOpenings: FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group cursor-pointer rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-purple-500/20"
+                  className="group cursor-pointer rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                 >
                   <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                     <div className="space-y-4">
                       <div className="flex items-center gap-4">
-                        <div className="rounded-xl bg-purple-500/10 p-3">
-                          <Briefcase className="h-6 w-6 text-purple-400" />
+                        <div className="rounded-xl bg-theme-primary-500/10 p-3">
+                          <Briefcase className="h-6 w-6 text-theme-primary-400" />
                         </div>
                         <div>
                           <h3 className="text-xl font-semibold text-foreground">
@@ -398,7 +398,7 @@ const CurrentOpenings: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               BENEFITS & PERKS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -457,8 +457,8 @@ const CurrentOpenings: FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl border border-gray-800 bg-background p-6"
               >
-                <div className="mb-4 w-fit rounded-xl bg-purple-500/10 p-3">
-                  <benefit.icon className="h-6 w-6 text-purple-400" />
+                <div className="mb-4 w-fit rounded-xl bg-theme-primary-500/10 p-3">
+                  <benefit.icon className="h-6 w-6 text-theme-primary-400" />
                 </div>
                 <h3 className="mb-2 text-xl font-semibold text-foreground">
                   {benefit.title}
@@ -479,7 +479,7 @@ const CurrentOpenings: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               OUR CULTURE
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -522,7 +522,7 @@ const CurrentOpenings: FC = () => {
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               HIRING PROCESS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -576,11 +576,11 @@ const CurrentOpenings: FC = () => {
                 className="relative flex gap-8 pb-12"
               >
                 <div className="relative flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-500/10 text-xl font-bold text-purple-400">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-theme-primary-500/10 text-xl font-bold text-theme-primary-400">
                     {step.step}
                   </div>
                   {index !== array.length - 1 && (
-                    <div className="mt-4 h-full w-px bg-gradient-to-b from-purple-500/50 to-transparent" />
+                    <div className="mt-4 h-full w-px bg-gradient-to-b from-theme-primary-500/50 to-transparent" />
                   )}
                 </div>
                 <div className="flex-1 rounded-2xl border border-gray-800 bg-background p-6">
@@ -602,7 +602,7 @@ const CurrentOpenings: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 p-12 text-center"
+            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Don&apos;t See the Right Role?
@@ -612,7 +612,7 @@ const CurrentOpenings: FC = () => {
               team. Send us your resume and we&apos;ll keep you in mind for
               future opportunities.
             </p>
-            <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-purple-600 transition-all hover:bg-gray-100">
+            <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100">
               Send Your Resume
             </button>
           </motion.div>

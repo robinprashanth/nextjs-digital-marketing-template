@@ -62,7 +62,7 @@ export const SEO: FC = () => {
               <br />
               With Data-Driven SEO
             </h1>
-            <p className="mb-8 max-w-2xl text-lg text-gray-400">
+            <p className="mb-8 max-w-2xl text-lg text-theme-neutral-400">
               Boost your organic visibility and drive qualified traffic through
               strategic search engine optimization that delivers measurable
               results.
@@ -78,11 +78,11 @@ export const SEO: FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-gray-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
-                  <p className="flex items-center gap-1 text-sm text-green-400">
+                  <p className="flex items-center gap-1 text-sm text-theme-tulip-400">
                     <ArrowUpRight className="h-4 w-4" />
                     {metric.change}
                   </p>
@@ -110,7 +110,7 @@ export const SEO: FC = () => {
               <br />
               Solutions
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Strategic SEO services designed to improve your search rankings,
               drive organic traffic, and increase conversions.
             </p>
@@ -140,7 +140,7 @@ export const SEO: FC = () => {
                     <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
                       {feature.description}
                     </p>
 
@@ -189,7 +189,7 @@ export const SEO: FC = () => {
                       <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
                         {step.description}
                       </p>
                     </div>
@@ -228,7 +228,7 @@ export const SEO: FC = () => {
                         <h4 className="mb-2 font-bold text-gray-900 dark:text-white">
                           {tool.name}
                         </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                           {tool.description}
                         </p>
                       </motion.div>
@@ -273,7 +273,7 @@ export const SEO: FC = () => {
               <br />
               Search Rankings?
             </h2>
-            <p className="mb-12 text-lg text-gray-400">
+            <p className="mb-12 text-lg text-theme-neutral-400">
               Let&apos;s develop a customized SEO strategy that drives organic
               growth and delivers measurable results for your business.
             </p>
@@ -303,7 +303,7 @@ export const SEO: FC = () => {
               <br />
               Real Businesses
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Our data-driven approach consistently delivers outstanding results
               across various industries and business sizes.
             </p>
@@ -348,10 +348,10 @@ export const SEO: FC = () => {
                 <div className="mb-2 text-4xl font-bold text-emerald-600">
                   {result.metric}
                 </div>
-                <p className="mb-2 text-gray-600 dark:text-gray-400">
+                <p className="mb-2 text-theme-neutral-600 dark:text-theme-neutral-400">
                   {result.description}
                 </p>
-                <p className="text-sm text-gray-500">in {result.duration}</p>
+                <p className="text-sm text-theme-neutral-500">in {result.duration}</p>
                 <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-emerald-500/5 blur-xl" />
               </motion.div>
             ))}
@@ -405,7 +405,7 @@ export const SEO: FC = () => {
                 <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-white">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
+                <p className="text-theme-neutral-600 dark:text-theme-neutral-400">{faq.answer}</p>
               </motion.div>
             ))}
           </div>

@@ -37,7 +37,7 @@ export default function CardsPage() {
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Card Components
           </h1>
-          <p className="mx-auto max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="mx-auto max-w-[700px] text-theme-neutral-500 dark:text-theme-neutral-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             A collection of card components for various use cases and layouts.
           </p>
         </div>
@@ -68,7 +68,7 @@ export const IndustryCard: FC<IndustryCardProps> = ({
   >
     <Card
       className={\`cursor-pointer transition-all duration-300 hover:shadow-lg \${
-        isActive ? "ring-2 ring-purple-500" : ""
+        isActive ? "ring-2 ring-theme-primary-500" : ""
       }\`}
       onClick={onClick}
     >
@@ -78,7 +78,7 @@ export const IndustryCard: FC<IndustryCardProps> = ({
             {industry.icon}
           </div>
           <div className="flex items-center gap-1">
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+            <Star className="h-5 w-5 fill-theme-sunflower-400 text-theme-sunflower-400" />
             <span className="font-medium text-gray-900 dark:text-white">
               {industry.expertise}%
             </span>
@@ -89,10 +89,10 @@ export const IndustryCard: FC<IndustryCardProps> = ({
       </CardHeader>
       <CardContent>
         <div className="flex justify-between text-sm">
-          <span className="text-gray-600 dark:text-gray-400">
+          <span className="text-theme-neutral-600 dark:text-theme-neutral-400">
             Expertise Level
           </span>
-          <span className="text-purple-600">{industry.expertise}%</span>
+          <span className="text-theme-primary-600">{industry.expertise}%</span>
         </div>
         <Progress value={industry.expertise} className="mt-2" />
       </CardContent>
@@ -106,7 +106,7 @@ const sampleIndustries: Industry[] = [
     id: 1,
     name: "Technology",
     description: "Software development and IT solutions",
-    icon: <Code2 className="h-6 w-6 text-purple-600" />,
+    icon: <Code2 className="h-6 w-6 text-theme-primary-600" />,
     expertise: 95,
     // ... other properties
   },
@@ -244,7 +244,7 @@ const [activeIndustry, setActiveIndustry] = useState<number>(1);
                         .map((_, i) => (
                           <Star
                             key={i}
-                            className="h-4 w-4 fill-current text-yellow-400"
+                            className="h-4 w-4 fill-current text-theme-sunflower-400"
                           />
                         ))}
                     </div>

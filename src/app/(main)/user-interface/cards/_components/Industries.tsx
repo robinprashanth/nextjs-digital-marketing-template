@@ -9,7 +9,7 @@ const sampleIndustries: Industry[] = [
     id: 1,
     name: "Technology",
     description: "Software development and IT solutions for modern businesses",
-    icon: <Code2 className="h-6 w-6 text-purple-600" />,
+    icon: <Code2 className="h-6 w-6 text-theme-primary-600" />,
     image: "/images/industries/tech.jpg",
     metrics: [
       { label: "Projects", value: "200+", prefix: "" },
@@ -24,7 +24,7 @@ const sampleIndustries: Industry[] = [
     id: 2,
     name: "E-commerce",
     description: "Digital retail solutions and online marketplace development",
-    icon: <ShoppingBag className="h-6 w-6 text-purple-600" />,
+    icon: <ShoppingBag className="h-6 w-6 text-theme-primary-600" />,
     image: "/images/industries/ecommerce.jpg",
     metrics: [
       { label: "Stores", value: "150+", prefix: "" },
@@ -39,7 +39,7 @@ const sampleIndustries: Industry[] = [
     id: 3,
     name: "Finance",
     description: "Financial technology solutions and banking systems",
-    icon: <LineChart className="h-6 w-6 text-purple-600" />,
+    icon: <LineChart className="h-6 w-6 text-theme-primary-600" />,
     image: "/images/industries/finance.jpg",
     metrics: [
       { label: "Transactions", value: "1M+", prefix: "" },

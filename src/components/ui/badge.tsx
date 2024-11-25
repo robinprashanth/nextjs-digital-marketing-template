@@ -17,25 +17,25 @@ const badgeVariants = cva(
         outline: "text-foreground",
         // Product Status
         new: "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
-        soon: "bg-purple-50 text-purple-600 dark:bg-purple-500/10 dark:text-purple-400",
+        soon: "bg-purple-50 text-theme-primary-600 dark:bg-theme-primary-500/10 dark:text-theme-primary-400",
         beta: "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400",
         hiring:
           "bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400",
 
         // Status States
         active:
-          "bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400",
+          "bg-green-50 text-green-600 dark:bg-theme-tulip-500/10 dark:text-theme-tulip-400",
         pending:
-          "bg-yellow-50 text-yellow-600 dark:bg-yellow-500/10 dark:text-yellow-400",
+          "bg-yellow-50 text-theme-sunflower-600 dark:bg-theme-sunflower-500/10 dark:text-theme-sunflower-400",
         closed:
-          "bg-gray-50 text-gray-600 dark:bg-gray-500/10 dark:text-gray-400",
+          "bg-gray-50 text-theme-neutral-600 dark:bg-theme-neutral-500/10 dark:text-theme-neutral-400",
 
         // Alert States
         success:
-          "bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400",
+          "bg-green-50 text-green-600 dark:bg-theme-tulip-500/10 dark:text-theme-tulip-400",
         error: "bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400",
         warning:
-          "bg-yellow-50 text-yellow-600 dark:bg-yellow-500/10 dark:text-yellow-400",
+          "bg-yellow-50 text-theme-sunflower-600 dark:bg-theme-sunflower-500/10 dark:text-theme-sunflower-400",
         info: "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
       },
     },

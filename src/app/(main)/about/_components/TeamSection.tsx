@@ -39,7 +39,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
     transition={{ delay: index * 0.1 }}
     className="group relative"
   >
-    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card transition-all duration-300 hover:border-purple-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
       {/* Image Container */}
       <div className="relative h-80 overflow-hidden">
         <Image
@@ -55,8 +55,8 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
       {/* Content */}
       <div className="p-6">
         {/* Department Badge */}
-        <div className="mb-4 inline-flex rounded-full bg-purple-500/10 px-3 py-1">
-          <span className="text-sm text-purple-400">{department}</span>
+        <div className="mb-4 inline-flex rounded-full bg-theme-primary-500/10 px-3 py-1">
+          <span className="text-sm text-theme-primary-400">{department}</span>
         </div>
 
         <h3 className="text-xl font-semibold text-foreground">{name}</h3>
@@ -72,7 +72,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-purple-500/10 p-2 text-purple-400 transition-colors hover:bg-purple-500/20"
+              className="rounded-full bg-theme-primary-500/10 p-2 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20"
             >
               <Linkedin className="h-5 w-5" />
             </a>
@@ -82,7 +82,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
               href={socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-purple-500/10 p-2 text-purple-400 transition-colors hover:bg-purple-500/20"
+              className="rounded-full bg-theme-primary-500/10 p-2 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20"
             >
               <Twitter className="h-5 w-5" />
             </a>
@@ -90,7 +90,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
           {socials.email && (
             <a
               href={`mailto:${socials.email}`}
-              className="rounded-full bg-purple-500/10 p-2 text-purple-400 transition-colors hover:bg-purple-500/20"
+              className="rounded-full bg-theme-primary-500/10 p-2 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20"
             >
               <Mail className="h-5 w-5" />
             </a>
@@ -158,12 +158,12 @@ export const TeamSection: FC = () => {
           viewport={{ once: true }}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-semibold text-purple-400">
+          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             Our Team
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Meet the{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Minds
             </span>{" "}
             Behind Our Success
@@ -180,7 +180,7 @@ export const TeamSection: FC = () => {
             <Button
               variant="tag"
               key={index}
-              className="rounded-full bg-purple-500/10 px-6 py-2 text-sm font-medium text-purple-400 transition-colors hover:bg-purple-500/20"
+              className="rounded-full bg-theme-primary-500/10 px-6 py-2 text-sm font-medium text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20"
             >
               {dept}
             </Button>
