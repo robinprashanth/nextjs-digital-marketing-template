@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 // Form Schema
 const applicationSchema = z.object({
@@ -162,9 +163,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
             Back to all openings
           </Link>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="max-w-3xl"
           >
             <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
@@ -188,7 +187,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                 {job.salary}
               </div>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Wave Divider */}
@@ -212,9 +211,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Left Column - Job Details */}
             <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              <ScrollInView
                 className="space-y-8"
               >
                 {/* Overview */}
@@ -278,14 +275,12 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </ScrollInView>
             </div>
 
             {/* Right Column - Application Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
+            <ScrollInView
+            delay={0.2}
               className="rounded-2xl border border-gray-800 bg-card p-6"
             >
               <h2 className="mb-6 text-2xl font-bold text-foreground">
@@ -518,16 +513,14 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                 )}
 
                 {error && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                  <ScrollInView
                     className="rounded-lg bg-red-500/10 p-4"
                   >
                     <div className="flex items-center gap-2 text-red-500">
                       <AlertCircle className="h-5 w-5" />
                       <p className="text-sm font-medium">{error}</p>
                     </div>
-                  </motion.div>
+                  </ScrollInView>
                 )}
 
                 {/* Submit Button */}
@@ -553,7 +546,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   )}
                 </Button>
               </form>
-            </motion.div>
+            </ScrollInView>
           </div>
         </div>
       </section>

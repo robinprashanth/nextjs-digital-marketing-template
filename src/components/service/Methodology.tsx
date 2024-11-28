@@ -1,17 +1,14 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import { MethodologyStepProps } from "@/types";
+import { ScrollInView } from "../motion/ScrollInView";
 
 export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
   steps,
 }) => (
   <section className="border-t border-gray-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
       >
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -23,16 +20,13 @@ export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
             Methodology
           </span>
         </h2>
-      </motion.div>
+      </ScrollInView>
 
       <div className="relative mx-auto max-w-4xl">
         {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+          <ScrollInView
+          key={index}
+          delay={ index * 0.1}
             className="relative flex gap-8 pb-12"
           >
             <div className="relative flex flex-col items-center">
@@ -49,7 +43,7 @@ export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
               </h3>
               <p className="text-muted-foreground">{step.description}</p>
             </div>
-          </motion.div>
+          </ScrollInView>
         ))}
       </div>
     </div>

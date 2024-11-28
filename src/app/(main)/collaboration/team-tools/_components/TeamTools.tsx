@@ -1,7 +1,6 @@
 // /app/collaboration/team-tools/_components/TeamToolsPage.tsx
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import { Users, Check, Play, ArrowRight, ArrowUpRight } from "lucide-react";
 import { getIcon } from "../utils/icons";
 import {
@@ -11,6 +10,7 @@ import {
   integrations,
 } from "../data/content";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const TeamTools: FC = () => {
   return (
@@ -28,9 +28,8 @@ export const TeamTools: FC = () => {
         />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
+          once={false}
             className="mx-auto max-w-4xl text-center"
           >
             {/* Title Badge */}
@@ -69,11 +68,9 @@ export const TeamTools: FC = () => {
             {/* Stats Grid */}
             <div className="mx-auto mt-24 grid max-w-4xl grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4">
               {teamStats.map((stat, index) => (
-                <motion.div
+                <ScrollInView
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  delay={index * 0.1 }
                   className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10"
                 >
                   <div className="text-3xl font-bold text-white">
@@ -84,20 +81,17 @@ export const TeamTools: FC = () => {
                     <ArrowUpRight className="h-3 w-3" />
                     {stat.change}
                   </div>
-                </motion.div>
+                </ScrollInView>
               ))}
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 
       {/* Features Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -111,18 +105,16 @@ export const TeamTools: FC = () => {
             <p className="mt-4 text-theme-neutral-600 dark:text-theme-neutral-400">
               Powerful features to help your team work better together
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {collaborationFeatures.map((feature, index) => {
               const IconComponent = getIcon(feature.icon);
               return (
-                <motion.div
+                <ScrollInView
+                delay={index * 0.1 }
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  viewport={true}
                   className="group rounded-2xl border border-gray-200 bg-white p-8 transition-all hover:border-theme-primary-500/20 dark:border-gray-800 dark:bg-gray-900"
                 >
                   <div
@@ -149,7 +141,7 @@ export const TeamTools: FC = () => {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -159,10 +151,8 @@ export const TeamTools: FC = () => {
       {/* Tools Grid */}
       <section className="bg-gray-50 py-24 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
+          viewport={true}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -173,18 +163,16 @@ export const TeamTools: FC = () => {
               <br />
               In One Place
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {teamTools.map((tool, index) => {
               const IconComponent = getIcon(tool.icon);
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView
+                key={index}
+                viewport={true}
+                delay={index * 0.1}
                   className="group rounded-2xl bg-white p-8 shadow-lg transition-all hover:shadow-xl dark:bg-gray-900"
                 >
                   <div
@@ -211,7 +199,7 @@ export const TeamTools: FC = () => {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -221,10 +209,8 @@ export const TeamTools: FC = () => {
       {/* Integrations Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+        <ScrollInView
+        viewport={true}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -235,18 +221,16 @@ export const TeamTools: FC = () => {
               <br />
               Favorite Tools
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
             {integrations.map((integration, index) => {
               const IconComponent = getIcon(integration.icon);
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView
+                key={index}
+                viewport={true}
+                delay={index * 0.1}
                   className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-gray-900"
                 >
                   <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
@@ -255,7 +239,7 @@ export const TeamTools: FC = () => {
                   <h3 className="font-medium text-gray-900 dark:text-white">
                     {integration.name}
                   </h3>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -265,10 +249,8 @@ export const TeamTools: FC = () => {
       {/* CTA Section */}
       <section className="relative overflow-hidden bg-theme-primary-600 py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+        <ScrollInView
+        viewport={true}
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
@@ -283,7 +265,7 @@ export const TeamTools: FC = () => {
             <Button variant="white-action" size="xl">
               Get Started Now
             </Button>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
     </main>

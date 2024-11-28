@@ -1,7 +1,6 @@
 "use client";
 
 import { FC } from "react";
-import { motion } from "motion/react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -12,6 +11,7 @@ import {
   Share2,
 } from "lucide-react";
 import { CaseStudyMetadata } from "@/types";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface CaseStudyLayoutProps {
   metadata: CaseStudyMetadata;
@@ -76,17 +76,13 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
 
         {/* Metrics Section */}
         <div className="container relative mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="mx-auto -mb-16 grid max-w-4xl gap-6 md:grid-cols-2 lg:grid-cols-4"
           >
             {metadata.metrics.map((metric, index) => (
-              <motion.div
+              <ScrollInView
+              delay={index * 0.1}
                 key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
                 className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg"
               >
                 <div className="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-white/10 blur-2xl" />
@@ -102,9 +98,9 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
                     {metric.change}
                   </div>
                 </div>
-              </motion.div>
+              </ScrollInView>
             ))}
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Wave Divider */}
@@ -155,10 +151,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
           {children}
 
           {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mt-16 rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white">
@@ -182,7 +175,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
                 View More Case Studies
               </Link>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </div>
 

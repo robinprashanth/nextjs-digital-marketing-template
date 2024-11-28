@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Filter } from "lucide-react";
 import { KnowledgeArticle, KnowledgeCategory } from "@/types";
 import { ArticleCard } from "./ArticleCard";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface FeaturedArticlesProps {
   articles: KnowledgeArticle[];
@@ -19,10 +20,7 @@ export const FeaturedArticles: FC<FeaturedArticlesProps> = ({
 }) => (
   <section className="bg-card">
     <div className="container mx-auto px-4 py-10 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mb-12"
       >
         <div className="flex items-center justify-between">
@@ -46,7 +44,7 @@ export const FeaturedArticles: FC<FeaturedArticlesProps> = ({
             </select>
           </div>
         </div>
-      </motion.div>
+      </ScrollInView>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {articles.map((article, index) => (

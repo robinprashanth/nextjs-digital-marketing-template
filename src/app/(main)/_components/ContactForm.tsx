@@ -11,6 +11,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { ContactForm } from "./Contact/ContactForm";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const ContactInfo = () => (
   <div className="space-y-6">
@@ -70,10 +71,7 @@ export const ContactSection: FC = () => {
     <section className="bg-gray-50 py-24 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -86,7 +84,7 @@ export const ContactSection: FC = () => {
             We&apos;re here to help you grow your business. Tell us about your
             project, and we&apos;ll get back to you with a customized solution.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Contact Grid */}
         <div className="mx-auto max-w-5xl">

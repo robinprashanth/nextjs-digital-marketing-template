@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { motion } from "motion/react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const NewsletterSection: FC = () => {
   const [email, setEmail] = useState("");
@@ -14,10 +14,7 @@ export const NewsletterSection: FC = () => {
   return (
     <section className="border-t border-gray-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto max-w-2xl text-center"
         >
           <h2 className="mb-4 text-2xl font-bold text-foreground">
@@ -42,7 +39,7 @@ export const NewsletterSection: FC = () => {
               Subscribe
             </button>
           </form>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

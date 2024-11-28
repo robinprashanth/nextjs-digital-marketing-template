@@ -2,6 +2,7 @@ import { FC } from "react";
 import { motion } from "motion/react";
 import { Share2, Globe, Shield, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface StatCardProps {
   icon: typeof Globe;
@@ -53,9 +54,7 @@ const PartnersHero: FC = () => {
 
       <div className="container relative mx-auto px-4">
         {/* Top Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+        <ScrollInView
           className="mb-8"
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-theme-primary-500/10 px-4 py-2 backdrop-blur-sm">
@@ -64,14 +63,12 @@ const PartnersHero: FC = () => {
               Partner Ecosystem
             </span>
           </div>
-        </motion.div>
+        </ScrollInView>
 
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <ScrollInView
+          delay={0.2}
             className="space-y-8"
           >
             <h1 className="space-y-4 text-5xl font-bold text-white md:text-6xl lg:text-7xl">
@@ -103,7 +100,7 @@ const PartnersHero: FC = () => {
                 Partner Directory
               </Button>
             </div>
-          </motion.div>
+          </ScrollInView>
 
           {/* Right Stats Grid */}
           <motion.div

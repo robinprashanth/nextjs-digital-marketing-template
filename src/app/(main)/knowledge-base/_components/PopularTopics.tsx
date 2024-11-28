@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { motion } from "motion/react";
 import Link from "next/link";
 import { Star, ArrowRight, TrendingUp, Book, Users } from "lucide-react";
 import { KnowledgeArticle } from "@/types";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface PopularTopicsProps {
   articles: KnowledgeArticle[];
@@ -38,10 +38,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
   return (
     <section className="border-t border-gray-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-12 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -53,16 +50,13 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
           <p className="text-muted-foreground">
             Check out our most popular articles and frequently asked questions.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         <div className="grid gap-8 md:grid-cols-2">
           {topCategories.map((categoryGroup, index) => (
-            <motion.div
-              key={categoryGroup.category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+            <ScrollInView
+            key={index}
+            delay={index * 0.1}
               className="rounded-2xl border border-gray-800 bg-background p-6"
             >
               {/* Category Header */}
@@ -135,15 +129,12 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-            </motion.div>
+            </ScrollInView>
           ))}
         </div>
 
         {/* Featured Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mt-16 grid gap-8 rounded-2xl border border-gray-800 bg-background p-8 md:grid-cols-3"
         >
           {[
@@ -166,12 +157,9 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
               icon: Users,
             },
           ].map((stat, index) => (
-            <motion.div
+            <ScrollInView
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 * index }}
+              delay={0.1 * index}
               className="flex items-center gap-4"
             >
               <div className="rounded-xl bg-theme-primary-500/10 p-3">
@@ -185,9 +173,9 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
                   {stat.label}
                 </div>
               </div>
-            </motion.div>
+            </ScrollInView>
           ))}
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

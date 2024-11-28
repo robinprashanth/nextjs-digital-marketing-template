@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/tooltip";
 import type { PricingPlan } from "@/types";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -21,10 +22,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
     billingPeriod === "monthly" ? plan.monthlyPrice : plan.yearlyPrice;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+    <ScrollInView
       className={`relative rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-gray-800 ${
         plan.isPopular ? "ring-2 ring-theme-primary-500" : ""
       }`}
@@ -120,6 +118,6 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
       >
         {plan.cta.text}
       </Button>
-    </motion.div>
+    </ScrollInView>
   );
 };

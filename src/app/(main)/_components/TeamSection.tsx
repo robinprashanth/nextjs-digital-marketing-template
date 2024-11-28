@@ -1,10 +1,10 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
 import { Twitter, Github, Dribbble } from "lucide-react";
 import { TeamMember } from "@/types";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const socialIcons = {
   twitter: Twitter,
@@ -52,10 +52,7 @@ const teamMembers: TeamMember[] = [
 ];
 
 const TeamCard: FC<{ member: TeamMember }> = ({ member }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+  <ScrollInView
     className="group relative overflow-hidden rounded-2xl bg-white p-4 shadow-lg transition-all hover:shadow-xl dark:bg-gray-800"
   >
     {/* Image Container */}
@@ -105,7 +102,7 @@ const TeamCard: FC<{ member: TeamMember }> = ({ member }) => (
         ))}
       </div>
     </div>
-  </motion.div>
+  </ScrollInView>
 );
 
 export const TeamSection: FC = () => {
@@ -113,10 +110,7 @@ export const TeamSection: FC = () => {
     <section className="bg-gray-50 py-24 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -129,7 +123,7 @@ export const TeamSection: FC = () => {
             We bring together expertise across strategy, design, and technology
             to deliver exceptional results for our clients.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Team Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -139,10 +133,7 @@ export const TeamSection: FC = () => {
         </div>
 
         {/* Join the Team CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-blue-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">Join Our Team</h3>
@@ -154,7 +145,7 @@ export const TeamSection: FC = () => {
           <Button variant="white-action" size="fluid" rounded="full">
             View Open Positions
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

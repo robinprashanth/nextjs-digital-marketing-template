@@ -2,6 +2,7 @@
 import { FC } from "react";
 import { motion } from "motion/react";
 import { ServiceHeroProps } from "@/types";
+import { ScrollInView } from "../motion/ScrollInView";
 
 // Service Hero Component
 export const ServiceHero: FC<ServiceHeroProps> = ({
@@ -19,9 +20,7 @@ export const ServiceHero: FC<ServiceHeroProps> = ({
 
     <div className="container relative mx-auto px-4 py-24 sm:px-6">
       <div className="grid gap-12 md:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+        <ScrollInView
           className="flex flex-col justify-center"
         >
           <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
@@ -46,7 +45,7 @@ export const ServiceHero: FC<ServiceHeroProps> = ({
               Learn More
             </a>
           </div>
-        </motion.div>
+        </ScrollInView>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

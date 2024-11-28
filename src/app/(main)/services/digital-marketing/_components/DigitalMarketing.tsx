@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import {
   BarChart,
   Users,
@@ -27,6 +26,7 @@ import {
 } from "../data/content";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const iconMap = {
   BarChart,
@@ -64,9 +64,7 @@ export const DigitalMarketing: FC = () => {
 
         {/* Content */}
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="max-w-4xl"
           >
             <div className="mb-6 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1 text-sm text-theme-primary-400">
@@ -85,11 +83,9 @@ export const DigitalMarketing: FC = () => {
             {/* Metrics Grid */}
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((metric, index) => (
-                <motion.div
+                <ScrollInView
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
                   <p className="text-sm text-theme-neutral-400">{metric.label}</p>
@@ -100,20 +96,17 @@ export const DigitalMarketing: FC = () => {
                     <ArrowUpRight className="h-4 w-4" />
                     {metric.change}
                   </p>
-                </motion.div>
+                </ScrollInView>
               ))}
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="bg-white py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -128,19 +121,16 @@ export const DigitalMarketing: FC = () => {
               Integrated marketing strategies that drive growth across all
               digital channels and platforms.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => {
               const IconComponent =
                 iconMap[service.icon as keyof typeof iconMap];
               return (
-                <motion.div
+                <ScrollInView
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                 delay={index * 0.1}
                   className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800"
                 >
                   <div className="mb-6 inline-block rounded-2xl bg-theme-primary-500/10 p-3 dark:bg-theme-primary-500/5">
@@ -167,7 +157,7 @@ export const DigitalMarketing: FC = () => {
                   </ul>
 
                   <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -177,10 +167,7 @@ export const DigitalMarketing: FC = () => {
       {/* Platforms Section */}
       <section className="bg-gray-50 py-24 dark:bg-gray-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -191,19 +178,16 @@ export const DigitalMarketing: FC = () => {
               <br />
               Excellence
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-6 md:grid-cols-4">
             {platforms.map((platform, index) => {
               const IconComponent =
                 iconMap[platform.icon as keyof typeof iconMap];
               return (
-                <motion.div
+                <ScrollInView
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  delay={index * 0.1}
                   className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
                 >
                   <div className="mb-4 rounded-xl bg-theme-primary-500/10 p-2 dark:bg-theme-primary-500/5">
@@ -215,7 +199,7 @@ export const DigitalMarketing: FC = () => {
                   <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {platform.description}
                   </p>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -225,10 +209,7 @@ export const DigitalMarketing: FC = () => {
       {/* Success Stories Section */}
       <section className="bg-white py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -243,16 +224,13 @@ export const DigitalMarketing: FC = () => {
               See how our digital marketing strategies have transformed
               businesses across different industries.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
-              <motion.div
+              <ScrollInView
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
                 className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800"
               >
                 <div
@@ -282,7 +260,7 @@ export const DigitalMarketing: FC = () => {
                 </div>
 
                 <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -291,10 +269,7 @@ export const DigitalMarketing: FC = () => {
       {/* Process Section */}
       <section className="relative overflow-hidden bg-navy py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-400 to-pink-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -305,16 +280,13 @@ export const DigitalMarketing: FC = () => {
               <br />
               Digital Success
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
-              <motion.div
+              <ScrollInView
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
@@ -329,7 +301,7 @@ export const DigitalMarketing: FC = () => {
                 {index < processSteps.length - 1 && (
                   <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-theme-primary-400 to-transparent md:block" />
                 )}
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -338,10 +310,7 @@ export const DigitalMarketing: FC = () => {
       {/* Features Grid */}
       <section className="bg-white py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -356,19 +325,16 @@ export const DigitalMarketing: FC = () => {
               Cutting-edge features and tools to maximize your marketing
               performance.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => {
               const IconComponent =
                 iconMap[feature.icon as keyof typeof iconMap];
               return (
-                <motion.div
+                <ScrollInView
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  delay={index * 0.1}
                   className="group cursor-pointer"
                 >
                   <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800">
@@ -387,7 +353,7 @@ export const DigitalMarketing: FC = () => {
 
                     <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
                   </div>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -397,10 +363,7 @@ export const DigitalMarketing: FC = () => {
       {/* CTA Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
@@ -418,7 +381,7 @@ export const DigitalMarketing: FC = () => {
                 <ArrowRight className="transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
     </main>

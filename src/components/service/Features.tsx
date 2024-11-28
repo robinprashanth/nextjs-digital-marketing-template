@@ -1,15 +1,12 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import { FeatureProps } from "@/types";
+import { ScrollInView } from "../motion/ScrollInView";
 
 export const Features: FC<{ features: FeatureProps[] }> = ({ features }) => (
   <section className="border-t border-gray-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
       >
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -22,16 +19,13 @@ export const Features: FC<{ features: FeatureProps[] }> = ({ features }) => (
           </span>{" "}
           & Tools
         </h2>
-      </motion.div>
+      </ScrollInView>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+          <ScrollInView
+          key={index}
+          delay={ index * 0.1}
             className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
           >
             <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
@@ -41,7 +35,7 @@ export const Features: FC<{ features: FeatureProps[] }> = ({ features }) => (
               {feature.title}
             </h3>
             <p className="text-muted-foreground">{feature.description}</p>
-          </motion.div>
+          </ScrollInView>
         ))}
       </div>
     </div>

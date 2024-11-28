@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingShape } from "./hero/FloatingShape";
@@ -8,6 +7,9 @@ import { ClientAvatar } from "./hero/ClientAvatar";
 import { clientAvatars, stats, testimonial } from "./hero/heroData";
 import { TestimonialCard } from "./hero/TestimonialCard";
 import { StatCard } from "./hero/StatCard";
+import { FadeIn } from "@/components/motion/FadeIn";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { FadeInStagger } from "@/components/motion/FadeInStagger";
 
 export const HeroSection: FC = () => {
   return (
@@ -55,68 +57,58 @@ export const HeroSection: FC = () => {
       </FloatingShape>
 
       <div className="container relative mx-auto flex h-full items-center px-4 sm:px-6">
-        {/* Main Content */}
         <div className="relative max-w-[90%] py-20 lg:max-w-[60%]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 inline-block rounded-full bg-red-500/10 px-4 py-1 text-sm text-red-400"
-          >
+          {/* Notice FadeIn is not inside FadeInStagger */}
+          <FadeIn className="mb-6 inline-block rounded-full bg-red-500/10 px-4 py-1 text-sm text-red-400">
             Leading Digital Marketing Agency
-          </motion.div>
+          </FadeIn>
 
           <div className="space-y-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="space-y-2"
-            >
-              <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-                <span className="text-white">ELEVATE</span>
-                <br />
-                <span className="text-theme-primary-400">YOUR DIGITAL</span>
-                <br />
-                <span className="scale-105 text-orange-400">PRESENCE</span>
-                <br />
-                <span className="text-white">STRATEGICALLY</span>
-              </h1>
-            </motion.div>
+            {/* FadeInStagger for grouped animations */}
+            <FadeInStagger delayStep={0.1} initialDelay={0.2}>
+              {/* Each FadeInStaggerItem will animate in sequence */}
+              <FadeInStaggerItem>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+                  <span className="text-white">ELEVATE</span>
+                  <br />
+                  <span className="text-theme-primary-400">YOUR DIGITAL</span>
+                  <br />
+                  <span className="scale-105 text-orange-400">PRESENCE</span>
+                  <br />
+                  <span className="text-white">STRATEGICALLY</span>
+                </h1>
+              </FadeInStaggerItem>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mt-8 max-w-xl text-lg text-theme-neutral-400"
-            >
-              Transform your brand with data-driven strategies, innovative
-              solutions, and measurable results that drive real business growth.
-            </motion.p>
+              <FadeInStaggerItem>
+                <p className="mt-8 max-w-xl text-lg text-theme-neutral-400">
+                  Transform your brand with data-driven strategies, innovative
+                  solutions, and measurable results that drive real business growth.
+                </p>
+              </FadeInStaggerItem>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mt-10 flex flex-wrap items-center gap-6"
-            >
-              <Button
-                size="lg"
-                className="h-14 rounded-full bg-white px-8 text-black hover:bg-gray-100"
-              >
-                GET IN TOUCH <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <FadeInStaggerItem>
+                <div className="mt-10 flex flex-wrap items-center gap-6">
+                  <Button
+                    size="lg"
+                    className="h-14 rounded-full bg-white px-8 text-black hover:bg-gray-100"
+                  >
+                    GET IN TOUCH <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
 
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-3">
-                  {clientAvatars.map((avatar, i) => (
-                    <ClientAvatar key={i} {...avatar} index={i} />
-                  ))}
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-3">
+                      {clientAvatars.map((avatar, i) => (
+                        <ClientAvatar key={i} {...avatar} index={i} />
+                      ))}
+                    </div>
+                    <div className="text-sm">
+                      <span className="font-bold text-white">500+</span>{" "}
+                      <span className="text-theme-neutral-400">Happy Clients</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm">
-                  <span className="font-bold text-white">500+</span>{" "}
-                  <span className="text-theme-neutral-400">Happy Clients</span>
-                </div>
-              </div>
-            </motion.div>
+              </FadeInStaggerItem>
+            </FadeInStagger>
           </div>
         </div>
 

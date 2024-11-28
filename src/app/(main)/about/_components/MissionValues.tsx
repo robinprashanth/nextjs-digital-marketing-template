@@ -1,9 +1,9 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import { Target, Heart, Users, Lightbulb, Shield, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface ValueCardProps {
   icon: React.ReactNode;
@@ -18,11 +18,7 @@ const ValueCard: FC<ValueCardProps> = ({
   description,
   delay = 0,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
+  <ScrollInView delay={delay} duration={0.5}
     className="group relative"
   >
     <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
@@ -35,7 +31,7 @@ const ValueCard: FC<ValueCardProps> = ({
       <h3 className="mb-2 text-xl font-semibold text-foreground">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
     </div>
-  </motion.div>
+  </ScrollInView>
 );
 
 export const MissionValues: FC = () => {
@@ -82,10 +78,7 @@ export const MissionValues: FC = () => {
     <section className="relative border-t border-gray-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -102,13 +95,10 @@ export const MissionValues: FC = () => {
             solutions that drive growth and create lasting impact. We&apos;re
             guided by core values that define who we are and how we work.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Mission Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-4xl"
         >
           <div className="rounded-2xl border border-gray-800 bg-card p-8 text-center md:p-12">
@@ -122,7 +112,7 @@ export const MissionValues: FC = () => {
               satisfaction.&ldquo;
             </p>
           </div>
-        </motion.div>
+        </ScrollInView>
 
         {/* Values Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -138,11 +128,8 @@ export const MissionValues: FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+        <ScrollInView
+          delay={0.6}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <p className="mb-6 text-lg text-muted-foreground">
@@ -154,7 +141,7 @@ export const MissionValues: FC = () => {
               Partner With Us
             </Link>
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

@@ -1,17 +1,14 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import { MetricProps } from "@/types";
+import { ScrollInView } from "../motion/ScrollInView";
 
 export const MetricsDashboard: FC<{ metrics: MetricProps[] }> = ({
   metrics,
 }) => (
   <section className="border-t border-gray-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
       >
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -23,16 +20,13 @@ export const MetricsDashboard: FC<{ metrics: MetricProps[] }> = ({
             Success
           </span>
         </h2>
-      </motion.div>
+      </ScrollInView>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {metrics.map((metric, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+          <ScrollInView
+          key={index}
+          delay={ index * 0.1}
             className="rounded-2xl border border-gray-800 bg-card p-6"
           >
             <div className="mb-4 flex items-center justify-between">
@@ -53,7 +47,7 @@ export const MetricsDashboard: FC<{ metrics: MetricProps[] }> = ({
             <div className="mt-1 text-sm text-muted-foreground">
               {metric.label}
             </div>
-          </motion.div>
+          </ScrollInView>
         ))}
       </div>
     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { FC } from "react";
-import { motion } from "motion/react";
 import {
   Check,
   Trophy,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface Statistic {
   value: string;
@@ -37,11 +37,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
   stats,
   index,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1 }}
+  <ScrollInView  delay={ index * 0.1}
     className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
@@ -63,7 +59,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
         ))}
       </div>
     )}
-  </motion.div>
+  </ScrollInView>
 );
 
 export const WhyChooseUs: FC = () => {
@@ -134,10 +130,7 @@ export const WhyChooseUs: FC = () => {
     <section className="relative border-t border-gray-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/40 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -155,7 +148,7 @@ export const WhyChooseUs: FC = () => {
             deliver exceptional results that drive your business forward in the
             digital age.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Features Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -165,10 +158,7 @@ export const WhyChooseUs: FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <Button variant="cta" size="fluid" asChild>
@@ -176,7 +166,7 @@ export const WhyChooseUs: FC = () => {
               Start Your Digital Journey
             </Link>
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import type { CaseStudy } from "@/types";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface CaseStudiesProps {
   initialCaseStudies: CaseStudy[];
@@ -118,10 +119,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
     <section className="bg-gray-50 py-24 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -137,7 +135,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
             we&apos;ve helped businesses achieve exceptional growth through
             innovative digital strategies.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Category Filter */}
         <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
@@ -169,10 +167,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
         </motion.div>
 
         {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mt-16 text-center"
         >
           <Button
@@ -184,7 +179,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
           >
             View All Case Studies
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

@@ -1,10 +1,10 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface TeamMember {
   name: string;
@@ -32,11 +32,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
   socials,
   index,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1 }}
+  <ScrollInView  delay={ index * 0.1}
     className="group relative"
   >
     <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
@@ -98,7 +94,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
         </div>
       </div>
     </div>
-  </motion.div>
+  </ScrollInView>
 );
 
 export const TeamSection: FC = () => {
@@ -152,10 +148,7 @@ export const TeamSection: FC = () => {
     <section className="relative border-t border-gray-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -172,7 +165,7 @@ export const TeamSection: FC = () => {
             A diverse team of passionate individuals dedicated to transforming
             businesses through innovative digital solutions.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Department Filter */}
         <div className="mb-12 flex flex-wrap justify-center gap-2">
@@ -195,10 +188,7 @@ export const TeamSection: FC = () => {
         </div>
 
         {/* Join the Team CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mt-20 max-w-3xl rounded-2xl border border-gray-800 bg-card p-8 text-center md:p-12"
         >
           <h3 className="mb-4 text-2xl font-bold text-foreground">
@@ -214,7 +204,7 @@ export const TeamSection: FC = () => {
               View Open Positions
             </Link>
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

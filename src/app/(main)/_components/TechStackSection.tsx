@@ -5,6 +5,7 @@ import { TechCard } from "./TechStack/TechCard";
 import { TechCategories } from "./TechStack/TechCategories";
 import { techTools } from "./TechStack/techTools";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const TechStackSection: FC = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -26,10 +27,7 @@ export const TechStackSection: FC = () => {
     <section className="bg-gray-50 py-24 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -42,7 +40,7 @@ export const TechStackSection: FC = () => {
             We leverage industry-leading tools and platforms to deliver
             exceptional results for our clients.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Categories Filter */}
         <div className="mb-12">
@@ -61,10 +59,7 @@ export const TechStackSection: FC = () => {
         </motion.div>
 
         {/* Certifications CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-blue-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">Certified Excellence</h3>
@@ -75,7 +70,7 @@ export const TechStackSection: FC = () => {
           <Button variant="white-action" size="fluid" rounded="full">
             View All Certifications
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
 import { CaseStudy } from "@/types";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
@@ -11,11 +12,8 @@ interface CaseStudyCardProps {
 }
 
 export const CaseStudyCard: FC<CaseStudyCardProps> = ({ caseStudy, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1 }}
+  <ScrollInView
+  delay={index * 0.1 }
     className="group cursor-pointer"
   >
     <Link href={`/case-studies/${caseStudy.slug}`}>
@@ -81,5 +79,5 @@ export const CaseStudyCard: FC<CaseStudyCardProps> = ({ caseStudy, index }) => (
         </div>
       </div>
     </Link>
-  </motion.div>
+  </ScrollInView>
 );

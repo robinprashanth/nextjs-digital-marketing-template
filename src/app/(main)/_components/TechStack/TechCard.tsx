@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import type { TechTool } from "@/types";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface TechCardProps {
   tool: TechTool;
@@ -11,11 +11,8 @@ interface TechCardProps {
 }
 
 export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay }}
-    viewport={{ once: true }}
+  <ScrollInView
+  delay={delay}
     className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:bg-gray-800"
   >
     <div className="flex items-start justify-between">
@@ -55,5 +52,5 @@ export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
       </div>
       <Progress value={tool.expertise} className="mt-2" />
     </div>
-  </motion.div>
+  </ScrollInView>
 );

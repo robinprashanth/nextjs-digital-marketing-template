@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 // Form Schema
 const contactFormSchema = z.object({
@@ -87,9 +88,7 @@ const Contact: FC = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)]">
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="mx-auto max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
@@ -104,7 +103,7 @@ const Contact: FC = () => {
               Ready to transform your digital presence? We&apos;re here to help
               you achieve your business goals.
             </p>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Wave Divider */}
@@ -438,10 +437,7 @@ const Contact: FC = () => {
       {/* Map Section */}
       <section className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-foreground">
@@ -450,12 +446,9 @@ const Contact: FC = () => {
             <p className="text-muted-foreground">
               Come by and say hello at our office headquarters.
             </p>
-          </motion.div>
+          </ScrollInView>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="relative aspect-video overflow-hidden rounded-2xl border border-gray-800"
           >
             <iframe
@@ -468,17 +461,14 @@ const Contact: FC = () => {
               referrerPolicy="no-referrer-when-downgrade"
               className="grayscale"
             />
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="border-t border-gray-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-foreground">
@@ -487,7 +477,7 @@ const Contact: FC = () => {
             <p className="text-muted-foreground">
               Have questions? We&apos;ve got answers.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="mx-auto grid max-w-3xl gap-6">
             {[
@@ -512,19 +502,16 @@ const Contact: FC = () => {
                   "Yes, we&apos;re happy to sign NDAs to protect your confidential information and project details.",
               },
             ].map((faq, index) => (
-              <motion.div
+              <ScrollInView
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
                 className="rounded-2xl border border-gray-800 bg-background p-6"
               >
                 <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {faq.question}
                 </h3>
                 <p className="text-muted-foreground">{faq.answer}</p>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>

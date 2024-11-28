@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import {
   Search,
   BarChart2,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface ProcessStep {
   icon: typeof Search;
@@ -38,11 +38,7 @@ const ProcessCard: FC<ProcessCardProps> = ({
   index,
   totalSteps,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1 }}
+  <ScrollInView  delay={ index * 0.1}
     className="relative flex flex-col md:flex-row md:gap-8"
   >
     {/* Left side with icon and connector */}
@@ -90,7 +86,7 @@ const ProcessCard: FC<ProcessCardProps> = ({
         </div>
       </div>
     </div>
-  </motion.div>
+  </ScrollInView>
 );
 
 export const OurProcess: FC = () => {
@@ -185,10 +181,7 @@ export const OurProcess: FC = () => {
     <section className="relative border-t border-gray-800 py-24">
       <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -205,7 +198,7 @@ export const OurProcess: FC = () => {
             A systematic approach to digital marketing that ensures consistent
             results and sustainable growth for your business.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Process Steps */}
         <div className="relative mx-auto max-w-4xl">
@@ -220,10 +213,7 @@ export const OurProcess: FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <Button variant="cta" size="fluid" asChild>
@@ -231,7 +221,7 @@ export const OurProcess: FC = () => {
               Start Your Project
             </Link>
           </Button>
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

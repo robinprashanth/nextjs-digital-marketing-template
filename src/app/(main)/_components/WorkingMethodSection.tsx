@@ -4,6 +4,7 @@ import { motion } from "motion/react"; // Removed useInView since we're using wh
 import { LineChart, Target, Users, BarChart3 } from "lucide-react";
 import Image from "next/image";
 import { MethodStepProps, WorkingStatCardProps } from "@/types";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const ExecutionSVG = () => (
   <svg viewBox="0 0 240 180" className="h-full w-full">
@@ -213,10 +214,7 @@ export const WorkingMethodSection: FC = () => {
     <section className="overflow-hidden bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mb-16 max-w-2xl"
         >
           <span className="mb-4 block bg-gradient-to-r from-red-500 to-theme-primary-500 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -232,7 +230,7 @@ export const WorkingMethodSection: FC = () => {
             technical expertise to deliver exceptional results in the digital
             landscape.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Method Steps */}
         <div className="mx-auto max-w-5xl">
@@ -242,11 +240,8 @@ export const WorkingMethodSection: FC = () => {
         </div>
 
         {/* Stats Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+        <ScrollInView
+        delay={ 0.5}
           className="mt-20 grid gap-6 md:grid-cols-3"
         >
           {stats.map((stat, index) => (
@@ -262,7 +257,7 @@ export const WorkingMethodSection: FC = () => {
               <div className="text-sm text-theme-neutral-600">{stat.description}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ import {
 import type { SearchState } from "../data/content";
 import { pageConfig, categories, faqs, popularSearches } from "../data/content";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const FAQs: FC = () => {
   const [searchState, setSearchState] = useState<SearchState>({
@@ -42,9 +43,7 @@ export const FAQs: FC = () => {
         </div>
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="mx-auto max-w-3xl text-center"
           >
             {/* Title Badge */}
@@ -97,7 +96,7 @@ export const FAQs: FC = () => {
                 </div>
               )}
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Wave Divider */}
@@ -153,10 +152,8 @@ export const FAQs: FC = () => {
           <div className="mt-16">
             <div className="mx-auto max-w-3xl space-y-4">
               {filteredFAQs.map((faq) => (
-                <motion.div
+                <ScrollInView
                   key={faq.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
                   className="overflow-hidden rounded-2xl border border-gray-800 bg-card"
                 >
                   <Button
@@ -178,16 +175,13 @@ export const FAQs: FC = () => {
                       <p className="text-muted-foreground">{faq.answer}</p>
                     </div>
                   )}
-                </motion.div>
+                </ScrollInView>
               ))}
             </div>
           </div>
 
           {/* Still Have Questions Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mt-24 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-theme-primary-600 p-8 text-center"
           >
             <h2 className="text-2xl font-bold text-white">
@@ -207,7 +201,7 @@ export const FAQs: FC = () => {
                 Contact Support
               </Button>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
     </main>

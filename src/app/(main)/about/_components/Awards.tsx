@@ -10,6 +10,7 @@ import {
   ExternalLink,
   ArrowUpRight,
 } from "lucide-react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface AwardType {
   name: string;
@@ -48,11 +49,7 @@ const AwardCard: FC<AwardCardProps> = ({
   category,
   index,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.1 * index }}
+  <ScrollInView delay={ 0.1 * index}
     className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     <div className="flex items-start justify-between gap-4">
@@ -76,7 +73,7 @@ const AwardCard: FC<AwardCardProps> = ({
       <Calendar className="h-4 w-4" />
       <span>{date}</span>
     </div>
-  </motion.div>
+  </ScrollInView>
 );
 
 const CertificationCard: FC<Certification & { index: number }> = ({
@@ -86,11 +83,7 @@ const CertificationCard: FC<Certification & { index: number }> = ({
   validUntil,
   index,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.1 * index }}
+  <ScrollInView delay={ 0.1 * index}
     className="flex items-center gap-4 rounded-xl border border-gray-800 bg-card p-4"
   >
     <div className="relative h-12 w-12 overflow-hidden rounded-lg">
@@ -103,7 +96,7 @@ const CertificationCard: FC<Certification & { index: number }> = ({
     <div className="text-right text-sm text-muted-foreground">
       Valid until {validUntil}
     </div>
-  </motion.div>
+  </ScrollInView>
 );
 
 const PressFeatureCard: FC<PressFeature & { index: number }> = ({
@@ -218,10 +211,7 @@ export const Awards: FC = () => {
     <section className="relative border-t border-gray-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -238,7 +228,7 @@ export const Awards: FC = () => {
             Industry recognition and accolades that reflect our commitment to
             excellence and innovation in digital marketing.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Awards Grid */}
         <div className="mb-20">
@@ -277,10 +267,7 @@ export const Awards: FC = () => {
         </div>
 
         {/* Achievement Metrics */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-8 rounded-2xl border border-gray-800 bg-card p-8 md:grid-cols-4"
         >
           {[
@@ -289,12 +276,8 @@ export const Awards: FC = () => {
             { icon: Award, label: "Certifications", value: "25+" },
             { icon: ExternalLink, label: "Features", value: "75+" },
           ].map((metric, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 * index }}
+            <ScrollInView delay={ 0.1 * index}
+            key={index}
               className="text-center"
             >
               <metric.icon className="mx-auto mb-2 h-6 w-6 text-theme-primary-400" />
@@ -304,9 +287,9 @@ export const Awards: FC = () => {
               <div className="text-sm text-muted-foreground">
                 {metric.label}
               </div>
-            </motion.div>
+            </ScrollInView>
           ))}
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import {
   LineChart,
   Line,
@@ -13,6 +12,7 @@ import {
   Area,
 } from "recharts";
 import type { ChartConfig, PerformanceData } from "../data/content";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface PerformanceChartProps {
   config: ChartConfig;
@@ -30,9 +30,7 @@ export const PerformanceChart: FC<PerformanceChartProps> = ({
   const ChartComponent = type === "line" ? LineChart : AreaChart;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+    <ScrollInView
       className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
     >
       <div className="mb-6 flex items-center justify-between">
@@ -87,6 +85,6 @@ export const PerformanceChart: FC<PerformanceChartProps> = ({
           </ChartComponent>
         </ResponsiveContainer>
       </div>
-    </motion.div>
+    </ScrollInView>
   );
 };

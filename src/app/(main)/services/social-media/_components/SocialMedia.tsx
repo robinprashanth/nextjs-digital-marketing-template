@@ -1,7 +1,6 @@
 // /app/services/social-media/_components/SocialMediaPage.tsx
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import {
   Instagram,
   Linkedin,
@@ -38,6 +37,7 @@ import {
 } from "../data/content";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const iconMap = {
   Instagram,
@@ -82,9 +82,7 @@ export const SocialMedia: FC = () => {
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-blue-500/20 blur-xl" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="max-w-4xl"
           >
             <div className="mb-6 inline-block rounded-full bg-indigo-500/10 px-4 py-1 text-sm text-indigo-400">
@@ -102,11 +100,9 @@ export const SocialMedia: FC = () => {
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((metric, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView
+                key={index}
+                delay={ index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
                   <p className="text-sm text-theme-neutral-400">{metric.label}</p>
@@ -117,20 +113,17 @@ export const SocialMedia: FC = () => {
                     <ArrowUpRight className="h-4 w-4" />
                     {metric.change}
                   </p>
-                </motion.div>
+                </ScrollInView>
               ))}
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 
       {/* Platforms Grid */}
       <section className="bg-white py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -144,19 +137,16 @@ export const SocialMedia: FC = () => {
             <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Comprehensive social media management across all major platforms.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {platforms.map((platform, index) => {
               const IconComponent =
                 iconMap[platform.icon as keyof typeof iconMap];
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView
+                key={index}
+                delay={ index * 0.1}
                   className="group cursor-pointer"
                 >
                   <div
@@ -185,7 +175,7 @@ export const SocialMedia: FC = () => {
 
                     <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-white/10 blur-xl transition-all duration-500 group-hover:scale-150" />
                   </div>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -195,10 +185,7 @@ export const SocialMedia: FC = () => {
       {/* Services Section */}
       <section className="bg-gray-50 py-24 dark:bg-gray-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="bg- 600 mb-4 block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -213,16 +200,13 @@ export const SocialMedia: FC = () => {
               Full-service social media management tailored to your business
               goals.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+             <ScrollInView
+             key={index}
+             delay={ index * 0.1}
                 className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800"
               >
                 <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
@@ -256,7 +240,7 @@ export const SocialMedia: FC = () => {
                     );
                   })}
                 </div>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -265,10 +249,7 @@ export const SocialMedia: FC = () => {
       {/* Success Stories Section */}
       <section className="bg-white py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -279,16 +260,13 @@ export const SocialMedia: FC = () => {
               <br />
               Real Brands
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+              <ScrollInView
+              key={index}
+              delay={ index * 0.1}
                 className="group relative overflow-hidden rounded-3xl"
               >
                 <div className="relative aspect-[4/5]">
@@ -328,7 +306,7 @@ export const SocialMedia: FC = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -337,10 +315,7 @@ export const SocialMedia: FC = () => {
       {/* Process Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-indigo-400 to-blue-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -351,16 +326,13 @@ export const SocialMedia: FC = () => {
               <br />
               Media Success
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+             <ScrollInView
+             key={index}
+             delay={ index * 0.1}
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
@@ -375,7 +347,7 @@ export const SocialMedia: FC = () => {
                 {index < processSteps.length - 1 && (
                   <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-indigo-400 to-transparent md:block" />
                 )}
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -384,10 +356,7 @@ export const SocialMedia: FC = () => {
       {/* Tools Section */}
       <section className="bg-white py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -396,18 +365,15 @@ export const SocialMedia: FC = () => {
             <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
               Professional Tools We Use
             </h2>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-6 md:grid-cols-4">
             {tools.map((tool, index) => {
               const IconComponent = iconMap[tool.icon as keyof typeof iconMap];
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView
+                key={index}
+                delay={ index * 0.1}
                   className="rounded-2xl bg-gray-50 p-6 dark:bg-gray-800"
                 >
                   <div className="mb-4 rounded-xl bg-indigo-500/10 p-2 dark:bg-indigo-500/5">
@@ -419,7 +385,7 @@ export const SocialMedia: FC = () => {
                   <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {tool.description}
                   </p>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -429,10 +395,7 @@ export const SocialMedia: FC = () => {
       {/* CTA Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
@@ -449,7 +412,7 @@ export const SocialMedia: FC = () => {
                 Schedule a Strategy Call
               </Link>
             </Button>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
     </main>

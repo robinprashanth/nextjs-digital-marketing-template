@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { PropsWithChildren, ReactNode } from "react";
 import { LucideIcon } from "lucide-react";
 
 export interface FloatingShapeProps {
@@ -360,4 +360,11 @@ export interface MegaMenuSection {
   title: string;
   items: MegaMenuItem[];
   layout?: "grid" | "list";
+}
+
+export interface AnimationProps extends PropsWithChildren {
+  className?: string;
+  y?: number;
+  x?: number;
+  duration?: number;
 }

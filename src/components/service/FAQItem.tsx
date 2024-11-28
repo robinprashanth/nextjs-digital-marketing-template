@@ -1,8 +1,8 @@
 "use client";
 import React, { FC } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
 import { Check, ChevronDown } from "lucide-react";
+import { ScrollInView } from "../motion/ScrollInView";
 
 // Additional Types
 interface PricingTier {
@@ -62,10 +62,7 @@ const FAQItem: FC<FAQ & { isOpen: boolean; toggle: () => void }> = ({
 export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
   <section className="border-t border-gray-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
       >
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -81,16 +78,13 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
         <p className="text-lg text-muted-foreground">
           Choose the perfect plan for your business needs
         </p>
-      </motion.div>
+      </ScrollInView>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+           <ScrollInView
+           key={index}
+           delay={ index * 0.1}
             className={`relative rounded-2xl border ${
               tier.isPopular
                 ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
@@ -132,7 +126,7 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
             >
               Get Started
             </button>
-          </motion.div>
+          </ScrollInView>
         ))}
       </div>
     </div>
@@ -143,10 +137,7 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
 export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
   <section className="border-t border-gray-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
       >
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -159,15 +150,13 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
           </span>{" "}
           Stories
         </h2>
-      </motion.div>
+      </ScrollInView>
 
       <div className="grid gap-12">
         {cases.map((study, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
+          key={index}
+          delay={ index * 0.1}
             className="grid gap-8 rounded-2xl border border-gray-800 bg-card p-8 md:grid-cols-2"
           >
             <div>
@@ -218,7 +207,7 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
                 className="object-cover"
               />
             </div>
-          </motion.div>
+          </ScrollInView>
         ))}
       </div>
     </div>
@@ -232,10 +221,7 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
   return (
     <section className="border-t border-gray-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-16 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -247,7 +233,7 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
               Questions
             </span>
           </h2>
-        </motion.div>
+        </ScrollInView>
 
         <div className="mx-auto max-w-3xl">
           {faqs.map((faq, index) => (
@@ -268,10 +254,7 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
 export const CTA: FC = () => (
   <section className="border-t border-gray-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+      <ScrollInView
         className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
       >
         <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
@@ -295,7 +278,7 @@ export const CTA: FC = () => (
             Schedule a Call
           </a>
         </div>
-      </motion.div>
+      </ScrollInView>
     </div>
   </section>
 );

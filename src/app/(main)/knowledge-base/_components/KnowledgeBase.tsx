@@ -1,7 +1,6 @@
 "use client";
 
 import { FC, useState, useEffect } from "react";
-import { motion } from "motion/react";
 import { MessagesSquare, Video } from "lucide-react";
 import { SearchBar } from "./SearchBar";
 import { CategoryGrid } from "./CategoryGrid";
@@ -12,6 +11,7 @@ import { NewsletterSection } from "./NewsletterSection";
 import { KnowledgeArticle } from "@/types";
 import { categories } from "../data/categories";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface KnowledgeBaseProps {
   articles: KnowledgeArticle[];
@@ -100,10 +100,7 @@ export const KnowledgeBase: FC<KnowledgeBaseProps> = ({
       {/* Help Section */}
       <section className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -123,7 +120,7 @@ export const KnowledgeBase: FC<KnowledgeBaseProps> = ({
                 Schedule a Demo
               </Button>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 

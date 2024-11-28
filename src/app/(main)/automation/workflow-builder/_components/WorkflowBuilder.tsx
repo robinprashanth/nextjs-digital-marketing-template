@@ -10,6 +10,7 @@ import {
   workflowSteps,
   integrations,
 } from "../data/content";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const WorkflowBuilder: FC = () => {
   return (
@@ -29,29 +30,21 @@ export const WorkflowBuilder: FC = () => {
         </div>
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="mx-auto max-w-4xl text-center"
           >
             {/* Title Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+            <ScrollInView delay={0.1}
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2"
             >
               <Zap className="h-4 w-4 text-white" />
               <span className="text-sm font-medium text-white">
                 WORKFLOW AUTOMATION
               </span>
-            </motion.div>
+            </ScrollInView>
 
             {/* Main Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <ScrollInView delay={0.2}
               className="mt-12"
             >
               <h1 className="text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
@@ -59,24 +52,18 @@ export const WorkflowBuilder: FC = () => {
                 <br />
                 Marketing Workflows
               </h1>
-            </motion.div>
+            </ScrollInView>
 
             {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+            <ScrollInView delay={0.3}
               className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white/80"
             >
               Create sophisticated marketing automation workflows with our
               intuitive drag-and-drop builder. No coding required.
-            </motion.p>
+            </ScrollInView>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+            <ScrollInView delay={0.4}
               className="mt-12 flex flex-wrap items-center justify-center gap-4"
             >
               <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-4 transition-all hover:pr-12">
@@ -88,13 +75,10 @@ export const WorkflowBuilder: FC = () => {
               <button className="relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4">
                 <span className="font-semibold text-white">View Templates</span>
               </button>
-            </motion.div>
+            </ScrollInView>
 
             {/* Stats Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+            <ScrollInView delay={0.5}
               className="mx-auto mt-24 grid max-w-4xl grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4"
             >
               {workflowStats.map((stat, index) => (
@@ -120,18 +104,15 @@ export const WorkflowBuilder: FC = () => {
                   </div>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </ScrollInView>
+          </ScrollInView>
         </div>
       </section>
 
       {/* Templates Section */}
       <section className="relative py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+        <ScrollInView delay={0.5}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -144,19 +125,16 @@ export const WorkflowBuilder: FC = () => {
               Choose from our library of pre-built templates or create your own
               custom workflow
             </p>
-          </motion.div>
+          </ScrollInView>
 
           {/* Templates Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {workflowTemplates.map((template, index) => {
               const IconComponent = getIcon(template.icon);
               return (
-                <motion.div
-                  key={template.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView 
+                key={template.id} 
+                delay={index * 0.1} 
                   className="group cursor-pointer"
                 >
                   <div
@@ -184,7 +162,7 @@ export const WorkflowBuilder: FC = () => {
                     {/* Decorative Element */}
                     <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-white/10 blur-xl transition-all duration-500 group-hover:scale-150" />
                   </div>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -196,10 +174,8 @@ export const WorkflowBuilder: FC = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Features List */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+            <ScrollInView
+            x={-20}
               className="space-y-6"
             >
               <span className="text-sm font-semibold text-theme-primary-600">
@@ -219,12 +195,9 @@ export const WorkflowBuilder: FC = () => {
                 {features.map((feature, index) => {
                   const IconComponent = getIcon(feature.icon);
                   return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
+                    <ScrollInView
+                    key={index}
+                    delay={index * 0.1}
                       className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white p-6 dark:border-theme-neutral-700 dark:bg-gray-900"
                     >
                       <div
@@ -240,17 +213,14 @@ export const WorkflowBuilder: FC = () => {
                           {feature.description}
                         </p>
                       </div>
-                    </motion.div>
+                    </ScrollInView>
                   );
                 })}
               </div>
-            </motion.div>
+            </ScrollInView>
 
             {/* Process Steps */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+            <ScrollInView
               className="relative"
             >
               <div className="sticky top-24 space-y-8">
@@ -283,7 +253,7 @@ export const WorkflowBuilder: FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </ScrollInView>
           </div>
         </div>
       </section>
@@ -291,10 +261,7 @@ export const WorkflowBuilder: FC = () => {
       {/* Integrations Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -306,18 +273,15 @@ export const WorkflowBuilder: FC = () => {
             <p className="mt-4 text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
               Seamlessly integrate with popular marketing and business tools
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
             {integrations.map((integration, index) => {
               const IconComponent = getIcon(integration.icon);
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                <ScrollInView
+                key={index}
+                delay={index * 0.1}
                   className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-gray-900"
                 >
                   <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
@@ -326,7 +290,7 @@ export const WorkflowBuilder: FC = () => {
                   <h3 className="font-medium text-gray-900 dark:text-white">
                     {integration.name}
                   </h3>
-                </motion.div>
+                </ScrollInView>
               );
             })}
           </div>
@@ -336,10 +300,7 @@ export const WorkflowBuilder: FC = () => {
       {/* CTA Section */}
       <section className="relative overflow-hidden bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)] py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
@@ -357,7 +318,7 @@ export const WorkflowBuilder: FC = () => {
             >
               Get Started Now
             </motion.button>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Decorative Elements */}

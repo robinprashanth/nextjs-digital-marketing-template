@@ -2,6 +2,7 @@
 import { FC } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const Hero: FC = () => {
   return (
@@ -17,10 +18,7 @@ export const Hero: FC = () => {
         <div className="grid items-center gap-12 pt-12 md:grid-cols-2 md:gap-16">
           {/* Left Content */}
           <div className="relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+          <ScrollInView delay={0.6}
               className="space-y-6"
             >
               {/* Badge */}
@@ -64,12 +62,9 @@ export const Hero: FC = () => {
                   { number: "95%", text: "Client Satisfaction" },
                   { number: "150+", text: "Team Members" },
                 ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                    className="relative"
+                  <ScrollInView 
+                  className="relative"
+                  delay={ 0.4 + index * 0.1} key={index}  
                   >
                     <div className="relative z-10 text-3xl font-bold text-white md:text-4xl">
                       {stat.number}
@@ -78,10 +73,10 @@ export const Hero: FC = () => {
                       {stat.text}
                     </div>
                     <div className="absolute -left-4 top-0 h-16 w-16 rounded-full bg-theme-primary-500/10 blur-xl" />
-                  </motion.div>
+                  </ScrollInView>
                 ))}
               </div>
-            </motion.div>
+            </ScrollInView>
           </div>
 
           {/* Right Content */}
@@ -143,10 +138,7 @@ export const Hero: FC = () => {
             </motion.div>
 
             {/* Achievement Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+            <ScrollInView delay={ 0.7}
               className="absolute -bottom-6 left-1/2 z-10 -translate-x-1/2"
             >
               <div className="rounded-xl bg-[#1A1A2E]/80 p-4 shadow-lg backdrop-blur-sm">
@@ -172,7 +164,7 @@ export const Hero: FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </ScrollInView>
           </div>
         </div>
       </div>

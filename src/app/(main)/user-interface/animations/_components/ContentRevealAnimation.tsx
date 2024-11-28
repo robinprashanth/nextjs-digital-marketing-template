@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export function ContentRevealAnimation() {
   return (
@@ -7,10 +7,7 @@ export function ContentRevealAnimation() {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="overflow-hidden rounded-lg bg-theme-primary-500/10 p-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="space-y-4"
           >
             <div className="inline-flex rounded-full bg-theme-primary-500/10 px-4 py-1">
@@ -20,7 +17,7 @@ export function ContentRevealAnimation() {
             <p className="text-theme-neutral-600 dark:text-gray-300">
               Content description with nice reveal animation.
             </p>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         <div className="mt-4 rounded-lg bg-gray-900 p-4">

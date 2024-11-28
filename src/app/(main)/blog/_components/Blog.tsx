@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Search } from "lucide-react";
 import { BlogPost } from "@/types";
 import { BlogCard } from "./BlogCard";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface BlogsPage {
   initialPosts: BlogPost[];
@@ -75,9 +76,7 @@ export const Blogs: FC<BlogsPage> = ({ initialPosts }) => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="mx-auto max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
@@ -90,7 +89,7 @@ export const Blogs: FC<BlogsPage> = ({ initialPosts }) => {
               Explore our latest thoughts, strategies, and insights about
               digital marketing.
             </p>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Wave Divider */}
@@ -108,9 +107,7 @@ export const Blogs: FC<BlogsPage> = ({ initialPosts }) => {
       {/* Search and Filters */}
       <section className="relative -mt-20 pb-12">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="rounded-2xl border border-border bg-card p-6 md:p-8"
           >
             <div className="grid gap-6 md:grid-cols-2">
@@ -146,7 +143,7 @@ export const Blogs: FC<BlogsPage> = ({ initialPosts }) => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 

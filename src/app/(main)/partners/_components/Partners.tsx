@@ -17,6 +17,7 @@ import {
 import PartnersHero from "./PartnersHero";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface Partner {
   name: string;
@@ -168,11 +169,9 @@ const Partners: FC = () => {
             {partners
               .filter((partner) => partner.featured)
               .map((partner, index) => (
-                <motion.div
+                <ScrollInView
+                delay={index * 0.1}
                   key={partner.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
                   className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                 >
                   {/* Partner Level Badge */}
@@ -221,7 +220,7 @@ const Partners: FC = () => {
                     Learn More
                     <ArrowUpRight className="h-4 w-4" />
                   </Button>
-                </motion.div>
+                </ScrollInView>
               ))}
           </div>
         </div>
@@ -230,9 +229,7 @@ const Partners: FC = () => {
       {/* Partnership Levels */}
       <section className="border-t border-gray-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <ScrollInView
             viewport={{ once: true }}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
@@ -246,16 +243,13 @@ const Partners: FC = () => {
               Join our partner ecosystem and unlock exclusive benefits as you
               grow with us.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-3">
             {partnershipLevels.map((level, index) => (
-              <motion.div
+              <ScrollInView
                 key={level.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
                 className="rounded-2xl border border-gray-800 bg-background p-6"
               >
                 <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
@@ -278,7 +272,7 @@ const Partners: FC = () => {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -287,10 +281,7 @@ const Partners: FC = () => {
       {/* Benefits Section */}
       <section className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -302,7 +293,7 @@ const Partners: FC = () => {
             <p className="text-muted-foreground">
               Discover the advantages of joining our partner ecosystem.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -343,12 +334,9 @@ const Partners: FC = () => {
                   "Earn awards and certifications for your expertise and success.",
               },
             ].map((benefit, index) => (
-              <motion.div
+              <ScrollInView
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
                 className="rounded-2xl border border-gray-800 bg-card p-6"
               >
                 <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
@@ -358,7 +346,7 @@ const Partners: FC = () => {
                   {benefit.title}
                 </h3>
                 <p className="text-muted-foreground">{benefit.description}</p>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -367,10 +355,7 @@ const Partners: FC = () => {
       {/* CTA Section */}
       <section className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -390,17 +375,14 @@ const Partners: FC = () => {
                 </Link>
               </Button>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 
       {/* FAQs */}
       <section className="border-t border-gray-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -413,7 +395,7 @@ const Partners: FC = () => {
               Find answers to frequently asked questions about our partnership
               program.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="mx-auto grid max-w-3xl gap-6">
             {[
@@ -443,19 +425,16 @@ const Partners: FC = () => {
                   "Partners can advance through levels by meeting performance criteria, expanding certifications, and demonstrating consistent growth.",
               },
             ].map((faq, index) => (
-              <motion.div
+              <ScrollInView
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1 }
                 className="rounded-2xl border border-gray-800 bg-background p-6"
               >
                 <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {faq.question}
                 </h3>
                 <p className="text-muted-foreground">{faq.answer}</p>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>

@@ -1,6 +1,5 @@
 "use client";
 import React, { FC, useState } from "react";
-import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { TestimonialProps } from "@/types";
 import {
@@ -8,6 +7,7 @@ import {
   CompanyLogos,
 } from "@/components/SVG/TestimonialSVGs";
 import { TestimonialCard } from "@/components/TestimonialCard";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const testimonials: TestimonialProps[] = [
   {
@@ -64,10 +64,7 @@ export const TestimonialsSection: FC = () => {
 
       <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -80,7 +77,7 @@ export const TestimonialsSection: FC = () => {
             Discover how we&apos;ve helped businesses achieve their digital
             marketing goals and drive remarkable results.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Testimonials Carousel */}
         <div className="relative">
@@ -123,11 +120,8 @@ export const TestimonialsSection: FC = () => {
         </div>
 
         {/* Client Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+        <ScrollInView
+        delay={0.3}
           className="mt-16 grid grid-cols-2 gap-8 opacity-60 md:grid-cols-4 lg:grid-cols-6"
         >
           {testimonials.map((testimonial) => (
@@ -138,7 +132,7 @@ export const TestimonialsSection: FC = () => {
               {testimonial.companyLogo}
             </div>
           ))}
-        </motion.div>
+        </ScrollInView>
       </div>
     </section>
   );

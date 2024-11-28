@@ -12,6 +12,7 @@ import {
   Building2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface JobPosting {
   id: string;
@@ -206,9 +207,7 @@ const CurrentOpenings: FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="mx-auto max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
@@ -223,7 +222,7 @@ const CurrentOpenings: FC = () => {
               Be part of a team that&apos;s shaping the future of digital
               marketing. Explore our current opportunities below.
             </p>
-          </motion.div>
+          </ScrollInView>
         </div>
 
         {/* Wave Divider */}
@@ -244,9 +243,7 @@ const CurrentOpenings: FC = () => {
       {/* Search and Filters */}
       <section className="relative -mt-20 pb-12">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <ScrollInView
             className="rounded-2xl border border-gray-800 bg-card p-6 md:p-8"
           >
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -307,7 +304,7 @@ const CurrentOpenings: FC = () => {
                 </select>
               </div>
             </div>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
 
@@ -317,11 +314,9 @@ const CurrentOpenings: FC = () => {
           {filteredJobs.length > 0 ? (
             <div className="grid gap-6">
               {filteredJobs.map((job, index) => (
-                <motion.div
+                <ScrollInView
                   key={job.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  delay={index * 0.1}
                   className="group cursor-pointer rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                 >
                   <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -366,7 +361,7 @@ const CurrentOpenings: FC = () => {
                       </Button>
                     </div>
                   </div>
-                </motion.div>
+                </ScrollInView>
               ))}
             </div>
           ) : (
@@ -392,10 +387,7 @@ const CurrentOpenings: FC = () => {
       {/* Benefits Section */}
       <section className="border-t border-gray-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -408,7 +400,7 @@ const CurrentOpenings: FC = () => {
               We offer a comprehensive benefits package designed to support your
               growth, health, and work-life balance.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -449,12 +441,9 @@ const CurrentOpenings: FC = () => {
                   "Regular team building activities, annual retreats, and social events to foster strong relationships.",
               },
             ].map((benefit, index) => (
-              <motion.div
+              <ScrollInView
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                delay={index * 0.1}
                 className="rounded-2xl border border-gray-800 bg-background p-6"
               >
                 <div className="mb-4 w-fit rounded-xl bg-theme-primary-500/10 p-3">
@@ -464,7 +453,7 @@ const CurrentOpenings: FC = () => {
                   {benefit.title}
                 </h3>
                 <p className="text-muted-foreground">{benefit.description}</p>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -473,10 +462,7 @@ const CurrentOpenings: FC = () => {
       {/* Culture Section */}
       <section className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -489,16 +475,13 @@ const CurrentOpenings: FC = () => {
               Get a glimpse of our vibrant company culture and what makes our
               team special.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <motion.div
+              <ScrollInView
                 key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: item * 0.1 }}
+                delay={ item * 0.1}
                 className="group relative aspect-square overflow-hidden rounded-2xl"
               >
                 <img
@@ -507,7 +490,7 @@ const CurrentOpenings: FC = () => {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -516,10 +499,7 @@ const CurrentOpenings: FC = () => {
       {/* Hiring Process */}
       <section className="border-t border-gray-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -532,7 +512,7 @@ const CurrentOpenings: FC = () => {
               A transparent look at our hiring process from application to
               offer.
             </p>
-          </motion.div>
+          </ScrollInView>
 
           <div className="mx-auto max-w-3xl">
             {[
@@ -567,13 +547,9 @@ const CurrentOpenings: FC = () => {
                   "Discussion with leadership about culture fit and future growth.",
               },
             ].map((step, index, array) => (
-              <motion.div
+              <ScrollInView
+              delay={index * 0.1 }
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative flex gap-8 pb-12"
               >
                 <div className="relative flex flex-col items-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-theme-primary-500/10 text-xl font-bold text-theme-primary-400">
@@ -589,7 +565,7 @@ const CurrentOpenings: FC = () => {
                   </h3>
                   <p className="text-muted-foreground">{step.description}</p>
                 </div>
-              </motion.div>
+              </ScrollInView>
             ))}
           </div>
         </div>
@@ -598,10 +574,7 @@ const CurrentOpenings: FC = () => {
       {/* CTA Section */}
       <section className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <ScrollInView
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -615,7 +588,7 @@ const CurrentOpenings: FC = () => {
             <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100">
               Send Your Resume
             </button>
-          </motion.div>
+          </ScrollInView>
         </div>
       </section>
     </main>

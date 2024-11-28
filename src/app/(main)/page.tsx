@@ -11,7 +11,6 @@ import { TestimonialsSection } from "./_components/TestimonialsSection";
 import { WorkingMethodSection } from "./_components/WorkingMethodSection";
 import { getAllCaseStudies } from "@/lib/case-studies";
 
-// page.tsx
 export default async function Home() {
   const caseStudies = await getAllCaseStudies();
   return (

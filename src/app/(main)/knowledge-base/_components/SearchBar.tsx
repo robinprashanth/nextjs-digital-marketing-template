@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { motion } from "motion/react";
 import { Search } from "lucide-react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface SearchBarProps {
   value: string;
@@ -31,10 +32,8 @@ export const SearchBar: FC<SearchBarProps> = ({
     </p>
 
     {/* Search Input */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
+    <ScrollInView
+    delay={0.2}
       className="mt-8"
     >
       <div className="relative mx-auto max-w-2xl">
@@ -47,13 +46,11 @@ export const SearchBar: FC<SearchBarProps> = ({
           className="w-full rounded-full border border-white/10 bg-white/10 px-12 py-4 text-white placeholder-theme-neutral-400 backdrop-blur-sm focus:border-theme-primary-500 focus:outline-none focus:ring-2 focus:ring-theme-primary-500/20"
         />
       </div>
-    </motion.div>
+    </ScrollInView>
 
     {/* Popular Searches */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3 }}
+    <ScrollInView
+    delay={0.3}
       className="mt-4 flex flex-wrap justify-center gap-2"
     >
       <span className="text-sm text-white/60">Popular:</span>
@@ -66,6 +63,6 @@ export const SearchBar: FC<SearchBarProps> = ({
           {term}
         </button>
       ))}
-    </motion.div>
+    </ScrollInView>
   </motion.div>
 );

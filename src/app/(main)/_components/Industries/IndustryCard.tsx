@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import {
   Card,
@@ -10,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import type { Industry } from "@/types";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface IndustryCardProps {
   industry: Industry;
@@ -24,11 +24,8 @@ export const IndustryCard: FC<IndustryCardProps> = ({
   onClick,
   delay = 0,
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay }}
-    viewport={{ once: true }}
+  <ScrollInView
+  delay={delay}
   >
     <Card
       className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
@@ -61,5 +58,5 @@ export const IndustryCard: FC<IndustryCardProps> = ({
         <Progress value={industry.expertise} className="mt-2" />
       </CardContent>
     </Card>
-  </motion.div>
+  </ScrollInView>
 );

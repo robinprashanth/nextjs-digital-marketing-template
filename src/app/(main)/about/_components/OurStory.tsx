@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import { motion } from "motion/react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface MilestoneProps {
   year: string;
@@ -141,10 +142,7 @@ export const OurStory: FC = () => {
     <section className="relative py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <ScrollInView
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -161,7 +159,7 @@ export const OurStory: FC = () => {
             journey has been defined by innovation, growth, and an unwavering
             commitment to client success.
           </p>
-        </motion.div>
+        </ScrollInView>
 
         {/* Timeline */}
         <div className="relative">
