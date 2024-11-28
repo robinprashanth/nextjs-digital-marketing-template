@@ -200,7 +200,7 @@ export const results = [
       { label: "Revenue Growth", value: "+165%" },
     ],
     image: "/images/clients/techcorp.jpg",
-    gradient: "from-indigo-600 to-theme-primary-600",
+    gradient: "from-theme-indigo-600 to-theme-primary-600",
   },
   {
     title: "B2B Lead Generation",
@@ -211,7 +211,7 @@ export const results = [
       { label: "Email Conversions", value: "12.8%" },
     ],
     image: "/images/clients/tech-store.jpg",
-    gradient: "from-blue-600 to-cyan-600",
+    gradient: "from-theme-ocean-600 to-cyan-600",
   },
   {
     title: "Brand Authority",

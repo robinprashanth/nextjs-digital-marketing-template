@@ -59,7 +59,7 @@ export const TestimonialsSection: FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gray-50 py-24 dark:bg-gray-900">
+    <section className="relative overflow-hidden bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <BackgroundPattern />
 
       <div className="container relative mx-auto px-4 sm:px-6">
@@ -67,10 +67,10 @@ export const TestimonialsSection: FC = () => {
         <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             CLIENT SUCCESS STORIES
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
             What Our Clients Say
           </h2>
           <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -85,14 +85,14 @@ export const TestimonialsSection: FC = () => {
           <div className="absolute left-0 right-0 top-1/2 z-10 flex -translate-y-1/2 justify-between px-4">
             <button
               onClick={prevTestimonial}
-              className="rounded-full bg-white p-3 shadow-lg transition-all hover:scale-110 dark:bg-gray-800"
+              className="rounded-full bg-white p-3 shadow-lg transition-all hover:scale-110 dark:bg-theme-neutral-800"
               aria-label="Previous testimonial"
             >
               <ArrowLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="rounded-full bg-white p-3 shadow-lg transition-all hover:scale-110 dark:bg-gray-800"
+              className="rounded-full bg-white p-3 shadow-lg transition-all hover:scale-110 dark:bg-theme-neutral-800"
               aria-label="Next testimonial"
             >
               <ArrowRight className="h-6 w-6" />
@@ -111,7 +111,7 @@ export const TestimonialsSection: FC = () => {
                 className={`h-2 rounded-full transition-all ${
                   index === currentIndex
                     ? "w-6 bg-theme-primary-600"
-                    : "w-2 bg-gray-300 hover:bg-theme-neutral-400"
+                    : "w-2 bg-theme-neutral-300 hover:bg-theme-neutral-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

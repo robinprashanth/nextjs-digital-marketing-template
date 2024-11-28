@@ -20,7 +20,7 @@ const ContactInfo = () => (
         <Phone className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white">Phone</h3>
+        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">Phone</h3>
         <p className="text-theme-neutral-600 dark:text-theme-neutral-400">+1 (555) 000-0000</p>
       </div>
     </div>
@@ -29,7 +29,7 @@ const ContactInfo = () => (
         <Mail className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3>
+        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">Email</h3>
         <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
           contact@youragency.com
         </p>
@@ -40,15 +40,15 @@ const ContactInfo = () => (
         <MapPin className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white">Address</h3>
+        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">Address</h3>
         <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
           123 Marketing St, Digital City, DC 12345
         </p>
       </div>
     </div>
 
-    <div className="mt-8 border-t border-gray-200 pt-8 dark:border-theme-neutral-700">
-      <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
+    <div className="mt-8 border-t border-theme-neutral-200 pt-8 dark:border-theme-neutral-700">
+      <h3 className="mb-4 font-semibold text-theme-neutral-900 dark:text-white">
         Follow Us
       </h3>
       <div className="flex gap-4">
@@ -56,7 +56,7 @@ const ContactInfo = () => (
           <a
             key={index}
             href="#"
-            className="rounded-full bg-gray-100 p-3 text-theme-neutral-600 transition-colors hover:bg-purple-100 hover:text-theme-primary-600 dark:bg-gray-800 dark:text-theme-neutral-400 dark:hover:bg-purple-900/30 dark:hover:text-theme-primary-400"
+            className="rounded-full bg-theme-neutral-100 p-3 text-theme-neutral-600 transition-colors hover:bg-purple-100 hover:text-theme-primary-600 dark:bg-theme-neutral-800 dark:text-theme-neutral-400 dark:hover:bg-purple-900/30 dark:hover:text-theme-primary-400"
           >
             <Icon className="h-5 w-5" />
           </a>
@@ -68,16 +68,16 @@ const ContactInfo = () => (
 
 export const ContactSection: FC = () => {
   return (
-    <section className="bg-gray-50 py-24 dark:bg-gray-900">
+    <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             GET IN TOUCH
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
             Let&apos;s Discuss Your Project
           </h2>
           <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -88,7 +88,7 @@ export const ContactSection: FC = () => {
 
         {/* Contact Grid */}
         <div className="mx-auto max-w-5xl">
-          <div className="grid gap-12 rounded-2xl bg-white p-8 shadow-lg dark:bg-gray-800 md:grid-cols-2">
+          <div className="grid gap-12 rounded-2xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800 md:grid-cols-2">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

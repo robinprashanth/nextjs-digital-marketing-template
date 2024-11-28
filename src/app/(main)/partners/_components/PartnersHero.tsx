@@ -25,7 +25,7 @@ const StatCard: FC<StatCardProps> = ({ icon: Icon, value, label }) => (
 
 const PartnersHero: FC = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-background pb-20 pt-32">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-theme-neutral-900 via-theme-neutral-800 to-background pb-20 pt-32">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(147,51,234,0.1),transparent)] opacity-70" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(139,92,246,0.1),transparent)] opacity-70" />

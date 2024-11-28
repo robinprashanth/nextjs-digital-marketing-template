@@ -141,22 +141,26 @@ export const moreMenuSections: MegaMenuSection[] = [
       {
         title: "Case Studies",
         href: "/case-studies",
-        description: "Success stories and results",
       },
       {
-        title: "Blog",
-        href: "/blog",
-        description: "Latest insights and updates",
+        title: "Blog (Classic)",
+        href: "/blog/theme-1/technical-seo-guide2",
+      },
+      {
+        title: "Blog Theme 2",
+        href: "/blog/theme-2/technical-seo-guide2",
+      },
+      {
+        title: "Blog Theme 3",
+        href: "/blog/theme-3/technical-seo-guide2",
       },
       {
         title: "Knowledge Base",
         href: "/knowledge-base",
-        description: "Guides and documentation",
       },
       {
         title: "FAQs",
         href: "/faqs",
-        description: "Frequently asked questions",
         badge: "new",
       },
     ],
@@ -188,19 +192,16 @@ export const moreMenuSections: MegaMenuSection[] = [
       {
         title: "Buttons",
         href: "/user-interface/buttons",
-        description: "Interactive button styles and variants",
         badge: "new",
       },
       {
         title: "Cards",
         href: "/user-interface/cards",
-        description: "Versatile card components and layouts",
         badge: "new",
       },
       {
         title: "Animations",
         href: "/user-interface/animations",
-        description: "Motion and transition effects",
         badge: "new",
       },
     ],
@@ -209,19 +210,19 @@ export const moreMenuSections: MegaMenuSection[] = [
     title: "Company",
     items: [
       {
-        title: "Careers",
-        href: "/careers",
+        title: "Current Openings",
+        href: "/current-openings",
         description: "Join our team",
         badge: "hiring",
       },
       {
-        title: "Press",
-        href: "/press",
+        title: "Partners",
+        href: "/partners",
         description: "News and media",
       },
       {
-        title: "Terms",
-        href: "/terms",
+        title: "Collaboration",
+        href: "/collaboration",
         description: "Terms and conditions",
       },
     ],

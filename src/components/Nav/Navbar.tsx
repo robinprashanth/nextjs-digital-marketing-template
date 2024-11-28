@@ -45,12 +45,12 @@ export const Navbar: FC = () => {
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2">
             <div className="relative h-8 w-8">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-blue-600 blur-sm" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
               <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
                 <span className="text-xl">⬡</span>
               </div>
             </div>
-            <span className="bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent">
+            <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent">
               {siteConfig.appName}
             </span>
           </Link>

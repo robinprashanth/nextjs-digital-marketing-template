@@ -17,7 +17,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
       onMouseLeave={onClose}
     >
       {/* Backdrop overlay */}
-      <div className="absolute inset-0 rounded-lg bg-white backdrop-blur-md dark:bg-gray-900/80" />
+      <div className="absolute inset-0 rounded-lg bg-white backdrop-blur-md dark:bg-theme-neutral-900/80" />
 
       {/* Main content */}
       <div className="relative">
@@ -33,7 +33,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
                     <li key={item.title}>
                       <Link
                         href={item.href}
-                        className="group flex items-start gap-4 rounded-lg p-3 transition-colors hover:bg-white/50 dark:hover:bg-gray-800/50"
+                        className="group flex items-start gap-4 rounded-lg p-3 transition-colors hover:bg-white/50 dark:hover:bg-theme-neutral-800/50"
                       >
                         <div className="rounded-lg bg-purple-50 p-2 dark:bg-purple-900/20">
                           {item.icon && (
@@ -42,7 +42,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-gray-900 dark:text-white">
+                            <span className="font-medium text-theme-neutral-900 dark:text-white">
                               {item.title}
                             </span>
                             <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />

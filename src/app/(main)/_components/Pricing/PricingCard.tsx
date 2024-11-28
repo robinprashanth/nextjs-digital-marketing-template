@@ -23,7 +23,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
 
   return (
     <ScrollInView
-      className={`relative rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-gray-800 ${
+      className={`relative rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-theme-neutral-800 ${
         plan.isPopular ? "ring-2 ring-theme-primary-500" : ""
       }`}
     >
@@ -38,7 +38,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
 
       {/* Plan Header */}
       <div className="mb-6 text-center">
-        <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+        <h3 className="mb-2 text-2xl font-bold text-theme-neutral-900 dark:text-white">
           {plan.name}
         </h3>
         <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -54,7 +54,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <span className="text-4xl font-bold text-gray-900 dark:text-white">
+          <span className="text-4xl font-bold text-theme-neutral-900 dark:text-white">
             ${price}
           </span>
           <span className="text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -77,7 +77,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
                 {feature.included ? (
                   <Check className="h-5 w-5 text-theme-tulip-500" />
                 ) : (
-                  <X className="h-5 w-5 text-red-500" />
+                  <X className="h-5 w-5 text-theme-rose-500" />
                 )}
               </div>
             ) : typeof feature.included === "number" ? (
@@ -91,7 +91,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
             )}
             <div>
               <div className="flex items-center gap-1">
-                <span className="font-medium text-gray-900 dark:text-white">
+                <span className="font-medium text-theme-neutral-900 dark:text-white">
                   {feature.title}
                 </span>
                 <TooltipProvider>
@@ -113,7 +113,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
         className={`w-full rounded-full px-6 py-3 text-center font-semibold transition-transform hover:scale-105 ${
           plan.isPopular
             ? "bg-theme-primary-600 text-white hover:bg-purple-700"
-            : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-theme-neutral-700 dark:text-white dark:hover:bg-theme-neutral-600"
+            : "bg-theme-neutral-100 text-theme-neutral-900 hover:bg-theme-neutral-200 dark:bg-theme-neutral-700 dark:text-white dark:hover:bg-theme-neutral-600"
         }`}
       >
         {plan.cta.text}

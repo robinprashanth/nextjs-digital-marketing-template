@@ -21,7 +21,7 @@ const ValueCard: FC<ValueCardProps> = ({
   <ScrollInView delay={delay} duration={0.5}
     className="group relative"
   >
-    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+    <div className="relative overflow-hidden rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
       {/* Icon */}
       <div className="mb-4 inline-flex rounded-lg bg-theme-primary-500/10 p-3 text-theme-primary-500">
         {icon}
@@ -75,7 +75,7 @@ export const MissionValues: FC = () => {
   ];
 
   return (
-    <section className="relative border-t border-gray-800 py-24">
+    <section className="relative border-t border-theme-neutral-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
@@ -101,7 +101,7 @@ export const MissionValues: FC = () => {
         <ScrollInView
           className="mx-auto mb-20 max-w-4xl"
         >
-          <div className="rounded-2xl border border-gray-800 bg-card p-8 text-center md:p-12">
+          <div className="rounded-2xl border border-theme-neutral-800 bg-card p-8 text-center md:p-12">
             <h3 className="mb-4 text-2xl font-bold text-foreground">
               Our Mission
             </h3>

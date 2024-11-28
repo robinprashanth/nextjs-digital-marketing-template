@@ -6,7 +6,7 @@ import { ScrollInView } from "../motion/ScrollInView";
 export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
   steps,
 }) => (
-  <section className="border-t border-gray-800 py-24">
+  <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
       <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
@@ -37,7 +37,7 @@ export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
                 <div className="mt-4 h-full w-px bg-gradient-to-b from-theme-primary-500/50 to-transparent" />
               )}
             </div>
-            <div className="flex-1 rounded-2xl border border-gray-800 bg-card p-6">
+            <div className="flex-1 rounded-2xl border border-theme-neutral-800 bg-card p-6">
               <h3 className="mb-2 text-xl font-semibold text-foreground">
                 {step.title}
               </h3>

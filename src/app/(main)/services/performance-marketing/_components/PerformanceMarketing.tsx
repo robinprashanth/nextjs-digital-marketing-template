@@ -86,14 +86,14 @@ export const PerformanceMarketing: FC = () => {
           }}
         />
 
-        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-blue-500/20 blur-xl" />
-        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-indigo-500/20 blur-xl" />
+        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-ocean-500/20 blur-xl" />
+        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-indigo-500/20 blur-xl" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="max-w-4xl"
           >
-            <div className="mb-6 inline-block rounded-full bg-blue-500/10 px-4 py-1 text-sm text-blue-400">
+            <div className="mb-6 inline-block rounded-full bg-theme-ocean-500/10 px-4 py-1 text-sm text-theme-ocean-400">
               PERFORMANCE MARKETING
             </div>
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -129,15 +129,15 @@ export const PerformanceMarketing: FC = () => {
       </section>
 
       {/* Marketing Channels Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               MARKETING CHANNELS
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Multi-Channel Performance
               <br />
               Marketing Excellence
@@ -205,15 +205,15 @@ export const PerformanceMarketing: FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-gray-50 py-24 dark:bg-gray-900/50">
+      <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR SERVICES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Comprehensive Performance
               <br />
               Marketing Solutions
@@ -228,9 +228,9 @@ export const PerformanceMarketing: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800"
+                className="rounded-3xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800"
               >
-                <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-4 text-2xl font-bold text-theme-neutral-900 dark:text-white">
                   {service.title}
                 </h3>
                 <p className="mb-8 text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -246,11 +246,11 @@ export const PerformanceMarketing: FC = () => {
                         key={featureIndex}
                         className="group flex items-start gap-4"
                       >
-                        <div className="rounded-xl bg-blue-500/10 p-2 dark:bg-blue-500/5">
-                          <IconComponent className="h-5 w-5 text-blue-600" />
+                        <div className="rounded-xl bg-theme-ocean-500/10 p-2 dark:bg-theme-ocean-500/5">
+                          <IconComponent className="h-5 w-5 text-theme-ocean-600" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-gray-900 dark:text-white">
+                          <h4 className="font-bold text-theme-neutral-900 dark:text-white">
                             {feature.name}
                           </h4>
                           <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -268,15 +268,15 @@ export const PerformanceMarketing: FC = () => {
       </section>
 
       {/* Results Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               CLIENT RESULTS
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Performance That
               <br />
               Drives Growth
@@ -340,7 +340,7 @@ export const PerformanceMarketing: FC = () => {
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-ocean-400 to-theme-indigo-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR PROCESS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
@@ -358,7 +358,7 @@ export const PerformanceMarketing: FC = () => {
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
-                  <div className="mb-4 text-3xl font-bold text-blue-400">
+                  <div className="mb-4 text-3xl font-bold text-theme-ocean-400">
                     {step.number}
                   </div>
                   <h3 className="mb-4 text-xl font-bold text-white">
@@ -367,7 +367,7 @@ export const PerformanceMarketing: FC = () => {
                   <p className="text-theme-neutral-400">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-blue-400 to-transparent md:block" />
+                  <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-theme-ocean-400 to-transparent md:block" />
                 )}
               </ScrollInView>
             ))}
@@ -376,17 +376,17 @@ export const PerformanceMarketing: FC = () => {
       </section>
 
       {/* Platforms & Tools Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Platforms */}
           <ScrollInView
             className="mb-20"
           >
             <div className="mx-auto mb-12 max-w-2xl text-center">
-              <span className="mb-4 block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 PLATFORMS
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+              <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
                 Advertising Platforms
               </h2>
             </div>
@@ -399,12 +399,12 @@ export const PerformanceMarketing: FC = () => {
                   <ScrollInView
                     key={index}
                     delay={index * 0.1}
-                    className="rounded-2xl bg-gray-50 p-6 dark:bg-gray-800"
+                    className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
                   >
-                    <div className="mb-4 rounded-xl bg-blue-500/10 p-2 dark:bg-blue-500/5">
-                      <IconComponent className="h-6 w-6 text-blue-600" />
+                    <div className="mb-4 rounded-xl bg-theme-ocean-500/10 p-2 dark:bg-theme-ocean-500/5">
+                      <IconComponent className="h-6 w-6 text-theme-ocean-600" />
                     </div>
-                    <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                    <h3 className="mb-2 font-bold text-theme-neutral-900 dark:text-white">
                       {platform.name}
                     </h3>
                     <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -420,10 +420,10 @@ export const PerformanceMarketing: FC = () => {
           <ScrollInView
           >
             <div className="mx-auto mb-12 max-w-2xl text-center">
-              <span className="mb-4 block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 TOOLS
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+              <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
                 Marketing Technology Stack
               </h2>
             </div>
@@ -436,12 +436,12 @@ export const PerformanceMarketing: FC = () => {
                   <ScrollInView
                     key={index}
                    delay={index * 0.1}
-                    className="rounded-2xl bg-gray-50 p-6 dark:bg-gray-800"
+                    className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
                   >
-                    <div className="mb-4 rounded-xl bg-blue-500/10 p-2 dark:bg-blue-500/5">
-                      <IconComponent className="h-6 w-6 text-blue-600" />
+                    <div className="mb-4 rounded-xl bg-theme-ocean-500/10 p-2 dark:bg-theme-ocean-500/5">
+                      <IconComponent className="h-6 w-6 text-theme-ocean-600" />
                     </div>
-                    <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                    <h3 className="mb-2 font-bold text-theme-neutral-900 dark:text-white">
                       {tool.name}
                     </h3>
                     <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">

@@ -128,7 +128,7 @@ export const FAQs: FC = () => {
                 className={`group relative overflow-hidden rounded-2xl border p-6 text-left transition-all hover:border-theme-primary-500/20 ${
                   activeCategory === category.id
                     ? "border-theme-primary-500/20 bg-theme-primary-500/5"
-                    : "border-gray-800"
+                    : "border-theme-neutral-800"
                 }`}
               >
                 <div className="mb-4 inline-block rounded-xl bg-theme-primary-500/10 p-3">
@@ -154,7 +154,7 @@ export const FAQs: FC = () => {
               {filteredFAQs.map((faq) => (
                 <ScrollInView
                   key={faq.id}
-                  className="overflow-hidden rounded-2xl border border-gray-800 bg-card"
+                  className="overflow-hidden rounded-2xl border border-theme-neutral-800 bg-card"
                 >
                   <Button
                     variant="ghost"
@@ -171,7 +171,7 @@ export const FAQs: FC = () => {
                     />
                   </Button>
                   {expandedFAQ === faq.id && (
-                    <div className="border-t border-gray-800 px-6 py-4">
+                    <div className="border-t border-theme-neutral-800 px-6 py-4">
                       <p className="text-muted-foreground">{faq.answer}</p>
                     </div>
                   )}

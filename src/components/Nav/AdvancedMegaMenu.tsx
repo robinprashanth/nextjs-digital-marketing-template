@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { MegaMenuSection } from "@/types";
+import { Button } from "../ui/button";
 
 interface AdvancedMegaMenuProps {
   sections: MegaMenuSection[];
@@ -38,7 +39,7 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
       onMouseLeave={onClose}
     >
       {/* Clean backdrop */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-900/95" />
+      <div className="absolute inset-0 bg-white dark:bg-theme-neutral-900/95" />
 
       {/* Content Container */}
       <div className="relative">
@@ -57,11 +58,11 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
                         <li key={item.title}>
                           <Link
                             href={item.href}
-                            className="group flex items-start justify-between rounded-lg p-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                            className="group flex items-start justify-between rounded-lg p-2 transition-colors hover:bg-gray-50 dark:hover:bg-theme-neutral-800/50"
                           >
                             <div className="space-y-1">
                               <div className="flex items-center gap-2">
-                                <span className="font-medium text-gray-900 dark:text-white">
+                                <span className="font-medium text-theme-neutral-900 dark:text-white">
                                   {item.title}
                                 </span>
                                 {item.badge && (
@@ -79,7 +80,7 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
                                 </p>
                               )}
                             </div>
-                            <ArrowUpRight className="h-4 w-4 text-theme-neutral-400 opacity-0 transition-all group-hover:text-gray-900 group-hover:opacity-100 dark:text-theme-neutral-500 dark:group-hover:text-gray-300" />
+                            <ArrowUpRight className="h-4 w-4 text-theme-neutral-400 opacity-0 transition-all group-hover:text-theme-neutral-900 group-hover:opacity-100 dark:text-theme-neutral-500 dark:group-hover:text-theme-neutral-300" />
                           </Link>
                         </li>
                       ))}
@@ -100,7 +101,7 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-theme-neutral-900 to-transparent" />
                     <div className="absolute bottom-0 p-6 text-white">
                       <h4 className="mb-2 text-lg font-semibold">
                         {featuredImage.title}
@@ -110,9 +111,11 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
                       </p>
                       <Link
                         href={featuredImage.ctaHref}
-                        className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 transition-transform hover:scale-105"
                       >
+                        <Button variant="secondary">
+
                         {featuredImage.ctaText}
+                        </Button>
                       </Link>
                     </div>
                   </div>

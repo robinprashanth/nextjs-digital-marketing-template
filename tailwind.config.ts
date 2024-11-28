@@ -66,6 +66,7 @@ export default {
             "500": "hsl(var(--theme-primary-500))",
             "600": "hsl(var(--theme-primary-600))",
             "700": "hsl(var(--theme-primary-700))",
+            
           },
           secondary: {
             "300": "hsl(var(--theme-secondary-300))",
@@ -74,11 +75,15 @@ export default {
             "600": "hsl(var(--theme-secondary-600))",
           },
           neutral: {
+            "100": "hsl(var(--theme-neutral-100))",
+            "200": "hsl(var(--theme-neutral-200))",
             "300": "hsl(var(--theme-neutral-300))",
             "400": "hsl(var(--theme-neutral-400))",
             "500": "hsl(var(--theme-neutral-500))",
             "600": "hsl(var(--theme-neutral-600))",
             "700": "hsl(var(--theme-neutral-700))",
+            "800": "hsl(var(--theme-primary-800))",
+            "900": "hsl(var(--theme-primary-900))",
           },
           sunflower: {
             "400": "hsl(var(--theme-sunflower-400))",
@@ -89,6 +94,32 @@ export default {
             "400": "hsl(var(--theme-tulip-400))",
             "500": "hsl(var(--theme-tulip-500))",
             "600": "hsl(var(--theme-tulip-600))",
+          },
+          stale: {
+            "950": "hsl(var(--theme-stale-950))",
+          },
+          rose: {
+            "300": "hsl(var(--theme-rose-300))",
+            "400": "hsl(var(--theme-rose-400))",
+            "500": "hsl(var(--theme-rose-500))",
+            "600": "hsl(var(--theme-rose-600))",
+          },
+          ocean: {
+            "400": "hsl(var(--theme-ocean-400))",
+            "500": "hsl(var(--theme-ocean-500))",
+            "600": "hsl(var(--theme-ocean-600))",
+            "700": "hsl(var(--theme-ocean-700))",
+          },
+          indigo: {
+            "400": "hsl(var(--theme-indigo-400))",
+            "500": "hsl(var(--theme-indigo-500))",
+            "600": "hsl(var(--theme-indigo-600))",
+            "700": "hsl(var(--theme-indigo-700))",
+          },
+          violet: {
+            "400": "hsl(var(--theme-theme-violet-400))",
+            "500": "hsl(var(--theme-theme-violet-500))",
+            "600": "hsl(var(--theme-theme-violet-600))",
           },
         },
       },

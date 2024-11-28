@@ -5,3 +5,4 @@ export const themeColors = {
   orange: "#FF8A65",
   red: "#FF4D4D",
 };
+export const ITEMS_PER_PAGE = 5;

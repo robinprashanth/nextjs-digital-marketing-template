@@ -34,7 +34,7 @@ export const Footer: FC = () => {
     <footer className="relative overflow-hidden bg-[#0B0B1E] pt-20">
       {/* Gradient Overlays */}
       <div className="absolute left-0 top-0 h-96 w-96 bg-theme-primary-500/10 blur-[100px]" />
-      <div className="absolute right-0 top-0 h-96 w-96 bg-blue-500/10 blur-[100px]" />
+      <div className="absolute right-0 top-0 h-96 w-96 bg-theme-ocean-500/10 blur-[100px]" />
 
       <div className="container relative mx-auto px-4 sm:px-6">
         <div className="grid gap-16 lg:grid-cols-2">
@@ -43,12 +43,12 @@ export const Footer: FC = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <div className="relative h-10 w-10">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-blue-600 blur-sm" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
                   <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
                     <span className="text-2xl">⬡</span>
                   </div>
                 </div>
-                <span className="bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-2xl font-bold text-transparent">
+                <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-2xl font-bold text-transparent">
                 {siteConfig.appName}
                 </span>
               </div>
@@ -70,7 +70,7 @@ export const Footer: FC = () => {
           <div className="grid gap-8 sm:grid-cols-3">
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
-                <h3 className="mb-4 bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text font-semibold text-transparent">
+                <h3 className="mb-4 bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text font-semibold text-transparent">
                   {title}
                 </h3>
                 <ul className="space-y-3">
@@ -91,7 +91,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 border-t border-gray-800 py-8">
+        <div className="mt-16 border-t border-theme-neutral-800 py-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-theme-neutral-400 sm:flex-row">
             <div>© {currentYear} Revento. All rights reserved.</div>
             <div className="flex gap-8">

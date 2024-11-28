@@ -13,7 +13,7 @@ interface TechCardProps {
 export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
   <ScrollInView
   delay={delay}
-    className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:bg-gray-800"
+    className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-800"
   >
     <div className="flex items-start justify-between">
       <div className="relative h-12 w-12">
@@ -35,7 +35,7 @@ export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
     </div>
 
     <div className="mt-4">
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+      <h3 className="text-lg font-semibold text-theme-neutral-900 dark:text-white">
         {tool.name}
       </h3>
       <p className="mt-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400">

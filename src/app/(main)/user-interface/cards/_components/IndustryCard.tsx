@@ -40,7 +40,7 @@ export const IndustryCard: FC<IndustryCardProps> = ({
           </div>
           <div className="flex items-center gap-1">
             <Star className="h-5 w-5 fill-theme-sunflower-400 text-theme-sunflower-400" />
-            <span className="font-medium text-gray-900 dark:text-white">
+            <span className="font-medium text-theme-neutral-900 dark:text-white">
               {industry.expertise}%
             </span>
           </div>

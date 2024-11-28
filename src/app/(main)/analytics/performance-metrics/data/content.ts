@@ -60,7 +60,7 @@ export const keyMetrics: MetricCard[] = [
     value: "48.5K",
     change: "+12.5% vs last month",
     icon: "Users",
-    color: "text-blue-600",
+    color: "text-theme-ocean-600",
   },
   {
     title: "Conversion Rate",
@@ -90,7 +90,7 @@ export const chartConfigs: Record<string, ChartConfig> = {
     title: "Traffic Overview",
     subtitle: "Visitors and conversions over time",
     legends: [
-      { label: "Visitors", color: "bg-blue-500" },
+      { label: "Visitors", color: "bg-theme-ocean-500" },
       { label: "Conversions", color: "bg-theme-primary-500" },
     ],
     colors: {
@@ -112,8 +112,8 @@ export const additionalMetrics: AdditionalMetric[] = [
     title: "Click-Through Rate",
     value: "4.28%",
     icon: "MousePointer",
-    color: "text-blue-600",
-    bgColor: "bg-blue-500/10",
+    color: "text-theme-ocean-600",
+    bgColor: "bg-theme-ocean-500/10",
   },
   {
     title: "Social Shares",

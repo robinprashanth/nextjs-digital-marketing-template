@@ -24,15 +24,15 @@ const buttonVariants = cva(
         glass:
           "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 border border-white/10",
         gradient:
-          "bg-gradient-to-r from-theme-primary-600 to-indigo-600 text-white shadow hover:from-theme-primary-600/90 hover:to-indigo-600/90",
+          "bg-gradient-to-r from-theme-primary-600 to-theme-indigo-600 text-white shadow hover:from-theme-primary-600/90 hover:to-theme-indigo-600/90",
         submit:
-          " rounded-full bg-gradient-to-r from-theme-primary-600 to-blue-600 text-white shadow transition-all hover:from-purple-700 hover:to-blue-700 hover:shadow-lg",
+          " rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 text-white shadow transition-all hover:from-purple-700 hover:to-blue-700 hover:shadow-lg",
         action:
           "bg-theme-primary-600 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl py-4 px-8 text-base font-medium",
         "white-action":
           "bg-white text-theme-primary-600 font-semibold shadow-lg transition-transform duration-300 hover:scale-105 py-3 px-8 rounded-full",
         cta: "bg-gradient-to-r from-theme-primary-500 to-purple-700 text-white text-base font-semibold py-3 px-8 transition-all hover:brightness-110 rounded-full",
-        cta2: "bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl py-4 px-8 text-base font-medium rounded-full",
+        cta2: "bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl py-4 px-8 text-base font-medium rounded-full",
         "text-link":
           "p-0 h-auto text-theme-primary-400 hover:text-purple-300 transition-colors [&_svg]:transition-transform [&_svg]:group-hover:translate-x-0.5 [&_svg]:group-hover:-translate-y-0.5",
         soft: "bg-theme-primary-500/10 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20 py-3 px-6 [&_svg]:transition-transform [&_svg]:group-hover:translate-x-0.5 rounded-full",

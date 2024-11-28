@@ -210,7 +210,7 @@ export const results = [
     ],
     image: "/images/clients/fashion-hub.jpg",
 
-    gradient: "from-blue-600 to-indigo-600",
+    gradient: "from-theme-ocean-600 to-theme-indigo-600",
   },
   {
     title: "B2B Lead Generation",

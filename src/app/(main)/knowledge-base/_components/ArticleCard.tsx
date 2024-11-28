@@ -16,7 +16,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.1 }}
-    className="group rounded-2xl border border-gray-800 bg-background p-6 transition-all duration-300 hover:border-theme-primary-500/20"
+    className="group rounded-2xl border border-theme-neutral-800 bg-background p-6 transition-all duration-300 hover:border-theme-primary-500/20"
   >
     <Link href={`/knowledge-base/${article.slug}`}>
       <div className="mb-4 flex items-center justify-between">

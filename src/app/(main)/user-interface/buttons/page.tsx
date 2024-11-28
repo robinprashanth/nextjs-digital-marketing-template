@@ -1,5 +1,3 @@
-// app/(main)/user-interface/buttons/page.tsx
-
 import { Metadata } from "next";
 import { Mail, ChevronRight, ExternalLink, Github, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -39,8 +37,8 @@ export default function ButtonsPage() {
             <Button variant="ghost">Ghost</Button>
             <Button variant="link">Link</Button>
           </div>
-          <div className="mt-4 rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`<Button>Default Button</Button>
 <Button variant="secondary">Secondary</Button>
 <Button variant="outline">Outline</Button>
@@ -61,8 +59,8 @@ export default function ButtonsPage() {
             <Button variant="cta">Call to Action</Button>
             <Button variant="cta2">CTA Style 2</Button>
           </div>
-          <div className="mt-4 rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`<Button variant="gradient">Gradient</Button>
 <Button variant="premium">Premium</Button>
 <Button variant="submit">Submit</Button>
@@ -84,8 +82,8 @@ export default function ButtonsPage() {
               <Plus className="h-4 w-4" />
             </Button>
           </div>
-          <div className="mt-4 rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`<Button size="sm">Small</Button>
 <Button>Default</Button>
 <Button size="lg">Large</Button>
@@ -115,8 +113,8 @@ export default function ButtonsPage() {
               External <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </div>
-          <div className="mt-4 rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`<Button>
   <Mail className="mr-2 h-4 w-4" /> Email
 </Button>
@@ -142,8 +140,8 @@ export default function ButtonsPage() {
             <Button variant="glass">Glass Effect</Button>
             <Button variant="tag">Tag Style</Button>
           </div>
-          <div className="mt-4 rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`<Button variant="action">Action Button</Button>
 <Button variant="white-action">White Action</Button>
 <Button variant="glass">Glass Effect</Button>
@@ -155,8 +153,8 @@ export default function ButtonsPage() {
         {/* Usage Examples */}
         <section className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">Usage Examples</h2>
-          <div className="rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`// Import the button component
 import { Button } from "@/components/ui/button"
 

@@ -53,7 +53,7 @@ const ProcessCard: FC<ProcessCardProps> = ({
 
     {/* Right side content */}
     <div className="flex-1 pb-12">
-      <div className="rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+      <div className="rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
         {/* Phase badge */}
         <div className="mb-4 inline-flex rounded-full bg-theme-primary-500/10 px-3 py-1">
           <span className="text-sm font-semibold text-theme-primary-400">
@@ -178,7 +178,7 @@ export const OurProcess: FC = () => {
   ];
 
   return (
-    <section className="relative border-t border-gray-800 py-24">
+    <section className="relative border-t border-theme-neutral-800 py-24">
       <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView

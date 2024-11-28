@@ -32,7 +32,7 @@ const PortfolioCard: FC<CaseStudy> = ({
       onClick={() => router.push(`/case-studies/${slug}`)}
     >
       <div className={`relative overflow-hidden rounded-3xl ${color} p-1`}>
-        <div className="relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-900">
+        <div className="relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-theme-neutral-900">
           {/* Image Section */}
           <div className="relative h-64 overflow-hidden">
             <Image
@@ -52,12 +52,12 @@ const PortfolioCard: FC<CaseStudy> = ({
           {/* Content Section */}
           <div className="p-6">
             <div className="mb-4 flex items-start justify-between">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold text-theme-neutral-900 dark:text-white">
                 {title}
               </h3>
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="rounded-full bg-gray-100 p-2 dark:bg-gray-800"
+                className="rounded-full bg-theme-neutral-100 p-2 dark:bg-theme-neutral-800"
               >
                 <ArrowUpRight className="h-4 w-4" />
               </motion.div>
@@ -70,7 +70,7 @@ const PortfolioCard: FC<CaseStudy> = ({
                   <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                     {metric.label}
                   </p>
-                  <p className="text-lg font-bold text-gray-900 dark:text-white">
+                  <p className="text-lg font-bold text-theme-neutral-900 dark:text-white">
                     {metric.value}
                   </p>
                   <p className="flex items-center gap-1 text-sm text-green-600">
@@ -116,7 +116,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
       : caseStudies.filter((item) => item.category === activeCategory);
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-gray-900">
+    <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
@@ -125,7 +125,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             SUCCESS STORIES
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
             Transforming Businesses
             <br />
             Through Digital Excellence
@@ -146,7 +146,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
               className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-theme-primary-600 text-white shadow-lg"
-                  : "bg-white text-theme-neutral-600 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300"
+                  : "bg-white text-theme-neutral-600 hover:bg-theme-neutral-100 dark:bg-theme-neutral-800 dark:text-theme-neutral-300"
               } `}
             >
               {category}

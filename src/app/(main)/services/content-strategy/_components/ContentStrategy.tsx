@@ -65,14 +65,14 @@ export const ContentStrategy: FC = () => {
           }}
         />
 
-        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-indigo-500/20 blur-xl" />
-        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-violet-500/20 blur-xl" />
+        <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-indigo-500/20 blur-xl" />
+        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-violet-500/20 blur-xl" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="max-w-4xl"
           >
-            <div className="mb-6 inline-block rounded-full bg-indigo-500/10 px-4 py-1 text-sm text-indigo-400">
+            <div className="mb-6 inline-block rounded-full bg-theme-indigo-500/10 px-4 py-1 text-sm text-theme-indigo-400">
               CONTENT STRATEGY
             </div>
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -108,15 +108,15 @@ export const ContentStrategy: FC = () => {
       </section>
 
       {/* Content Types Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               CONTENT TYPES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Multi-Format Content
               <br />
               Excellence
@@ -169,15 +169,15 @@ export const ContentStrategy: FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-gray-50 py-24 dark:bg-gray-900/50">
+      <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR SERVICES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Comprehensive Content
               <br />
               Solutions
@@ -192,9 +192,9 @@ export const ContentStrategy: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="rounded-3xl bg-white p-8 shadow-lg dark:bg-gray-800"
+                className="rounded-3xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800"
               >
-                <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-4 text-2xl font-bold text-theme-neutral-900 dark:text-white">
                   {service.title}
                 </h3>
                 <p className="mb-8 text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -210,11 +210,11 @@ export const ContentStrategy: FC = () => {
                         key={featureIndex}
                         className="group flex items-start gap-4"
                       >
-                        <div className="rounded-xl bg-indigo-500/10 p-2 dark:bg-indigo-500/5">
-                          <IconComponent className="h-5 w-5 text-indigo-600" />
+                        <div className="rounded-xl bg-theme-indigo-500/10 p-2 dark:bg-theme-indigo-500/5">
+                          <IconComponent className="h-5 w-5 text-theme-indigo-600" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-gray-900 dark:text-white">
+                          <h4 className="font-bold text-theme-neutral-900 dark:text-white">
                             {feature.name}
                           </h4>
                           <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -232,15 +232,15 @@ export const ContentStrategy: FC = () => {
       </section>
 
       {/* Results Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               SUCCESS STORIES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Content That Drives
               <br />
               Business Results
@@ -303,7 +303,7 @@ export const ContentStrategy: FC = () => {
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-400 to-theme-violet-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR PROCESS
             </span>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
@@ -321,7 +321,7 @@ export const ContentStrategy: FC = () => {
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
-                  <div className="mb-4 text-3xl font-bold text-indigo-400">
+                  <div className="mb-4 text-3xl font-bold text-theme-indigo-400">
                     {step.number}
                   </div>
                   <h3 className="mb-4 text-xl font-bold text-white">
@@ -330,7 +330,7 @@ export const ContentStrategy: FC = () => {
                   <p className="text-theme-neutral-400">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-indigo-400 to-transparent md:block" />
+                  <div className="absolute -right-4 top-1/2 hidden h-1 w-8 bg-gradient-to-r from-theme-indigo-400 to-transparent md:block" />
                 )}
               </ScrollInView>
             ))}
@@ -339,15 +339,15 @@ export const ContentStrategy: FC = () => {
       </section>
 
       {/* Tools Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
           >
-            <span className="mb-4 block bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               TOOLS & TECHNOLOGY
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Professional Tools We Use
             </h2>
           </ScrollInView>
@@ -359,12 +359,12 @@ export const ContentStrategy: FC = () => {
                 <ScrollInView
                   key={index}
                   delay={ index * 0.1 }
-                  className="rounded-2xl bg-gray-50 p-6 dark:bg-gray-800"
+                  className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
                 >
-                  <div className="mb-4 rounded-xl bg-indigo-500/10 p-2 dark:bg-indigo-500/5">
-                    <IconComponent className="h-6 w-6 text-indigo-600" />
+                  <div className="mb-4 rounded-xl bg-theme-indigo-500/10 p-2 dark:bg-theme-indigo-500/5">
+                    <IconComponent className="h-6 w-6 text-theme-indigo-600" />
                   </div>
-                  <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                  <h3 className="mb-2 font-bold text-theme-neutral-900 dark:text-white">
                     {tool.name}
                   </h3>
                   <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">

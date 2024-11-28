@@ -1,3 +1,5 @@
+"use client"
+
 import { motion } from "motion/react";
 import { FC } from "react";
 import { AnimationProps } from "@/types";

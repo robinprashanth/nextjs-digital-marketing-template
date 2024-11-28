@@ -18,7 +18,7 @@ export const BlogCard: FC<BlogCardProps> = ({ post, index }) => (
     transition={{ delay: index * 0.1 }}
     className="group cursor-pointer"
   >
-    <Link href={`/blog/${post.slug}`}>
+    <Link href={`/blog/theme-1/${post.slug}`}>
       <div className="overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/20">
         {/* Cover Image */}
         <div className="relative h-60 overflow-hidden">

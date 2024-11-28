@@ -192,7 +192,7 @@ const Pricing: FC = () => {
           delay={0.2}
             className="mx-auto mt-12 flex justify-center"
           >
-            <div className="inline-flex items-center rounded-full border border-gray-800 bg-background p-2">
+            <div className="inline-flex items-center rounded-full border border-theme-neutral-800 bg-background p-2">
               <button
                 onClick={() => setIsAnnual(false)}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
@@ -243,7 +243,7 @@ const Pricing: FC = () => {
                 className={`relative rounded-2xl border ${
                   tier.popular
                     ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
-                    : "border-gray-800"
+                    : "border-theme-neutral-800"
                 } bg-card p-8`}
               >
                 {tier.popular && (
@@ -308,7 +308,7 @@ const Pricing: FC = () => {
       </section>
 
       {/* Feature Comparison */}
-      <section className="border-t border-gray-800 bg-card">
+      <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -325,7 +325,7 @@ const Pricing: FC = () => {
           <div className="mt-12 overflow-x-auto">
             <table className="w-full min-w-[800px] border-collapse">
               <thead>
-                <tr className="border-b border-gray-800">
+                <tr className="border-b border-theme-neutral-800">
                   <th className="py-4 text-left font-medium text-foreground">
                     Features
                   </th>
@@ -342,7 +342,7 @@ const Pricing: FC = () => {
               </thead>
               <tbody>
                 {features.map((feature, index) => (
-                  <tr key={index} className="border-b border-gray-800 text-sm">
+                  <tr key={index} className="border-b border-theme-neutral-800 text-sm">
                     <td className="py-4">
                       <Tooltip.Provider>
                         <Tooltip.Root>
@@ -369,7 +369,7 @@ const Pricing: FC = () => {
                         feature.starter ? (
                           <Check className="mx-auto h-5 w-5 text-theme-tulip-500" />
                         ) : (
-                          <X className="mx-auto h-5 w-5 text-red-500" />
+                          <X className="mx-auto h-5 w-5 text-theme-rose-500" />
                         )
                       ) : (
                         <span className="text-muted-foreground">
@@ -382,7 +382,7 @@ const Pricing: FC = () => {
                         feature.professional ? (
                           <Check className="mx-auto h-5 w-5 text-theme-tulip-500" />
                         ) : (
-                          <X className="mx-auto h-5 w-5 text-red-500" />
+                          <X className="mx-auto h-5 w-5 text-theme-rose-500" />
                         )
                       ) : (
                         <span className="text-muted-foreground">
@@ -395,7 +395,7 @@ const Pricing: FC = () => {
                         feature.enterprise ? (
                           <Check className="mx-auto h-5 w-5 text-theme-tulip-500" />
                         ) : (
-                          <X className="mx-auto h-5 w-5 text-red-500" />
+                          <X className="mx-auto h-5 w-5 text-theme-rose-500" />
                         )
                       ) : (
                         <span className="text-muted-foreground">
@@ -411,7 +411,7 @@ const Pricing: FC = () => {
         </div>
       </section>
       {/* FAQs Section */}
-      <section className="border-t border-gray-800">
+      <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -463,7 +463,7 @@ const Pricing: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="rounded-2xl border border-gray-800 bg-card p-6"
+                className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
               >
                 <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {faq.question}
@@ -476,7 +476,7 @@ const Pricing: FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="border-t border-gray-800 bg-card">
+      <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
         <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -522,7 +522,7 @@ const Pricing: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="rounded-2xl border border-gray-800 bg-background p-6"
+                className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
               >
                 <div className="mb-6">
                   {[...Array(5)].map((_, i) => (
@@ -561,7 +561,7 @@ const Pricing: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="border-t border-gray-800">
+      <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
@@ -574,7 +574,7 @@ const Pricing: FC = () => {
               their digital presence. Start your 14-day free trial today.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100">
+              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100">
                 Start Free Trial
               </button>
               <button className="rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20">

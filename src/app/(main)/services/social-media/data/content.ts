@@ -211,7 +211,7 @@ export const successStories = [
       { label: "Engagement Rate", value: "12.8%" },
     ],
     image: "/images/clients/tech-store.jpg",
-    gradient: "from-blue-600 to-cyan-600",
+    gradient: "from-theme-ocean-600 to-cyan-600",
   },
   {
     title: "Viral Brand Campaign",
@@ -222,7 +222,7 @@ export const successStories = [
       { label: "Website Traffic", value: "+312%" },
     ],
     image: "/images/clients/wellness-pro.jpg",
-    gradient: "from-red-600 to-orange-600",
+    gradient: "from-theme-rose-600 to-orange-600",
   },
 ];
 

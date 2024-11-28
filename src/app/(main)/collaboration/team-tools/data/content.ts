@@ -41,7 +41,7 @@ export const teamStats: TeamStat[] = [
     label: "Team Efficiency",
     change: "+25% vs last month",
     icon: "Zap",
-    color: "text-blue-600",
+    color: "text-theme-ocean-600",
   },
   {
     value: "2.8x",
@@ -71,7 +71,7 @@ export const collaborationFeatures: CollaborationFeature[] = [
     title: "Real-time Collaboration",
     description: "Work together seamlessly with your team in real-time",
     icon: "Users",
-    color: "text-blue-500",
+    color: "text-theme-ocean-500",
     benefits: [
       "Live document editing",
       "Instant messaging",

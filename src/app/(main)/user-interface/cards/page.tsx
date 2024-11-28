@@ -1,5 +1,3 @@
-// app/(main)/user-interface/cards/page.tsx
-
 import { Metadata } from "next";
 import Image from "next/image";
 import {
@@ -51,8 +49,8 @@ export default function CardsPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Industries />
           </div>
-          <div className="mt-4 rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`// Industry Card Component
 export const IndustryCard: FC<IndustryCardProps> = ({
   industry,
@@ -79,7 +77,7 @@ export const IndustryCard: FC<IndustryCardProps> = ({
           </div>
           <div className="flex items-center gap-1">
             <Star className="h-5 w-5 fill-theme-sunflower-400 text-theme-sunflower-400" />
-            <span className="font-medium text-gray-900 dark:text-white">
+            <span className="font-medium text-theme-neutral-900 dark:text-white">
               {industry.expertise}%
             </span>
           </div>
@@ -320,8 +318,8 @@ const [activeIndustry, setActiveIndustry] = useState<number>(1);
         {/* Usage Examples */}
         <section className="mb-12">
           <h2 className="mb-4 text-2xl font-bold">Usage with Next.js Image</h2>
-          <div className="rounded-lg bg-slate-950 p-4">
-            <pre className="text-sm text-gray-100">
+          <div className="rounded-lg bg-theme-slate-950 p-4">
+            <pre className="text-sm text-theme-neutral-100">
               {`// Card with Next.js Image
 <Card className="overflow-hidden">
   <div className="relative h-48 w-full">

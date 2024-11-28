@@ -52,16 +52,48 @@ body {
     --theme-sunflower-400: 47.95 95.82% 53.14%;
     --theme-sunflower-500: 45.4 93.39% 47.45%;
     --theme-sunflower-600: 40.61 96.12% 40.39%;
+
     /* Green */
     --theme-tulip-400: 141.89 69.16% 58.04%;
     --theme-tulip-500: 142.09 70.56% 45.29%;
     --theme-tulip-600: 142.13 76.22% 36.27%;
 
-    --theme-neutral-300: 216 12.2% 83.92%; /* lighter gray */
+    /* Gray */
+    --theme-neutral-100: 220 14.29% 95.88%; /* lighter gray */
+    --theme-neutral-200: 214.29 31.82% 91.37%; /* lighter gray */
+    --theme-neutral-300: 216 12.2% 83.92%;
     --theme-neutral-400: 217.89 10.61% 64.9%;
     --theme-neutral-500: 220 8.94% 46.08%;
     --theme-neutral-600: 215 13.79% 34.12%;
     --theme-neutral-700: 216.92 19.12% 26.67%;
+    --theme-neutral-800: 217.24 32.58% 17.45%;
+    --theme-neutral-900: 228.57 84% 4.9%;
+
+    /* Rose */
+    --theme-rose-300: 0 93.55% 81.76%;
+    --theme-rose-400: 0 90.6% 70.78%;
+    --theme-rose-500: 0 84.24% 60.2%;
+    --theme-rose-600: 0 72.22% 50.59%;
+
+    /* Blue */
+    --theme-ocean-400: 213.12 93.9% 67.84%;
+    --theme-ocean-500: 217.22 91.22% 59.8%;
+    --theme-ocean-600: 221.21 83.19% 53.33%;
+    --theme-ocean-700: 224.28 76.33% 48.04%;
+
+    /* indigo */
+    --theme-indigo-400: 234.45 89.47% 73.92%;
+    --theme-indigo-500: 238.73 83.53% 66.67%;
+    --theme-indigo-600: 243.4 75.36%, 58.63%;
+    --theme-indigo-700: 244.52 57.94% 50.59%;
+
+    /* violet */
+    --theme-theme-violet-400: 234.45 89.47% 73.92%;
+    --theme-theme-violet-500: 238.73 83.53% 66.67%;
+    --theme-theme-violet-600: 243.4 75.36%, 58.63%;
+
+    /* Stale */
+    --theme-stale-950: 228.57 84% 4.9%;
 
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -204,6 +236,22 @@ body {
   .prose .mermaid {
     @apply my-8 overflow-x-auto rounded-lg bg-card p-4;
   }
+
+  .gradient-text {
+    @apply bg-gradient-to-br from-theme-primary-500 via-theme-secondary-500 to-theme-primary-600 bg-clip-text text-transparent;
+  }
+
+  .pop-shadow {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .pop-card {
+    @apply relative overflow-hidden rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:shadow-xl;
+  }
+
+  .pop-gradient {
+    @apply bg-gradient-to-tr from-theme-primary-500 via-theme-secondary-500 to-theme-primary-600;
+  }
 }
 
 @layer utilities {
@@ -217,6 +265,36 @@ body {
 
   .text-gradient-primary {
     background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-mask-t {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      transparent 100%
+    );
+  }
+
+  .bg-gradient-pop {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--theme-primary-400)) 0%,
+      hsl(var(--theme-secondary-400)) 50%,
+      hsl(var(--theme-primary-500)) 100%
+    );
+  }
+
+  .text-gradient-pop {
+    background: linear-gradient(
+      to right bottom,
+      hsl(var(--theme-primary-500)),
+      hsl(var(--theme-secondary-500))
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

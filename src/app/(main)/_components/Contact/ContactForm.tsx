@@ -2,7 +2,6 @@
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -22,16 +21,7 @@ import {
 } from "@/components/ui/select";
 import type { ContactFormData } from "@/types";
 import { Button } from "@/components/ui/button";
-
-const formSchema = z.object({
-  fullName: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  company: z.string().min(2, "Company name must be at least 2 characters"),
-  phone: z.string().optional(),
-  service: z.string().min(1, "Please select a service"),
-  budget: z.string().min(1, "Please select a budget range"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
+import { contactFormSchema } from "@/lib/validation";
 
 const services = [
   "Digital Marketing",
@@ -56,7 +46,7 @@ interface ContactFormProps {
 export const ContactForm: FC<ContactFormProps> = ({ onSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<ContactFormData>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       fullName: "",
       email: "",

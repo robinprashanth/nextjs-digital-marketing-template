@@ -31,11 +31,11 @@ export const PerformanceChart: FC<PerformanceChartProps> = ({
 
   return (
     <ScrollInView
-      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
+      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
     >
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-bold text-theme-neutral-900 dark:text-white">
             {config.title}
           </h3>
           <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">

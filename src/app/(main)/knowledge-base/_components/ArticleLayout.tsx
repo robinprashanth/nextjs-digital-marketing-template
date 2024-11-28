@@ -93,7 +93,7 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
         </div>
 
         {/* Article Footer */}
-        <div className="mx-auto mt-16 max-w-3xl border-t border-gray-800 pt-8">
+        <div className="mx-auto mt-16 max-w-3xl border-t border-theme-neutral-800 pt-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link

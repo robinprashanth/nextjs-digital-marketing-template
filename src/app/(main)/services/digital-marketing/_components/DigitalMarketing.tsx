@@ -104,7 +104,7 @@ export const DigitalMarketing: FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
@@ -112,7 +112,7 @@ export const DigitalMarketing: FC = () => {
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR SERVICES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Comprehensive Digital
               <br />
               Marketing Solutions
@@ -131,13 +131,13 @@ export const DigitalMarketing: FC = () => {
                 <ScrollInView
                   key={index}
                  delay={index * 0.1}
-                  className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800"
+                  className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800"
                 >
                   <div className="mb-6 inline-block rounded-2xl bg-theme-primary-500/10 p-3 dark:bg-theme-primary-500/5">
                     <IconComponent className="h-6 w-6 text-theme-primary-600" />
                   </div>
 
-                  <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="mb-3 text-xl font-bold text-theme-neutral-900 dark:text-white">
                     {service.title}
                   </h3>
                   <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -165,7 +165,7 @@ export const DigitalMarketing: FC = () => {
       </section>
 
       {/* Platforms Section */}
-      <section className="bg-gray-50 py-24 dark:bg-gray-900/50">
+      <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
@@ -173,7 +173,7 @@ export const DigitalMarketing: FC = () => {
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               ADVERTISING PLATFORMS
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Multi-Platform Advertising
               <br />
               Excellence
@@ -188,12 +188,12 @@ export const DigitalMarketing: FC = () => {
                 <ScrollInView
                   key={index}
                   delay={index * 0.1}
-                  className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
+                  className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
                 >
                   <div className="mb-4 rounded-xl bg-theme-primary-500/10 p-2 dark:bg-theme-primary-500/5">
                     <IconComponent className="h-6 w-6 text-theme-primary-600" />
                   </div>
-                  <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                  <h3 className="mb-2 font-bold text-theme-neutral-900 dark:text-white">
                     {platform.name}
                   </h3>
                   <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -207,7 +207,7 @@ export const DigitalMarketing: FC = () => {
       </section>
 
       {/* Success Stories Section */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
@@ -215,7 +215,7 @@ export const DigitalMarketing: FC = () => {
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               SUCCESS STORIES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Real Results for
               <br />
               Real Businesses
@@ -231,14 +231,14 @@ export const DigitalMarketing: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800"
+                className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800"
               >
                 <div
                   className={`bg-gradient-to-r ${story.gradient} mb-6 inline-block rounded-full px-4 py-1 text-sm text-white`}
                 >
                   {story.industry}
                 </div>
-                <h3 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-6 text-xl font-bold text-theme-neutral-900 dark:text-white">
                   {story.title}
                 </h3>
 
@@ -248,7 +248,7 @@ export const DigitalMarketing: FC = () => {
                       <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
                         {result.metric}
                       </p>
-                      <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                      <p className="text-2xl font-bold text-theme-neutral-900 dark:text-white">
                         {result.value}
                       </p>
                     </div>
@@ -308,7 +308,7 @@ export const DigitalMarketing: FC = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="bg-white py-24 dark:bg-gray-900">
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
             className="mx-auto mb-16 max-w-2xl text-center"
@@ -316,7 +316,7 @@ export const DigitalMarketing: FC = () => {
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               KEY FEATURES
             </span>
-            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
               Advanced Marketing
               <br />
               Capabilities
@@ -337,14 +337,14 @@ export const DigitalMarketing: FC = () => {
                   delay={index * 0.1}
                   className="group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-gray-800">
+                  <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800">
                     <div
                       className={`mb-6 inline-block rounded-2xl p-3 ${feature.gradient}`}
                     >
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
 
-                    <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="mb-4 text-xl font-bold text-theme-neutral-900 dark:text-white">
                       {feature.title}
                     </h3>
                     <p className="text-theme-neutral-600 dark:text-theme-neutral-400">

@@ -36,7 +36,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
     .slice(0, 2); // Get top 2 categories
 
   return (
-    <section className="border-t border-gray-800 bg-card">
+    <section className="border-t border-theme-neutral-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
         <ScrollInView
           className="mx-auto mb-12 max-w-3xl text-center"
@@ -57,7 +57,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
             <ScrollInView
             key={index}
             delay={index * 0.1}
-              className="rounded-2xl border border-gray-800 bg-background p-6"
+              className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
             >
               {/* Category Header */}
               <div className="mb-6 flex items-center justify-between">
@@ -95,7 +95,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
                     <li key={article.slug}>
                       <Link
                         href={`/knowledge-base/${article.slug}`}
-                        className="group flex items-center justify-between rounded-lg border border-gray-800 p-4 transition-all hover:border-theme-primary-500/20"
+                        className="group flex items-center justify-between rounded-lg border border-theme-neutral-800 p-4 transition-all hover:border-theme-primary-500/20"
                       >
                         <div className="flex-1">
                           <span className="line-clamp-1 text-muted-foreground group-hover:text-theme-primary-400">
@@ -135,7 +135,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
 
         {/* Featured Stats */}
         <ScrollInView
-          className="mt-16 grid gap-8 rounded-2xl border border-gray-800 bg-background p-8 md:grid-cols-3"
+          className="mt-16 grid gap-8 rounded-2xl border border-theme-neutral-800 bg-background p-8 md:grid-cols-3"
         >
           {[
             {

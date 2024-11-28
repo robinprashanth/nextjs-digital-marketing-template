@@ -13,16 +13,16 @@ export const PricingSection: FC = () => {
   );
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-gray-900">
+    <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             PRICING PLANS
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white md:text-5xl">
+          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
             Choose the Right Plan for Your Growth
           </h2>
           <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -48,7 +48,7 @@ export const PricingSection: FC = () => {
 
         {/* Enterprise CTA */}
         <ScrollInView
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-blue-600 p-8 text-center text-white"
+          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">Need a Custom Solution?</h3>
           <p className="mb-6">

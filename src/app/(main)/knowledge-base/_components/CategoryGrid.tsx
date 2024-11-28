@@ -25,7 +25,7 @@ export const CategoryGrid: FC<CategoryGridProps> = ({
         className={`group relative rounded-2xl border ${
           selectedCategory === category.id
             ? "border-theme-primary-500 bg-theme-primary-500/5"
-            : "border-gray-800 bg-card hover:border-theme-primary-500/20"
+            : "border-theme-neutral-800 bg-card hover:border-theme-primary-500/20"
         } p-6 text-left transition-all duration-300`}
       >
         <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">

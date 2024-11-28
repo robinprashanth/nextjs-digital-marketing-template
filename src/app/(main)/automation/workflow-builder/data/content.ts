@@ -41,7 +41,7 @@ export const workflowStats: WorkflowStat[] = [
     label: "Automations Run",
     change: "+45% vs last month",
     icon: "Zap",
-    color: "text-blue-600",
+    color: "text-theme-ocean-600",
   },
   {
     value: "2.5K",
@@ -130,7 +130,7 @@ export const features: AutomationFeature[] = [
     description:
       "Intuitive drag-and-drop interface for building complex workflows without code",
     icon: "MousePointer",
-    color: "text-blue-500",
+    color: "text-theme-ocean-500",
   },
   {
     title: "Conditional Logic",

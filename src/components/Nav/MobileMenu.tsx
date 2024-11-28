@@ -58,12 +58,12 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                   onClick={onClose}
                 >
                   <div className="relative h-8 w-8">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-blue-600 blur-sm" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
                     <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
                       <span className="text-xl">⬡</span>
                     </div>
                   </div>
-                  <span className="bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent">
+                  <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent">
                     REVENTO
                   </span>
                 </Link>
@@ -88,7 +88,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                         <div key={section.title}>
                           <button
                             onClick={() => toggleSection(section.title)}
-                            className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-gray-300 hover:bg-white/5"
+                            className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 hover:bg-white/5"
                           >
                             <span>{section.title}</span>
                             <ChevronDown
@@ -153,7 +153,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                           key={service.title}
                           href={service.href}
                           onClick={onClose}
-                          className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                          className="flex items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 transition-colors hover:bg-white/5"
                         >
                           <span>{service.title}</span>
                           <ChevronRight className="h-4 w-4 text-theme-neutral-500" />
@@ -173,7 +173,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                           key={item.title}
                           href={item.href}
                           onClick={onClose}
-                          className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                          className="flex items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 transition-colors hover:bg-white/5"
                         >
                           <span>{item.title}</span>
                           <ChevronRight className="h-4 w-4 text-theme-neutral-500" />
@@ -194,14 +194,10 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                             key={item.title}
                             href={item.href}
                             onClick={onClose}
-                            className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                            className="flex items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 transition-colors hover:bg-white/5"
                           >
                             <div className="flex items-center gap-3">
-                              {item.icon && (
-                                <span className="rounded-lg bg-theme-primary-500/10 p-2">
-                                  <item.icon className="h-5 w-5" />
-                                </span>
-                              )}
+                              
                               <div>
                                 <span>{item.title}</span>
                                 {item.description && (
@@ -229,14 +225,14 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                       <Link
                         href="/about"
                         onClick={onClose}
-                        className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                        className="flex items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 transition-colors hover:bg-white/5"
                       >
                         About Us
                       </Link>
                       <Link
                         href="/contact"
                         onClick={onClose}
-                        className="flex items-center justify-between rounded-lg px-2 py-2 text-gray-300 transition-colors hover:bg-white/5"
+                        className="flex items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 transition-colors hover:bg-white/5"
                       >
                         Contact
                       </Link>
@@ -250,13 +246,13 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                 <div className="grid gap-3">
                   <Button
                     variant="outline"
-                    className="w-full border-white/10 text-gray-300 hover:bg-white/5"
+                    className="w-full border-white/10 text-theme-neutral-300 hover:bg-white/5"
                     onClick={onClose}
                   >
                     Sign In
                   </Button>
                   <Button
-                    className="w-full bg-gradient-to-r from-theme-primary-600 to-blue-600 text-white"
+                    className="w-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 text-white"
                     onClick={onClose}
                   >
                     Get Started

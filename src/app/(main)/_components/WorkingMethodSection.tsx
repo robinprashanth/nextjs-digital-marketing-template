@@ -120,7 +120,7 @@ const MethodStep: FC<MethodStepProps> = ({
             {number}
           </span>
           <div className="flex-1">
-            <h3 className="mb-3 text-lg font-bold text-gray-900 md:text-xl">
+            <h3 className="mb-3 text-lg font-bold text-theme-neutral-900 md:text-xl">
               {title}
             </h3>
             <p className="text-sm leading-relaxed text-theme-neutral-600 md:text-base">
@@ -217,10 +217,10 @@ export const WorkingMethodSection: FC = () => {
         <ScrollInView
           className="mb-16 max-w-2xl"
         >
-          <span className="mb-4 block bg-gradient-to-r from-red-500 to-theme-primary-500 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+          <span className="mb-4 block bg-gradient-to-r from-theme-rose-500 to-theme-primary-500 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
             OUR METHODOLOGY
           </span>
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">
+          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 md:text-5xl">
             Transforming Vision
             <br />
             Into Digital Success
@@ -253,7 +253,7 @@ export const WorkingMethodSection: FC = () => {
               <div className="mb-2 bg-gradient-to-r from-theme-primary-600 to-theme-primary-400 bg-clip-text text-3xl font-bold text-transparent">
                 {stat.value}
               </div>
-              <div className="mb-1 font-medium text-gray-900">{stat.title}</div>
+              <div className="mb-1 font-medium text-theme-neutral-900">{stat.title}</div>
               <div className="text-sm text-theme-neutral-600">{stat.description}</div>
             </motion.div>
           ))}

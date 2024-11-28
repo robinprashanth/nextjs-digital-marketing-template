@@ -1,9 +1,9 @@
 "use client";
+
 import { FC } from "react";
 import { motion } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -19,90 +19,17 @@ import {
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { ApplicationFormData, applicationSchema } from "@/lib/validation";
+import type { JobPosting } from "@/types";
 
-// Form Schema
-const applicationSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z
-    .string()
-    .regex(
-      /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
-      "Please enter a valid phone number",
-    )
-    .min(10, "Phone number must be at least 10 digits"),
-  linkedin: z.string().url("Please enter a valid LinkedIn URL").optional(),
-  portfolio: z.string().url("Please enter a valid portfolio URL").optional(),
-  currentCompany: z.string().optional(),
-  yearsOfExperience: z.string(),
-  resumeFile: z.any(),
-  coverLetter: z
-    .string()
-    .min(100, "Cover letter must be at least 100 characters"),
-  heardAbout: z.string(),
-});
+interface JobDetailsPageProps {
+  job: JobPosting;
+}
 
-type ApplicationFormData = z.infer<typeof applicationSchema>;
-
-// Get the job data (you would typically fetch this from an API)
-const getJobData = (id: string) => {
-  console.log(id);
-  const jobs = {
-    "senior-digital-marketing-strategist": {
-      id: "senior-digital-marketing-strategist",
-      title: "Senior Digital Marketing Strategist",
-      department: "Marketing",
-      location: "New York, USA",
-      type: "Full-time",
-      experience: "5+ years",
-      salary: "$80,000 - $120,000",
-      posted: "2 days ago",
-      description:
-        "We're seeking an experienced Digital Marketing Strategist to lead our client campaigns and drive exceptional results.",
-      responsibilities: [
-        "Develop and execute comprehensive digital marketing strategies",
-        "Lead client communications and presentations",
-        "Manage and mentor junior team members",
-        "Analyze campaign performance and optimize for results",
-        "Stay current with digital marketing trends and best practices",
-        "Collaborate with cross-functional teams",
-        "Create detailed reports and recommendations",
-        "Manage campaign budgets and ROI tracking",
-      ],
-      requirements: [
-        "5+ years of digital marketing experience",
-        "Proven track record of successful campaigns",
-        "Experience with Google Analytics, Google Ads, and Meta Ads",
-        "Strong analytical and strategic thinking skills",
-        "Excellent communication and presentation abilities",
-        "Experience with marketing automation tools",
-        "Knowledge of SEO and content marketing",
-        "Project management experience",
-      ],
-      benefits: [
-        "Competitive salary and bonus structure",
-        "Health, dental, and vision insurance",
-        "Flexible work hours and remote options",
-        "Professional development budget",
-        "Company equity options",
-        "401(k) matching",
-        "Paid time off and holidays",
-        "Team building events",
-      ],
-    },
-    // Add more jobs here...
-  };
-
-  return jobs["senior-digital-marketing-strategist"];
-};
-
-const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
+const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const job = getJobData(params.job);
 
   const {
     register,
@@ -116,19 +43,33 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
   const onSubmit = async (data: ApplicationFormData) => {
     setIsSubmitting(true);
     setError(null);
-    console.log(data);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Send application data to your API
+      const response = await fetch('/api/jobs/apply', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          jobId: job.id,
+          ...data,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
       setIsSuccess(true);
       reset();
-    } catch {
+    } catch  {
       setError("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   if (!job) {
     return (
@@ -206,7 +147,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
       </section>
 
       {/* Job Details */}
-      <section className="relative -mt-20 pb-24">
+      <section className="relative -mt-36 pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Left Column - Job Details */}
@@ -215,7 +156,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                 className="space-y-8"
               >
                 {/* Overview */}
-                <div className="rounded-2xl border border-gray-800 bg-card p-6">
+                <div className="rounded-2xl border border-theme-neutral-800 bg-card p-6">
                   <h2 className="mb-4 text-2xl font-bold text-foreground">
                     Overview
                   </h2>
@@ -223,7 +164,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                 </div>
 
                 {/* Responsibilities */}
-                <div className="rounded-2xl border border-gray-800 bg-card p-6">
+                <div className="rounded-2xl border border-theme-neutral-800 bg-card p-6">
                   <h2 className="mb-4 text-2xl font-bold text-foreground">
                     Responsibilities
                   </h2>
@@ -241,7 +182,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                 </div>
 
                 {/* Requirements */}
-                <div className="rounded-2xl border border-gray-800 bg-card p-6">
+                <div className="rounded-2xl border border-theme-neutral-800 bg-card p-6">
                   <h2 className="mb-4 text-2xl font-bold text-foreground">
                     Requirements
                   </h2>
@@ -259,7 +200,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                 </div>
 
                 {/* Benefits */}
-                <div className="rounded-2xl border border-gray-800 bg-card p-6">
+                <div className="rounded-2xl border border-theme-neutral-800 bg-card p-6">
                   <h2 className="mb-4 text-2xl font-bold text-foreground">
                     Benefits
                   </h2>
@@ -281,7 +222,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
             {/* Right Column - Application Form */}
             <ScrollInView
             delay={0.2}
-              className="rounded-2xl border border-gray-800 bg-card p-6"
+              className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
             >
               <h2 className="mb-6 text-2xl font-bold text-foreground">
                 Apply Now
@@ -297,10 +238,10 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("firstName")}
                       type="text"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.firstName && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.firstName.message}
                       </p>
                     )}
@@ -312,10 +253,10 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("lastName")}
                       type="text"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.lastName && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.lastName.message}
                       </p>
                     )}
@@ -331,10 +272,10 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("email")}
                       type="email"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.email.message}
                       </p>
                     )}
@@ -346,10 +287,10 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("phone")}
                       type="tel"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                     {errors.phone && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.phone.message}
                       </p>
                     )}
@@ -365,11 +306,11 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("linkedin")}
                       type="url"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                       placeholder="https://linkedin.com/in/..."
                     />
                     {errors.linkedin && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.linkedin.message}
                       </p>
                     )}
@@ -381,11 +322,11 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("portfolio")}
                       type="url"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                       placeholder="https://..."
                     />
                     {errors.portfolio && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.portfolio.message}
                       </p>
                     )}
@@ -397,7 +338,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <input
                       {...register("currentCompany")}
                       type="text"
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     />
                   </div>
                   <div>
@@ -406,7 +347,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     </label>
                     <select
                       {...register("yearsOfExperience")}
-                      className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                      className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     >
                       <option value="">Select experience</option>
                       <option value="0-2">0-2 years</option>
@@ -415,7 +356,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                       <option value="10+">10+ years</option>
                     </select>
                     {errors.yearsOfExperience && (
-                      <p className="mt-1 text-sm text-red-500">
+                      <p className="mt-1 text-sm text-theme-rose-500">
                         {errors.yearsOfExperience.message}
                       </p>
                     )}
@@ -427,7 +368,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   <label className="mb-2 block text-sm font-medium text-foreground">
                     Resume/CV
                   </label>
-                  <div className="rounded-lg border border-dashed border-gray-800 bg-background p-4 text-center">
+                  <div className="rounded-lg border border-dashed border-theme-neutral-800 bg-background p-4 text-center">
                     <input
                       {...register("resumeFile")}
                       type="file"
@@ -461,11 +402,11 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   <textarea
                     {...register("coverLetter")}
                     rows={5}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="Tell us why you're interested in this position..."
                   />
                   {errors.coverLetter && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.coverLetter.message}
                     </p>
                   )}
@@ -478,7 +419,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                   </label>
                   <select
                     {...register("heardAbout")}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   >
                     <option value="">Select an option</option>
                     <option value="linkedin">LinkedIn</option>
@@ -489,7 +430,7 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
                     <option value="other">Other</option>
                   </select>
                   {errors.heardAbout && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.heardAbout.message}
                     </p>
                   )}
@@ -514,9 +455,9 @@ const JobDetailsPage: FC<{ params: { job: string } }> = ({ params }) => {
 
                 {error && (
                   <ScrollInView
-                    className="rounded-lg bg-red-500/10 p-4"
+                    className="rounded-lg bg-theme-rose-500/10 p-4"
                   >
-                    <div className="flex items-center gap-2 text-red-500">
+                    <div className="flex items-center gap-2 text-theme-rose-500">
                       <AlertCircle className="h-5 w-5" />
                       <p className="text-sm font-medium">{error}</p>
                     </div>

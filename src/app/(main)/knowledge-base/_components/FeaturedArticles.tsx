@@ -26,14 +26,14 @@ export const FeaturedArticles: FC<FeaturedArticlesProps> = ({
         <div className="flex items-center justify-between">
           <h2 className="text-3xl font-bold text-foreground">All Articles</h2>
           <div className="flex items-center gap-4">
-            <button className="flex items-center gap-2 rounded-full border border-gray-800 bg-background px-4 py-2 text-sm text-muted-foreground hover:border-theme-primary-500/20">
+            <button className="flex items-center gap-2 rounded-full border border-theme-neutral-800 bg-background px-4 py-2 text-sm text-muted-foreground hover:border-theme-primary-500/20">
               <Filter className="h-4 w-4" />
               Filter
             </button>
             <select
               value={selectedCategory}
               onChange={(e) => onSelectCategory(e.target.value)}
-              className="rounded-full border border-gray-800 bg-background px-4 py-2 text-sm text-muted-foreground focus:border-theme-primary-500 focus:outline-none"
+              className="rounded-full border border-theme-neutral-800 bg-background px-4 py-2 text-sm text-muted-foreground focus:border-theme-primary-500 focus:outline-none"
             >
               <option value="all">All Categories</option>
               {categories.map((category) => (

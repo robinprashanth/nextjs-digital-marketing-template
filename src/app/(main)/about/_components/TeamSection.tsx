@@ -35,7 +35,7 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({
   <ScrollInView  delay={ index * 0.1}
     className="group relative"
   >
-    <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-card transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
+    <div className="relative overflow-hidden rounded-2xl border border-theme-neutral-800 bg-card transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
       {/* Image Container */}
       <div className="relative h-80 overflow-hidden">
         <Image
@@ -145,7 +145,7 @@ export const TeamSection: FC = () => {
   ];
 
   return (
-    <section className="relative border-t border-gray-800 py-24">
+    <section className="relative border-t border-theme-neutral-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
@@ -189,7 +189,7 @@ export const TeamSection: FC = () => {
 
         {/* Join the Team CTA */}
         <ScrollInView
-          className="mx-auto mt-20 max-w-3xl rounded-2xl border border-gray-800 bg-card p-8 text-center md:p-12"
+          className="mx-auto mt-20 max-w-3xl rounded-2xl border border-theme-neutral-800 bg-card p-8 text-center md:p-12"
         >
           <h3 className="mb-4 text-2xl font-bold text-foreground">
             Join Our Team

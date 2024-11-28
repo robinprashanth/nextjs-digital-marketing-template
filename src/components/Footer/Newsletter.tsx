@@ -56,7 +56,7 @@ export const Newsletter: FC = () => {
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-2 bg-gradient-to-r from-theme-primary-600 to-blue-600 bg-clip-text text-xl font-bold text-transparent"
+            className="mb-2 bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent"
           >
             Stay Ahead of the Curve
           </motion.h3>
@@ -116,7 +116,7 @@ export const Newsletter: FC = () => {
                       </Button>
                     </div>
                   </FormControl>
-                  <FormMessage className="mt-2 text-sm text-red-400" />
+                  <FormMessage className="mt-2 text-sm text-theme-rose-400" />
                 </FormItem>
               )}
             />
@@ -137,7 +137,7 @@ export const Newsletter: FC = () => {
 
       {/* Decorative elements */}
       <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-theme-primary-500/10 blur-2xl" />
-      <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl" />
+      <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-theme-ocean-500/10 blur-2xl" />
     </div>
   );
 };

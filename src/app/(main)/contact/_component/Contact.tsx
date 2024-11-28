@@ -3,7 +3,6 @@ import { FC } from "react";
 import { motion } from "motion/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 import {
   Phone,
   Mail,
@@ -16,26 +15,7 @@ import {
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-
-// Form Schema
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z
-    .string()
-    .regex(
-      /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
-      "Please enter a valid phone number",
-    )
-    .min(10, "Phone number must be at least 10 digits"),
-  company: z.string().optional(),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
-  message: z.string().min(20, "Message must be at least 20 characters"),
-  services: z.array(z.string()).min(1, "Please select at least one service"),
-  budget: z.enum(["<10k", "10k-25k", "25k-50k", "50k+"]),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+import { ContactFormData, contactFormPageSchema } from "@/lib/validation";
 
 const Contact: FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,7 +28,7 @@ const Contact: FC = () => {
     formState: { errors },
     reset,
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(contactFormPageSchema),
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -174,7 +154,7 @@ const Contact: FC = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
+                    className="flex items-start gap-4 rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                   >
                     <div className="rounded-xl bg-theme-primary-500/10 p-3">
                       <item.icon className="h-6 w-6 text-theme-primary-400" />
@@ -202,7 +182,7 @@ const Contact: FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="rounded-2xl border border-gray-800 bg-card p-8"
+              className="rounded-2xl border border-theme-neutral-800 bg-card p-8"
             >
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Name Field */}
@@ -216,11 +196,11 @@ const Contact: FC = () => {
                   <input
                     {...register("name")}
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.name.message}
                     </p>
                   )}
@@ -237,11 +217,11 @@ const Contact: FC = () => {
                   <input
                     {...register("email")}
                     type="email"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.email.message}
                     </p>
                   )}
@@ -258,11 +238,11 @@ const Contact: FC = () => {
                   <input
                     {...register("phone")}
                     type="tel"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="+1 (555) 123-4567"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.phone.message}
                     </p>
                   )}
@@ -279,7 +259,7 @@ const Contact: FC = () => {
                   <input
                     {...register("company")}
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="Your Company"
                   />
                 </div>
@@ -295,11 +275,11 @@ const Contact: FC = () => {
                   <input
                     {...register("subject")}
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="How can we help?"
                   />
                   {errors.subject && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.subject.message}
                     </p>
                   )}
@@ -317,7 +297,7 @@ const Contact: FC = () => {
                           type="checkbox"
                           value={service}
                           {...register("services")}
-                          className="rounded border-gray-800 bg-background text-theme-primary-500 focus:ring-theme-primary-500"
+                          className="rounded border-theme-neutral-800 bg-background text-theme-primary-500 focus:ring-theme-primary-500"
                         />
                         <span className="text-sm text-muted-foreground">
                           {service}
@@ -326,7 +306,7 @@ const Contact: FC = () => {
                     ))}
                   </div>
                   {errors.services && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.services.message}
                     </p>
                   )}
@@ -339,7 +319,7 @@ const Contact: FC = () => {
                   </label>
                   <select
                     {...register("budget")}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   >
                     <option value="">Select a budget range</option>
                     {budgetOptions.map((option) => (
@@ -349,7 +329,7 @@ const Contact: FC = () => {
                     ))}
                   </select>
                   {errors.budget && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.budget.message}
                     </p>
                   )}
@@ -366,11 +346,11 @@ const Contact: FC = () => {
                   <textarea
                     {...register("message")}
                     rows={4}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                     placeholder="Tell us about your project..."
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-500">
+                    <p className="mt-1 text-sm text-theme-rose-500">
                       {errors.message.message}
                     </p>
                   )}
@@ -397,9 +377,9 @@ const Contact: FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="rounded-lg bg-red-500/10 p-4"
+                    className="rounded-lg bg-theme-rose-500/10 p-4"
                   >
-                    <div className="flex items-center gap-2 text-red-500">
+                    <div className="flex items-center gap-2 text-theme-rose-500">
                       <AlertCircle className="h-5 w-5" />
                       <p className="text-sm font-medium">{error}</p>
                     </div>
@@ -435,7 +415,7 @@ const Contact: FC = () => {
       </section>
 
       {/* Map Section */}
-      <section className="border-t border-gray-800">
+      <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -449,7 +429,7 @@ const Contact: FC = () => {
           </ScrollInView>
 
           <ScrollInView
-            className="relative aspect-video overflow-hidden rounded-2xl border border-gray-800"
+            className="relative aspect-video overflow-hidden rounded-2xl border border-theme-neutral-800"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.2922926!3d48.8583736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1644027036840!5m2!1sen!2sfr"
@@ -466,7 +446,7 @@ const Contact: FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="border-t border-gray-800 bg-card">
+      <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -505,7 +485,7 @@ const Contact: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="rounded-2xl border border-gray-800 bg-background p-6"
+                className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
               >
                 <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {faq.question}

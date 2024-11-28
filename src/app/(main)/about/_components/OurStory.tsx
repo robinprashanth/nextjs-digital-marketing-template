@@ -34,7 +34,7 @@ const Milestone: FC<MilestoneProps> = ({
       className={`relative w-full md:w-[calc(50%-2rem)] ${isLeft ? "md:text-right" : ""}`}
     >
       {/* Card */}
-      <div className="relative rounded-2xl border border-gray-800 bg-card p-6">
+      <div className="relative rounded-2xl border border-theme-neutral-800 bg-card p-6">
         {/* Year Badge */}
         <div className="inline-flex items-center rounded-full bg-theme-primary-500/10 px-3 py-1">
           <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-sm font-semibold text-transparent">

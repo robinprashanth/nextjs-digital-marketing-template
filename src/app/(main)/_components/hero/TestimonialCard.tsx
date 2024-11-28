@@ -39,6 +39,6 @@ export const TestimonialCard: FC<TestimonialCardProps> = ({
         </div>
       </div>
     </div>
-    <p className="mt-3 text-sm text-gray-300">{quote}</p>
+    <p className="mt-3 text-sm text-theme-neutral-300">{quote}</p>
   </motion.div>
 );

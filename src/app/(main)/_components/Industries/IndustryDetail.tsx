@@ -14,7 +14,7 @@ export const IndustryDetail: FC<IndustryDetailProps> = ({ industry }) => (
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800"
+      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
     >
       {/* Hero Image */}
       <div className="relative mb-6 h-48 w-full overflow-hidden rounded-xl">
@@ -47,7 +47,7 @@ export const IndustryDetail: FC<IndustryDetailProps> = ({ industry }) => (
 
       {/* Case Studies */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold text-theme-neutral-900 dark:text-white">
           Success Stories
         </h3>
         <div className="grid gap-4 md:grid-cols-3">
@@ -65,7 +65,7 @@ export const IndustryDetail: FC<IndustryDetailProps> = ({ industry }) => (
                     className="rounded-full object-cover"
                   />
                 </div>
-                <span className="font-medium text-gray-900 dark:text-white">
+                <span className="font-medium text-theme-neutral-900 dark:text-white">
                   {caseStat.clientName}
                 </span>
               </div>

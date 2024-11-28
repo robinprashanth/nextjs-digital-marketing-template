@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 export function FloatAnimation() {
   return (
     <div className="space-y-8">
-      <div className="rounded-lg bg-white p-6 dark:bg-gray-800">
+      <div className="rounded-lg bg-white p-6 dark:bg-theme-neutral-800">
         <h3 className="mb-4 text-xl font-semibold">
           Floating Elements Animation
         </h3>
@@ -38,7 +38,7 @@ export function FloatAnimation() {
             }}
             className="absolute right-1/4 top-1/3"
           >
-            <div className="h-20 w-20 rounded-full bg-blue-500/20 blur-lg" />
+            <div className="h-20 w-20 rounded-full bg-theme-ocean-500/20 blur-lg" />
           </motion.div>
 
           <motion.div
@@ -57,8 +57,8 @@ export function FloatAnimation() {
             <div className="text-4xl text-theme-primary-400">✦</div>
           </motion.div>
         </div>
-        <div className="mt-4 rounded-lg bg-gray-900 p-4">
-          <pre className="text-sm text-gray-100">
+        <div className="mt-4 rounded-lg bg-theme-neutral-900 p-4">
+          <pre className="text-sm text-theme-neutral-100">
             {`<motion.div
   animate={{
     y: [-10, 10],

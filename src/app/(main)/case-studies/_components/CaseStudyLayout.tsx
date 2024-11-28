@@ -119,7 +119,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
       <div className="container relative mx-auto px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-4xl">
           {/* Share Buttons */}
-          <div className="sticky top-8 z-10 mb-12 flex items-center justify-between rounded-2xl border border-gray-800 bg-card/80 p-4 backdrop-blur-sm">
+          <div className="sticky top-8 z-10 mb-12 flex items-center justify-between rounded-2xl border border-theme-neutral-800 bg-card/80 p-4 backdrop-blur-sm">
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
                 Share this case study:
@@ -164,7 +164,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100"
+                className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100"
               >
                 Start Your Project
               </Link>
@@ -180,7 +180,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
       </div>
 
       {/* Navigation Footer */}
-      <div className="border-t border-gray-800 bg-card">
+      <div className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-8 sm:px-6">
           <div className="flex items-center justify-between">
             <Link

@@ -4,7 +4,7 @@ import { FeatureProps } from "@/types";
 import { ScrollInView } from "../motion/ScrollInView";
 
 export const Features: FC<{ features: FeatureProps[] }> = ({ features }) => (
-  <section className="border-t border-gray-800 py-24">
+  <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
       <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
@@ -26,7 +26,7 @@ export const Features: FC<{ features: FeatureProps[] }> = ({ features }) => (
           <ScrollInView
           key={index}
           delay={ index * 0.1}
-            className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
+            className="group rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
           >
             <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
               {feature.icon}

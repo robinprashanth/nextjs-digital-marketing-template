@@ -1,13 +1,12 @@
-// app/(main)/user-interface/animations/_components/BackgroundAnimation.tsx
 import { motion } from "motion/react";
 
 export function BackgroundAnimation() {
   return (
-    <div className="rounded-lg bg-white p-6 dark:bg-gray-800">
+    <div className="rounded-lg bg-white p-6 dark:bg-theme-neutral-800">
       <h3 className="mb-4 text-xl font-semibold">Background Animations</h3>
 
       {/* Demo Container */}
-      <div className="relative h-[500px] overflow-hidden rounded-lg bg-gradient-to-b from-gray-900 via-gray-800 to-background p-8">
+      <div className="relative h-[500px] overflow-hidden rounded-lg bg-gradient-to-b from-theme-neutral-900 via-theme-neutral-800 to-background p-8">
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(147,51,234,0.1),transparent)] opacity-70" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(139,92,246,0.1),transparent)] opacity-70" />
@@ -15,7 +14,7 @@ export function BackgroundAnimation() {
 
         {/* Animated Gradient Spots */}
         <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-primary-500/20 blur-xl" />
-        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-violet-500/20 blur-xl" />
+        <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-violet-500/20 blur-xl" />
 
         {/* Animated Dots */}
         {[...Array(30)].map((_, i) => (
@@ -64,7 +63,7 @@ export function BackgroundAnimation() {
         {/* Example Code */}
         <div className="absolute bottom-4 left-4 right-4">
           <div className="rounded-lg bg-black/50 p-4 backdrop-blur-sm">
-            <pre className="text-sm text-gray-100">
+            <pre className="text-sm text-theme-neutral-100">
               {`// Background Setup
 <div className="relative">
   {/* Gradient Overlays */}
@@ -95,7 +94,7 @@ export function BackgroundAnimation() {
 
   {/* Gradient Spots */}
   <div className="absolute left-1/4 top-1/4 h-24 w-24 rounded-full bg-theme-primary-500/20 blur-xl" />
-  <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-violet-500/20 blur-xl" />
+  <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-violet-500/20 blur-xl" />
 </div>`}
             </pre>
           </div>

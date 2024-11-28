@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export function GridAnimation() {
   return (
-    <div className="rounded-lg bg-white p-6 dark:bg-gray-800">
+    <div className="rounded-lg bg-white p-6 dark:bg-theme-neutral-800">
       <h3 className="mb-4 text-xl font-semibold">Grid Animations</h3>
 
       <div className="grid gap-6 md:grid-cols-3">
@@ -15,7 +15,7 @@ export function GridAnimation() {
             className="group relative overflow-hidden rounded-xl bg-theme-primary-500/10 p-6"
           >
             <h4 className="mb-2 text-lg font-semibold">Grid Item {i}</h4>
-            <p className="text-sm text-theme-neutral-600 dark:text-gray-300">
+            <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-300">
               Grid item with staggered animation and hover effect.
             </p>
             {/* Animated background blur */}
@@ -24,8 +24,8 @@ export function GridAnimation() {
         ))}
       </div>
 
-      <div className="mt-4 rounded-lg bg-gray-900 p-4">
-        <pre className="text-sm text-gray-100">
+      <div className="mt-4 rounded-lg bg-theme-neutral-900 p-4">
+        <pre className="text-sm text-theme-neutral-100">
           {`<div className="grid gap-6 md:grid-cols-3">
   {items.map((item, i) => (
     <motion.div

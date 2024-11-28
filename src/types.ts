@@ -368,3 +368,19 @@ export interface AnimationProps extends PropsWithChildren {
   x?: number;
   duration?: number;
 }
+
+export interface JobPosting {
+  id: string;
+  slug: string;
+  title: string;
+  department: string;
+  location: string;
+  type: "Full-time" | "Part-time" | "Contract" | "Remote";
+  experience: string;
+  salary: string;
+  posted: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  benefits: string[];
+}

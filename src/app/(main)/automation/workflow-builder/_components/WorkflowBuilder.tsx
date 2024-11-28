@@ -67,7 +67,7 @@ export const WorkflowBuilder: FC = () => {
               className="mt-12 flex flex-wrap items-center justify-center gap-4"
             >
               <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-4 transition-all hover:pr-12">
-                <span className="font-semibold text-indigo-600">
+                <span className="font-semibold text-theme-indigo-600">
                   Create Workflow
                 </span>
                 <ArrowRight className="absolute right-4 h-5 w-5 transform opacity-0 transition-all group-hover:opacity-100" />
@@ -118,7 +118,7 @@ export const WorkflowBuilder: FC = () => {
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               WORKFLOW TEMPLATES
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Start with Pre-built Templates
             </h2>
             <p className="mt-4 text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -170,7 +170,7 @@ export const WorkflowBuilder: FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="relative bg-gray-50/50 py-24 dark:bg-gray-800/50">
+      <section className="relative bg-gray-50/50 py-24 dark:bg-theme-neutral-800/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Features List */}
@@ -181,7 +181,7 @@ export const WorkflowBuilder: FC = () => {
               <span className="text-sm font-semibold text-theme-primary-600">
                 KEY FEATURES
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+              <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
                 Everything You Need to
                 <br />
                 Automate Your Marketing
@@ -198,7 +198,7 @@ export const WorkflowBuilder: FC = () => {
                     <ScrollInView
                     key={index}
                     delay={index * 0.1}
-                      className="flex items-start gap-4 rounded-2xl border border-gray-200 bg-white p-6 dark:border-theme-neutral-700 dark:bg-gray-900"
+                      className="flex items-start gap-4 rounded-2xl border border-theme-neutral-200 bg-white p-6 dark:border-theme-neutral-700 dark:bg-theme-neutral-900"
                     >
                       <div
                         className={`rounded-xl ${feature.color.replace("text", "bg")}/10 p-3`}
@@ -206,7 +206,7 @@ export const WorkflowBuilder: FC = () => {
                         <IconComponent className={`h-6 w-6 ${feature.color}`} />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 dark:text-white">
+                        <h3 className="font-bold text-theme-neutral-900 dark:text-white">
                           {feature.title}
                         </h3>
                         <p className="mt-1 text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -224,8 +224,8 @@ export const WorkflowBuilder: FC = () => {
               className="relative"
             >
               <div className="sticky top-24 space-y-8">
-                <div className="rounded-3xl bg-white p-8 shadow-xl dark:bg-gray-900">
-                  <h3 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">
+                <div className="rounded-3xl bg-white p-8 shadow-xl dark:bg-theme-neutral-900">
+                  <h3 className="mb-6 text-xl font-bold text-theme-neutral-900 dark:text-white">
                     How It Works
                   </h3>
                   <div className="space-y-6">
@@ -237,7 +237,7 @@ export const WorkflowBuilder: FC = () => {
                             <IconComponent className="h-5 w-5 text-theme-primary-500" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-gray-900 dark:text-white">
+                            <h4 className="font-bold text-theme-neutral-900 dark:text-white">
                               {step.title}
                             </h4>
                             <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -267,7 +267,7 @@ export const WorkflowBuilder: FC = () => {
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               INTEGRATIONS
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Connect with Your Favorite Tools
             </h2>
             <p className="mt-4 text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -282,12 +282,12 @@ export const WorkflowBuilder: FC = () => {
                 <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                  className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-gray-900"
+                  className="group cursor-pointer rounded-2xl border border-theme-neutral-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-theme-neutral-900"
                 >
                   <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
                     <IconComponent className="mx-auto h-6 w-6 text-theme-primary-500" />
                   </div>
-                  <h3 className="font-medium text-gray-900 dark:text-white">
+                  <h3 className="font-medium text-theme-neutral-900 dark:text-white">
                     {integration.name}
                   </h3>
                 </ScrollInView>
@@ -324,7 +324,7 @@ export const WorkflowBuilder: FC = () => {
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full bg-theme-primary-500/20 blur-3xl" />
-          <div className="absolute right-1/4 top-1/2 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
+          <div className="absolute right-1/4 top-1/2 h-96 w-96 rounded-full bg-theme-ocean-500/20 blur-3xl" />
         </div>
       </section>
     </main>

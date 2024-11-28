@@ -12,7 +12,7 @@ export const NewsletterSection: FC = () => {
   };
 
   return (
-    <section className="border-t border-gray-800 bg-card">
+    <section className="border-t border-theme-neutral-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
         <ScrollInView
           className="mx-auto max-w-2xl text-center"
@@ -30,7 +30,7 @@ export const NewsletterSection: FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex-1 rounded-full border border-gray-800 bg-background px-6 py-3 text-foreground placeholder:text-muted-foreground focus:border-theme-primary-500 focus:outline-none"
+              className="flex-1 rounded-full border border-theme-neutral-800 bg-background px-6 py-3 text-foreground placeholder:text-muted-foreground focus:border-theme-primary-500 focus:outline-none"
             />
             <button
               type="submit"

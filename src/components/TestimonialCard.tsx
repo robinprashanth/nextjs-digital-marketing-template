@@ -24,7 +24,7 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
   >
     <QuoteIcon />
 
-    <div className="relative z-10 rounded-2xl bg-white p-8 shadow-xl dark:bg-gray-800">
+    <div className="relative z-10 rounded-2xl bg-white p-8 shadow-xl dark:bg-theme-neutral-800">
       {/* Rating Stars */}
       <div className="mb-4 flex">
         {Array.from({ length: rating }).map((_, index) => (
@@ -36,7 +36,7 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
       </div>
 
       {/* Testimonial Content */}
-      <p className="mb-8 text-lg leading-relaxed text-theme-neutral-700 dark:text-gray-300">
+      <p className="mb-8 text-lg leading-relaxed text-theme-neutral-700 dark:text-theme-neutral-300">
         {content}
       </p>
 
@@ -47,7 +47,7 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
             <Image src={image} alt={name} fill className="object-cover" />
           </div>
           <div>
-            <h4 className="font-bold text-gray-900 dark:text-white">{name}</h4>
+            <h4 className="font-bold text-theme-neutral-900 dark:text-white">{name}</h4>
             <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
               {role} at {company}
             </p>

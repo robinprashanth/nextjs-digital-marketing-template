@@ -19,7 +19,7 @@ export const TechCategories: FC<TechCategoriesProps> = ({
         className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${
           activeCategory === category
             ? "bg-theme-primary-600 text-white"
-            : "bg-gray-100 text-theme-neutral-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-theme-neutral-400 dark:hover:bg-theme-neutral-700"
+            : "bg-theme-neutral-100 text-theme-neutral-600 hover:bg-theme-neutral-200 dark:bg-theme-neutral-800 dark:text-theme-neutral-400 dark:hover:bg-theme-neutral-700"
         }`}
       >
         {category.charAt(0).toUpperCase() + category.slice(1)}

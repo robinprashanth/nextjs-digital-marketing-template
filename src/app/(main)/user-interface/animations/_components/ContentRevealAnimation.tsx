@@ -2,7 +2,7 @@ import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export function ContentRevealAnimation() {
   return (
-    <div className="rounded-lg bg-white p-6 dark:bg-gray-800">
+    <div className="rounded-lg bg-white p-6 dark:bg-theme-neutral-800">
       <h3 className="mb-4 text-xl font-semibold">Content Reveal Animations</h3>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -14,14 +14,14 @@ export function ContentRevealAnimation() {
               <span className="text-sm text-theme-primary-400">Category</span>
             </div>
             <h4 className="text-2xl font-bold">Content Title</h4>
-            <p className="text-theme-neutral-600 dark:text-gray-300">
+            <p className="text-theme-neutral-600 dark:text-theme-neutral-300">
               Content description with nice reveal animation.
             </p>
           </ScrollInView>
         </div>
 
-        <div className="mt-4 rounded-lg bg-gray-900 p-4">
-          <pre className="text-sm text-gray-100">
+        <div className="mt-4 rounded-lg bg-theme-neutral-900 p-4">
+          <pre className="text-sm text-theme-neutral-100">
             {`<motion.div
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}

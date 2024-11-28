@@ -25,7 +25,7 @@ export const Benefits: FC<{ benefits: BenefitProps[] }> = ({ benefits }) => (
           <ScrollInView
           key={index}
           delay={ index * 0.1}
-            className="rounded-2xl border border-gray-800 bg-card p-6"
+            className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
           >
             <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
               {benefit.icon}

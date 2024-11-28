@@ -34,7 +34,7 @@ export const ServiceHero: FC<ServiceHeroProps> = ({
           <div className="mt-12 flex gap-4">
             <a
               href="#contact"
-              className="rounded-full bg-white px-8 py-3 text-base font-semibold text-gray-900 transition-all hover:bg-gray-100"
+              className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-neutral-900 transition-all hover:bg-theme-neutral-100"
             >
               Get Started
             </a>

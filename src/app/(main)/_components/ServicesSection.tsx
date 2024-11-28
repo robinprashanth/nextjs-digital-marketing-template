@@ -53,7 +53,7 @@ const services: Service[] = [
     title: "Analytics & Insights",
     description:
       "Transform data into actionable insights with advanced tracking, custom reporting, and strategic recommendations for growth.",
-    color: "bg-gradient-to-br from-red-500 to-red-600",
+    color: "bg-gradient-to-br from-theme-rose-500 to-theme-rose-600",
     gradient: "bg-[linear-gradient(45deg,#FF4D4D,#FF3333)]",
     href: "/services/analytics",
   },
@@ -62,7 +62,7 @@ const services: Service[] = [
     title: "Email Marketing",
     description:
       "Strategic email campaigns that nurture leads, boost engagement, and drive conversions through personalized communication flows.",
-    color: "bg-gradient-to-br from-blue-500 to-blue-600",
+    color: "bg-gradient-to-br from-theme-ocean-500 to-theme-ocean-600",
     gradient: "bg-[linear-gradient(45deg,#3B82F6,#2563EB)]",
     href: "/services/email-marketing",
   },
@@ -130,7 +130,7 @@ const ServiceCard: FC<Service> = ({
 
 const StatItem: FC<Stat> = ({ number, text }) => (
   <FadeInStaggerItem className="p-6">
-    <div className="mb-2 text-4xl font-bold text-gray-900">{number}</div>
+    <div className="mb-2 text-4xl font-bold text-theme-neutral-900">{number}</div>
     <div className="text-theme-neutral-600">{text}</div>
   </FadeInStaggerItem>
 );
@@ -143,10 +143,10 @@ export const ServicesSection: FC = () => {
         {/* Section Header */}
         <div className="mb-16 max-w-3xl">
           <FadeIn className="flex flex-col gap-4">
-            <span className="text-sm font-semibold uppercase tracking-wider text-red-500">
+            <span className="text-sm font-semibold uppercase tracking-wider text-theme-rose-500">
               Comprehensive Solutions
             </span>
-            <h2 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+            <h2 className="text-4xl font-bold leading-tight text-theme-neutral-900 md:text-5xl">
               Digital Marketing Excellence
               <br />
               Tailored to Your Growth

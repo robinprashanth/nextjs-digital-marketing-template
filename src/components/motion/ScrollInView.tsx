@@ -1,4 +1,4 @@
-// src/components/motion/ScrollInView.tsx
+"use client"
 import { FC, PropsWithChildren } from "react";
 import { motion, Variants, HTMLMotionProps } from "motion/react";
 

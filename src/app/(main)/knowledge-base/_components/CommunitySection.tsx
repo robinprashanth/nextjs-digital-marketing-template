@@ -4,7 +4,7 @@ import { Users, Video, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const CommunitySection: FC = () => (
-  <section className="border-t border-gray-800">
+  <section className="border-t border-theme-neutral-800">
     <div className="container mx-auto px-4 py-24 sm:px-6">
       <div className="grid gap-8 md:grid-cols-2">
         {/* Community Forums */}
@@ -12,7 +12,7 @@ export const CommunitySection: FC = () => (
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-gray-800 bg-card p-8"
+          className="rounded-2xl border border-theme-neutral-800 bg-card p-8"
         >
           <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
             <Users className="h-6 w-6 text-theme-primary-400" />
@@ -48,7 +48,7 @@ export const CommunitySection: FC = () => (
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-gray-800 bg-card p-8"
+          className="rounded-2xl border border-theme-neutral-800 bg-card p-8"
         >
           <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
             <Video className="h-6 w-6 text-theme-primary-400" />

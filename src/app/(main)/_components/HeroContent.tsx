@@ -27,7 +27,7 @@ export const HeroSection: FC = () => {
       </FloatingShape>
 
       <FloatingShape className="bottom-[20%] left-[20%]" delay={0.4}>
-        <div className="h-24 w-24 rounded-full bg-blue-500/20 blur-lg" />
+        <div className="h-24 w-24 rounded-full bg-theme-ocean-500/20 blur-lg" />
       </FloatingShape>
       <FloatingShape className="bottom-[80%] right-[40%]" delay={0.6}>
         <div className="text-4xl text-theme-primary-400">✦</div>
@@ -59,7 +59,7 @@ export const HeroSection: FC = () => {
       <div className="container relative mx-auto flex h-full items-center px-4 sm:px-6">
         <div className="relative max-w-[90%] py-20 lg:max-w-[60%]">
           {/* Notice FadeIn is not inside FadeInStagger */}
-          <FadeIn className="mb-6 inline-block rounded-full bg-red-500/10 px-4 py-1 text-sm text-red-400">
+          <FadeIn className="mb-6 inline-block rounded-full bg-theme-rose-500/10 px-4 py-1 text-sm text-theme-rose-400">
             Leading Digital Marketing Agency
           </FadeIn>
 
@@ -90,7 +90,7 @@ export const HeroSection: FC = () => {
                 <div className="mt-10 flex flex-wrap items-center gap-6">
                   <Button
                     size="lg"
-                    className="h-14 rounded-full bg-white px-8 text-black hover:bg-gray-100"
+                    className="h-14 rounded-full bg-white px-8 text-black hover:bg-theme-neutral-100"
                   >
                     GET IN TOUCH <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>

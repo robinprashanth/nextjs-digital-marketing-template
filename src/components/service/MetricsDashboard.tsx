@@ -6,7 +6,7 @@ import { ScrollInView } from "../motion/ScrollInView";
 export const MetricsDashboard: FC<{ metrics: MetricProps[] }> = ({
   metrics,
 }) => (
-  <section className="border-t border-gray-800 py-24">
+  <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
       <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
@@ -27,7 +27,7 @@ export const MetricsDashboard: FC<{ metrics: MetricProps[] }> = ({
           <ScrollInView
           key={index}
           delay={ index * 0.1}
-            className="rounded-2xl border border-gray-800 bg-card p-6"
+            className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
           >
             <div className="mb-4 flex items-center justify-between">
               <div className="rounded-xl bg-theme-primary-500/10 p-3">
@@ -35,7 +35,7 @@ export const MetricsDashboard: FC<{ metrics: MetricProps[] }> = ({
               </div>
               <div
                 className={`flex items-center gap-1 text-sm ${
-                  metric.trend > 0 ? "text-theme-tulip-500" : "text-red-500"
+                  metric.trend > 0 ? "text-theme-tulip-500" : "text-theme-rose-500"
                 }`}
               >
                 {metric.trend > 0 ? "↑" : "↓"} {Math.abs(metric.trend)}%

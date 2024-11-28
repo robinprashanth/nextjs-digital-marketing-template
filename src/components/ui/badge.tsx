@@ -16,7 +16,7 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
         // Product Status
-        new: "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
+        new: "bg-blue-50 text-theme-ocean-600 dark:bg-theme-ocean-500/10 dark:text-theme-ocean-400",
         soon: "bg-purple-50 text-theme-primary-600 dark:bg-theme-primary-500/10 dark:text-theme-primary-400",
         beta: "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400",
         hiring:
@@ -33,10 +33,10 @@ const badgeVariants = cva(
         // Alert States
         success:
           "bg-green-50 text-green-600 dark:bg-theme-tulip-500/10 dark:text-theme-tulip-400",
-        error: "bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400",
+        error: "bg-red-50 text-theme-rose-600 dark:bg-theme-rose-500/10 dark:text-theme-rose-400",
         warning:
           "bg-yellow-50 text-theme-sunflower-600 dark:bg-theme-sunflower-500/10 dark:text-theme-sunflower-400",
-        info: "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400",
+        info: "bg-blue-50 text-theme-ocean-600 dark:bg-theme-ocean-500/10 dark:text-theme-ocean-400",
       },
     },
     defaultVariants: {

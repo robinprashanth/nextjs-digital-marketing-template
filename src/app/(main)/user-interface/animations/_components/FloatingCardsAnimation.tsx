@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export function FloatingCardsAnimation() {
   return (
-    <div className="rounded-lg bg-white p-6 dark:bg-gray-800">
+    <div className="rounded-lg bg-white p-6 dark:bg-theme-neutral-800">
       <h3 className="mb-4 text-xl font-semibold">Floating Cards Animation</h3>
       <div className="bg-gradient-dark relative h-96 rounded-lg p-8">
         <motion.div
@@ -39,8 +39,8 @@ export function FloatingCardsAnimation() {
           </div>
         </motion.div>
 
-        <div className="mt-4 rounded-lg bg-gray-900 p-4">
-          <pre className="text-sm text-gray-100">
+        <div className="mt-4 rounded-lg bg-theme-neutral-900 p-4">
+          <pre className="text-sm text-theme-neutral-100">
             {`<motion.div
   initial={{ opacity: 0, x: 20 }}
   animate={{ opacity: 1, x: 0 }}

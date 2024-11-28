@@ -16,7 +16,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="absolute left-0 top-full min-w-[280px] rounded-lg bg-white p-4 shadow-lg dark:bg-gray-800"
+      className="absolute left-0 top-full min-w-[280px] rounded-lg bg-white p-4 shadow-lg dark:bg-theme-neutral-800"
       onMouseLeave={onClose}
     >
       <ul className="space-y-2">
@@ -27,7 +27,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
               className="group flex items-center justify-between rounded-lg p-3 transition-colors hover:bg-gray-50 dark:hover:bg-theme-neutral-700"
             >
               <div>
-                <span className="font-medium text-gray-900 dark:text-white">
+                <span className="font-medium text-theme-neutral-900 dark:text-white">
                   {item.title}
                 </span>
                 {item.description && (

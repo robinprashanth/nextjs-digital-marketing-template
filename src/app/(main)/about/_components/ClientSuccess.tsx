@@ -68,7 +68,7 @@ const TestimonialCard: FC<Testimonial & { index: number }> = ({
   index,
 }) => (
   <ScrollInView delay={ 0.2 * index}
-    className="relative rounded-2xl border border-gray-800 bg-card p-6"
+    className="relative rounded-2xl border border-theme-neutral-800 bg-card p-6"
   >
     <div className="mb-6">
       <Quote className="h-12 w-12 text-theme-primary-400 opacity-20" />
@@ -105,7 +105,7 @@ const CaseStudyCard: FC<CaseStudyCardProps> = ({
   index,
 }) => (
   <ScrollInView delay={ 0.1 * index}
-    className="group rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+    className="group rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     {/* Header */}
     <div className="mb-6 flex items-start justify-between">
@@ -216,7 +216,7 @@ export const ClientSuccess: FC = () => {
   ];
 
   return (
-    <section className="relative border-t border-gray-800 py-24">
+    <section className="relative border-t border-theme-neutral-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
@@ -255,7 +255,7 @@ export const ClientSuccess: FC = () => {
           </Button>
 
           {/* Success Metrics */}
-          <div className="grid w-full grid-cols-3 gap-8 rounded-2xl border border-gray-800 bg-card p-8">
+          <div className="grid w-full grid-cols-3 gap-8 rounded-2xl border border-theme-neutral-800 bg-card p-8">
             {[
               { label: "Client Satisfaction", value: "98%" },
               { label: "Projects Completed", value: "500+" },

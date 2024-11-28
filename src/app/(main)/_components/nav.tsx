@@ -38,7 +38,7 @@ export const NavSection = () => (
       <Button
         variant="secondary"
         size="sm"
-        className="rounded-full bg-white text-black hover:bg-gray-100"
+        className="rounded-full bg-white text-black hover:bg-theme-neutral-100"
       >
         GET IN TOUCH <ArrowRight className="ml-2 h-4 w-4" />
       </Button>

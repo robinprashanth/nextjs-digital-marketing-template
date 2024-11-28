@@ -38,7 +38,7 @@ const FAQItem: FC<FAQ & { isOpen: boolean; toggle: () => void }> = ({
   isOpen,
   toggle,
 }) => (
-  <div className="border-b border-gray-800">
+  <div className="border-b border-theme-neutral-800">
     <button
       onClick={toggle}
       className="flex w-full items-center justify-between py-6 text-left"
@@ -60,7 +60,7 @@ const FAQItem: FC<FAQ & { isOpen: boolean; toggle: () => void }> = ({
 
 // Pricing Component
 export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
-  <section className="border-t border-gray-800 py-24">
+  <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
       <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
@@ -88,7 +88,7 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
             className={`relative rounded-2xl border ${
               tier.isPopular
                 ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
-                : "border-gray-800"
+                : "border-theme-neutral-800"
             } bg-card p-8`}
           >
             {tier.isPopular && (
@@ -135,7 +135,7 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
 
 // Case Studies Component
 export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
-  <section className="border-t border-gray-800 py-24">
+  <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
       <ScrollInView
         className="mx-auto mb-16 max-w-3xl text-center"
@@ -157,7 +157,7 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
           <ScrollInView
           key={index}
           delay={ index * 0.1}
-            className="grid gap-8 rounded-2xl border border-gray-800 bg-card p-8 md:grid-cols-2"
+            className="grid gap-8 rounded-2xl border border-theme-neutral-800 bg-card p-8 md:grid-cols-2"
           >
             <div>
               <div className="mb-4 inline-flex rounded-full bg-theme-primary-500/10 px-3 py-1">
@@ -219,7 +219,7 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
   const [openIndex, setOpenIndex] = React.useState<number>(0);
 
   return (
-    <section className="border-t border-gray-800 py-24">
+    <section className="border-t border-theme-neutral-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <ScrollInView
           className="mx-auto mb-16 max-w-3xl text-center"
@@ -252,7 +252,7 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
 };
 // CTA Component
 export const CTA: FC = () => (
-  <section className="border-t border-gray-800 py-24">
+  <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
       <ScrollInView
         className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
@@ -267,7 +267,7 @@ export const CTA: FC = () => (
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <a
             href="/contact"
-            className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100"
+            className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100"
           >
             Get Started
           </a>
@@ -282,10 +282,3 @@ export const CTA: FC = () => (
     </div>
   </section>
 );
-
-export default {
-  Pricing,
-  CaseStudies,
-  FAQ,
-  CTA,
-};

@@ -122,7 +122,7 @@ export const successStories = [
       { metric: "Conversion Rate", value: "12.4%" },
     ],
     duration: "12 months",
-    gradient: "from-blue-600 to-cyan-600",
+    gradient: "from-theme-ocean-600 to-cyan-600",
   },
   {
     title: "Brand Awareness",

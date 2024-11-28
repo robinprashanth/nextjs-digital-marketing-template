@@ -28,7 +28,7 @@ export const SocialLinks: FC = () => (
         className="group relative rounded-full bg-gradient-to-br from-theme-primary-500/10 to-transparent p-2 transition-all hover:scale-110"
         aria-label={name}
       >
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600/20 to-blue-600/20 opacity-0 blur-md transition-opacity group-hover:opacity-100" />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600/20 to-theme-ocean-600/20 opacity-0 blur-md transition-opacity group-hover:opacity-100" />
         <Icon className="relative h-5 w-5 text-theme-neutral-400 transition-colors group-hover:text-theme-primary-400" />
       </a>
     ))}

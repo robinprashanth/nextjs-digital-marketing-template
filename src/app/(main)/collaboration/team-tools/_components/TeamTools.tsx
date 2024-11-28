@@ -97,7 +97,7 @@ export const TeamTools: FC = () => {
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               KEY FEATURES
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Everything You Need for
               <br />
               Seamless Collaboration
@@ -115,7 +115,7 @@ export const TeamTools: FC = () => {
                 delay={index * 0.1 }
                   key={index}
                   viewport={true}
-                  className="group rounded-2xl border border-gray-200 bg-white p-8 transition-all hover:border-theme-primary-500/20 dark:border-gray-800 dark:bg-gray-900"
+                  className="group rounded-2xl border border-theme-neutral-200 bg-white p-8 transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-800 dark:bg-theme-neutral-900"
                 >
                   <div
                     className={`mb-6 inline-block rounded-xl ${feature.color.replace("text", "bg")}/10 p-3`}
@@ -123,7 +123,7 @@ export const TeamTools: FC = () => {
                     <IconComponent className={`h-6 w-6 ${feature.color}`} />
                   </div>
 
-                  <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="mb-4 text-xl font-bold text-theme-neutral-900 dark:text-white">
                     {feature.title}
                   </h3>
                   <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -149,7 +149,7 @@ export const TeamTools: FC = () => {
       </section>
 
       {/* Tools Grid */}
-      <section className="bg-gray-50 py-24 dark:bg-gray-800">
+      <section className="bg-gray-50 py-24 dark:bg-theme-neutral-800">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
           viewport={true}
@@ -158,7 +158,7 @@ export const TeamTools: FC = () => {
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               TEAM TOOLS
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Everything Your Team Needs
               <br />
               In One Place
@@ -173,7 +173,7 @@ export const TeamTools: FC = () => {
                 key={index}
                 viewport={true}
                 delay={index * 0.1}
-                  className="group rounded-2xl bg-white p-8 shadow-lg transition-all hover:shadow-xl dark:bg-gray-900"
+                  className="group rounded-2xl bg-white p-8 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-900"
                 >
                   <div
                     className={`mb-6 inline-block rounded-xl ${tool.gradient.replace("bg-", "bg-opacity-10")} p-3`}
@@ -181,7 +181,7 @@ export const TeamTools: FC = () => {
                     <IconComponent className="h-6 w-6 text-theme-primary-600" />
                   </div>
 
-                  <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="mb-4 text-xl font-bold text-theme-neutral-900 dark:text-white">
                     {tool.title}
                   </h3>
                   <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
@@ -216,7 +216,7 @@ export const TeamTools: FC = () => {
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
               INTEGRATIONS
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
               Works With Your
               <br />
               Favorite Tools
@@ -231,12 +231,12 @@ export const TeamTools: FC = () => {
                 key={index}
                 viewport={true}
                 delay={index * 0.1}
-                  className="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-gray-900"
+                  className="group cursor-pointer rounded-2xl border border-theme-neutral-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-theme-neutral-900"
                 >
                   <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
                     <IconComponent className="mx-auto h-6 w-6 text-theme-primary-500" />
                   </div>
-                  <h3 className="font-medium text-gray-900 dark:text-white">
+                  <h3 className="font-medium text-theme-neutral-900 dark:text-white">
                     {integration.name}
                   </h3>
                 </ScrollInView>

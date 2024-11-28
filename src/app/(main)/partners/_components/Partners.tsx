@@ -172,7 +172,7 @@ const Partners: FC = () => {
                 <ScrollInView
                 delay={index * 0.1}
                   key={partner.name}
-                  className="group relative rounded-2xl border border-gray-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
+                  className="group relative rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                 >
                   {/* Partner Level Badge */}
                   <div className="absolute right-6 top-6 rounded-full bg-theme-primary-500/10 px-3 py-1">
@@ -227,7 +227,7 @@ const Partners: FC = () => {
       </section>
 
       {/* Partnership Levels */}
-      <section className="border-t border-gray-800 bg-card">
+      <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             viewport={{ once: true }}
@@ -250,7 +250,7 @@ const Partners: FC = () => {
               <ScrollInView
                 key={level.name}
                 delay={index * 0.1}
-                className="rounded-2xl border border-gray-800 bg-background p-6"
+                className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
               >
                 <div className="mb-6 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
                   <Shield className="h-6 w-6 text-theme-primary-400" />
@@ -279,7 +279,7 @@ const Partners: FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="border-t border-gray-800">
+      <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -337,7 +337,7 @@ const Partners: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
-                className="rounded-2xl border border-gray-800 bg-card p-6"
+                className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
               >
                 <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
                   <benefit.icon className="h-6 w-6 text-theme-primary-400" />
@@ -353,7 +353,7 @@ const Partners: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="border-t border-gray-800">
+      <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
@@ -366,7 +366,7 @@ const Partners: FC = () => {
               create digital success stories together.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-gray-100">
+              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100">
                 Apply Now
               </button>
               <Button variant="glass" size="xl">
@@ -380,7 +380,7 @@ const Partners: FC = () => {
       </section>
 
       {/* FAQs */}
-      <section className="border-t border-gray-800 bg-card">
+      <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
             className="mx-auto mb-12 max-w-3xl text-center"
@@ -428,7 +428,7 @@ const Partners: FC = () => {
               <ScrollInView
                 key={index}
                 delay={index * 0.1 }
-                className="rounded-2xl border border-gray-800 bg-background p-6"
+                className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
               >
                 <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {faq.question}
@@ -441,7 +441,7 @@ const Partners: FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="border-t border-gray-800">
+      <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Contact Information */}
@@ -479,7 +479,7 @@ const Partners: FC = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 rounded-2xl border border-gray-800 bg-card p-6"
+                    className="flex items-start gap-4 rounded-2xl border border-theme-neutral-800 bg-card p-6"
                   >
                     <div className="rounded-xl bg-theme-primary-500/10 p-3">
                       <item.icon className="h-6 w-6 text-theme-primary-400" />
@@ -507,7 +507,7 @@ const Partners: FC = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-gray-800 bg-card p-8"
+              className="rounded-2xl border border-theme-neutral-800 bg-card p-8"
             >
               <h3 className="mb-6 text-xl font-semibold text-foreground">
                 Quick Contact
@@ -519,7 +519,7 @@ const Partners: FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <div>
@@ -528,7 +528,7 @@ const Partners: FC = () => {
                   </label>
                   <input
                     type="email"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <div>
@@ -537,7 +537,7 @@ const Partners: FC = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <div>
@@ -546,7 +546,7 @@ const Partners: FC = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full rounded-lg border border-gray-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
+                    className="w-full rounded-lg border border-theme-neutral-800 bg-background px-4 py-2.5 text-foreground focus:border-theme-primary-500 focus:outline-none focus:ring-1 focus:ring-theme-primary-500"
                   />
                 </div>
                 <button
