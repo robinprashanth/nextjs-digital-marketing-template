@@ -1,190 +1,123 @@
-import { Metadata } from "next";
-import { Mail, ChevronRight, ExternalLink, Github, Plus } from "lucide-react";
+import { FC } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Buttons - UI Components",
-  description:
-    "A showcase of various button styles and variants using shadcn/ui buttons.",
-};
-
-export default function ButtonsPage() {
+const ButtonsPage: FC = () => {
   return (
     <div className="container relative mx-auto px-4 py-24 sm:px-6">
-      {/* Header */}
-      <div className="flex flex-col items-center gap-4 text-center">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Button Components
-          </h1>
-          <p className="mx-auto max-w-[700px] text-theme-neutral-500 dark:text-theme-neutral-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            A collection of beautiful and functional button components for your
-            application.
+      {/* Page Header */}
+      <ScrollInView>
+        <div className="mb-8">
+          <h1 className="mb-2 text-3xl font-bold">Buttons</h1>
+          <p className="text-lg text-muted-foreground">
+            A collection of button components used throughout the application.
           </p>
         </div>
-      </div>
+      </ScrollInView>
 
-      {/* Main Content */}
-      <div className="mx-auto max-w-5xl py-12">
-        {/* Basic Buttons */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Basic Buttons</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button>Default Button</Button>
+      {/* Button Variants */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="text-xl font-semibold">Button Variants</h2>
+          <div className="mt-4 flex flex-wrap gap-4">
+            <Button variant="default">Default</Button>
+            <Button variant="action">Action</Button>
+            <Button variant="white-action">White Action</Button>
+            <Button variant="cta">CTA</Button>
+            <Button variant="cta2">CTA 2</Button>
             <Button variant="secondary">Secondary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="destructive">Destructive</Button>
             <Button variant="ghost">Ghost</Button>
-            <Button variant="link">Link</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="glass">Glass</Button>
           </div>
-          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`<Button>Default Button</Button>
+
+          <div className="mt-6 rounded-lg border border-border p-4">
+            <pre className="text-sm">
+              <code>{`<Button variant="default">Default</Button>
+<Button variant="action">Action</Button>
+<Button variant="white-action">White Action</Button>
+<Button variant="cta">CTA</Button>
+<Button variant="cta2">CTA 2</Button>
 <Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="destructive">Destructive</Button>
 <Button variant="ghost">Ghost</Button>
-<Button variant="link">Link</Button>`}
+<Button variant="outline">Outline</Button>
+<Button variant="glass">Glass</Button>`}</code>
             </pre>
           </div>
-        </section>
+        </ScrollInView>
+      </section>
 
-        {/* Gradient Buttons */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Gradient Buttons</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="gradient">Gradient</Button>
-            <Button variant="premium">Premium</Button>
-            <Button variant="submit">Submit</Button>
-            <Button variant="cta">Call to Action</Button>
-            <Button variant="cta2">CTA Style 2</Button>
-          </div>
-          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`<Button variant="gradient">Gradient</Button>
-<Button variant="premium">Premium</Button>
-<Button variant="submit">Submit</Button>
-<Button variant="cta">Call to Action</Button>
-<Button variant="cta2">CTA Style 2</Button>`}
-            </pre>
-          </div>
-        </section>
-
-        {/* Button Sizes */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Button Sizes</h2>
-          <div className="flex flex-wrap items-center gap-4">
+      {/* Button Sizes */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="text-xl font-semibold">Button Sizes</h2>
+          <div className="mt-4 flex flex-wrap items-center gap-4">
             <Button size="sm">Small</Button>
-            <Button>Default</Button>
+            <Button size="default">Default</Button>
             <Button size="lg">Large</Button>
             <Button size="xl">Extra Large</Button>
-            <Button size="icon">
-              <Plus className="h-4 w-4" />
-            </Button>
+            <Button size="fluid">Fluid</Button>
           </div>
-          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`<Button size="sm">Small</Button>
-<Button>Default</Button>
+
+          <div className="mt-6 rounded-lg border border-border p-4">
+            <pre className="text-sm">
+              <code>{`<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
 <Button size="lg">Large</Button>
 <Button size="xl">Extra Large</Button>
-<Button size="icon">
-  <Plus className="h-4 w-4" />
-</Button>`}
+<Button size="fluid">Fluid</Button>`}</code>
             </pre>
           </div>
-        </section>
+        </ScrollInView>
+      </section>
 
-        {/* Buttons with Icons */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Buttons with Icons</h2>
-          <div className="flex flex-wrap gap-4">
+      {/* Button States */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="text-xl font-semibold">Button States</h2>
+          <div className="mt-4 flex flex-wrap gap-4">
+            <Button>Normal</Button>
+            <Button disabled>Disabled</Button>
+          </div>
+
+          <div className="mt-6 rounded-lg border border-border p-4">
+            <pre className="text-sm">
+              <code>{`<Button>Normal</Button>
+<Button disabled>Disabled</Button>
+<Button loading>Loading</Button>`}</code>
+            </pre>
+          </div>
+        </ScrollInView>
+      </section>
+
+      {/* Button with Icons */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="text-xl font-semibold">Button with Icons</h2>
+          <div className="mt-4 flex flex-wrap gap-4">
             <Button>
-              <Mail className="mr-2 h-4 w-4" /> Email
+              Next <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline">
-              <Github className="mr-2 h-4 w-4" /> GitHub
-            </Button>
-            <Button variant="gradient" className="group">
-              Next{" "}
-              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="soft" className="group">
-              External <ExternalLink className="ml-2 h-4 w-4" />
+            <Button>
+              <ArrowRight className="mr-2 h-4 w-4" /> Previous
             </Button>
           </div>
-          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`<Button>
-  <Mail className="mr-2 h-4 w-4" /> Email
+
+          <div className="mt-6 rounded-lg border border-border p-4">
+            <pre className="text-sm">
+              <code>{`<Button>
+  Next <ArrowRight className="ml-2 h-4 w-4" />
 </Button>
-<Button variant="outline">
-  <Github className="mr-2 h-4 w-4" /> GitHub
-</Button>
-<Button variant="gradient" className="group">
-  Next <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-</Button>
-<Button variant="soft" className="group">
-  External <ExternalLink className="ml-2 h-4 w-4" />
-</Button>`}
-            </pre>
-          </div>
-        </section>
-
-        {/* Action Buttons */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Action Buttons</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="action">Action Button</Button>
-            <Button variant="white-action">White Action</Button>
-            <Button variant="glass">Glass Effect</Button>
-            <Button variant="tag">Tag Style</Button>
-          </div>
-          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`<Button variant="action">Action Button</Button>
-<Button variant="white-action">White Action</Button>
-<Button variant="glass">Glass Effect</Button>
-<Button variant="tag">Tag Style</Button>`}
-            </pre>
-          </div>
-        </section>
-
-        {/* Usage Examples */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Usage Examples</h2>
-          <div className="rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`// Import the button component
-import { Button } from "@/components/ui/button"
-
-// Basic usage
-<Button>Click me</Button>
-
-// With variants and sizes
-<Button variant="gradient" size="lg">
-  Large Gradient Button
-</Button>
-
-// With icons
 <Button>
-  <Mail className="mr-2 h-4 w-4" /> 
-  Contact Us
-</Button>
-
-// With custom className
-<Button className="w-full">
-  Full Width Button
-</Button>
-
-// As a link
-<Button asChild>
-  <Link href="/about">About Page</Link>
-</Button>`}
+  <ArrowRight className="mr-2 h-4 w-4" /> Previous
+</Button>`}</code>
             </pre>
           </div>
-        </section>
-      </div>
+        </ScrollInView>
+      </section>
     </div>
   );
-}
+};
+
+export default ButtonsPage;

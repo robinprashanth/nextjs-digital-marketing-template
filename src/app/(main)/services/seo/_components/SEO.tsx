@@ -93,6 +93,7 @@ export const SEO: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -116,6 +117,7 @@ export const SEO: FC = () => {
                 iconMap[feature.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                   key={index}
                   delay={index * 0.1}
                   className="group cursor-pointer"
@@ -148,6 +150,7 @@ export const SEO: FC = () => {
         <div className="container relative mx-auto px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
             <ScrollInView
+            useInView={true}
             x={-20}
               className="max-w-xl"
             >
@@ -163,6 +166,7 @@ export const SEO: FC = () => {
               <div className="space-y-6">
                 {processSteps.map((step, index) => (
                   <ScrollInView
+                  useInView={true}
                     key={index}
                     delay={index * 0.1 }
                     className="flex gap-4"
@@ -185,6 +189,7 @@ export const SEO: FC = () => {
 
             {/* Tools Section */}
             <ScrollInView
+            useInView={true}
               className="relative"
             >
               <div className="space-y-6">
@@ -197,6 +202,7 @@ export const SEO: FC = () => {
                       iconMap[tool.icon as keyof typeof iconMap];
                     return (
                       <ScrollInView
+                      useInView={true}
                         key={index}
                        delay={index * 0.1}
                         className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
@@ -218,6 +224,7 @@ export const SEO: FC = () => {
 
               {/* Dashboard Preview */}
               <ScrollInView
+              useInView={true}
                 className="mt-12"
               >
                 <div className="relative h-[400px] overflow-hidden rounded-3xl">
@@ -235,10 +242,11 @@ export const SEO: FC = () => {
         </div>
       </section>
 
-      {/* CTA Section (continued) */}
+      {/* CTA Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
@@ -263,6 +271,7 @@ export const SEO: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -305,6 +314,7 @@ export const SEO: FC = () => {
               },
             ].map((result, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800"
@@ -330,6 +340,7 @@ export const SEO: FC = () => {
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -359,6 +370,7 @@ export const SEO: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"

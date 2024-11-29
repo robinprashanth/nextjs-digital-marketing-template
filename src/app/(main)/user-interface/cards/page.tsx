@@ -1,5 +1,7 @@
-import { Metadata } from "next";
-import Image from "next/image";
+"use client";
+
+import { FC } from "react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import {
   Card,
   CardContent,
@@ -10,343 +12,530 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-  Clock,
-  Heart,
-  Share2,
+  BarChart3,
+  DollarSign,
+  ArrowUpRight,
+  Calendar,
   Star,
+  Clock,
+  CreditCard,
+  Sparkles,
+  ShieldCheck,
+  Lock,
+  CheckCircle2,
+  Zap,
   MessageSquare,
-  MoreVertical,
+  Bell,
 } from "lucide-react";
+import Image from "next/image";
 import { Industries } from "./_components/Industries";
 
-export const metadata: Metadata = {
-  title: "Cards - UI Components",
-  description: "Various card component examples and usage patterns",
-};
-
-export default function CardsPage() {
+const CardsShowcase: FC = () => {
   return (
     <div className="container relative mx-auto px-4 py-24 sm:px-6">
-      {/* Header */}
-      <div className="flex flex-col items-center gap-4 text-center">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Card Components
-          </h1>
-          <p className="mx-auto max-w-[700px] text-theme-neutral-500 dark:text-theme-neutral-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            A collection of card components for various use cases and layouts.
+      {/* Page Header */}
+      <ScrollInView>
+        <div className="mb-8">
+          <h1 className="mb-2 text-3xl font-bold">Cards</h1>
+          <p className="text-lg text-muted-foreground">
+            A collection of beautiful and futuristic card components for various use cases.
           </p>
         </div>
-      </div>
+      </ScrollInView>
 
-      {/* Main Content */}
-      <div className="mx-auto max-w-5xl py-12">
-        {/* Industry Cards */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Industry Cards</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Industries />
-          </div>
-          <div className="mt-4 rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`// Industry Card Component
-export const IndustryCard: FC<IndustryCardProps> = ({
-  industry,
-  isActive,
-  onClick,
-  delay = 0,
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay }}
-    viewport={{ once: true }}
-  >
-    <Card
-      className={\`cursor-pointer transition-all duration-300 hover:shadow-lg \${
-        isActive ? "ring-2 ring-theme-primary-500" : ""
-      }\`}
-      onClick={onClick}
-    >
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <div className="rounded-full bg-purple-100 p-3 dark:bg-purple-900/30">
-            {industry.icon}
-          </div>
-          <div className="flex items-center gap-1">
-            <Star className="h-5 w-5 fill-theme-sunflower-400 text-theme-sunflower-400" />
-            <span className="font-medium text-theme-neutral-900 dark:text-white">
-              {industry.expertise}%
-            </span>
-          </div>
-        </div>
-        <CardTitle className="text-xl">{industry.name}</CardTitle>
-        <CardDescription>{industry.description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex justify-between text-sm">
-          <span className="text-theme-neutral-600 dark:text-theme-neutral-400">
-            Expertise Level
-          </span>
-          <span className="text-theme-primary-600">{industry.expertise}%</span>
-        </div>
-        <Progress value={industry.expertise} className="mt-2" />
-      </CardContent>
-    </Card>
-  </motion.div>
-);
-
-// Usage Example
-const sampleIndustries: Industry[] = [
-  {
-    id: 1,
-    name: "Technology",
-    description: "Software development and IT solutions",
-    icon: <Code2 className="h-6 w-6 text-theme-primary-600" />,
-    expertise: 95,
-    // ... other properties
-  },
-  // ... more industries
-];
-
-// In your component
-const [activeIndustry, setActiveIndustry] = useState<number>(1);
-
-{sampleIndustries.map((industry, index) => (
-  <IndustryCard
-    key={industry.id}
-    industry={industry}
-    isActive={activeIndustry === industry.id}
-    onClick={() => setActiveIndustry(industry.id)}
-    delay={index * 0.1}
-  />
-))}`}
-            </pre>
-          </div>
-        </section>
-        {/* Blog Post Cards */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Blog Post Cards</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Card className="overflow-hidden">
-              <div className="relative h-48 w-full">
-                <Image
-                  src="/images/industries/ecommerce.jpg"
-                  alt="Blog post cover"
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0fHRsdHSIeIRohHh4iIR4eISEiHiIhIiIiIh4iIiIiIiIiIiIiIiIiIiIiIiIiIiL/2wBDAR..." // Add actual blur data URL
-                />
-              </div>
+      {/* Financial Cards */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="mb-6 text-2xl font-semibold">Financial Cards</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Balance Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/10 via-transparent to-theme-ocean-500/10" />
               <CardHeader>
-                <div className="mb-2 flex items-center gap-2">
-                  <Badge variant="secondary">Tutorial</Badge>
-                  <span className="text-sm text-muted-foreground">
-                    5 min read
-                  </span>
-                </div>
-                <CardTitle>Getting Started with Web Development</CardTitle>
-                <CardDescription>
-                  Learn the fundamentals of web development and build your first
-                  website.
-                </CardDescription>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Total Balance</span>
+                  <DollarSign className="h-5 w-5 text-theme-primary-500" />
+                </CardTitle>
+                <CardDescription>Your current balance across all accounts</CardDescription>
               </CardHeader>
               <CardContent>
+                <div className="mb-4 text-3xl font-bold">$24,685.00</div>
+                <div className="flex items-center gap-2 text-sm text-theme-tulip-500">
+                  <ArrowUpRight className="h-4 w-4" />
+                  <span>+2.5% from last month</span>
+                </div>
+              </CardContent>
+              <CardFooter className="justify-between border-t border-border/50 bg-card/50">
+                <div className="text-sm text-muted-foreground">Updated 2 mins ago</div>
+                <Button variant="ghost" size="sm">View Details</Button>
+              </CardFooter>
+            </Card>
+
+            {/* Transaction Card */}
+            <Card className="relative overflow-hidden bg-gradient-to-br from-theme-primary-600 to-theme-ocean-600">
+              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat hover:animate-градиент" />
+              <CardHeader>
+                <div className="flex justify-between">
+                  <div className="space-y-1">
+                    <CardTitle className="text-white">Virtual Card</CardTitle>
+                    <CardDescription className="text-white/60">
+                      **** **** **** 4589
+                    </CardDescription>
+                  </div>
+                  <CreditCard className="h-6 w-6 text-white" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mt-4 flex items-center justify-between text-white">
+                  <div>
+                    <p className="text-sm opacity-60">Balance</p>
+                    <p className="text-2xl font-semibold">$12,589</p>
+                  </div>
+                  <div>
+                    <p className="text-sm opacity-60">Expires</p>
+                    <p className="text-lg">05/25</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Analytics Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Performance</span>
+                  <BarChart3 className="h-5 w-5 text-theme-primary-500" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Success Rate</span>
+                    <span className="font-semibold">85%</span>
+                  </div>
+                  <Progress value={85} className="h-2" />
+                </div>
                 <div className="flex items-center gap-4">
-                  <Avatar>
-                    <AvatarImage
-                      src="/images/avatars/author-1.jpg"
-                      alt="Author"
-                    />
+                  <div className="flex-1">
+                    <p className="text-sm text-muted-foreground">Revenue</p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl font-bold">$12.5k</span>
+                      <span className="flex items-center text-xs text-theme-tulip-500">
+                        <ArrowUpRight className="h-3 w-3" /> +15%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm text-muted-foreground">Profit</p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl font-bold">$4.2k</span>
+                      <span className="flex items-center text-xs text-theme-tulip-500">
+                        <ArrowUpRight className="h-3 w-3" /> +8%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </ScrollInView>
+      </section>
+      <section className="space-y-6">
+        <Industries />
+        
+      </section>
+
+      {/* Profile Cards */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="mb-6 text-2xl font-semibold">Profile Cards</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Team Member Card */}
+            <Card className="relative overflow-hidden transition-all hover:shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-b from-theme-primary-500/5 to-transparent" />
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-16 w-16">
+                    <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-medium">John Doe</p>
-                    <p className="text-sm text-muted-foreground">
-                      Dec 20, 2023
-                    </p>
+                    <CardTitle>John Doe</CardTitle>
+                    <CardDescription>Senior Developer</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="flex justify-between border-t border-border/50 py-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">25</div>
+                    <div className="text-xs text-muted-foreground">Projects</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">1.2k</div>
+                    <div className="text-xs text-muted-foreground">Commits</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">98%</div>
+                    <div className="text-xs text-muted-foreground">Success</div>
                   </div>
                 </div>
               </CardContent>
+              <CardFooter>
+                <Button className="w-full">View Profile</Button>
+              </CardFooter>
             </Card>
 
-            <Card>
+            {/* Achievement Card */}
+            <Card className="relative overflow-hidden bg-gradient-to-br from-theme-primary-500 to-theme-ocean-600 text-white">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),transparent)]" />
               <CardHeader>
-                <CardTitle>Latest Blog Posts</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg">
-                      <Image
-                        src="/images/industries/ecommerce.jpg"
-                        alt={`Blog post thumbnail ${i}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-medium leading-none">
-                        Blog Post Title {i}
-                      </h3>
-                      <p className="mt-2 text-sm text-muted-foreground">
-                        Short excerpt from the blog post...
-                      </p>
-                      <div className="mt-2 flex items-center gap-2">
-                        <Clock className="h-3 w-3" />
-                        <span className="text-xs text-muted-foreground">
-                          3 min read
-                        </span>
-                      </div>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-white/10 p-2">
+                    <Star className="h-6 w-6" />
                   </div>
-                ))}
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Product Cards */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Product Cards</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            <Card className="group relative">
-              <div className="absolute right-4 top-4 z-10">
-                <Button size="icon" variant="ghost" className="rounded-full">
-                  <Heart className="h-4 w-4" />
-                </Button>
-              </div>
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image
-                  src="/images/services/email-marketing-dashboard.jpg"
-                  alt="Product image"
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>Product Name</CardTitle>
-                <CardDescription>Product description goes here</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-2xl font-bold">$99.99</p>
-                    <div className="mt-1 flex items-center gap-1">
-                      {Array(5)
-                        .fill(0)
-                        .map((_, i) => (
-                          <Star
-                            key={i}
-                            className="h-4 w-4 fill-current text-theme-sunflower-400"
-                          />
-                        ))}
-                    </div>
+                    <CardTitle>Elite Status</CardTitle>
+                    <CardDescription className="text-white/60">Level 5 Achiever</CardDescription>
                   </div>
-                  <Button>Add to Cart</Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Social Cards */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Social Cards</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                      <Image
-                        src="/assets/profile1.jpg"
-                        alt="User avatar"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-medium">User Name</p>
-                      <p className="text-sm text-muted-foreground">@username</p>
-                    </div>
-                  </div>
-                  <Button variant="ghost" size="icon">
-                    <MoreVertical className="h-4 w-4" />
-                  </Button>
                 </div>
               </CardHeader>
               <CardContent>
-                <p>
-                  This is a social media post content. It can include text,
-                  images, or other media.
-                </p>
-                <div className="relative mt-4 h-48 w-full">
-                  <Image
-                    src="/images/industries/ecommerce.jpg"
-                    alt="Social post image"
-                    fill
-                    className="rounded-lg object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                <div className="mt-4 space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span>Progress to Next Level</span>
+                      <span>78%</span>
+                    </div>
+                    <Progress value={78} className="h-2 bg-white/20" />
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <div>
+                      <p className="text-white/60">Achievements</p>
+                      <p className="text-lg font-semibold">28/30</p>
+                    </div>
+                    <div>
+                      <p className="text-white/60">Points</p>
+                      <p className="text-lg font-semibold">4,892</p>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
-              <CardFooter className="justify-between">
-                <div className="flex gap-4">
-                  <Button variant="ghost" size="sm">
-                    <Heart className="mr-2 h-4 w-4" />
-                    123
-                  </Button>
-                  <Button variant="ghost" size="sm">
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    45
-                  </Button>
-                  <Button variant="ghost" size="sm">
-                    <Share2 className="mr-2 h-4 w-4" />
-                    12
-                  </Button>
+              <CardFooter>
+                <Button variant="secondary" className="w-full">View Achievements</Button>
+              </CardFooter>
+            </Card>
+
+            {/* Status Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-500/10 via-transparent to-theme-ocean-500/10" />
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>System Status</CardTitle>
+                  <Badge variant="success">Online</Badge>
                 </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="h-5 w-5 text-theme-tulip-500" />
+                      <span>Security</span>
+                    </div>
+                    <Badge variant="outline">Protected</Badge>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Lock className="h-5 w-5 text-theme-ocean-500" />
+                      <span>SSL</span>
+                    </div>
+                    <Badge variant="outline">Active</Badge>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-5 w-5 text-theme-sunflower-500" />
+                      <span>Performance</span>
+                    </div>
+                    <Badge variant="outline">Optimal</Badge>
+                  </div>
+                </div>
+              </CardContent>
+              <CardFooter className="border-t border-border/50">
+                <Button variant="ghost" className="w-full">View Details</Button>
               </CardFooter>
             </Card>
           </div>
-        </section>
+        </ScrollInView>
+      </section>
 
-        {/* Usage Examples */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold">Usage with Next.js Image</h2>
-          <div className="rounded-lg bg-theme-slate-950 p-4">
-            <pre className="text-sm text-theme-neutral-100">
-              {`// Card with Next.js Image
-<Card className="overflow-hidden">
-  <div className="relative h-48 w-full">
-    <Image 
-      src="/images/blog/post-1.jpg" 
-      alt="Blog post cover"
-      fill
-      className="object-cover"
-      sizes="(max-width: 768px) 100vw, 
-             (max-width: 1200px) 50vw, 
-             33vw"
-      placeholder="blur"
-      blurDataURL="data:image/jpeg;base64,..."
-    />
-  </div>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    Content here...
-  </CardContent>
-</Card>`}
-            </pre>
+      {/* Feature Cards */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="mb-6 text-2xl font-semibold">Feature Cards</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Pricing Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
+              <CardHeader>
+                <CardTitle>Pro Plan</CardTitle>
+                <CardDescription>Perfect for growing businesses</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold">$49</span>
+                  <span className="text-muted-foreground">/month</span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {['Unlimited Projects', 'Priority Support', 'Custom Domain', 'Analytics'].map((feature) => (
+                    <li key={feature} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-theme-tulip-500" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">Get Started</Button>
+              </CardFooter>
+            </Card>
+
+            {/* Event Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-500/10 via-transparent to-theme-ocean-500/10" />
+              <div className="absolute right-4 top-4">
+                <Badge variant="secondary">Upcoming</Badge>
+              </div>
+              <CardHeader>
+                <div className="space-y-2">
+                  <CardTitle>Tech Conference 2024</CardTitle>
+                  <CardDescription>Join us for the biggest tech event of the year</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-5 w-5 text-theme-primary-500" />
+                    <span>March 15-17, 2024</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-theme-primary-500" />
+                    <span>9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <Avatar key={i}>
+                      <AvatarImage src={`https://avatar.vercel.sh/${i}`} />
+                      <AvatarFallback>U{i}</AvatarFallback>
+                    </Avatar>
+                  ))}
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-background bg-muted text-sm">
+                    +12
+                  </div>
+                </div>
+                </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full">Register Now</Button>
+            </CardFooter>
+          </Card>
           </div>
-        </section>
+
+          {/* Product Card */}
+          <Card className="group relative overflow-hidden mt-10">
+            <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
+            <CardHeader>
+              <div className="aspect-square overflow-hidden rounded-lg bg-muted">
+              <div className="relative h-full w-full">
+        <Image
+          src="/images/portfolio/healthcare.jpg"
+          alt="Product"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          priority={false}
+          quality={90}
+        />
       </div>
-    </div>
-  );
-}
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <CardTitle>Pro Headphones</CardTitle>
+                  <Badge variant="secondary">New</Badge>
+                </div>
+                <CardDescription>
+                  Premium wireless headphones with noise cancellation
+                </CardDescription>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold">$299</span>
+                  <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4 fill-current text-yellow-400" />
+                    <span className="text-sm">4.9 (120)</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="grid grid-cols-2 gap-4">
+              <Button variant="outline">Add to Cart</Button>
+              <Button>Buy Now</Button>
+            </CardFooter>
+          </Card>
+      </ScrollInView>
+    </section>
+
+    {/* Dashboard Cards */}
+    <section className="space-y-6">
+      <ScrollInView>
+        <h2 className="mb-6 text-2xl font-semibold">Dashboard Cards</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Task Card */}
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span>Active Tasks</span>
+                <Badge>5 Tasks</Badge>
+              </CardTitle>
+              <CardDescription>Your current task overview</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex justify-between">
+                  <div>
+                    <div className="font-medium">Design System</div>
+                    <div className="text-sm text-muted-foreground">Due in 3 days</div>
+                  </div>
+                  <Progress value={75} className="w-20" />
+                </div>
+                <div className="flex justify-between">
+                  <div>
+                    <div className="font-medium">User Research</div>
+                    <div className="text-sm text-muted-foreground">Due tomorrow</div>
+                  </div>
+                  <Progress value={45} className="w-20" />
+                </div>
+              </div>
+            </CardContent>
+            <CardFooter className="justify-between border-t border-border/50">
+              <Button variant="ghost" size="sm">View All</Button>
+              <Button variant="ghost" size="sm">Add Task</Button>
+            </CardFooter>
+          </Card>
+
+          {/* Notification Card */}
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-theme-rose-500/5 via-transparent to-theme-primary-500/5" />
+            <CardHeader>
+              <CardTitle>Recent Notifications</CardTitle>
+              <CardDescription>Latest updates and activities</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {[
+                { title: "New comment on your post", time: "2m ago", icon: MessageSquare },
+                { title: "Your project was approved", time: "1h ago", icon: CheckCircle2 },
+                { title: "Server update completed", time: "2h ago", icon: Sparkles },
+              ].map((notification, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div className="rounded-full bg-muted p-2">
+                    <notification.icon className="h-4 w-4" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm font-medium">{notification.title}</div>
+                    <div className="text-xs text-muted-foreground">{notification.time}</div>
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+            <CardFooter>
+              <Button variant="ghost" className="w-full">
+                View All Notifications
+              </Button>
+            </CardFooter>
+          </Card>
+
+          {/* Settings Card */}
+          <Card className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-theme-ocean-500/5 via-transparent to-theme-primary-500/5" />
+            <CardHeader>
+              <CardTitle>Quick Settings</CardTitle>
+              <CardDescription>Manage your preferences</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-5 w-5 text-theme-tulip-500" />
+                  <span>Two-Factor Auth</span>
+                </div>
+                <Badge>Enabled</Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Bell className="h-5 w-5 text-theme-ocean-500" />
+                  <span>Notifications</span>
+                </div>
+                <Badge variant="outline">Configured</Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Lock className="h-5 w-5 text-theme-rose-500" />
+                  <span>Privacy Mode</span>
+                </div>
+                <Badge variant="secondary">Active</Badge>
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button variant="outline" className="w-full">
+                Manage Settings
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </ScrollInView>
+    </section>
+
+    {/* Usage Examples */}
+    <section className="space-y-4">
+      <ScrollInView>
+        <h2 className="text-2xl font-semibold">Implementation</h2>
+        <Card>
+          <CardContent className="pt-6">
+            <pre className="text-sm">
+              <code>{`import {
+Card,
+CardContent,
+CardDescription,
+CardFooter,
+CardHeader,
+CardTitle,
+} from "@/components/ui/card"
+
+// Basic Card
+<Card>
+<CardHeader>
+  <CardTitle>Title</CardTitle>
+  <CardDescription>Description</CardDescription>
+</CardHeader>
+<CardContent>Content</CardContent>
+<CardFooter>Footer</CardFooter>
+</Card>
+
+// With Gradient Background
+<Card className="relative overflow-hidden">
+<div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/10 to-theme-ocean-500/10" />
+{/* Card content */}
+</Card>`}</code>
+            </pre>
+          </CardContent>
+        </Card>
+      </ScrollInView>
+    </section>
+  </div>
+);
+};
+
+export default CardsShowcase;

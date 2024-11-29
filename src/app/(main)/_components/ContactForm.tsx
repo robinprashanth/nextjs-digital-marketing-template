@@ -72,6 +72,7 @@ export const ContactSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">

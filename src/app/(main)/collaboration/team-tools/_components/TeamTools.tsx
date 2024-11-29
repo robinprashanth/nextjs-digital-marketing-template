@@ -1,4 +1,3 @@
-// /app/collaboration/team-tools/_components/TeamToolsPage.tsx
 "use client";
 import { FC } from "react";
 import { Users, Check, Play, ArrowRight, ArrowUpRight } from "lucide-react";
@@ -9,8 +8,8 @@ import {
   teamTools,
   integrations,
 } from "../data/content";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { TeamCollaborationCTA } from "@/components/cta/Presets";
 
 export const TeamTools: FC = () => {
   return (
@@ -92,6 +91,7 @@ export const TeamTools: FC = () => {
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -112,6 +112,7 @@ export const TeamTools: FC = () => {
               const IconComponent = getIcon(feature.icon);
               return (
                 <ScrollInView
+                useInView={true}
                 delay={index * 0.1 }
                   key={index}
                   viewport={true}
@@ -152,6 +153,7 @@ export const TeamTools: FC = () => {
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-800">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
           viewport={true}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
@@ -170,6 +172,7 @@ export const TeamTools: FC = () => {
               const IconComponent = getIcon(tool.icon);
               return (
                 <ScrollInView
+                useInView={true}
                 key={index}
                 viewport={true}
                 delay={index * 0.1}
@@ -210,6 +213,7 @@ export const TeamTools: FC = () => {
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
         <ScrollInView
+        useInView={true}
         viewport={true}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
@@ -228,6 +232,7 @@ export const TeamTools: FC = () => {
               const IconComponent = getIcon(integration.icon);
               return (
                 <ScrollInView
+                useInView={true}
                 key={index}
                 viewport={true}
                 delay={index * 0.1}
@@ -247,27 +252,8 @@ export const TeamTools: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-theme-primary-600 py-24">
-        <div className="container relative mx-auto px-4 sm:px-6">
-        <ScrollInView
-        viewport={true}
-            className="mx-auto max-w-4xl text-center"
-          >
-            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
-              Ready to Transform Your
-              <br />
-              Team Collaboration?
-            </h2>
-            <p className="mb-12 text-lg text-white/80">
-              Join thousands of teams already using our tools to work better
-              together.
-            </p>
-            <Button variant="white-action" size="xl">
-              Get Started Now
-            </Button>
-          </ScrollInView>
-        </div>
-      </section>
+      <TeamCollaborationCTA />
+
     </main>
   );
 };

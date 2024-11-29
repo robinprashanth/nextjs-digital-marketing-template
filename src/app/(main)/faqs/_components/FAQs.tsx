@@ -6,13 +6,12 @@ import {
   HelpCircle,
   ArrowRight,
   ChevronDown,
-  Mail,
-  MessageSquare,
 } from "lucide-react";
 import type { SearchState } from "../data/content";
 import { pageConfig, categories, faqs, popularSearches } from "../data/content";
 import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { SupportCTA } from "@/components/cta/SupportCTA";
 
 export const FAQs: FC = () => {
   const [searchState, setSearchState] = useState<SearchState>({
@@ -114,7 +113,7 @@ export const FAQs: FC = () => {
         </div>
       </section>
       {/* Content Section */}
-      <section className="-mt-30 relative bg-background pb-24">
+      <section className=" relative bg-background pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Categories Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -141,7 +140,7 @@ export const FAQs: FC = () => {
                   {category.description}
                 </p>
                 <div className="mt-4 flex items-center gap-2 text-sm text-theme-primary-500">
-                  <span>View articles</span>
+                  <span>View</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </motion.button>
@@ -181,27 +180,8 @@ export const FAQs: FC = () => {
           </div>
 
           {/* Still Have Questions Section */}
-          <ScrollInView
-            className="mx-auto mt-24 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-theme-primary-600 p-8 text-center"
-          >
-            <h2 className="text-2xl font-bold text-white">
-              Still have questions?
-            </h2>
-            <p className="mt-2 text-white/80">
-              Can&apos;t find the answer you&apos;re looking for? Please chat to
-              our friendly team.
-            </p>
-            <div className="mt-6 flex items-center justify-center gap-4">
-              <Button variant="secondary" size="xl">
-                <MessageSquare className="h-5 w-5" />
-                Start Live Chat
-              </Button>
-              <Button variant="glass" size="xl">
-                <Mail className="h-5 w-5" />
-                Contact Support
-              </Button>
-            </div>
-          </ScrollInView>
+          <SupportCTA />
+
         </div>
       </section>
     </main>

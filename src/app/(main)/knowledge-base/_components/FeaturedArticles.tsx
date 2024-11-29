@@ -21,6 +21,8 @@ export const FeaturedArticles: FC<FeaturedArticlesProps> = ({
   <section className="bg-card">
     <div className="container mx-auto px-4 py-10 sm:px-6">
       <ScrollInView
+      useInView={true}
+
         className="mb-12"
       >
         <div className="flex items-center justify-between">

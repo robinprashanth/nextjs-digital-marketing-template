@@ -53,6 +53,7 @@ const teamMembers: TeamMember[] = [
 
 const TeamCard: FC<{ member: TeamMember }> = ({ member }) => (
   <ScrollInView
+  useInView={true}
     className="group relative overflow-hidden rounded-2xl bg-white p-4 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-800"
   >
     {/* Image Container */}
@@ -111,6 +112,7 @@ export const TeamSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -134,6 +136,7 @@ export const TeamSection: FC = () => {
 
         {/* Join the Team CTA */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 p-8 text-center text-white"
         >
           <h3 className="mb-4 text-2xl font-bold">Join Our Team</h3>

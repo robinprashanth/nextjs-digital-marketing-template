@@ -8,13 +8,11 @@ import {
   Zap,
   LineChart,
   ArrowUpRight,
-  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
 import { features, metrics, processSteps } from "../data/content";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { EmailMarketingCTA } from "@/components/cta/Presets";
 
 const iconMap = {
   Mail,
@@ -90,6 +88,7 @@ export const EmailMarketing: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -113,6 +112,7 @@ export const EmailMarketing: FC = () => {
                 iconMap[feature.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                   key={index}
                   delay={index * 0.1 }
                   className="group cursor-pointer"
@@ -148,6 +148,7 @@ export const EmailMarketing: FC = () => {
         <div className="container relative mx-auto px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
             <ScrollInView
+            useInView={true}
               className="max-w-xl"
             >
               <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -163,6 +164,7 @@ export const EmailMarketing: FC = () => {
               <div className="space-y-6">
                 {processSteps.map((step, index) => (
                   <ScrollInView
+                  useInView={true}
                     key={index}
                     delay={index * 0.1}
                     className="flex gap-4"
@@ -185,6 +187,7 @@ export const EmailMarketing: FC = () => {
 
             {/* Image/Visualization Section */}
             <ScrollInView
+            useInView={true}
               className="relative"
             >
               <div className="relative h-[600px] overflow-hidden rounded-3xl">
@@ -202,29 +205,7 @@ export const EmailMarketing: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-navy py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-4xl text-center"
-          >
-            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
-              Ready to Transform Your
-              <br />
-              Email Marketing Strategy?
-            </h2>
-            <p className="mb-12 text-lg text-theme-neutral-400">
-              Let&apos;s create data-driven email campaigns that engage your
-              audience and drive measurable results.
-            </p>
-            <Button variant="cta2" size="fluid" rounded="full" asChild>
-              <Link href="/contact" className="group">
-                Schedule a Strategy Call
-                <ArrowRight className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </ScrollInView>
-        </div>
-      </section>
+      <EmailMarketingCTA />
     </main>
   );
 };

@@ -1,4 +1,3 @@
-// /app/faqs/data/content.ts
 export interface FAQCategory {
   id: string;
   name: string;
@@ -67,15 +66,15 @@ export const faqs: FAQ[] = [
   {
     id: "1",
     category: "general",
-    question: "What is Revento and how does it work?",
+    question: "What is Digitra and how does it work?",
     answer:
-      "Revento is a comprehensive digital marketing platform that combines automation, analytics, and content management tools. Our platform helps businesses streamline their marketing operations, improve efficiency, and drive better results through data-driven decisions.",
+      "Digitra is a comprehensive digital marketing platform that combines automation, analytics, and content management tools. Our platform helps businesses streamline their marketing operations, improve efficiency, and drive better results through data-driven decisions.",
     tags: ["platform", "overview"],
   },
   {
     id: "2",
     category: "general",
-    question: "How do I get started with Revento?",
+    question: "How do I get started with Digitra?",
     answer:
       "Getting started is simple. Sign up for a free account, complete the onboarding process where we'll help you set up your first campaign, and start exploring our features. Our step-by-step guides and tutorials will help you make the most of the platform.",
     tags: ["getting started", "onboarding"],

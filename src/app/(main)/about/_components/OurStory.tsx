@@ -143,6 +143,7 @@ export const OurStory: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">

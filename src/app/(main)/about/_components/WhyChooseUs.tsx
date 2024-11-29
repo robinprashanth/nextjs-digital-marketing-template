@@ -38,6 +38,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
   index,
 }) => (
   <ScrollInView  delay={ index * 0.1}
+  useInView={true}
     className="group relative rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
@@ -131,6 +132,7 @@ export const WhyChooseUs: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/40 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -159,6 +161,7 @@ export const WhyChooseUs: FC = () => {
 
         {/* Bottom CTA */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <Button variant="cta" size="fluid" asChild>

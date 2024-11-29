@@ -250,35 +250,3 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
     </section>
   );
 };
-// CTA Component
-export const CTA: FC = () => (
-  <section className="border-t border-theme-neutral-800 py-24">
-    <div className="container mx-auto px-4 sm:px-6">
-      <ScrollInView
-        className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
-      >
-        <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-          Ready to Transform Your Digital Presence?
-        </h2>
-        <p className="mb-8 text-lg text-white/80">
-          Let&apos;s discuss how we can help you achieve your business goals
-          with our expert digital marketing solutions.
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <a
-            href="/contact"
-            className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100"
-          >
-            Get Started
-          </a>
-          <a
-            href="/contact"
-            className="rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
-          >
-            Schedule a Call
-          </a>
-        </div>
-      </ScrollInView>
-    </div>
-  </section>
-);

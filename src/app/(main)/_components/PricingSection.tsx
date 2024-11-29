@@ -1,11 +1,10 @@
 "use client";
 import { FC, useState } from "react";
-import { ArrowRight } from "lucide-react";
 import { PricingCard } from "./Pricing/PricingCard";
 import { PricingToggle } from "./Pricing/PricingToggle";
 import { pricingPlans } from "./Pricing/pricingPlans";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { CustomSolutionCTA } from "@/components/cta/Presets";
 
 export const PricingSection: FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
@@ -17,6 +16,7 @@ export const PricingSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -47,18 +47,7 @@ export const PricingSection: FC = () => {
         </div>
 
         {/* Enterprise CTA */}
-        <ScrollInView
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 p-8 text-center text-white"
-        >
-          <h3 className="mb-4 text-2xl font-bold">Need a Custom Solution?</h3>
-          <p className="mb-6">
-            Contact our team for a tailored package that meets your specific
-            needs and objectives.
-          </p>
-          <Button variant="white-action" size="fluid" rounded="full">
-            Contact Sales <ArrowRight className="ml-2 inline-block h-4 w-4" />
-          </Button>
-        </ScrollInView>
+        <CustomSolutionCTA />
       </div>
     </section>
   );

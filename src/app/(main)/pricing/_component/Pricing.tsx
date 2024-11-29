@@ -311,6 +311,7 @@ const Pricing: FC = () => {
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -414,6 +415,7 @@ const Pricing: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -461,6 +463,7 @@ const Pricing: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
@@ -479,6 +482,7 @@ const Pricing: FC = () => {
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
         <ScrollInView
+         useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -520,6 +524,7 @@ const Pricing: FC = () => {
               },
             ].map((testimonial, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
@@ -564,6 +569,7 @@ const Pricing: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -586,6 +592,7 @@ const Pricing: FC = () => {
           {/* Trust Badges */}
           <div className="mt-16 text-center">
             <ScrollInView
+             useInView={true}
               className="space-y-8"
             >
               <p className="text-sm text-muted-foreground">
@@ -630,6 +637,7 @@ const Pricing: FC = () => {
                   { label: "Success Rate", value: "99.9%" },
                 ].map((metric, index) => (
                   <ScrollInView
+                  useInView={true}
                     key={metric.label}
                     delay={index * 0.1}
                     className="text-center"

@@ -39,6 +39,7 @@ const ProcessCard: FC<ProcessCardProps> = ({
   totalSteps,
 }) => (
   <ScrollInView  delay={ index * 0.1}
+  useInView={true}
     className="relative flex flex-col md:flex-row md:gap-8"
   >
     {/* Left side with icon and connector */}
@@ -182,6 +183,7 @@ export const OurProcess: FC = () => {
       <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -214,6 +216,7 @@ export const OurProcess: FC = () => {
 
         {/* Bottom CTA */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <Button variant="cta" size="fluid" asChild>

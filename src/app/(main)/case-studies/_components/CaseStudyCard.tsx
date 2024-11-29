@@ -13,6 +13,7 @@ interface CaseStudyCardProps {
 
 export const CaseStudyCard: FC<CaseStudyCardProps> = ({ caseStudy, index }) => (
   <ScrollInView
+  useInView={true}
   delay={index * 0.1 }
     className="group cursor-pointer"
   >

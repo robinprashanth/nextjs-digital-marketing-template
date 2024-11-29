@@ -248,6 +248,7 @@ const Partners: FC = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {partnershipLevels.map((level, index) => (
               <ScrollInView
+              useInView={true}
                 key={level.name}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
@@ -282,6 +283,7 @@ const Partners: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -335,6 +337,7 @@ const Partners: FC = () => {
               },
             ].map((benefit, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
@@ -356,6 +359,7 @@ const Partners: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -383,6 +387,7 @@ const Partners: FC = () => {
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -426,6 +431,7 @@ const Partners: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1 }
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"

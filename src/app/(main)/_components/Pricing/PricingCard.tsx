@@ -23,6 +23,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
 
   return (
     <ScrollInView
+     useInView={true}
       className={`relative rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-theme-neutral-800 ${
         plan.isPopular ? "ring-2 ring-theme-primary-500" : ""
       }`}

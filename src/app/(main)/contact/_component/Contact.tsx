@@ -418,6 +418,7 @@ const Contact: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-foreground">
@@ -449,6 +450,7 @@ const Contact: FC = () => {
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-foreground">
@@ -483,6 +485,7 @@ const Contact: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"

@@ -12,6 +12,7 @@ interface TechCardProps {
 
 export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
   <ScrollInView
+  useInView={true}
   delay={delay}
     className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-800"
   >

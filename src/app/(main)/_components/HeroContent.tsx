@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import React, { FC } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingShape } from "./hero/FloatingShape";
@@ -10,63 +10,52 @@ import { StatCard } from "./hero/StatCard";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { decorativeShapes } from "../data/content";
+
+
 
 export const HeroSection: FC = () => {
+  const renderShape = (shape: typeof decorativeShapes[0]) => {
+    let content;
+    switch (shape.type) {
+      case 'blur':
+        content = <div className={`rounded-full blur-lg ${shape.size} ${shape.color}`} />;
+        break;
+      case 'star':
+        content = <div className={`text-4xl ${shape.color}`}>✦</div>;
+        break;
+      case 'plus':
+        content = <div className={`text-3xl ${shape.color}`}>+</div>;
+        break;
+    }
+
+    return (
+      <FloatingShape className={shape.position} delay={shape.delay}>
+        {content}
+      </FloatingShape>
+    );
+  };
+
   return (
     <div className="relative min-h-[calc(100vh-120px)] w-full pt-10">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0B1E] to-[#1A1A2E] opacity-50" />
+      {/* Background gradient with improved performance */}
+      <div className="absolute inset-0 bg-[conic-gradient(from_45deg_at_50%_50%,#0B0B1E_0%,#1A1A2E_100%)] opacity-50" />
 
-      {/* Floating Shapes */}
-      <FloatingShape className="left-[10%] top-[20%]">
-        <div className="h-16 w-16 rounded-full bg-theme-primary-500/20 blur-lg md:h-24 md:w-24" />
-      </FloatingShape>
-
-      <FloatingShape className="right-[15%] top-[15%]" delay={0.2}>
-        <div className="h-20 w-20 rounded-full bg-orange-500/20 blur-lg md:h-28 md:w-28" />
-      </FloatingShape>
-
-      <FloatingShape className="bottom-[20%] left-[20%]" delay={0.4}>
-        <div className="h-24 w-24 rounded-full bg-theme-ocean-500/20 blur-lg" />
-      </FloatingShape>
-      <FloatingShape className="bottom-[80%] right-[40%]" delay={0.6}>
-        <div className="text-4xl text-theme-primary-400">✦</div>
-      </FloatingShape>
-      <FloatingShape className="bottom-[40%] right-[20%]" delay={0.6}>
-        <div className="text-4xl text-theme-primary-400">✦</div>
-      </FloatingShape>
-      <FloatingShape className="bottom-[60%] right-[20%]" delay={0.6}>
-        <div className="text-4xl text-theme-primary-400">✦</div>
-      </FloatingShape>
-      <FloatingShape className="bottom-[50%] right-[50%]" delay={0.6}>
-        <div className="text-4xl text-theme-primary-400">✦</div>
-      </FloatingShape>
-
-      <FloatingShape className="bottom-[30%] right-[25%]" delay={0.6}>
-        <div className="text-4xl text-theme-primary-400">✦</div>
-      </FloatingShape>
-
-      <FloatingShape className="left-[40%] top-[30%]" delay={0.8}>
-        <div className="text-3xl text-orange-400">+</div>
-      </FloatingShape>
-      <FloatingShape className="left-[40%] top-[10%]" delay={0.8}>
-        <div className="text-3xl text-orange-400">+</div>
-      </FloatingShape>
-      <FloatingShape className="right-[40%] top-[30%]" delay={0.8}>
-        <div className="text-3xl text-orange-400">+</div>
-      </FloatingShape>
+      {/* Render decorative shapes */}
+      {decorativeShapes.map((shape, index) => (
+        <React.Fragment key={`${shape.type}-${index}`}>
+          {renderShape(shape)}
+        </React.Fragment>
+      ))}
 
       <div className="container relative mx-auto flex h-full items-center px-4 sm:px-6">
         <div className="relative max-w-[90%] py-20 lg:max-w-[60%]">
-          {/* Notice FadeIn is not inside FadeInStagger */}
           <FadeIn className="mb-6 inline-block rounded-full bg-theme-rose-500/10 px-4 py-1 text-sm text-theme-rose-400">
             Leading Digital Marketing Agency
           </FadeIn>
 
           <div className="space-y-4">
-            {/* FadeInStagger for grouped animations */}
             <FadeInStagger delayStep={0.1} initialDelay={0.2}>
-              {/* Each FadeInStaggerItem will animate in sequence */}
               <FadeInStaggerItem>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
                   <span className="text-white">ELEVATE</span>
@@ -114,19 +103,17 @@ export const HeroSection: FC = () => {
 
         {/* Right Side Content */}
         <div className="absolute right-0 top-10 hidden h-full w-1/3 lg:block">
-          {/* Decorative grid */}
+          {/* Decorative grid with reduced re-renders */}
           <div className="absolute inset-0 opacity-10">
             <div className="grid h-full w-full grid-cols-3 gap-4 p-4">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="rounded-lg bg-white/10"></div>
+              {[...Array(12)].map((_, i) => (
+                <div key={i} className="rounded-lg bg-white/10" />
               ))}
             </div>
           </div>
 
-          {/* Testimonial */}
           <TestimonialCard {...testimonial} />
 
-          {/* Stats */}
           {stats.map((stat, index) => (
             <div key={index} className={stat.position}>
               <StatCard {...stat} />

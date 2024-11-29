@@ -49,7 +49,9 @@ const AwardCard: FC<AwardCardProps> = ({
   category,
   index,
 }) => (
-  <ScrollInView delay={ 0.1 * index}
+  <ScrollInView 
+  useInView={true}
+  delay={ 0.1 * index}
     className="group rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     <div className="flex items-start justify-between gap-4">
@@ -83,7 +85,7 @@ const CertificationCard: FC<Certification & { index: number }> = ({
   validUntil,
   index,
 }) => (
-  <ScrollInView delay={ 0.1 * index}
+  <ScrollInView useInView={true} delay={ 0.1 * index}
     className="flex items-center gap-4 rounded-xl border border-theme-neutral-800 bg-card p-4"
   >
     <div className="relative h-12 w-12 overflow-hidden rounded-lg">
@@ -212,6 +214,7 @@ export const Awards: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -268,6 +271,7 @@ export const Awards: FC = () => {
 
         {/* Achievement Metrics */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-8 rounded-2xl border border-theme-neutral-800 bg-card p-8 md:grid-cols-4"
         >
           {[
@@ -277,6 +281,7 @@ export const Awards: FC = () => {
             { icon: ExternalLink, label: "Features", value: "75+" },
           ].map((metric, index) => (
             <ScrollInView delay={ 0.1 * index}
+            useInView={true}
             key={index}
               className="text-center"
             >

@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Newsletter } from "./Footer/Newsletter";
 import { SocialLinks } from "./Footer/SocialLinks";
 import { siteConfig } from "@/config";
+import Image from "next/image";
 
 const footerLinks = {
   Solutions: [
@@ -45,7 +46,14 @@ export const Footer: FC = () => {
                 <div className="relative h-10 w-10">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
                   <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
-                    <span className="text-2xl">⬡</span>
+                  <Image 
+        src="/logo.svg" 
+        alt="Digitra Logo" 
+        width={32} 
+        height={32} 
+        className="rounded-full" 
+        priority // Ensures the logo loads quickly as it's a primary visual
+      />
                   </div>
                 </div>
                 <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-2xl font-bold text-transparent">
@@ -93,7 +101,7 @@ export const Footer: FC = () => {
         {/* Bottom Bar */}
         <div className="mt-16 border-t border-theme-neutral-800 py-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-theme-neutral-400 sm:flex-row">
-            <div>© {currentYear} Revento. All rights reserved.</div>
+            <div>© {currentYear} {siteConfig.appName}. All rights reserved.</div>
             <div className="flex gap-8">
               <a href="#" className="hover:text-theme-primary-400">
                 Privacy Policy

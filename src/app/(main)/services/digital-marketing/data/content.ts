@@ -1,4 +1,3 @@
-// /app/services/digital-marketing/data/content.ts
 export const metrics = [
   { label: "ROI Average", value: "450%", change: "+125% Industry Avg" },
   { label: "Lead Generation", value: "3.2x", change: "+165% Growth" },

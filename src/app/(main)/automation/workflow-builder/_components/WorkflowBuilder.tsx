@@ -133,6 +133,7 @@ export const WorkflowBuilder: FC = () => {
               const IconComponent = getIcon(template.icon);
               return (
                 <ScrollInView 
+                useInView={true}
                 key={template.id} 
                 delay={index * 0.1} 
                   className="group cursor-pointer"
@@ -175,6 +176,7 @@ export const WorkflowBuilder: FC = () => {
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Features List */}
             <ScrollInView
+            useInView={true}
             x={-20}
               className="space-y-6"
             >
@@ -196,6 +198,7 @@ export const WorkflowBuilder: FC = () => {
                   const IconComponent = getIcon(feature.icon);
                   return (
                     <ScrollInView
+                    useInView={true}
                     key={index}
                     delay={index * 0.1}
                       className="flex items-start gap-4 rounded-2xl border border-theme-neutral-200 bg-white p-6 dark:border-theme-neutral-700 dark:bg-theme-neutral-900"
@@ -221,6 +224,7 @@ export const WorkflowBuilder: FC = () => {
 
             {/* Process Steps */}
             <ScrollInView
+            useInView={true}
               className="relative"
             >
               <div className="sticky top-24 space-y-8">
@@ -262,6 +266,7 @@ export const WorkflowBuilder: FC = () => {
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-3xl text-center"
           >
             <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
@@ -280,6 +285,7 @@ export const WorkflowBuilder: FC = () => {
               const IconComponent = getIcon(integration.icon);
               return (
                 <ScrollInView
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                   className="group cursor-pointer rounded-2xl border border-theme-neutral-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-theme-neutral-900"
@@ -301,6 +307,7 @@ export const WorkflowBuilder: FC = () => {
       <section className="relative overflow-hidden bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)] py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">

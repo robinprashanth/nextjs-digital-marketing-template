@@ -405,7 +405,9 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
       {/* Benefits Section */}
       <section className="border-t border-border bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView className="mx-auto mb-12 max-w-3xl text-center">
+          <ScrollInView 
+          useInView={true}
+          className="mx-auto mb-12 max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               BENEFITS & PERKS
             </span>
@@ -420,6 +422,7 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-border bg-background p-6"
@@ -440,7 +443,9 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
       {/* Culture Section */}
       <section className="border-t border-border">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView className="mx-auto mb-12 max-w-3xl text-center">
+          <ScrollInView 
+          useInView={true}
+          className="mx-auto mb-12 max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               OUR CULTURE
             </span>
@@ -455,6 +460,7 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {cultureImages.map((image) => (
               <ScrollInView
+              useInView={true}
                 key={image.id}
                 delay={image.id * 0.1}
                 className="group relative aspect-square overflow-hidden rounded-2xl"
@@ -480,7 +486,9 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
       {/* Hiring Process */}
       <section className="border-t border-border bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView className="mx-auto mb-12 max-w-3xl text-center">
+          <ScrollInView 
+          useInView={true}
+          className="mx-auto mb-12 max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               HIRING PROCESS
             </span>
@@ -495,6 +503,7 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
           <div className="mx-auto max-w-3xl">
             {hiringSteps.map((step, index, array) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative flex gap-8"

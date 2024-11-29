@@ -14,7 +14,6 @@ import {
   Target,
   FileText,
   BarChart2,
-  ArrowRight,
 } from "lucide-react";
 import {
   features,
@@ -24,9 +23,8 @@ import {
   successStories,
   services,
 } from "../data/content";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { DigitalMarketingCTA } from "@/components/cta/Presets";
 
 const iconMap = {
   BarChart,
@@ -107,6 +105,7 @@ export const DigitalMarketing: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -129,6 +128,7 @@ export const DigitalMarketing: FC = () => {
                 iconMap[service.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                   key={index}
                  delay={index * 0.1}
                   className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800"
@@ -168,6 +168,7 @@ export const DigitalMarketing: FC = () => {
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -186,6 +187,7 @@ export const DigitalMarketing: FC = () => {
                 iconMap[platform.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                   key={index}
                   delay={index * 0.1}
                   className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
@@ -210,6 +212,7 @@ export const DigitalMarketing: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -270,6 +273,7 @@ export const DigitalMarketing: FC = () => {
       <section className="relative overflow-hidden bg-navy py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-400 to-pink-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -285,6 +289,7 @@ export const DigitalMarketing: FC = () => {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative"
@@ -311,6 +316,7 @@ export const DigitalMarketing: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -333,6 +339,7 @@ export const DigitalMarketing: FC = () => {
                 iconMap[feature.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                   key={index}
                   delay={index * 0.1}
                   className="group cursor-pointer"
@@ -361,29 +368,7 @@ export const DigitalMarketing: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-navy py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-4xl text-center"
-          >
-            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
-              Ready to Transform Your
-              <br />
-              Digital Marketing Strategy?
-            </h2>
-            <p className="mb-12 text-lg text-theme-neutral-400">
-              Let&apos;s create a customized digital marketing strategy that
-              drives growth and delivers measurable results for your business.
-            </p>
-            <Button variant="cta2" size="fluid" rounded="full" asChild>
-              <Link href="/schedule" className="group">
-                Schedule a Strategy Call
-                <ArrowRight className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </ScrollInView>
-        </div>
-      </section>
+      <DigitalMarketingCTA />
     </main>
   );
 };

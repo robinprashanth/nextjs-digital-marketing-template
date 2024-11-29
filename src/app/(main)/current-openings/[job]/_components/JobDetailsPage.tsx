@@ -221,6 +221,7 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
 
             {/* Right Column - Application Form */}
             <ScrollInView
+            useInView={true}
             delay={0.2}
               className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
             >

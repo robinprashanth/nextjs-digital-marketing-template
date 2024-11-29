@@ -3,8 +3,8 @@ import { FC, useState } from "react";
 import { IndustryCard } from "./Industries/IndustryCard";
 import { IndustryDetail } from "./Industries/IndustryDetail";
 import { industries } from "./Industries/Industries";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { ConsultationCTA } from "@/components/cta/Presets";
 
 export const IndustriesSection: FC = () => {
   const [activeIndustry, setActiveIndustry] = useState(industries[0]);
@@ -14,6 +14,7 @@ export const IndustriesSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+         useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -49,20 +50,8 @@ export const IndustriesSection: FC = () => {
         </div>
 
         {/* CTA Section */}
-        <ScrollInView
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 p-8 text-center text-white"
-        >
-          <h3 className="mb-4 text-2xl font-bold">
-            Ready to Transform Your Industry?
-          </h3>
-          <p className="mb-6">
-            Let&apos;s discuss how our expertise can drive growth for your
-            business.
-          </p>
-          <Button variant="white-action" size="fluid" rounded="full">
-            Schedule a Consultation
-          </Button>
-        </ScrollInView>
+        <ConsultationCTA />
+
       </div>
     </section>
   );

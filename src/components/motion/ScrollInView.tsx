@@ -11,6 +11,7 @@ interface ScrollInViewProps extends PropsWithChildren {
   delay?: number;
   duration?: number;
   viewport?: Omit<HTMLMotionProps<"div">["viewport"], "root">;
+  useInView?: boolean;
 }
 
 export const ScrollInView: FC<ScrollInViewProps> = ({
@@ -23,12 +24,20 @@ export const ScrollInView: FC<ScrollInViewProps> = ({
   delay = 0,
   duration = 0.5,
   viewport,
+  useInView = false, // Default to false to use animate
 }) => {
+  const initialAnimation = { opacity: 0, y, x };
+  const finalAnimation = { opacity: 1, y: 0, x: 0 };
+  
   return (
     <motion.div
-      initial={{ opacity: 0, y, x }}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once, amount, ...viewport }}
+      initial={initialAnimation}
+      // Only include the appropriate animation prop based on useInView
+      {...(useInView
+        ? { whileInView: finalAnimation }
+        : { animate: finalAnimation }
+      )}
+      viewport={useInView ? { once, amount, ...viewport } : undefined}
       transition={{ duration, delay }}
       className={className}
     >

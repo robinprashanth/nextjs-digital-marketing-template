@@ -28,9 +28,8 @@ import {
   results,
   tools,
 } from "../data/content";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { ContentStrategyCTA } from "@/components/cta/Presets";
 
 const iconMap = {
   FileText,
@@ -190,6 +189,7 @@ export const ContentStrategy: FC = () => {
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-3xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800"
@@ -250,6 +250,7 @@ export const ContentStrategy: FC = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {results.map((result, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="group relative overflow-hidden rounded-3xl"
@@ -301,6 +302,7 @@ export const ContentStrategy: FC = () => {
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-indigo-400 to-theme-violet-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -316,6 +318,7 @@ export const ContentStrategy: FC = () => {
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
               <ScrollInView
+              useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative"
@@ -357,6 +360,7 @@ export const ContentStrategy: FC = () => {
               const IconComponent = iconMap[tool.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                   key={index}
                   delay={ index * 0.1 }
                   className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
@@ -378,29 +382,8 @@ export const ContentStrategy: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-navy py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-4xl text-center"
-          >
-            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
-              Ready to Transform Your
-              <br />
-              Content Strategy?
-            </h2>
-            <p className="mb-12 text-lg text-theme-neutral-400">
-              Let`&apos;s create engaging content that builds your brand and
-              drives measurable business results.
-            </p>
+      <ContentStrategyCTA />
 
-            <Button variant="glass" size="xl">
-              <Link href="/contact" className="group">
-                Schedule a Strategy Call
-              </Link>
-            </Button>
-          </ScrollInView>
-        </div>
-      </section>
     </main>
   );
 };

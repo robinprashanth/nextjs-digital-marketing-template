@@ -103,17 +103,7 @@ export const services: NavLink[] = [
     title: "Social Media",
     href: "/services/social-media",
     description: "Social media management and growth",
-  },
-  {
-    title: "Performance Marketing",
-    href: "/services/performance-marketing",
-    description: "Data-driven campaign optimization",
-  },
-  {
-    title: "Email Marketing",
-    href: "/services/email-marketing",
-    description: "Strategic email campaign management",
-  },
+  }
 ];
 
 export const more: NavLink[] = [
@@ -165,27 +155,7 @@ export const moreMenuSections: MegaMenuSection[] = [
       },
     ],
   },
-  {
-    title: "Resources",
-    items: [
-      {
-        title: "Documentation",
-        href: "/docs",
-        description: "API and integration guides",
-      },
-      {
-        title: "Resources",
-        href: "/resources",
-        description: "Downloads and templates",
-      },
-      {
-        title: "Partners",
-        href: "/partners",
-        description: "Partner ecosystem",
-        badge: "new",
-      },
-    ],
-  },
+  
   {
     title: "UI Components",
     items: [
@@ -222,8 +192,8 @@ export const moreMenuSections: MegaMenuSection[] = [
       },
       {
         title: "Collaboration",
-        href: "/collaboration",
-        description: "Terms and conditions",
+        href: "/collaboration/team-tools",
+        description: "Team tools",
       },
     ],
   },

@@ -39,6 +39,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
     <section className="border-t border-theme-neutral-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
         <ScrollInView
+         useInView={true}
           className="mx-auto mb-12 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -55,6 +56,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
         <div className="grid gap-8 md:grid-cols-2">
           {topCategories.map((categoryGroup, index) => (
             <ScrollInView
+            useInView={true}
             key={index}
             delay={index * 0.1}
               className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
@@ -135,6 +137,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
 
         {/* Featured Stats */}
         <ScrollInView
+         useInView={true}
           className="mt-16 grid gap-8 rounded-2xl border border-theme-neutral-800 bg-background p-8 md:grid-cols-3"
         >
           {[

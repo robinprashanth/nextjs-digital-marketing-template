@@ -10,6 +10,7 @@ import { MobileMenu } from "./MobileMenu";
 import { features, services, more, moreMenuSections } from "@/data/navigation";
 import { AdvancedMegaMenu } from "./AdvancedMegaMenu";
 import { siteConfig } from "@/config";
+import Image from "next/image";
 
 interface HoverState {
   features: boolean;
@@ -44,16 +45,23 @@ export const Navbar: FC = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2">
-            <div className="relative h-8 w-8">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
-              <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
-                <span className="text-xl">⬡</span>
-              </div>
-            </div>
-            <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent">
-              {siteConfig.appName}
-            </span>
-          </Link>
+  <div className="relative h-8 w-8">
+    <div className="absolute inset-0 rounded-sm bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
+    <div className="relative flex h-full w-full items-center justify-center  ">
+      <Image 
+        src="/logo.svg" 
+        alt="Digitra Logo" 
+        width={32} 
+        height={32} 
+        className="rounded-full" 
+        priority // Ensures the logo loads quickly as it's a primary visual
+      />
+    </div>
+  </div>
+  <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent">
+    {siteConfig.appName}
+  </span>
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
@@ -141,10 +149,11 @@ export const Navbar: FC = () => {
 
           {/* CTA Buttons */}
           <div className="hidden items-center gap-4 md:flex">
-            <Button variant="secondary">Sign In</Button>
-            <Button variant="submit" rounded="full">
+            <Link href="/contact">
+            <Button variant="submit" rounded="full" >
               <span className="relative z-10">Get Started</span>
             </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

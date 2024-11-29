@@ -1,4 +1,3 @@
-// /app/services/social-media/_components/SocialMediaPage.tsx
 "use client";
 import { FC } from "react";
 import {
@@ -35,9 +34,8 @@ import {
   successStories,
   tools,
 } from "../data/content";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { SocialMediaCTA } from "@/components/cta/Presets";
 
 const iconMap = {
   Instagram,
@@ -101,6 +99,7 @@ export const SocialMedia: FC = () => {
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((metric, index) => (
                 <ScrollInView
+                useInView={true}
                 key={index}
                 delay={ index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
@@ -124,6 +123,7 @@ export const SocialMedia: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -145,6 +145,7 @@ export const SocialMedia: FC = () => {
                 iconMap[platform.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                 key={index}
                 delay={ index * 0.1}
                   className="group cursor-pointer"
@@ -186,6 +187,7 @@ export const SocialMedia: FC = () => {
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="bg- 600 mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -205,6 +207,7 @@ export const SocialMedia: FC = () => {
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
              <ScrollInView
+             useInView={true}
              key={index}
              delay={ index * 0.1}
                 className="rounded-3xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800"
@@ -250,6 +253,7 @@ export const SocialMedia: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -265,6 +269,7 @@ export const SocialMedia: FC = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
               <ScrollInView
+              useInView={true}
               key={index}
               delay={ index * 0.1}
                 className="group relative overflow-hidden rounded-3xl"
@@ -316,6 +321,7 @@ export const SocialMedia: FC = () => {
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-indigo-400 to-theme-ocean-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -331,6 +337,7 @@ export const SocialMedia: FC = () => {
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
              <ScrollInView
+             useInView={true}
              key={index}
              delay={ index * 0.1}
                 className="relative"
@@ -357,6 +364,7 @@ export const SocialMedia: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
+          useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -372,6 +380,7 @@ export const SocialMedia: FC = () => {
               const IconComponent = iconMap[tool.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
+                useInView={true}
                 key={index}
                 delay={ index * 0.1}
                   className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
@@ -393,28 +402,7 @@ export const SocialMedia: FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-navy py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-4xl text-center"
-          >
-            <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
-              Ready to Transform Your
-              <br />
-              Social Media Presence?
-            </h2>
-            <p className="mb-12 text-lg text-theme-neutral-400">
-              Let&apos;s create engaging social media strategies that build your
-              brand and drive measurable results.
-            </p>
-            <Button variant="glass" size="xl">
-              <Link href="/contact" className="group">
-                Schedule a Strategy Call
-              </Link>
-            </Button>
-          </ScrollInView>
-        </div>
-      </section>
+      <SocialMediaCTA />
     </main>
   );
 };

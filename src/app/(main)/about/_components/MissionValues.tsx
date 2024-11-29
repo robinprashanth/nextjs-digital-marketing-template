@@ -19,6 +19,7 @@ const ValueCard: FC<ValueCardProps> = ({
   delay = 0,
 }) => (
   <ScrollInView delay={delay} duration={0.5}
+  useInView={true}
     className="group relative"
   >
     <div className="relative overflow-hidden rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
@@ -79,6 +80,7 @@ export const MissionValues: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -99,6 +101,7 @@ export const MissionValues: FC = () => {
 
         {/* Mission Statement */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-4xl"
         >
           <div className="rounded-2xl border border-theme-neutral-800 bg-card p-8 text-center md:p-12">
@@ -129,6 +132,7 @@ export const MissionValues: FC = () => {
 
         {/* Bottom CTA */}
         <ScrollInView
+        useInView={true}
           delay={0.6}
           className="mx-auto mt-20 max-w-3xl text-center"
         >

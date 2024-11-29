@@ -65,6 +65,7 @@ export const TestimonialsSection: FC = () => {
       <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -121,6 +122,7 @@ export const TestimonialsSection: FC = () => {
 
         {/* Client Logos */}
         <ScrollInView
+        useInView={true}
         delay={0.3}
           className="mt-16 grid grid-cols-2 gap-8 opacity-60 md:grid-cols-4 lg:grid-cols-6"
         >

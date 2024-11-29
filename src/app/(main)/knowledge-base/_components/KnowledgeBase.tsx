@@ -101,6 +101,7 @@ export const KnowledgeBase: FC<KnowledgeBaseProps> = ({
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
+           useInView={true}
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">

@@ -215,6 +215,7 @@ export const WorkingMethodSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mb-16 max-w-2xl"
         >
           <span className="mb-4 block bg-gradient-to-r from-theme-rose-500 to-theme-primary-500 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -241,6 +242,7 @@ export const WorkingMethodSection: FC = () => {
 
         {/* Stats Cards */}
         <ScrollInView
+        useInView={true}
         delay={ 0.5}
           className="mt-20 grid gap-6 md:grid-cols-3"
         >

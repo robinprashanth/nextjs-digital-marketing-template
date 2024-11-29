@@ -25,6 +25,7 @@ export const IndustryCard: FC<IndustryCardProps> = ({
   delay = 0,
 }) => (
   <ScrollInView
+  useInView={true}
   delay={delay}
   >
     <Card

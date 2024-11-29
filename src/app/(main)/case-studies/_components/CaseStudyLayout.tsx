@@ -12,15 +12,19 @@ import {
 } from "lucide-react";
 import { CaseStudyMetadata } from "@/types";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { SocialShareMinimal } from "@/components/SocialShareMinimal";
+import { ProjectCTA } from "@/components/cta/Presets";
 
 interface CaseStudyLayoutProps {
   metadata: CaseStudyMetadata;
   children: React.ReactNode;
+  slug: string;
 }
 
 export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
   metadata,
   children,
+  slug
 }) => {
   return (
     <article className="min-h-screen bg-background">
@@ -119,27 +123,17 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
       <div className="container relative mx-auto px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-4xl">
           {/* Share Buttons */}
-          <div className="sticky top-8 z-10 mb-12 flex items-center justify-between rounded-2xl border border-theme-neutral-800 bg-card/80 p-4 backdrop-blur-sm">
+          <div className="sticky top-16 z-10 mb-12 flex items-center justify-between rounded-2xl border border-theme-neutral-800 bg-card/80 p-4 backdrop-blur-sm">
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium text-muted-foreground">
                 Share this case study:
               </span>
               {/* Share buttons */}
-              <div className="flex gap-2">
-                {[
-                  { name: "Twitter", icon: "twitter.svg" },
-                  { name: "LinkedIn", icon: "linkedin.svg" },
-                  { name: "Email", icon: "mail.svg" },
-                ].map((platform) => (
-                  <button
-                    key={platform.name}
-                    className="rounded-full bg-theme-primary-500/10 p-2 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20"
-                    aria-label={`Share on ${platform.name}`}
-                  >
-                    <Share2 className="h-4 w-4" />
-                  </button>
-                ))}
-              </div>
+              <SocialShareMinimal 
+    url={`/blog/theme-1/${slug}`}
+    title={metadata.title}
+    description={metadata.excerpt}
+  />
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4" />
@@ -151,46 +145,7 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
           {children}
 
           {/* Call to Action */}
-          <ScrollInView
-            className="mt-16 rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
-          >
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              Ready to Achieve Similar Results?
-            </h2>
-            <p className="mb-8 text-lg text-white/80">
-              Let&apos;s discuss how we can help transform your business with
-              our proven strategies.
-            </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link
-                href="/contact"
-                className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100"
-              >
-                Start Your Project
-              </Link>
-              <Link
-                href="/case-studies"
-                className="rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
-              >
-                View More Case Studies
-              </Link>
-            </div>
-          </ScrollInView>
-        </div>
-      </div>
-
-      {/* Navigation Footer */}
-      <div className="border-t border-theme-neutral-800 bg-card">
-        <div className="container mx-auto px-4 py-8 sm:px-6">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/case-studies"
-              className="flex items-center gap-2 text-theme-primary-400 hover:text-purple-300"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Case Studies
-            </Link>
-          </div>
+          <ProjectCTA />
         </div>
       </div>
     </article>

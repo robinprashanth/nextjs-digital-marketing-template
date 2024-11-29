@@ -49,6 +49,7 @@ const ClientMetric: FC<Metric & { index: number }> = ({
   index,
 }) => (
   <ScrollInView delay={ 0.1 * index}
+  useInView={true}
     className="flex flex-col items-center space-y-2 text-center"
   >
     <div className="rounded-full bg-theme-primary-500/10 p-3">
@@ -68,6 +69,7 @@ const TestimonialCard: FC<Testimonial & { index: number }> = ({
   index,
 }) => (
   <ScrollInView delay={ 0.2 * index}
+  useInView={true}
     className="relative rounded-2xl border border-theme-neutral-800 bg-card p-6"
   >
     <div className="mb-6">
@@ -105,6 +107,7 @@ const CaseStudyCard: FC<CaseStudyCardProps> = ({
   index,
 }) => (
   <ScrollInView delay={ 0.1 * index}
+  useInView={true}
     className="group rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
   >
     {/* Header */}
@@ -220,6 +223,7 @@ export const ClientSuccess: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
@@ -247,6 +251,7 @@ export const ClientSuccess: FC = () => {
 
         {/* View More Case Studies */}
         <ScrollInView
+        useInView={true}
           className="mx-auto mt-16 flex max-w-3xl flex-col items-center space-y-8"
         >
           <Button variant="soft" size="fluid" className="group">
@@ -261,7 +266,9 @@ export const ClientSuccess: FC = () => {
               { label: "Projects Completed", value: "500+" },
               { label: "Revenue Generated", value: "$100M+" },
             ].map((metric, index) => (
-              <ScrollInView delay={ 0.1 * index} key={index}                className="text-center"
+              <ScrollInView delay={ 0.1 * index} key={index}   
+              useInView={true} 
+              className="text-center"
               >
                 <div className="text-3xl font-bold text-foreground">
                   {metric.value}
