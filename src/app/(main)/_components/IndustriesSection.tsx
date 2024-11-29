@@ -2,12 +2,12 @@
 import { FC, useState } from "react";
 import { IndustryCard } from "./Industries/IndustryCard";
 import { IndustryDetail } from "./Industries/IndustryDetail";
-import { industries } from "./Industries/Industries";
+import { IndustriesData } from "./Industries/IndustriesData";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { ConsultationCTA } from "@/components/cta/Presets";
 
 export const IndustriesSection: FC = () => {
-  const [activeIndustry, setActiveIndustry] = useState(industries[0]);
+  const [activeIndustry, setActiveIndustry] = useState(IndustriesData[0]);
 
   return (
     <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
@@ -32,7 +32,7 @@ export const IndustriesSection: FC = () => {
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Industry Cards */}
           <div className="space-y-4">
-            {industries.map((industry, index) => (
+            {IndustriesData.map((industry, index) => (
               <IndustryCard
                 key={industry.id}
                 industry={industry}

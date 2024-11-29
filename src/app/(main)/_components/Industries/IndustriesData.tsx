@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingBag, Stethoscope } from "lucide-react";
 import type { Industry } from "@/types";
 
-export const industries: Industry[] = [
+export const IndustriesData: Industry[] = [
   {
     id: 1,
     name: "E-commerce",
