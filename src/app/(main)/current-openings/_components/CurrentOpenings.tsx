@@ -1,7 +1,6 @@
 "use client";
 
-import { FC, useState, useCallback } from "react";
-import { motion } from "motion/react";
+import { FC, useState, useCallback, useEffect } from "react";
 import {
   Search,
   MapPin,
@@ -24,7 +23,6 @@ interface CurrentOpeningsProps {
   hasMore: boolean;
   totalJobs: number;
 }
-
 
 const departments = [
   "All",
@@ -119,53 +117,61 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
   const [selectedType, setSelectedType] = useState<string>("All");
   const [selectedLocation, setSelectedLocation] = useState<string>("All");
   const [totalJobs, setTotalJobs] = useState(initialTotalJobs);
+  const [isFiltering, setIsFiltering] = useState(false);
 
-  // Load more jobs
-  const loadMore = useCallback(async () => {
-    if (loading || !hasMore) return;
-    
+  // Function to fetch jobs with filters
+  const fetchJobs = useCallback(async (newPage: number = 1) => {
     setLoading(true);
     try {
-      const nextPage = page + 1;
-      const response = await fetch(`/api/jobs?page=${nextPage}&limit=5`);
+      const searchParams = new URLSearchParams({
+        page: newPage.toString(),
+        limit: "5",
+        search: searchTerm,
+        department: selectedDepartment,
+        type: selectedType,
+        location: selectedLocation
+      });
+
+      const response = await fetch(`/api/jobs?${searchParams.toString()}`);
       
       if (!response.ok) {
-        throw new Error('Failed to load more jobs');
+        throw new Error('Failed to fetch jobs');
       }
-  
+
       const data = await response.json();
       
-      if (data.jobs?.length) {
-     
-  
-        // Update jobs state with the new jobs
-        setJobs(prevJobs => [...prevJobs, ...data.jobs]);
-        setPage(nextPage);
-        setHasMore(data.hasMore);
-        setTotalJobs(data.total);
+      if (newPage === 1) {
+        setJobs(data.jobs);
+        setIsFiltering(data.total !== data.totalUnfiltered);
       } else {
-        setHasMore(false);
+        setJobs(prev => [...prev, ...data.jobs]);
       }
+      
+      setPage(newPage);
+      setHasMore(data.hasMore);
+      setTotalJobs(data.total);
     } catch (error) {
-      console.error('Error loading more jobs:', error);
+      console.error('Error fetching jobs:', error);
     } finally {
       setLoading(false);
     }
-  }, [page, loading, hasMore]);
+  }, [searchTerm, selectedDepartment, selectedType, selectedLocation]);
 
-  // Filter jobs
-  const filteredJobs = jobs.filter((job) => {
-    const matchesSearch =
-      job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      job.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesDepartment =
-      selectedDepartment === "All" || job.department === selectedDepartment;
-    const matchesType = selectedType === "All" || job.type === selectedType;
-    const matchesLocation =
-      selectedLocation === "All" || job.location === selectedLocation;
+  // Load more handler
+  const loadMore = useCallback(() => {
+    if (!loading && hasMore) {
+      fetchJobs(page + 1);
+    }
+  }, [fetchJobs, loading, hasMore, page]);
 
-    return matchesSearch && matchesDepartment && matchesType && matchesLocation;
-  });
+  // Effect to handle filters change
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchJobs(1);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm, selectedDepartment, selectedType, selectedLocation, fetchJobs]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -268,136 +274,133 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
         </div>
       </section>
 
+      {/* Jobs Count Section */}
       <section className="py-8">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-medium text-foreground">
-              {filteredJobs.length} of {totalJobs} positions available
-            </span>
-            {filteredJobs.length !== totalJobs && (
-              <span className="text-sm text-muted-foreground">
-                (Filtered from {totalJobs} total positions)
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-medium text-foreground">
+                {jobs.length} of {totalJobs} positions available
               </span>
+              {isFiltering && (
+                <span className="text-sm text-muted-foreground">
+                  (Filtered results)
+                </span>
+              )}
+            </div>
+            {jobs.length > 0 && (
+              <div className="text-sm text-muted-foreground">
+                Showing {Math.min(page * 5, jobs.length)} of {totalJobs} positions
+              </div>
             )}
           </div>
-          {filteredJobs.length > 0 && (
-            <div className="text-sm text-muted-foreground">
-              Showing {Math.min(page * 5, filteredJobs.length)} of {totalJobs} positions
-            </div>
-          )}
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* Job Listings */}
       <section className="pb-24">
-  <div className="container mx-auto px-4 sm:px-6">
-    {filteredJobs.length > 0 ? (
-      <>
-        <div className="grid gap-6">
-          {filteredJobs.map((job, index) => (
-            <ScrollInView
-              key={job.id}
-              delay={index * 0.1}
-            >
-              <Link href={`/current-openings/${job.slug}`}>
-                <div className="group cursor-pointer rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20">
-                  <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4">
-                        <div className="rounded-xl bg-theme-primary-500/10 p-3">
-                          <Briefcase className="h-6 w-6 text-theme-primary-400" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold text-foreground">
-                            {job.title}
-                          </h3>
-                          <p className="text-sm text-muted-foreground">
-                            {job.department}
-                          </p>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground">{job.description}</p>
-                    </div>
+        <div className="container mx-auto px-4 sm:px-6">
+          {jobs.length > 0 ? (
+            <>
+              <div className="grid gap-6">
+                {jobs.map((job, index) => (
+                  <ScrollInView
+                    key={job.id}
+                    delay={index * 0.1}
+                  >
+                    <Link href={`/current-openings/${job.slug}`}>
+                      <div className="group cursor-pointer rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20">
+                        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                          <div className="space-y-4">
+                            <div className="flex items-center gap-4">
+                              <div className="rounded-xl bg-theme-primary-500/10 p-3">
+                                <Briefcase className="h-6 w-6 text-theme-primary-400" />
+                              </div>
+                              <div>
+                                <h3 className="text-xl font-semibold text-foreground">
+                                  {job.title}
+                                </h3>
+                                <p className="text-sm text-muted-foreground">
+                                  {job.department}
+                                </p>
+                              </div>
+                            </div>
+                            <p className="text-muted-foreground">{job.description}</p>
+                          </div>
 
-                    <div className="flex flex-wrap items-center gap-4 lg:flex-col lg:items-end">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="h-4 w-4" />
-                        {job.location}
+                          <div className="flex flex-wrap items-center gap-4 lg:flex-col lg:items-end">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <MapPin className="h-4 w-4" />
+                              {job.location}
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <Clock className="h-4 w-4" />
+                              {job.type}
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <DollarSign className="h-4 w-4" />
+                              {job.salary}
+                            </div>
+                            <Button
+                              variant="action"
+                              size="sm-rounded"
+                              rounded="full"
+                            >
+                              Apply Now
+                              <ChevronRight className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Clock className="h-4 w-4" />
-                        {job.type}
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <DollarSign className="h-4 w-4" />
-                        {job.salary}
-                      </div>
-                      <Button
-                        variant="action"
-                        size="sm-rounded"
-                        rounded="full"
-                      >
-                        Apply Now
-                        <ChevronRight className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
+                    </Link>
+                  </ScrollInView>
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              {hasMore && (
+                <div className="mt-12 text-center">
+                  <Button
+                    onClick={loadMore}
+                    disabled={loading}
+                    variant="outline"
+                    size="lg"
+                    rounded="full"
+                    className="bg-background hover:bg-muted"
+                  >
+                    {loading ? (
+                      <>
+                        <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-theme-primary-500 border-r-transparent"></span>
+                        Loading...
+                      </>
+                    ) : (
+                      <>
+                        Load More Jobs
+                        <ChevronRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
+                  <p className="mt-4 text-sm text-muted-foreground">
+                    Showing {jobs.length} of {totalJobs} positions
+                  </p>
                 </div>
-              </Link>
-            </ScrollInView>
-          ))}
-        </div>
-
-        {/* Load More Button */}
-        {hasMore && (
-          <div className="mt-12 text-center">
-            <Button
-              onClick={loadMore}
-              disabled={loading}
-              variant="outline"
-              size="lg"
-              rounded="full"
-              className="bg-background hover:bg-muted"
-            >
-              {loading ? (
-                <>
-                  <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-theme-primary-500 border-r-transparent"></span>
-                  Loading...
-                </>
-              ) : (
-                <>
-                  Load More Jobs
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </>
               )}
-            </Button>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Showing {filteredJobs.length} of {totalJobs} positions
-            </p>
-          </div>
-        )}
-      </>
-    ) : (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="rounded-2xl border border-border bg-card p-12 text-center"
-      >
-        <div className="mx-auto mb-4 w-16">
-          <Search className="h-16 w-16 text-muted-foreground" />
+            </>
+          ) : (
+            <div className="rounded-2xl border border-border bg-card p-12 text-center">
+              <div className="mx-auto mb-4 w-16">
+                <Search className="h-16 w-16 text-muted-foreground" />
+              </div>
+              <h3 className="mb-2 text-xl font-semibold text-foreground">
+                No Positions Found
+              </h3>
+              <p className="text-muted-foreground">
+                We couldn&apos;t find any positions matching your criteria. Try adjusting your filters.
+              </p>
+            </div>
+          )}
         </div>
-        <h3 className="mb-2 text-xl font-semibold text-foreground">
-          No Positions Found
-        </h3>
-        <p className="text-muted-foreground">
-          We couldn&apos;t find any positions matching your criteria. Try adjusting your filters.
-        </p>
-      </motion.div>
-    )}
-  </div>
-</section>
+      </section>
 
       {/* Benefits Section */}
       <section className="border-t border-border bg-card">
@@ -415,7 +418,7 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
           </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((benefit, index) => (
+            {benefits.map((benefit, index) => (
               <ScrollInView
                 key={index}
                 delay={index * 0.1}
@@ -450,27 +453,27 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
           </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-  {cultureImages.map((image) => (
-    <ScrollInView
-      key={image.id}
-      delay={image.id * 0.1}
-      className="group relative aspect-square overflow-hidden rounded-2xl"
-    >
-      <div className="relative h-full w-full">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
-          quality={90}
-          priority={image.id <= 3} // Load first 3 images immediately
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-      </div>
-    </ScrollInView>
-  ))}
-</div>
+            {cultureImages.map((image) => (
+              <ScrollInView
+                key={image.id}
+                delay={image.id * 0.1}
+                className="group relative aspect-square overflow-hidden rounded-2xl"
+              >
+                <div className="relative h-full w-full">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    quality={90}
+                    priority={image.id <= 3}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                </div>
+              </ScrollInView>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -496,7 +499,6 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
                 delay={index * 0.1}
                 className="relative flex gap-8"
               >
-                {/* Step Number and Line */}
                 <div className="flex flex-col items-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-theme-primary-500/10 text-xl font-bold text-theme-primary-400">
                     {step.step}
@@ -506,7 +508,6 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
                   )}
                 </div>
                 
-                {/* Content */}
                 <div className="flex-1 pb-12">
                   <div className="rounded-2xl border border-border bg-background p-6">
                     <h3 className="mb-2 text-xl font-semibold text-foreground">

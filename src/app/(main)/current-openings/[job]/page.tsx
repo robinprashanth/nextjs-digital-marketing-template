@@ -3,12 +3,9 @@ import { notFound } from "next/navigation";
 import { getJobBySlug, getAllJobs } from "@/lib/jobs";
 import JobDetailsPage from "./_components/JobDetailsPage";
 
-
 type Props = {
   params: Promise<{ job: string }>
 }
- 
-
 
 export async function generateMetadata(
   { params }: Props
