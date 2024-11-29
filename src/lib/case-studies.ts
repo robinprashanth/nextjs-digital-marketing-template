@@ -25,6 +25,7 @@ export async function getCaseStudyBySlug(slug: string) {
     gradient: data.gradient,
     metrics: data.metrics,
     featured: data.featured,
+    slug: data.slug
   };
 
   return {

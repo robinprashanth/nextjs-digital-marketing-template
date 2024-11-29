@@ -58,7 +58,7 @@ export default async function CaseStudyPage(
     const { frontMatter, content } = await getCaseStudyBySlug(slug);
 
     return (
-      <CaseStudyLayout metadata={frontMatter}>
+      <CaseStudyLayout metadata={frontMatter} slug={slug}>
         <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-pre:bg-theme-neutral-800 prose-pre:border prose-pre:border-theme-neutral-700 prose-img:rounded-xl max-w-none">
           <MDXRemote source={content} />
         </div>

@@ -308,6 +308,7 @@ export interface CaseStudyMetadata {
   gradient: string;
   metrics: CaseStudyMetrics[];
   featured?: boolean;
+  slug: string;
 }
 
 export interface CaseStudy extends CaseStudyMetadata {
