@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FloatingShape } from "./hero/FloatingShape";
+import { FloatingShape } from "../../../components/motion/FloatingShape";
 import { ClientAvatar } from "./hero/ClientAvatar";
 import { clientAvatars, stats, testimonial } from "./hero/heroData";
 import { TestimonialCard } from "./hero/TestimonialCard";
@@ -11,8 +11,6 @@ import { FadeIn } from "@/components/motion/FadeIn";
 import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
 import { decorativeShapes } from "../data/content";
-
-
 
 export const HeroSection: FC = () => {
   const renderShape = (shape: typeof decorativeShapes[0]) => {

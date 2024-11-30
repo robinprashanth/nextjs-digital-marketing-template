@@ -167,6 +167,30 @@ export const teamTools: TeamTool[] = [
       "Reminders",
     ],
   },
+  {
+    title: "Team Calendar",
+    description: "Coordinate team schedules and events",
+    icon: "Calendar",
+    gradient: "bg-[linear-gradient(45deg,#3B82F6,#2563EB)]",
+    features: [
+      "Event scheduling",
+      "Meeting planner",
+      "Availability view",
+      "Reminders",
+    ],
+  },
+  {
+    title: "Team Calendar",
+    description: "Coordinate team schedules and events",
+    icon: "Calendar",
+    gradient: "bg-[linear-gradient(45deg,#3B82F6,#2563EB)]",
+    features: [
+      "Event scheduling",
+      "Meeting planner",
+      "Availability view",
+      "Reminders",
+    ],
+  },
 ];
 
 export const integrations = [

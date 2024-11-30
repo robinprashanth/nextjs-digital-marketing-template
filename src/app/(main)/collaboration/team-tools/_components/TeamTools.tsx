@@ -10,6 +10,7 @@ import {
 } from "../data/content";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { TeamCollaborationCTA } from "@/components/cta/Presets";
+import { BentoGrid } from "./BentoGrid";
 
 export const TeamTools: FC = () => {
   return (
@@ -107,6 +108,8 @@ export const TeamTools: FC = () => {
             </p>
           </ScrollInView>
 
+         
+
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {collaborationFeatures.map((feature, index) => {
               const IconComponent = getIcon(feature.icon);
@@ -166,46 +169,12 @@ export const TeamTools: FC = () => {
               In One Place
             </h2>
           </ScrollInView>
+          <div className="rounded-2xl bg-gradient-to-br from-theme-neutral-100 to-theme-neutral-200 dark:from-theme-neutral-900 dark:to-theme-neutral-800 p-8">
+  <BentoGrid items={teamTools} />
+</div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {teamTools.map((tool, index) => {
-              const IconComponent = getIcon(tool.icon);
-              return (
-                <ScrollInView
-                useInView={true}
-                key={index}
-                viewport={true}
-                delay={index * 0.1}
-                  className="group rounded-2xl bg-white p-8 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-900"
-                >
-                  <div
-                    className={`mb-6 inline-block rounded-xl ${tool.gradient.replace("bg-", "bg-opacity-10")} p-3`}
-                  >
-                    <IconComponent className="h-6 w-6 text-theme-primary-600" />
-                  </div>
 
-                  <h3 className="mb-4 text-xl font-bold text-theme-neutral-900 dark:text-white">
-                    {tool.title}
-                  </h3>
-                  <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
-                    {tool.description}
-                  </p>
-
-                  <ul className="space-y-3">
-                    {tool.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
-                      >
-                        <div className="h-1.5 w-1.5 rounded-full bg-theme-primary-600" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollInView>
-              );
-            })}
-          </div>
+        
         </div>
       </section>
 

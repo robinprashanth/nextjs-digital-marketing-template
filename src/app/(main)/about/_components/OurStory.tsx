@@ -1,184 +1,144 @@
 "use client";
+
 import { FC } from "react";
-import { motion } from "motion/react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { companyTimeline } from "../data/content";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import {
+  Rocket,
+  Globe,
+  Lightbulb,
+  Trophy,
+  Sparkles,
+  LucideIcon,
+} from "lucide-react";
 
-interface MilestoneProps {
-  year: string;
-  title: string;
-  description: string;
-  stats?: {
-    label: string;
-    value: string;
-  }[];
-  isLeft?: boolean;
-  delay?: number;
-}
+const iconMap: Record<string, LucideIcon> = {
+  Rocket,
+  Globe,
+  Lightbulb,
+  Trophy,
+  Sparkles,
+};
 
-const Milestone: FC<MilestoneProps> = ({
-  year,
-  title,
-  description,
-  stats,
-  isLeft = false,
-  delay = 0,
-}) => (
-  <motion.div
-    initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
-    className={`flex w-full ${isLeft ? "md:justify-end" : ""}`}
-  >
-    <div
-      className={`relative w-full md:w-[calc(50%-2rem)] ${isLeft ? "md:text-right" : ""}`}
+const MilestoneCard: FC<{
+  milestone: typeof companyTimeline.milestones[0];
+  index: number;
+}> = ({ milestone, index }) => {
+  const Icon = iconMap[milestone.icon];
+
+  return (
+    <ScrollInView 
+      useInView={true}
+      className="relative w-full md:w-[calc(50%-2rem)]"
+      delay={index * 0.1}
     >
-      {/* Card */}
-      <div className="relative rounded-2xl border border-theme-neutral-800 bg-card p-6">
-        {/* Year Badge */}
-        <div className="inline-flex items-center rounded-full bg-theme-primary-500/10 px-3 py-1">
-          <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-sm font-semibold text-transparent">
-            {year}
-          </span>
+      <Card className="group relative overflow-hidden border-none bg-gradient-to-br from-background to-muted/50 shadow-lg transition-all duration-300 hover:shadow-xl">
+        {/* Gradient Overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${milestone.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-5`} />
+        
+        {/* Connector Line and Dot */}
+        <div className="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-theme-primary-500/30 to-transparent md:left-auto md:right-[-2rem]" />
+        <div className="absolute left-1/2 top-8 h-3 w-3 -translate-x-1/2 rounded-full bg-gradient-to-r from-theme-primary-500 to-theme-primary-600 md:left-auto md:right-[-2.25rem] md:translate-x-0">
+          <div className="absolute inset-0 animate-ping rounded-full bg-theme-primary-500 opacity-75" />
         </div>
 
-        {/* Content */}
-        <h3 className="mt-4 text-xl font-semibold text-white">{title}</h3>
-        <p className="mt-2 text-muted-foreground">{description}</p>
+        <CardHeader className="pb-4">
+          <div className="flex items-start gap-4">
+            <div className={`rounded-xl bg-gradient-to-br ${milestone.gradient} p-3`}>
+              <Icon className="h-6 w-6 text-white" />
+            </div>
+            <div className="space-y-1">
+              <span className="inline-block rounded-full bg-theme-primary-500/10 px-3 py-1 text-sm font-semibold text-theme-primary-400">
+                {milestone.year}
+              </span>
+              <CardTitle className="text-xl text-foreground">
+                {milestone.title}
+              </CardTitle>
+            </div>
+          </div>
+        </CardHeader>
 
-        {/* Stats if available */}
-        {stats && (
-          <div className={`mt-4 grid grid-cols-${stats.length} gap-4`}>
-            {stats.map((stat, index) => (
-              <div key={index} className="space-y-1">
-                <div className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-2xl font-bold text-transparent">
-                  {stat.value}
+        <CardContent className="space-y-6">
+          <CardDescription className="text-base text-muted-foreground">
+            {milestone.description}
+          </CardDescription>
+
+          <div className="grid grid-cols-2 gap-4 rounded-xl bg-gradient-to-br from-theme-primary-500/5 to-transparent p-4 backdrop-blur-sm">
+            {milestone.stats.map((stat, i) => (
+              <div 
+                key={i} 
+                className="relative overflow-hidden rounded-lg bg-card/50 p-4 text-center backdrop-blur-sm"
+              >
+                <div className="relative z-10">
+                  <div className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-2xl font-bold text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 to-transparent opacity-50" />
               </div>
             ))}
           </div>
-        )}
-
-        {/* Connector Line */}
-        <div
-          className={`absolute top-8 ${
-            isLeft
-              ? "right-[-2rem] md:right-[-3rem]"
-              : "left-[-2rem] md:left-[-3rem]"
-          } h-px w-8 bg-gradient-to-r from-theme-primary-500/50 to-transparent`}
-        />
-
-        {/* Dot */}
-        <div
-          className={`absolute top-8 ${
-            isLeft ? "right-[-2.25rem]" : "left-[-2.25rem]"
-          } h-3 w-3 rounded-full bg-theme-primary-500`}
-        >
-          <div className="absolute inset-0 animate-ping rounded-full bg-theme-primary-500 opacity-75" />
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
+        </CardContent>
+      </Card>
+    </ScrollInView>
+  );
+};
 
 export const OurStory: FC = () => {
-  const milestones = [
-    {
-      year: "2014",
-      title: "The Beginning",
-      description:
-        "Started as a small team of digital enthusiasts with a vision to transform the digital marketing landscape.",
-      stats: [
-        { value: "3", label: "Team Members" },
-        { value: "5", label: "Clients" },
-      ],
-    },
-    {
-      year: "2016",
-      title: "Expanding Horizons",
-      description:
-        "Opened our first international office and expanded our services to include comprehensive digital solutions.",
-      stats: [
-        { value: "25+", label: "Team Size" },
-        { value: "50+", label: "Projects" },
-      ],
-    },
-    {
-      year: "2019",
-      title: "Digital Innovation Hub",
-      description:
-        "Launched our proprietary marketing analytics platform and established partnerships with major tech companies.",
-      stats: [
-        { value: "100+", label: "Clients" },
-        { value: "95%", label: "Success Rate" },
-      ],
-    },
-    {
-      year: "2022",
-      title: "Global Impact",
-      description:
-        "Recognized as a leading digital marketing agency with a global presence and diverse client portfolio.",
-      stats: [
-        { value: "150+", label: "Team Members" },
-        { value: "500+", label: "Projects Delivered" },
-      ],
-    },
-    {
-      year: "2024",
-      title: "Future Forward",
-      description:
-        "Pioneering AI-driven marketing solutions and expanding our reach to emerging markets worldwide.",
-      stats: [
-        { value: "10+", label: "Global Offices" },
-        { value: "1000+", label: "Success Stories" },
-      ],
-    },
-  ];
-
   return (
     <section className="relative py-24">
-      <div className="container mx-auto px-4 sm:px-6">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
+
+      <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-            Our Journey
+            {companyTimeline.subtitle}
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
-            A Decade of Digital{" "}
+            {companyTimeline.title.split("Excellence")[0]}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
               Excellence
             </span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            From our humble beginnings to becoming a global digital force, our
-            journey has been defined by innovation, growth, and an unwavering
-            commitment to client success.
+            {companyTimeline.description}
           </p>
         </ScrollInView>
 
         {/* Timeline */}
         <div className="relative">
           {/* Center Line - Desktop */}
-          <div className="absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-px -translate-x-1/2 bg-gradient-to-b from-theme-primary-500/50 via-theme-primary-500/25 to-transparent md:block" />
+          <div className="absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-px -translate-x-1/2 bg-gradient-to-b from-theme-primary-500/30 via-theme-primary-500/20 to-transparent md:block" />
 
           {/* Milestones */}
           <div className="space-y-16">
-            {milestones.map((milestone, index) => (
-              <Milestone
+            {companyTimeline.milestones.map((milestone, index) => (
+              <div
                 key={index}
-                year={milestone.year}
-                title={milestone.title}
-                description={milestone.description}
-                stats={milestone.stats}
-                isLeft={index % 2 === 0}
-                delay={index * 0.1}
-              />
+                className={`flex w-full ${
+                  index % 2 === 0 ? "md:justify-end" : ""
+                }`}
+              >
+                <MilestoneCard 
+                  milestone={milestone} 
+                  index={index} 
+                />
+              </div>
             ))}
           </div>
         </div>

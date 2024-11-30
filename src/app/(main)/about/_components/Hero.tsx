@@ -55,7 +55,7 @@ export const Hero: FC = () => {
               </p>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-8 pt-8">
+              <div className="grid grid-cols-2 gap-8 py-8">
                 {[
                   { number: "10+", text: "Years Experience" },
                   { number: "500+", text: "Projects Completed" },

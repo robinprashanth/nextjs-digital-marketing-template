@@ -1,30 +1,13 @@
 "use client";
+"use client";
 
 import { FC } from "react";
-import {
-  Check,
-  Trophy,
-  Rocket,
-  Target,
-  Users,
-  Globe,
-  LucideIcon,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-
-interface Statistic {
-  value: string;
-  label: string;
-}
-
-interface Feature {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  stats: Statistic[];
-}
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import Link from "next/link";
+import { whyChooseUsContent, features, type Feature } from "../data/content";
+import { Badge } from "@/components/ui/badge";
 
 interface FeatureCardProps extends Feature {
   index: number;
@@ -37,123 +20,79 @@ const FeatureCard: FC<FeatureCardProps> = ({
   stats,
   index,
 }) => (
-  <ScrollInView  delay={ index * 0.1}
-  useInView={true}
-    className="group relative rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+  <ScrollInView 
+    delay={index * 0.1}
+    useInView={true}
+    className="group"
   >
-    <div className="mb-4 inline-flex rounded-xl bg-theme-primary-500/10 p-3">
-      <Icon className="h-6 w-6 text-theme-primary-400" />
-    </div>
-
-    <h3 className="mb-2 text-xl font-semibold text-foreground">{title}</h3>
-    <p className="mb-4 text-muted-foreground">{description}</p>
-
-    {stats && (
-      <div className="mt-4 grid grid-cols-2 gap-4 rounded-xl bg-theme-primary-500/5 p-4">
-        {stats.map((stat, idx) => (
-          <div key={idx} className="text-center">
-            <div className="text-2xl font-bold text-theme-primary-400">
-              {stat.value}
+    <Card className="relative h-full overflow-hidden border-border bg-card transition-all duration-300 hover:shadow-lg">
+      <CardHeader className="space-y-4 p-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="rounded-lg bg-primary/10 p-2.5">
+              <Icon className="h-5 w-5 text-primary" />
             </div>
-            <div className="text-sm text-muted-foreground">{stat.label}</div>
+            <h3 className="font-semibold text-foreground">{title}</h3>
           </div>
-        ))}
-      </div>
-    )}
+          <Badge variant="secondary" className="h-6">
+            Featured
+          </Badge>
+        </div>
+        <p className="text-sm text-muted-foreground">{description}</p>
+      </CardHeader>
+
+      <CardContent className="p-6 pt-0">
+        <div className="grid grid-cols-2 gap-4">
+          {stats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="rounded-lg bg-muted/50 p-4 text-center"
+            >
+              <div className="space-y-1">
+                <div className="text-2xl font-bold text-foreground">
+                  {stat.prefix}{stat.value}{stat.suffix}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {stat.label}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   </ScrollInView>
 );
 
 export const WhyChooseUs: FC = () => {
-  const features: Feature[] = [
-    {
-      icon: Trophy,
-      title: "Industry Excellence",
-      description:
-        "Award-winning agency with a proven track record of delivering exceptional results across diverse industries.",
-      stats: [
-        { value: "50+", label: "Awards Won" },
-        { value: "10+", label: "Years Experience" },
-      ],
-    },
-    {
-      icon: Rocket,
-      title: "Innovation First",
-      description:
-        "Leveraging cutting-edge technologies and strategies to keep your business ahead of the digital curve.",
-      stats: [
-        { value: "100%", label: "Success Rate" },
-        { value: "24/7", label: "Support" },
-      ],
-    },
-    {
-      icon: Target,
-      title: "Results Driven",
-      description:
-        "Focused on delivering measurable results and ROI through data-driven strategies and continuous optimization.",
-      stats: [
-        { value: "300%", label: "Avg. ROI" },
-        { value: "95%", label: "Client Retention" },
-      ],
-    },
-    {
-      icon: Users,
-      title: "Expert Team",
-      description:
-        "A diverse team of certified professionals with deep expertise across all digital marketing disciplines.",
-      stats: [
-        { value: "150+", label: "Experts" },
-        { value: "15+", label: "Specialties" },
-      ],
-    },
-    {
-      icon: Check,
-      title: "Proven Process",
-      description:
-        "Refined methodology that ensures consistent, high-quality delivery and exceptional results.",
-      stats: [
-        { value: "500+", label: "Projects" },
-        { value: "98%", label: "On-time Delivery" },
-      ],
-    },
-    {
-      icon: Globe,
-      title: "Global Reach",
-      description:
-        "International presence with the capability to deliver results across different markets and cultures.",
-      stats: [
-        { value: "30+", label: "Countries" },
-        { value: "12", label: "Languages" },
-      ],
-    },
-  ];
-
   return (
-    <section className="relative border-t border-theme-neutral-800 py-24">
+    <section className="relative py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/40 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-            Why Choose Us
-          </span>
+          <Badge 
+            variant="secondary" 
+            className="mb-4 px-4 py-1.5"
+          >
+            {whyChooseUsContent.subtitle}
+          </Badge>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
-            Driving{" "}
-            <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
-              Digital Excellence
-            </span>{" "}
-            Through Innovation
+            {whyChooseUsContent.title.prefix}
+            <span className="text-primary">
+              {whyChooseUsContent.title.highlighted}
+            </span>
+            {whyChooseUsContent.title.suffix}
           </h2>
           <p className="text-lg text-muted-foreground">
-            We combine expertise, innovation, and proven methodologies to
-            deliver exceptional results that drive your business forward in the
-            digital age.
+            {whyChooseUsContent.description}
           </p>
         </ScrollInView>
 
         {/* Features Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} index={index} />
           ))}
@@ -161,12 +100,16 @@ export const WhyChooseUs: FC = () => {
 
         {/* Bottom CTA */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
-          <Button variant="cta" size="fluid" asChild>
-            <Link href="/contact" className="group">
-              Start Your Digital Journey
+          <Button 
+            variant="default"
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            <Link href={whyChooseUsContent.cta.href}>
+              {whyChooseUsContent.cta.text}
             </Link>
           </Button>
         </ScrollInView>

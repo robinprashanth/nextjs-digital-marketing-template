@@ -1,130 +1,120 @@
 "use client";
+
 import { FC } from "react";
-import { Target, Heart, Users, Lightbulb, Shield, Rocket } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { companyValues, missionValuesContent, type CompanyValue } from "../data/content";
+import { Badge } from "@/components/ui/badge";
+import { ChevronRight } from "lucide-react";
 
-interface ValueCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  delay?: number;
-}
-
-const ValueCard: FC<ValueCardProps> = ({
-  icon,
+const ValueCard: FC<CompanyValue & { delay?: number }> = ({
+  icon: Icon,
   title,
   description,
+  gradient,
+  features,
+  size = "default",
   delay = 0,
 }) => (
-  <ScrollInView delay={delay} duration={0.5}
-  useInView={true}
-    className="group relative"
+  <ScrollInView 
+    delay={delay} 
+    duration={0.5}
+    useInView={true}
+    className={`group col-span-1 ${size === "large" ? "md:col-span-2" : ""}`}
   >
-    <div className="relative overflow-hidden rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]">
-      {/* Icon */}
-      <div className="mb-4 inline-flex rounded-lg bg-theme-primary-500/10 p-3 text-theme-primary-500">
-        {icon}
+    <Card className="relative h-full overflow-hidden bg-gradient-to-br from-background via-muted/50 to-background">
+      {/* Animated border effect */}
+      <div className="absolute inset-0 rounded-[inherit]">
+        <div className={`absolute inset-px rounded-[inherit] bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
       </div>
 
-      {/* Content */}
-      <h3 className="mb-2 text-xl font-semibold text-foreground">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
-    </div>
+      <CardContent className="relative space-y-4 p-6">
+        {/* Header */}
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className={`rounded-xl bg-gradient-to-br ${gradient} p-2.5`}>
+              <Icon className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="font-semibold text-foreground">{title}</h3>
+          </div>
+          <Badge variant="secondary" className="opacity-50">
+            {size === "large" ? "Featured" : "Core Value"}
+          </Badge>
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-muted-foreground">{description}</p>
+
+        {/* Features */}
+        {features && features.length > 0 && (
+          <div className="space-y-2 pt-2">
+            <div className="grid grid-cols-2 gap-2">
+              {features.map((feature, i) => (
+                <div 
+                  key={i}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <ChevronRight className="h-3 w-3 text-theme-primary-400" />
+                  {feature}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   </ScrollInView>
 );
 
 export const MissionValues: FC = () => {
-  const values = [
-    {
-      icon: <Target className="h-6 w-6" />,
-      title: "Result-Driven Approach",
-      description:
-        "We focus on delivering measurable results that directly impact our clients' business growth and success.",
-    },
-    {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Client-Centric Focus",
-      description:
-        "Our clients' success is our success. We build lasting partnerships through dedication and commitment.",
-    },
-    {
-      icon: <Lightbulb className="h-6 w-6" />,
-      title: "Innovation First",
-      description:
-        "We constantly push boundaries and embrace new technologies to stay ahead in the digital landscape.",
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "Collaborative Spirit",
-      description:
-        "We believe in the power of teamwork, both internally and with our clients, to achieve exceptional results.",
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Integrity & Trust",
-      description:
-        "We maintain the highest standards of professionalism, transparency, and ethical business practices.",
-    },
-    {
-      icon: <Rocket className="h-6 w-6" />,
-      title: "Continuous Growth",
-      description:
-        "We're committed to continuous learning and improvement in our pursuit of excellence.",
-    },
-  ];
-
   return (
-    <section className="relative border-t border-theme-neutral-800 py-24">
+    <section className="relative py-24">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-            Mission & Values
+            {missionValuesContent.subtitle}
           </span>
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
-            Guided by{" "}
+            {missionValuesContent.title.prefix}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
-              Excellence
+              {missionValuesContent.title.highlighted}
             </span>
+            {missionValuesContent.title.suffix}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our mission is to empower businesses with innovative digital
-            solutions that drive growth and create lasting impact. We&apos;re
-            guided by core values that define who we are and how we work.
+            {missionValuesContent.description}
           </p>
         </ScrollInView>
 
         {/* Mission Statement */}
         <ScrollInView
-        useInView={true}
-          className="mx-auto mb-20 max-w-4xl"
+          useInView={true}
+          className="mx-auto mb-20"
         >
-          <div className="rounded-2xl border border-theme-neutral-800 bg-card p-8 text-center md:p-12">
-            <h3 className="mb-4 text-2xl font-bold text-foreground">
-              Our Mission
-            </h3>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              &ldquo;To revolutionize digital marketing through innovation and
-              excellence, helping businesses thrive in the digital age while
-              setting new standards for creativity, results, and client
-              satisfaction.&ldquo;
-            </p>
-          </div>
+          <Card className="relative overflow-hidden bg-gradient-to-br from-theme-primary-500/5 via-transparent to-theme-ocean-500/5">
+            <CardContent className="p-8 text-center md:p-12">
+              <h3 className="mb-4 text-2xl font-bold text-foreground">
+                {missionValuesContent.mission.title}
+              </h3>
+              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+                "{missionValuesContent.mission.statement}"
+              </p>
+            </CardContent>
+          </Card>
         </ScrollInView>
 
         {/* Values Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {values.map((value, index) => (
+          {companyValues.map((value, index) => (
             <ValueCard
               key={index}
-              icon={value.icon}
-              title={value.title}
-              description={value.description}
+              {...value}
               delay={index * 0.1}
             />
           ))}
@@ -132,17 +122,20 @@ export const MissionValues: FC = () => {
 
         {/* Bottom CTA */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           delay={0.6}
           className="mx-auto mt-20 max-w-3xl text-center"
         >
           <p className="mb-6 text-lg text-muted-foreground">
-            Join us in our mission to transform the digital landscape and create
-            meaningful impact for businesses worldwide.
+            {missionValuesContent.bottomCTA.description}
           </p>
-          <Button variant="cta" size="fluid" asChild>
-            <Link href="/contact" className="group">
-              Partner With Us
+          <Button 
+            variant="default"
+            size="lg"
+            className="bg-gradient-to-r from-theme-primary-500 to-theme-ocean-600 text-white hover:from-theme-primary-600 hover:to-theme-ocean-700"
+          >
+            <Link href={missionValuesContent.bottomCTA.buttonLink}>
+              {missionValuesContent.bottomCTA.buttonText}
             </Link>
           </Button>
         </ScrollInView>

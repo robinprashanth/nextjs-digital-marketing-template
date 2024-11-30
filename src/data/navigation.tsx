@@ -17,7 +17,7 @@ export const features: NavSection[] = [
     items: [
       {
         title: "Performance Metrics",
-        href: "analytics/performance-metrics",
+        href: "/analytics/performance-metrics",
         description: "Track and analyze your marketing performance",
         icon: BarChart,
       },

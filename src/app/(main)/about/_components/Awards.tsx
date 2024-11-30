@@ -1,46 +1,18 @@
 "use client";
 import { FC } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
+import { Calendar, ArrowUpRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
-  Trophy,
-  Award,
-  Star,
-  Calendar,
-  ExternalLink,
-  ArrowUpRight,
-} from "lucide-react";
+  achievementMetrics,
+  type AwardType,
+  type Certification,
+  type PressFeature,
+} from "../data/content";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 
-interface AwardType {
-  name: string;
-  organization: string;
-  description: string;
-  date: string;
-  image: string;
-  category?: string;
-}
-
-interface Certification {
-  name: string;
-  organization: string;
-  logo: string;
-  validUntil: string;
-}
-
-interface PressFeature {
-  publication: string;
-  title: string;
-  date: string;
-  logo: string;
-  link: string;
-}
-
-interface AwardCardProps extends AwardType {
-  index: number;
-}
-
-const AwardCard: FC<AwardCardProps> = ({
+const AwardCard: FC<AwardType & { index: number }> = ({
   name,
   organization,
   description,
@@ -50,31 +22,45 @@ const AwardCard: FC<AwardCardProps> = ({
   index,
 }) => (
   <ScrollInView 
-  useInView={true}
-  delay={ 0.1 * index}
-    className="group rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20 hover:shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
+    useInView={true}
+    delay={0.1 * index}
   >
-    <div className="flex items-start justify-between gap-4">
-      <div className="relative h-16 w-16 overflow-hidden rounded-xl">
-        <Image src={image} alt={name} fill className="object-cover" />
-      </div>
-      {category && (
-        <div className="rounded-full bg-theme-primary-500/10 px-3 py-1">
-          <span className="text-sm font-medium text-theme-primary-400">
-            {category}
-          </span>
+    <Card className="group relative overflow-hidden bg-gradient-to-br from-background via-muted/5 to-background backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:shadow-theme-primary-500/10">
+      {/* Gradient overlay on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/0 via-transparent to-theme-ocean-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
+      
+      {/* Glowing dots in corners */}
+      <div className="absolute left-0 top-0 h-px w-px bg-theme-primary-400 shadow-[0_0_15px_5px_rgba(147,51,234,0.3)] transition-all duration-500 group-hover:shadow-[0_0_20px_8px_rgba(147,51,234,0.4)]" />
+      <div className="absolute right-0 bottom-0 h-px w-px bg-theme-ocean-400 shadow-[0_0_15px_5px_rgba(59,130,246,0.3)] transition-all duration-500 group-hover:shadow-[0_0_20px_8px_rgba(59,130,246,0.4)]" />
+
+      <CardContent className="relative p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div className="relative h-16 w-16 overflow-hidden rounded-xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/10 to-theme-ocean-500/10" />
+            <Image src={image} alt={name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          {category && (
+            <Badge className="relative overflow-hidden bg-theme-primary-500/10 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20">
+              <span className="relative z-10">{category}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+            </Badge>
+          )}
         </div>
-      )}
-    </div>
 
-    <h3 className="mt-4 text-xl font-semibold text-foreground">{name}</h3>
-    <p className="mt-1 text-sm font-medium text-theme-primary-400">{organization}</p>
-    <p className="mt-3 text-sm text-muted-foreground">{description}</p>
+        <div className="mt-4 space-y-2">
+          <h3 className="text-xl font-semibold text-foreground group-hover:text-theme-primary-400 transition-colors duration-300">
+            {name}
+          </h3>
+          <p className="text-sm font-medium text-theme-primary-400">{organization}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
+        </div>
 
-    <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-      <Calendar className="h-4 w-4" />
-      <span>{date}</span>
-    </div>
+        <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+          <Calendar className="h-4 w-4" />
+          <span>{date}</span>
+        </div>
+      </CardContent>
+    </Card>
   </ScrollInView>
 );
 
@@ -85,19 +71,26 @@ const CertificationCard: FC<Certification & { index: number }> = ({
   validUntil,
   index,
 }) => (
-  <ScrollInView useInView={true} delay={ 0.1 * index}
-    className="flex items-center gap-4 rounded-xl border border-theme-neutral-800 bg-card p-4"
-  >
-    <div className="relative h-12 w-12 overflow-hidden rounded-lg">
-      <Image src={logo} alt={organization} fill className="object-contain" />
-    </div>
-    <div className="flex-1">
-      <h4 className="font-medium text-foreground">{name}</h4>
-      <p className="text-sm text-muted-foreground">{organization}</p>
-    </div>
-    <div className="text-right text-sm text-muted-foreground">
-      Valid until {validUntil}
-    </div>
+  <ScrollInView useInView={true} delay={0.1 * index}>
+    <Card className="group relative overflow-hidden bg-gradient-to-r from-background via-muted/5 to-background transition-all duration-300 hover:shadow-lg hover:shadow-theme-primary-500/10">
+      <div className="absolute inset-0 bg-gradient-to-r from-theme-primary-500/0 to-theme-ocean-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
+      
+      <CardContent className="relative flex items-center gap-4 p-4">
+        <div className="relative h-12 w-12 overflow-hidden rounded-lg">
+          <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 to-theme-ocean-500/5" />
+          <Image src={logo} alt={organization} fill className="object-contain transition-transform duration-500 group-hover:scale-110" />
+        </div>
+        <div className="flex-1 transition-transform duration-300 group-hover:translate-x-1">
+          <h4 className="font-medium text-foreground group-hover:text-theme-primary-400 transition-colors">
+            {name}
+          </h4>
+          <p className="text-sm text-muted-foreground">{organization}</p>
+        </div>
+        <div className="text-right text-sm text-muted-foreground">
+          Valid until {validUntil}
+        </div>
+      </CardContent>
+    </Card>
   </ScrollInView>
 );
 
@@ -107,32 +100,33 @@ const PressFeatureCard: FC<PressFeature & { index: number }> = ({
   date,
   logo,
   link,
-  index,
 }) => (
-  <motion.a
-    href={link}
-    target="_blank"
-    rel="noopener noreferrer"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.1 * index }}
-    className="group flex items-center gap-4 rounded-xl border border-theme-neutral-800 bg-card p-4 transition-all duration-300 hover:border-theme-primary-500/20"
-  >
-    <div className="relative h-12 w-12 overflow-hidden rounded-lg">
-      <Image src={logo} alt={publication} fill className="object-contain" />
-    </div>
-    <div className="flex-1">
-      <h4 className="font-medium text-foreground group-hover:text-theme-primary-400">
-        {title}
-      </h4>
-      <p className="text-sm text-muted-foreground">
-        {publication} • {date}
-      </p>
-    </div>
-    <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-theme-primary-400" />
-  </motion.a>
+  <Card className="group relative overflow-hidden bg-gradient-to-r from-background via-muted/5 to-background transition-all duration-300 hover:shadow-lg hover:shadow-theme-primary-500/10">
+    <div className="absolute inset-0 bg-gradient-to-r from-theme-primary-500/0 to-theme-ocean-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
+    
+    <CardContent 
+      className="relative flex cursor-pointer items-center gap-4 p-4"
+      onClick={() => window.open(link, '_blank')}
+    >
+      <div className="relative h-12 w-12 overflow-hidden rounded-lg">
+        <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 to-theme-ocean-500/5" />
+        <Image src={logo} alt={publication} fill className="object-contain transition-transform duration-500 group-hover:scale-110" />
+      </div>
+      <div className="flex-1 transition-transform duration-300 group-hover:translate-x-1">
+        <h4 className="font-medium text-foreground group-hover:text-theme-primary-400 transition-colors">
+          {title}
+        </h4>
+        <p className="text-sm text-muted-foreground">
+          {publication} • {date}
+        </p>
+      </div>
+      <ArrowUpRight className="h-4 w-4 transform text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-theme-primary-400" />
+    </CardContent>
+  </Card>
 );
+
+
+
 
 export const Awards: FC = () => {
   const awards: AwardType[] = [
@@ -274,12 +268,7 @@ export const Awards: FC = () => {
         useInView={true}
           className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-8 rounded-2xl border border-theme-neutral-800 bg-card p-8 md:grid-cols-4"
         >
-          {[
-            { icon: Trophy, label: "Awards Won", value: "50+" },
-            { icon: Star, label: "Recognition", value: "100+" },
-            { icon: Award, label: "Certifications", value: "25+" },
-            { icon: ExternalLink, label: "Features", value: "75+" },
-          ].map((metric, index) => (
+          {achievementMetrics.map((metric, index) => (
             <ScrollInView delay={ 0.1 * index}
             useInView={true}
             key={index}

@@ -52,7 +52,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "relative font-sans antialiased",
+          "relative font-sans antialiased min-h-screen bg-background" ,
           geistSans.variable,
           geistMono.variable,
         )}
