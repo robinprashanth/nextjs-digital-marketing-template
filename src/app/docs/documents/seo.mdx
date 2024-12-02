@@ -1,0 +1,243 @@
+---
+title: SEO Configuration
+description: The template includes a comprehensive SEO setup with metadata generation, sitemaps, robots.txt, and schema markup support.
+---
+
+## Basic SEO Setup
+
+### Using getSEOTags
+
+The `getSEOTags` utility function in `src/lib/seo.ts` generates consistent SEO metadata across your pages:
+
+```tsx
+import { getSEOTags } from "@/lib/seo";
+
+// In your page
+export const metadata = getSEOTags({
+  title: "Digital Marketing Services",
+  description:
+    "Transform your online presence with our data-driven digital marketing solutions",
+  canonicalUrlRelative: "/services/digital-marketing",
+  type: "article",
+  images: [
+    {
+      url: "/images/services/digital-marketing.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Digital Marketing Services",
+    },
+  ],
+});
+```
+
+### SEO Props Interface
+
+```typescript
+interface SEOProps {
+  title?: string;
+  description?: string;
+  canonicalUrlRelative?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  images?: {
+    url: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  }[];
+}
+```
+
+## Root Layout Configuration
+
+Configure site-wide SEO in your root layout:
+
+```tsx
+// app/layout.tsx
+import { getSEOTags } from "@/lib/seo";
+import { SchemaMarkup } from "@/components/SchemaMarkup";
+
+export const metadata = getSEOTags({
+  canonicalUrlRelative: "/",
+});
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <SchemaMarkup />
+        {/* Analytics can go here */}
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+## Sitemap Generation
+
+The template includes dynamic sitemap generation in `app/sitemap.ts`:
+
+```tsx
+// app/sitemap.ts
+import { MetadataRoute } from "next";
+import { siteConfig } from "@/config";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = `https://${siteConfig.domainName}`;
+
+  // Main routes
+  const mainRoutes = [
+    "",
+    "/about",
+    "/contact",
+    // ... other routes
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: route === "" ? "daily" : "weekly",
+    priority: route === "" ? 1 : 0.8,
+  }));
+
+  return [
+    ...mainRoutes,
+    // Add other route categories
+  ];
+}
+```
+
+## Robots.txt Configuration
+
+Control search engine crawling with `app/robots.ts`:
+
+```tsx
+// app/robots.ts
+import { MetadataRoute } from "next";
+import { siteConfig } from "@/config";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/", "/admin/", "/_components/", "/user-interface/"],
+    },
+    sitemap: `https://${siteConfig.domainName}/sitemap.xml`,
+  };
+}
+```
+
+## Page-Specific SEO
+
+Example of implementing SEO for a service page:
+
+```tsx
+// app/(main)/services/digital-marketing/page.tsx
+import { getSEOTags } from "@/lib/seo";
+import { DigitalMarketing } from "./_components/DigitalMarketing";
+
+export const metadata = getSEOTags({
+  title: "Digital Marketing Services",
+  description:
+    "Transform your online presence with data-driven digital marketing solutions",
+  canonicalUrlRelative: "/services/digital-marketing",
+  type: "article",
+  images: [
+    {
+      url: "/images/industries/ecommerce.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Digital Marketing Services",
+    },
+  ],
+});
+
+export default function Page() {
+  return <DigitalMarketing />;
+}
+```
+
+## Best Practices
+
+### 1. Meta Tags
+
+- Always provide unique titles and descriptions for each page
+- Keep titles under 60 characters
+- Keep descriptions between 150-160 characters
+- Use relevant keywords naturally
+
+### 2. Images
+
+- Always include alt text
+- Provide image dimensions
+- Use descriptive filenames
+- Optimize images for web
+
+### 3. URLs
+
+- Use clean, descriptive URLs
+- Include canonical URLs for duplicate content
+- Maintain consistent URL structure
+
+### 4. Content Structure
+
+- Use proper heading hierarchy (h1, h2, h3)
+- Include schema markup when relevant
+- Optimize content for featured snippets
+
+## Advanced Features
+
+### Schema Markup
+
+The template includes schema markup support via the `SchemaMarkup` component:
+
+```tsx
+// components/SchemaMarkup.tsx
+export function SchemaMarkup() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: siteConfig.company.name,
+          url: `https://${siteConfig.domainName}`,
+          logo: `https://${siteConfig.domainName}/logo.png`,
+          // Add more schema properties
+        }),
+      }}
+    />
+  );
+}
+```
+
+### Dynamic Routes
+
+For dynamic routes, implement dynamic metadata generation:
+
+```tsx
+// app/blog/[slug]/page.tsx
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await getPost(params.slug);
+
+  return getSEOTags({
+    title: post.title,
+    description: post.excerpt,
+    canonicalUrlRelative: `/blog/${post.slug}`,
+    type: "article",
+    publishedTime: post.publishedAt,
+    modifiedTime: post.updatedAt,
+    images: [{ url: post.coverImage, alt: post.title }],
+  });
+}
+```

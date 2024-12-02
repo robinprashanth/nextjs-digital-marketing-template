@@ -1,0 +1,242 @@
+---
+title: Navigation System
+description: The template includes a comprehensive navigation system with responsive behavior, mega menus, and mobile navigation.
+---
+
+![Navigation Preview](/docs/navbar.png)
+
+## Components Structure
+
+```
+components/
+└── Nav/
+    ├── Navbar.tsx           # Main navigation component
+    ├── MegaMenu.tsx        # Dropdown mega menu
+    ├── AdvancedMegaMenu.tsx # Enhanced mega menu with featured image
+    ├── DropdownMenu.tsx    # Simple dropdown menu
+    └── MobileMenu.tsx      # Mobile navigation drawer
+```
+
+## Main Navbar
+
+The main navigation bar (`Navbar.tsx`) provides desktop and mobile navigation with hover states and smooth transitions:
+
+```tsx
+"use client";
+
+import { FC, useState } from "react";
+import { AnimatePresence } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { MegaMenu, DropdownMenu, MobileMenu } from "./components";
+
+export const Navbar: FC = () => {
+  const [hoveredItem, setHoveredItem] = useState({
+    features: false,
+    services: false,
+    more: false,
+  });
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Blurred Background */}
+      <div className="absolute inset-0 bg-[#0B0B1E]/80 backdrop-blur-md" />
+
+      <nav className="relative mx-auto max-w-7xl px-4">
+        {/* Navigation Content */}
+      </nav>
+    </header>
+  );
+};
+```
+
+## Mega Menu Component
+
+The `MegaMenu` component creates a full-width dropdown with sections:
+
+```tsx
+import { motion } from "motion/react";
+
+export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="fixed left-0 right-0 z-50 mx-auto max-w-7xl"
+    >
+      <div className="grid grid-cols-3 gap-8">
+        {sections.map((section) => (
+          <div key={section.title}>
+            <h3>{section.title}</h3>
+            <ul>
+              {section.items.map((item) => (
+                <li key={item.title}>
+                  <Link href={item.href}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+```
+
+## Advanced Mega Menu
+
+The `AdvancedMegaMenu` adds a featured image section:
+
+```tsx
+export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
+  sections,
+  featuredImage,
+  isOpen,
+  onClose,
+}) => {
+  return (
+    <motion.div className="fixed left-0 right-0 top-16 z-50">
+      <div className="grid grid-cols-12 gap-12">
+        {/* Menu Sections */}
+        <div className="col-span-9">{/* Menu Items */}</div>
+
+        {/* Featured Image */}
+        {featuredImage && (
+          <div className="col-span-3">
+            <Image
+              src={featuredImage.src}
+              alt={featuredImage.alt}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+};
+```
+
+## Mobile Navigation
+
+The mobile menu provides a drawer-style navigation:
+
+```tsx
+export const MobileMenu: FC<MobileMenuProps> = ({
+  isOpen,
+  onClose,
+  features,
+  services,
+  more,
+}) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          className="fixed inset-y-0 right-0 z-50 w-full max-w-sm"
+        >
+          {/* Mobile Menu Content */}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+```
+
+## Usage
+
+```tsx
+// In your layout or page
+import { Navbar } from "@/components/Nav/Navbar";
+
+export default function Layout() {
+  return (
+    <>
+      <Navbar />
+      {/* Page content */}
+    </>
+  );
+}
+```
+
+## Navigation Data
+
+Define your navigation structure in a data file:
+
+```tsx
+// data/navigation.ts
+export const features = [
+  {
+    title: "Analytics",
+    items: [
+      {
+        title: "Dashboard",
+        href: "/features/dashboard",
+        description: "Get a bird's eye view of your performance",
+      },
+      // More items...
+    ],
+  },
+  // More sections...
+];
+```
+
+## Customization
+
+### Adding New Menu Items
+
+1. Update navigation data:
+
+```tsx
+// data/navigation.ts
+export const services = [
+  {
+    title: "New Service",
+    href: "/services/new",
+    description: "Description of new service",
+  },
+  // Existing items...
+];
+```
+
+2. Add the route:
+
+```tsx
+// app/services/new/page.tsx
+export default function NewServicePage() {
+  return <div>New Service Content</div>;
+}
+```
+
+### Styling
+
+The navigation system uses Tailwind CSS for styling. Common customization points:
+
+```tsx
+// Background blur
+className = "bg-[#0B0B1E]/80 backdrop-blur-md";
+
+// Gradient border
+className =
+  "bg-gradient-to-r from-transparent via-theme-primary-500/20 to-transparent";
+
+// Hover effects
+className = "hover:bg-white/10 transition-colors";
+```
+
+## Animation
+
+The navigation uses Framer Motion for smooth transitions:
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: 10 }}
+  transition={{ duration: 0.2 }}
+>
+  {/* Content */}
+</motion.div>
+```

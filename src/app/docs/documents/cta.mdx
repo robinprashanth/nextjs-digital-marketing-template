@@ -1,0 +1,237 @@
+---
+title: Call-to-Action Components
+description: The template includes a comprehensive set of CTA components with different styles and layouts for various use cases.
+---
+
+![CTA Components Preview](/docs/cta-preview.png)
+
+## Component Types
+
+1. **CTACard** - Simple card-style CTA
+2. **CTASection** - Full-width section CTA
+3. **GradientCTA** - Gradient background CTA
+4. **SupportCTA** - Support-focused CTA
+
+## Basic Usage
+
+```tsx
+import { CTACard, CTASection, GradientCTA, SupportCTA } from '@/components/cta';
+
+// Simple Card CTA
+<CTACard
+  title="Join Our Team"
+  description="We're looking for talented individuals"
+  buttonText="View Positions"
+  path="/careers"
+/>
+
+// Section CTA
+<CTASection
+  title="Ready to Transform?"
+  description="Let's discuss your goals"
+  background="gradient"
+  buttons={[
+    {
+      href: "/contact",
+      text: "Get Started",
+      variant: "white-action"
+    }
+  ]}
+/>
+
+// Gradient CTA
+<GradientCTA
+  title="Start Your Project"
+  description="Transform your business"
+  buttons={[
+    {
+      text: "Get Started",
+      href: "/contact",
+      variant: "primary"
+    }
+  ]}
+  gradient="purple"
+/>
+```
+
+## Pre-built CTAs
+
+The template includes several pre-built CTAs for common use cases:
+
+```tsx
+import {
+  JoinTeamCTA,
+  CustomSolutionCTA,
+  CertificationsCTA,
+  ConsultationCTA,
+  TeamCollaborationCTA,
+  ContentStrategyCTA,
+  DigitalMarketingCTA,
+  EmailMarketingCTA,
+  SocialMediaCTA,
+  DigitalPresenceCTA,
+  ProjectCTA,
+  ConsultationCTA2,
+  PartnershipCTA,
+  DemoCTA,
+} from '@/components/cta/Presets';
+
+// Usage
+<JoinTeamCTA path="/careers" />
+<CustomSolutionCTA />
+<DigitalMarketingCTA href="/contact" />
+```
+
+## Component Props
+
+### CTACard Props
+
+```typescript
+interface CTACardProps {
+  title: string;
+  description: string;
+  buttonText: string;
+  path?: string;
+  variant?: "primary" | "custom";
+  showArrow?: boolean;
+  className?: string;
+}
+```
+
+### CTASection Props
+
+```typescript
+interface CTASectionProps {
+  title: string | ReactNode;
+  description: string;
+  background?: "primary" | "navy" | "gradient";
+  className?: string;
+  viewport?: boolean;
+  buttons: CTAButtonProps[];
+}
+
+interface CTAButtonProps {
+  href: string;
+  text: string;
+  variant?: ButtonVariant;
+  size?: "xl" | "fluid";
+  rounded?: "full";
+  showArrow?: boolean;
+}
+```
+
+### GradientCTA Props
+
+```typescript
+interface GradientCTAProps {
+  title: string;
+  description: string;
+  buttons: CTAButton[];
+  className?: string;
+  gradient?: "purple" | "ocean" | "rose" | "sunset";
+  useInView?: boolean;
+}
+
+interface CTAButton {
+  text: string;
+  href: string;
+  variant: "primary" | "secondary";
+}
+```
+
+## Styling Options
+
+### Background Variants
+
+```tsx
+// Solid Background
+<CTASection background="primary" />
+<CTASection background="navy" />
+
+// Gradient Background
+<CTASection background="gradient" />
+<GradientCTA gradient="purple" />
+<GradientCTA gradient="ocean" />
+<GradientCTA gradient="rose" />
+<GradientCTA gradient="sunset" />
+```
+
+### Button Variants
+
+```tsx
+const buttons = [
+  {
+    variant: "white-action",
+    size: "xl",
+    rounded: "full",
+    showArrow: true,
+  },
+  {
+    variant: "glass",
+    size: "fluid",
+  },
+  {
+    variant: "cta2",
+    rounded: "full",
+  },
+];
+```
+
+## Examples
+
+### Marketing Campaign CTA
+
+```tsx
+<CTASection
+  title={
+    <>
+      Ready to Transform Your
+      <br />
+      Digital Marketing Strategy?
+    </>
+  }
+  description="Let's create a customized strategy that drives growth"
+  background="gradient"
+  buttons={[
+    {
+      href: "/contact",
+      text: "Get Started",
+      variant: "white-action",
+      size: "xl",
+    },
+  ]}
+/>
+```
+
+### Support CTA
+
+```tsx
+<SupportCTA
+  title="Need Help?"
+  description="Chat with our friendly team"
+  chatHref="/chat"
+  contactHref="/contact"
+/>
+```
+
+### Partnership CTA
+
+```tsx
+<GradientCTA
+  title="Let's Grow Together"
+  description="Join our partner network"
+  buttons={[
+    {
+      text: "Become a Partner",
+      href: "/partners",
+      variant: "primary",
+    },
+    {
+      text: "Learn More",
+      href: "/about",
+      variant: "secondary",
+    },
+  ]}
+  gradient="ocean"
+/>
+```

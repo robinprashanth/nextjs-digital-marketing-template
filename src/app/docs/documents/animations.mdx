@@ -1,0 +1,240 @@
+---
+title: Animations
+description: Learn how to use and customize the animation components in your project.
+---
+
+# Animation Components
+
+Our template includes several animation components built with Framer Motion for smooth, performant animations. These components are fully customizable and easy to integrate into your pages.
+
+## Available Components
+
+- `FadeIn`: Fade in elements with optional translation
+- `FadeInStagger`: Create staggered animations for groups of elements
+- `FadeInStaggerItem`: Individual items for staggered animations
+- `FloatIn`: Create floating animations
+- `ScaleIn`: Scale elements into view
+- `ScrollInView`: Trigger animations when elements come into view
+
+## Basic Usage
+
+### FadeIn
+
+Animates elements into view with a fade effect and optional translation.
+
+```tsx
+"use client";
+
+import { FadeIn } from "@/components/motion/FadeIn";
+
+export default function Example() {
+  return (
+    <FadeIn delay={0.2} y={20}>
+      <h1>Hello World</h1>
+    </FadeIn>
+  );
+}
+```
+
+### Props Reference
+
+```typescript
+// FadeIn Props
+{
+  delay?: number      // Animation delay in seconds
+  y?: number          // Y-axis translation
+  x?: number          // X-axis translation
+  duration?: number   // Animation duration in seconds
+  className?: string  // Additional CSS classes
+}
+```
+
+### Staggered Animations
+
+Create sequences of staggered animations using `FadeInStagger` and `FadeInStaggerItem`.
+
+```tsx
+"use client";
+
+import {
+  FadeInStagger,
+  FadeInStaggerItem,
+} from "@/components/motion/FadeInStagger";
+
+export default function StaggerExample() {
+  return (
+    <FadeInStagger className="grid gap-4" delayStep={0.1}>
+      <FadeInStaggerItem>
+        <div>Item 1</div>
+      </FadeInStaggerItem>
+      <FadeInStaggerItem>
+        <div>Item 2</div>
+      </FadeInStaggerItem>
+      <FadeInStaggerItem>
+        <div>Item 3</div>
+      </FadeInStaggerItem>
+    </FadeInStagger>
+  );
+}
+```
+
+### Floating Animation
+
+Create smooth floating animations for elements.
+
+```tsx
+"use client";
+
+import { FloatIn } from "@/components/motion/FloatIn";
+
+export default function FloatExample() {
+  return (
+    <FloatIn y={10} duration={3} delay={0.2}>
+      <div className="bg-blue-500 p-4 text-white">Floating Element</div>
+    </FloatIn>
+  );
+}
+```
+
+### Scale Animation
+
+Scale elements into view with a spring effect.
+
+```tsx
+"use client";
+
+import { ScaleIn } from "@/components/motion/ScaleIn";
+
+export default function ScaleExample() {
+  return (
+    <ScaleIn delay={0.2} duration={0.5}>
+      <div className="bg-green-500 p-4 text-white">Scaling Element</div>
+    </ScaleIn>
+  );
+}
+```
+
+### Scroll Animations
+
+Trigger animations when elements come into view.
+
+```tsx
+"use client";
+
+import { ScrollAnimations } from "@/components/motion/ScrollInView";
+
+export default function ScrollExample() {
+  return (
+    <ScrollAnimations.Stagger className="space-y-4">
+      <ScrollAnimations.StaggerItem>
+        <div>Scroll Item 1</div>
+      </ScrollAnimations.StaggerItem>
+      <ScrollAnimations.StaggerItem>
+        <div>Scroll Item 2</div>
+      </ScrollAnimations.StaggerItem>
+    </ScrollAnimations.Stagger>
+  );
+}
+```
+
+## Best Practices
+
+1. **Performance**
+
+   - Use `once={true}` for scroll animations to prevent re-triggering
+   - Avoid nesting animation components unnecessarily
+   - Use `translateY` instead of margin/padding for animations
+
+2. **Accessibility**
+
+   - Ensure animations respect `prefers-reduced-motion`
+   - Keep animation durations reasonable (0.2s - 0.5s)
+   - Avoid excessive movement that might cause disorientation
+
+3. **Customization**
+   - Adjust timing values for different effects
+   - Combine animations for complex interactions
+   - Use className prop for additional styling
+
+## Real-World Examples
+
+### Hero Section
+
+```tsx
+"use client";
+
+import {
+  FadeInStagger,
+  FadeInStaggerItem,
+} from "@/components/motion/FadeInStagger";
+
+export default function Hero() {
+  return (
+    <div className="flex min-h-screen items-center">
+      <FadeInStagger delayStep={0.1}>
+        <FadeInStaggerItem>
+          <h1 className="text-6xl font-bold">Welcome</h1>
+        </FadeInStaggerItem>
+        <FadeInStaggerItem>
+          <p className="text-xl">Start your journey with us</p>
+        </FadeInStaggerItem>
+        <FadeInStaggerItem>
+          <button className="bg-blue-500 px-4 py-2 text-white">
+            Get Started
+          </button>
+        </FadeInStaggerItem>
+      </FadeInStagger>
+    </div>
+  );
+}
+```
+
+### Animated Grid
+
+```tsx
+"use client";
+
+import { ScrollAnimations } from "@/components/motion/ScrollInView";
+
+export default function Grid() {
+  const items = [
+    { title: "Item 1", description: "Description 1" },
+    { title: "Item 2", description: "Description 2" },
+    { title: "Item 3", description: "Description 3" },
+  ];
+
+  return (
+    <ScrollAnimations.Stagger className="grid grid-cols-3 gap-4">
+      {items.map((item, i) => (
+        <ScrollAnimations.StaggerItem key={i}>
+          <div className="rounded border p-4">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        </ScrollAnimations.StaggerItem>
+      ))}
+    </ScrollAnimations.Stagger>
+  );
+}
+```
+
+## Troubleshooting
+
+1. **Animations not working**
+
+   - Ensure "use client" directive is present
+   - Check if Framer Motion is properly installed
+   - Verify component nesting order
+
+2. **Performance issues**
+
+   - Reduce number of animated elements
+   - Use `useInView` for scroll animations
+   - Implement virtualization for long lists
+
+3. **Layout shifts**
+   - Set proper initial dimensions
+   - Use `layout` prop when needed
+   - Implement loading states
+
+Need help? Join our Discord community or submit an issue on GitHub.

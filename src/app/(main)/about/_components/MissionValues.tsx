@@ -2,12 +2,12 @@
 
 import { FC } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { companyValues, missionValuesContent, type CompanyValue } from "../data/content";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight } from "lucide-react";
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
 
 const ValueCard: FC<CompanyValue & { delay?: number }> = ({
   icon: Icon,
@@ -77,9 +77,8 @@ export const MissionValues: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-            {missionValuesContent.subtitle}
-          </span>
+          <SubTitleBadge text={missionValuesContent.subtitle} />
+        
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {missionValuesContent.title.prefix}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
@@ -103,7 +102,7 @@ export const MissionValues: FC = () => {
                 {missionValuesContent.mission.title}
               </h3>
               <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-                "{missionValuesContent.mission.statement}"
+              &ldquo;{missionValuesContent.mission.statement}&ldquo;
               </p>
             </CardContent>
           </Card>
@@ -120,25 +119,6 @@ export const MissionValues: FC = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <ScrollInView
-          useInView={true}
-          delay={0.6}
-          className="mx-auto mt-20 max-w-3xl text-center"
-        >
-          <p className="mb-6 text-lg text-muted-foreground">
-            {missionValuesContent.bottomCTA.description}
-          </p>
-          <Button 
-            variant="default"
-            size="lg"
-            className="bg-gradient-to-r from-theme-primary-500 to-theme-ocean-600 text-white hover:from-theme-primary-600 hover:to-theme-ocean-700"
-          >
-            <Link href={missionValuesContent.bottomCTA.buttonLink}>
-              {missionValuesContent.bottomCTA.buttonText}
-            </Link>
-          </Button>
-        </ScrollInView>
       </div>
     </section>
   );

@@ -22,9 +22,11 @@ import {
   platforms,
   successStories,
   services,
+  testimonials,
 } from "../data/content";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { DigitalMarketingCTA } from "@/components/cta/Presets";
+import ModernTestimonials from "@/components/testimonials/ModernTestimonials";
 
 const iconMap = {
   BarChart,
@@ -364,6 +366,30 @@ export const DigitalMarketing: FC = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 dark:bg-theme-neutral-900">
+        <div className="container mx-auto px-4 sm:px-6">
+          <ScrollInView
+           useInView={true}
+            className="mx-auto mb-16 max-w-2xl text-center"
+          >
+            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
+              SUCCESS STORIES
+            </span>
+            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
+              Real Results for
+              <br />
+              Real Businesses
+            </h2>
+            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
+              See how our digital marketing strategies have transformed
+              businesses across different industries.
+            </p>
+          </ScrollInView>
+
+          <ModernTestimonials testimonials={testimonials} />
         </div>
       </section>
 

@@ -30,25 +30,7 @@ export default function RootLayout({
       <head>
         <SchemaMarkup />
         {/* Analytics can go here */}
-        {process.env.NODE_ENV === "production" && (
-          <>
-            {/* Google Analytics */}
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"
-            ></script>
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'YOUR-GA-ID');
-                `,
-              }}
-            />
-          </>
-        )}
+        
       </head>
       <body
         className={cn(

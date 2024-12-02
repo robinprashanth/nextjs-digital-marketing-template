@@ -1,0 +1,206 @@
+---
+title: Testimonial Components
+description: Learn about the different testimonial components available in the template.
+---
+
+# Testimonial Components
+
+The template provides multiple testimonial components with different styles and animations:
+
+![Testimonials Preview](/docs/testimonials-preview.png)
+
+## Available Components
+
+```tsx
+import {
+  AnimatedTestimonialSection,
+  ModernTestimonials,
+  TestimonialCard,
+  TestimonialsMain,
+  AnimatedTestimonials,
+} from "@/components/testimonials";
+```
+
+## Basic Usage
+
+### 1. Simple Testimonial Card
+
+```tsx
+<TestimonialCard
+  author="John Doe"
+  role="CEO"
+  company="TechCorp"
+  image="/images/testimonials/john.jpg"
+  content="Great experience working with them..."
+  index={0}
+/>
+```
+
+### 2. Animated Section
+
+```tsx
+// Animated testimonial section with auto-rotation
+<AnimatedTestimonialSection />
+```
+
+### 3. Modern Slider
+
+```tsx
+const testimonials = [
+  {
+    quote: "Amazing service...",
+    name: "Sarah Johnson",
+    designation: "Marketing Director",
+    src: "/images/testimonials/sarah.jpg",
+  },
+];
+
+<ModernTestimonials testimonials={testimonials} />;
+```
+
+### 4. Main Testimonials Section
+
+```tsx
+// Full testimonials section with company logos
+<TestimonialsMain />
+```
+
+### 5. Animated Testimonials
+
+```tsx
+<AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+```
+
+## Data Structure
+
+```typescript
+interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  image: string;
+  rating: number;
+  companyLogo?: React.ReactNode;
+}
+
+interface ModernTestimonial {
+  quote: string;
+  name: string;
+  designation: string;
+  src: string;
+}
+```
+
+## Examples
+
+### Animated Testimonial Section
+
+```tsx
+export default function TestimonialsPage() {
+  return (
+    <AnimatedTestimonialSection>
+      {/* Automatically handles testimonial rotation */}
+    </AnimatedTestimonialSection>
+  );
+}
+```
+
+### Modern Slider with Animation
+
+```tsx
+export default function TestimonialsPage() {
+  return (
+    <ModernTestimonials
+      testimonials={[
+        {
+          quote: "Excellent results...",
+          name: "Mike Chen",
+          designation: "CTO",
+          src: "/path/to/image.jpg",
+        },
+        // More testimonials...
+      ]}
+    />
+  );
+}
+```
+
+### Main Section with Logos
+
+```tsx
+export default function HomePage() {
+  return (
+    <TestimonialsMain>
+      {/* Includes company logos and background patterns */}
+    </TestimonialsMain>
+  );
+}
+```
+
+### Animated Grid
+
+```tsx
+const testimonials = [
+  {
+    quote: "Amazing service...",
+    name: "Emma Davis",
+    designation: "Product Manager",
+    src: "/images/testimonials/emma.jpg",
+  },
+];
+
+export default function TestimonialsPage() {
+  return <AnimatedTestimonials testimonials={testimonials} autoplay={true} />;
+}
+```
+
+## Customization
+
+### Animation Settings
+
+```tsx
+// Modify animation behavior
+<AnimatedTestimonials
+  testimonials={testimonials}
+  autoplay={true}
+  duration={5000}
+/>
+
+// Control text animation
+<ModernTestimonials
+  testimonials={testimonials}
+  textAnimation="typewriter"
+/>
+```
+
+### Styling
+
+```tsx
+// Card style customization
+<TestimonialCard
+  className="bg-gradient-to-r from-theme-primary-500 to-theme-secondary-500"
+/>
+
+// Section background
+<TestimonialsMain
+  className="bg-theme-neutral-900"
+/>
+```
+
+### Layout Options
+
+```tsx
+// Grid layout
+<AnimatedTestimonialSection
+  layout="grid"
+  columns={3}
+/>
+
+// Carousel layout
+<TestimonialsMain
+  layout="carousel"
+  showArrows={true}
+/>
+```

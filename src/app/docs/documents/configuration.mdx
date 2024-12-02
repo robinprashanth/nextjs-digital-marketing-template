@@ -1,0 +1,122 @@
+---
+title: Configuration
+description: Learn how to configure your Digital Marketing template settings and constants.
+---
+
+## Site Configuration
+
+The main site configuration is located in `src/config.ts`. This file contains all your site-wide settings, company information, and navigation structure.
+
+```tsx
+// src/config.ts
+export const siteConfig = {
+  // Basic Site Information
+  appName: "DIGITRA",
+  appDescription:
+    "Transform your digital presence with data-driven strategies and innovative solutions",
+  domainName: "Digitra",
+
+  // Company Information
+  company: {
+    name: "DIGITRA",
+    address: "Your Address",
+    email: "contact@digitra.agency",
+    phone: "+1 (555) 123-4567",
+    foundedYear: "2014",
+    city: "New York",
+    state: "NY",
+    zip: "10001",
+    country: "US",
+    founder: "Your Name",
+  },
+
+  // Social Media Links
+  social: {
+    twitter: "@digitraagency",
+    linkedin: "https://linkedin.com/company/digitra",
+    facebook: "https://facebook.com/digitra",
+    instagram: "https://instagram.com/digitra",
+  },
+
+  // Navigation Structure
+  navigation: {
+    features: [
+      {
+        title: "Analytics",
+        href: "/analytics",
+        description: "Data-driven insights and performance tracking",
+      },
+      // Add more features here
+    ],
+    services: [
+      {
+        title: "Digital Marketing",
+        href: "/services/digital-marketing",
+        description: "Comprehensive digital marketing solutions",
+      },
+      // Add more services here
+    ],
+  },
+
+  // Call to Action
+  cta: "/contact",
+
+  // Contact Information
+  contact: {
+    sales: "sales@digitra.agency",
+    support: "support@digitra.agency",
+    press: "press@digitra.agency",
+  },
+} as const;
+```
+
+## Constants
+
+Additional constants are available for pagination and other site-wide settings:
+
+```tsx
+// src/constants.ts
+export const ITEMS_PER_PAGE = 5;
+```
+
+## Usage Examples
+
+### Using Site Configuration
+
+```tsx
+import { siteConfig } from "@/config";
+
+export function Footer() {
+  return (
+    <footer>
+      <div>
+        <h3>{siteConfig.company.name}</h3>
+        <p>{siteConfig.company.address}</p>
+        <p>Since {siteConfig.company.foundedYear}</p>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <a href={`mailto:${siteConfig.contact.support}`}>
+          {siteConfig.contact.support}
+        </a>
+      </div>
+    </footer>
+  );
+}
+```
+
+## Customization
+
+### Updating Company Information
+
+1. Open `src/config.ts`
+2. Modify the `company` object:
+
+```tsx
+company: {
+  name: "YOUR_COMPANY",
+  address: "YOUR_ADDRESS",
+  email: "your@email.com",
+  // ... other fields
+}
+```

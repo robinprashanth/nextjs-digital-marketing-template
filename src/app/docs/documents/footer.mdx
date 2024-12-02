@@ -1,0 +1,215 @@
+---
+title: Footer
+description: The footer component provides a comprehensive bottom section for your website with newsletter signup, social links, and navigation.
+---
+
+![Footer Preview](/docs/footer.png)
+
+## Component Structure
+
+```
+components/
+└── Footer/
+    ├── Footer.tsx         # Main footer component
+    ├── Newsletter.tsx     # Newsletter subscription component
+    └── SocialLinks.tsx    # Social media links component
+```
+
+## Basic Implementation
+
+Here's how to implement the footer in your layout:
+
+```tsx
+import { Footer } from "@/components/Footer";
+
+export default function Layout() {
+  return (
+    <>
+      {/* Your content */}
+      <Footer />
+    </>
+  );
+}
+```
+
+## Footer Component
+
+The main footer component combines several sections:
+
+```tsx
+import { FC } from "react";
+import { Newsletter } from "./Footer/Newsletter";
+import { SocialLinks } from "./Footer/SocialLinks";
+import { siteConfig } from "@/config";
+import Image from "next/image";
+
+export const Footer: FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="relative overflow-hidden bg-[#0B0B1E] pt-20">
+      {/* Gradient Effects */}
+      <div className="bg-theme-primary-500/10 absolute left-0 top-0 h-96 w-96 blur-[100px]" />
+      <div className="bg-theme-ocean-500/10 absolute right-0 top-0 h-96 w-96 blur-[100px]" />
+
+      <div className="container relative mx-auto px-4 sm:px-6">
+        <div className="grid gap-16 lg:grid-cols-2">
+          {/* Left Column: Logo, Newsletter, Social */}
+          <div className="space-y-8">
+            {/* Logo Section */}
+            <div className="flex items-center gap-2">
+              <Image
+                src="/logo.svg"
+                alt="Logo"
+                width={32}
+                height={32}
+                className="rounded-full"
+                priority
+              />
+              <span className="from-theme-primary-600 to-theme-ocean-600 bg-gradient-to-r bg-clip-text text-2xl font-bold text-transparent">
+                {siteConfig.appName}
+              </span>
+            </div>
+
+            <Newsletter />
+            <SocialLinks />
+          </div>
+
+          {/* Right Column: Navigation Links */}
+          <div className="grid gap-8 sm:grid-cols-3">
+            {/* Navigation sections */}
+          </div>
+        </div>
+
+        {/* Copyright Bar */}
+        <div className="border-theme-neutral-800 mt-16 border-t py-8">
+          {/* Copyright and legal links */}
+        </div>
+      </div>
+    </footer>
+  );
+};
+```
+
+## Navigation Structure
+
+Define your footer navigation:
+
+```tsx
+const footerLinks = {
+  Solutions: [
+    { name: "Digital Strategy", href: "#" },
+    { name: "SEO Optimization", href: "#" },
+    // More links...
+  ],
+  Company: [
+    { name: "About Us", href: "#" },
+    { name: "Our Work", href: "#" },
+    // More links...
+  ],
+  Resources: [
+    { name: "Marketing Blog", href: "#" },
+    { name: "Case Studies", href: "#" },
+    // More links...
+  ],
+};
+```
+
+## Customization
+
+### 1. Modify Navigation Links
+
+Update the `footerLinks` object to change navigation sections:
+
+```tsx
+const footerLinks = {
+  YourSection: [
+    { name: "Link Name", href: "/your-path" },
+    // Add more links
+  ],
+  // Add more sections
+};
+```
+
+### 2. Styling
+
+The footer uses Tailwind CSS for styling. Common customization points:
+
+```tsx
+// Background with gradient overlay
+<footer className="relative overflow-hidden bg-[#0B0B1E] pt-20">
+  <div className="bg-theme-primary-500/10 absolute left-0 top-0 h-96 w-96 blur-[100px]" />
+</footer>;
+
+// Link hover effects
+className =
+  "text-theme-neutral-400 transition-colors hover:text-theme-primary-400";
+
+// Gradient text
+className =
+  "bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-transparent";
+```
+
+### 3. Logo and Branding
+
+Update the logo and branding in the footer:
+
+```tsx
+<div className="flex items-center gap-2">
+  <Image
+    src="/your-logo.svg"
+    alt="Your Brand Logo"
+    width={32}
+    height={32}
+    className="rounded-full"
+    priority
+  />
+  <span className="text-2xl font-bold">{siteConfig.appName}</span>
+</div>
+```
+
+## Newsletter Integration
+
+The Newsletter component handles email subscriptions:
+
+```tsx
+// Footer/Newsletter.tsx
+export const Newsletter: FC = () => {
+  return (
+    <div className="space-y-4">
+      <h3>Subscribe to our newsletter</h3>
+      <form className="flex gap-2">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="rounded-lg bg-white/10"
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  );
+};
+```
+
+## Social Links
+
+The SocialLinks component displays social media links:
+
+```tsx
+// Footer/SocialLinks.tsx
+export const SocialLinks: FC = () => {
+  return (
+    <div className="flex gap-4">
+      {siteConfig.social.map((item) => (
+        <a
+          key={item.name}
+          href={item.href}
+          className="text-theme-neutral-400 hover:text-theme-primary-400"
+        >
+          <item.icon className="h-5 w-5" />
+        </a>
+      ))}
+    </div>
+  );
+};
+```

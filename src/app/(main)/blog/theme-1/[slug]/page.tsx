@@ -3,43 +3,45 @@ import { BlogPostLayout } from "../_components/BlogPostLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { getSEOTags } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>
 }
  
-// Generate metadata for the page
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-   // read route params
-   const slug = (await params).slug
+// Generate metadata for each blog post
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
+    const slug = (await params).slug;
     const { frontMatter } = await getBlogPostBySlug(slug);
-    return {
-      title: `${frontMatter.title} | Blog`,
+    
+    return getSEOTags({
+      title: frontMatter.title,
       description: frontMatter.excerpt,
+      canonicalUrlRelative: `/blog/theme-1/${slug}`,
+      type: "article",
+      publishedTime: frontMatter.date,
+      // Structure images for social sharing
+      images: [
+        {
+          url: frontMatter.coverImage,
+          width: 1200,
+          height: 630,
+          alt: frontMatter.title,
+        },
+      ],
+      // Additional article metadata
       authors: [{ name: frontMatter.author.name }],
-      openGraph: {
-        title: frontMatter.title,
-        description: frontMatter.excerpt,
-        images: [
-          {
-            url: frontMatter.coverImage,
-            width: 1200,
-            height: 630,
-            alt: frontMatter.title,
-          },
-        ],
-      },
-    };
+      keywords: frontMatter.tags,
+    });
   } catch {
-    return {
-      title: 'Blog Post Not Found',
-      description: 'The requested blog post could not be found.',
-    };
+    return getSEOTags({
+      title: "Blog Post Not Found",
+      description: "The requested blog post could not be found.",
+    });
   }
 }
+
 
 // Generate static paths
 export async function generateStaticParams() {

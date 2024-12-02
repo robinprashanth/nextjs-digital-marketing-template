@@ -1,166 +1,20 @@
 "use client";
 import { FC, useState } from "react";
 import { motion } from "motion/react";
-import { Check, X, HelpCircle, Zap, Shield, Award, Star } from "lucide-react";
+import { Check, X, HelpCircle } from "lucide-react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import Image from "next/image";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { companyLogos, features, pricingTiers } from "../data/content";
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
+import TestimonialStarsAbove from "@/components/testimonials/TestimonialStarsAbove";
+import { ContactCTA } from "@/components/cta/Presets";
 
-interface PricingFeature {
-  name: string;
-  description: string;
-  starter: boolean | string;
-  professional: boolean | string;
-  enterprise: boolean | string;
-}
-// Add this interface near your other interfaces
-interface CompanyLogo {
-  name: string;
-  logo: string;
-  width: number;
-  height: number;
-}
-
-// Add this array of company logos
-const companyLogos: CompanyLogo[] = [
-  {
-    name: "Google",
-    logo: "/images/logos/google.svg",
-    width: 120,
-    height: 40,
-  },
-  {
-    name: "Microsoft",
-    logo: "/images/logos/microsoft.svg",
-    width: 120,
-    height: 40,
-  },
-  {
-    name: "Salesforce",
-    logo: "/images/logos/salesforce.svg",
-    width: 120,
-    height: 40,
-  },
-];
 
 const Pricing: FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
 
-  const pricingTiers = [
-    {
-      name: "Starter",
-      description: "Perfect for small businesses and startups.",
-      monthlyPrice: 999,
-      annualPrice: 899,
-      features: [
-        "Up to 5 campaigns",
-        "Basic analytics",
-        "Email support",
-        "2 team members",
-        "5 automation workflows",
-      ],
-      cta: "Start Free Trial",
-      popular: false,
-      icon: Zap,
-    },
-    {
-      name: "Professional",
-      description: "Ideal for growing businesses and teams.",
-      monthlyPrice: 1999,
-      annualPrice: 1799,
-      features: [
-        "Up to 15 campaigns",
-        "Advanced analytics",
-        "Priority support",
-        "5 team members",
-        "15 automation workflows",
-        "Custom reporting",
-        "API access",
-      ],
-      cta: "Start Free Trial",
-      popular: true,
-      icon: Shield,
-    },
-    {
-      name: "Enterprise",
-      description: "For large organizations with complex needs.",
-      monthlyPrice: "Custom",
-      annualPrice: "Custom",
-      features: [
-        "Unlimited campaigns",
-        "Custom analytics",
-        "24/7 support",
-        "Unlimited team members",
-        "Unlimited automation",
-        "Custom integrations",
-        "Dedicated account manager",
-        "SLA guarantee",
-      ],
-      cta: "Contact Sales",
-      popular: false,
-      icon: Award,
-    },
-  ];
-
-  const features: PricingFeature[] = [
-    {
-      name: "Campaign Management",
-      description: "Create and manage digital marketing campaigns",
-      starter: "5 campaigns",
-      professional: "15 campaigns",
-      enterprise: "Unlimited",
-    },
-    {
-      name: "Team Members",
-      description: "Number of team members who can access the platform",
-      starter: "2 users",
-      professional: "5 users",
-      enterprise: "Unlimited",
-    },
-    {
-      name: "Analytics & Reporting",
-      description: "Track and analyze campaign performance",
-      starter: "Basic",
-      professional: "Advanced",
-      enterprise: "Custom",
-    },
-    {
-      name: "Support",
-      description: "Access to customer support",
-      starter: "Email",
-      professional: "Priority",
-      enterprise: "24/7 Dedicated",
-    },
-    {
-      name: "API Access",
-      description: "Access to our API for custom integrations",
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-    {
-      name: "Custom Integrations",
-      description: "Integration with your existing tools",
-      starter: false,
-      professional: "Limited",
-      enterprise: "Unlimited",
-    },
-    {
-      name: "Automation Workflows",
-      description: "Create automated marketing workflows",
-      starter: "5 workflows",
-      professional: "15 workflows",
-      enterprise: "Unlimited",
-    },
-    {
-      name: "Custom Branding",
-      description: "Add your brand elements to campaigns",
-      starter: false,
-      professional: true,
-      enterprise: true,
-    },
-  ];
-
+ 
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -418,9 +272,7 @@ const Pricing: FC = () => {
            useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-              FAQ
-            </span>
+             <SubTitleBadge text="FAQ" />
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
               Frequently Asked Questions
             </h2>
@@ -485,9 +337,8 @@ const Pricing: FC = () => {
          useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-              TESTIMONIALS
-            </span>
+          
+            <SubTitleBadge text="TESTIMONIALS" />
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
               Trusted by Industry Leaders
             </h2>
@@ -523,43 +374,7 @@ const Pricing: FC = () => {
                 image: "/images/testimonials/emily.jpg",
               },
             ].map((testimonial, index) => (
-              <ScrollInView
-              useInView={true}
-                key={index}
-                delay={index * 0.1}
-                className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
-              >
-                <div className="mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="inline-block h-5 w-5 fill-theme-primary-400 text-theme-primary-400"
-                    />
-                  ))}
-                </div>
-                <p className="mb-6 text-muted-foreground">
-                  &ldquo;{testimonial.quote}&ldquo;
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="relative h-12 w-12 overflow-hidden rounded-full">
-                    <Image
-                      src={testimonial.image}
-                      alt={`${testimonial.author} - ${testimonial.role}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 48px) 100vw, 48px"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-medium text-foreground">
-                      {testimonial.author}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.role}, {testimonial.company}
-                    </div>
-                  </div>
-                </div>
-              </ScrollInView>
+              <TestimonialStarsAbove testimonial={testimonial} delay={index} key= {index} />
             ))}
           </div>
         </div>
@@ -568,26 +383,8 @@ const Pricing: FC = () => {
       {/* CTA Section */}
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
-          >
-            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-              Ready to Get Started?
-            </h2>
-            <p className="mb-8 text-lg text-white/80">
-              Join thousands of businesses already using our platform to grow
-              their digital presence. Start your 14-day free trial today.
-            </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <button className="rounded-full bg-white px-8 py-3 text-base font-semibold text-theme-primary-600 transition-all hover:bg-theme-neutral-100">
-                Start Free Trial
-              </button>
-              <button className="rounded-full border border-white/30 bg-white/10 px-8 py-3 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20">
-                Contact Sales
-              </button>
-            </div>
-          </ScrollInView>
+         
+          <ContactCTA />
 
           {/* Trust Badges */}
           <div className="mt-16 text-center">

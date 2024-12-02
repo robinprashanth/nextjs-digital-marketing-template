@@ -1,0 +1,297 @@
+---
+title: Blog System
+description: The template includes a powerful blog system using Next.js MDX for content management. Blog posts are stored as MDX files and support rich content including code blocks, images, and custom components.
+---
+
+## NextJS MDX Configuration
+
+This template uses [Next.js built-in MDX support](https://nextjs.org/docs/app/building-your-application/configuring/mdx). To configure MDX in your Next.js project:
+
+1. Install required dependencies:
+
+```bash
+npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+
+2. Configure `next.config.ts`:
+
+```javascript
+const withMDX = require("@next/mdx")();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+};
+
+module.exports = withMDX(nextConfig);
+```
+
+[View full MDX configuration in Next.js docs →](https://nextjs.org/docs/app/building-your-application/configuring/mdx)
+
+## Blog Layout
+
+The blog system includes several views:
+
+![Blog List View](/docs/blog-list.png)
+_Blog listing page with card layout_
+
+![Blog Detail View](/docs/blog-themes.png)
+_Individual blog post view with rich content_
+
+## File Structure
+
+```
+src/
+├── app/
+│   └── (main)/
+│       └── blog/
+│           ├── _components/     # Blog components
+│           │   ├── Blog.tsx
+│           │   ├── BlogCard.tsx
+│           │   └── BlogLoadingSpinner.tsx
+│           ├── posts/           # MDX blog posts
+│           │   ├── content-marketing-strategy-guide.mdx
+│           │   └── digital-marketing-trends-2024.mdx
+│           └── page.tsx         # Blog listing page
+└── lib/
+    └── blog.ts                  # Blog utilities
+```
+
+# Blog Themes
+
+The template offers three distinct blog themes that can be accessed via different routes. Each theme provides a unique layout and styling while maintaining consistent content management.
+
+![Blog Themes Preview](/docs/blog-themes.png)
+
+## Theme Routes
+
+```
+/blog              # Default blog layout
+/blog/theme-1/[slug]  # Theme 1 layout
+/blog/theme-2/[slug]  # Theme 2 layout
+/blog/theme-3/[slug]  # Theme 3 layout
+```
+
+## Directory Structure
+
+```
+src/
+├── app/
+│   └── (main)/
+│       └── blog/
+│           ├── theme-1/
+│           │   ├── [slug]/
+│           │   │   └── page.tsx
+│           │   └── page.tsx
+│           ├── theme-2/
+│           │   ├── [slug]/
+│           │   │   └── page.tsx
+│           │   └── page.tsx
+│           ├── theme-3/
+│           │   ├── [slug]/
+│           │   │   └── page.tsx
+│           │   └── page.tsx
+│           ├── posts/
+│           └── page.tsx
+```
+
+## Creating a Blog Post
+
+1. Create a new `.mdx` file in `src/app/(main)/blog/posts/`
+2. Add the required frontmatter:
+
+```mdx
+---
+title: "Your Blog Post Title"
+excerpt: "A brief description of your post"
+date: "2024-03-01"
+author:
+  name: "Author Name"
+  avatar: "/images/team/author.jpg"
+category: "Content Marketing"
+tags: ["Marketing", "SEO", "Strategy"]
+readTime: "8 min read"
+coverImage: "/images/blog/your-post-cover.jpg"
+featured: false
+---
+
+# Your Blog Post Title
+
+Your content goes here...
+```
+
+## Frontmatter Fields
+
+```typescript
+interface BlogPostMetadata {
+  title: string; // Post title
+  excerpt: string; // Brief description
+  date: string; // Publication date
+  author: {
+    name: string; // Author's name
+    avatar: string; // Author's avatar path
+  };
+  category: string; // Post category
+  tags: string[]; // Array of tags
+  readTime: string; // Estimated read time
+  coverImage: string; // Cover image path
+  featured: boolean; // Featured post flag
+}
+```
+
+## Writing Content
+
+Blog posts support various MDX features:
+
+### 1. Basic Markdown
+
+```mdx
+# Heading 1
+
+## Heading 2
+
+Regular paragraph with **bold** and _italic_ text.
+
+- List item 1
+- List item 2
+
+1. Numbered item 1
+2. Numbered item 2
+
+> Blockquote example
+```
+
+### 2. Code Blocks
+
+````mdx
+```typescript
+interface Example {
+  name: string;
+  count: number;
+}
+```
+````
+
+### 3. Tables
+
+```mdx
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+```
+
+### 4. Images
+
+```mdx
+![Alt text](/images/blog/example.jpg)
+```
+
+## Pagination and Filtering
+
+The blog system includes built-in pagination and filtering:
+
+```typescript
+// lib/constants.ts
+export const ITEMS_PER_PAGE = 5; // Number of posts per page
+```
+
+Posts are automatically paginated based on this constant. Users can:
+
+- Load more posts
+- Filter by category
+
+## Example Blog Post
+
+````mdx
+---
+title: "Content Marketing Strategy Guide"
+excerpt: "Learn how to create an effective content strategy"
+date: "2024-03-01"
+author:
+  name: "Jane Smith"
+  avatar: "/images/team/jane.jpg"
+category: "Content Strategy"
+tags: ["Content", "Strategy", "Marketing"]
+readTime: "10 min read"
+coverImage: "/images/blog/content-strategy.jpg"
+featured: true
+---
+
+# Content Marketing Strategy Guide
+
+## Introduction
+
+Content marketing is essential for modern businesses...
+
+## Key Components
+
+1. **Audience Research**
+
+   - Understanding demographics
+   - Identifying pain points
+
+2. **Content Planning**
+   - Topic selection
+   - Content calendar
+
+## Implementation
+
+Here's an example content plan:
+
+```typescript
+interface ContentPlan {
+  topic: string;
+  format: "blog" | "video" | "podcast";
+  timeline: Date;
+}
+```
+````
+
+## Best Practices
+
+- Regular publishing schedule
+- Quality over quantity
+- SEO optimization
+- Distribution strategy
+
+````
+
+## Adding Custom Components
+
+You can use custom components in your MDX:
+
+```mdx
+import { InfoBox } from '@/components/InfoBox'
+
+<InfoBox type="tip">
+  This is a custom component in MDX
+</InfoBox>
+````
+
+## Blog Post Processing
+
+The template processes blog posts using:
+
+```typescript
+// lib/blog.ts
+export async function getBlogPostBySlug(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
+
+  return {
+    frontMatter: data,
+    content,
+  };
+}
+
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  const files = fs.readdirSync(postsDirectory);
+  return files
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => {
+      // Process post...
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+```

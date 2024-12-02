@@ -153,6 +153,11 @@ export const moreMenuSections: MegaMenuSection[] = [
         href: "/faqs",
         badge: "new",
       },
+      {
+        title: "Pricing",
+        href: "/pricing",
+        badge: "new",
+      },
     ],
   },
   

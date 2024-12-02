@@ -1,40 +1,12 @@
 import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import { BlogPostLayoutPop } from "../_components/BlogPostLayout";
+import { getSEOTags } from "@/lib/seo";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string }>
-}
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-   // read route params
-   const slug = (await params).slug;
-   try {
-    const { frontMatter } = await getBlogPostBySlug(slug);
-    return {
-      title: `${frontMatter.title} | Blog`,
-      description: frontMatter.excerpt,
-      authors: [{ name: frontMatter.author.name }],
-      openGraph: {
-        title: frontMatter.title,
-        description: frontMatter.excerpt,
-        images: [{
-          url: frontMatter.coverImage,
-          width: 1200,
-          height: 630,
-          alt: frontMatter.title,
-        }],
-      },
-    };
-  } catch {
-    return {
-      title: 'Post Not Found',
-      description: 'The requested post could not be found.',
-    };
-  }
 }
 
 export async function generateStaticParams() {
@@ -42,6 +14,39 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }));
+}
+
+// Generate metadata for each blog post
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const slug = (await params).slug;
+    const { frontMatter } = await getBlogPostBySlug(slug);
+    
+    return getSEOTags({
+      title: frontMatter.title,
+      description: frontMatter.excerpt,
+      canonicalUrlRelative: `/blog/theme-3/${slug}`,
+      type: "article",
+      publishedTime: frontMatter.date,
+      // Structure images for social sharing
+      images: [
+        {
+          url: frontMatter.coverImage,
+          width: 1200,
+          height: 630,
+          alt: frontMatter.title,
+        },
+      ],
+      // Additional article metadata
+      authors: [{ name: frontMatter.author.name }],
+      keywords: frontMatter.tags,
+    });
+  } catch {
+    return getSEOTags({
+      title: "Blog Post Not Found",
+      description: "The requested blog post could not be found.",
+    });
+  }
 }
 
 export default async function PopBlogPostPage( { params }: Props

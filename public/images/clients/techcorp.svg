@@ -1,0 +1,23 @@
+<svg viewBox="0 0 160 40" className="h-full w-full">
+      <defs>
+        <linearGradient id="tech-gradient" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#8B5CF6" />
+          <stop offset="100%" stopColor="#6366F1" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M20 10h120v20H20z"
+        fill="none"
+        stroke="url(#tech-gradient)"
+        strokeWidth="2"
+      />
+      <text
+        x="80"
+        y="25"
+        textAnchor="middle"
+        fill="currentColor"
+        className="text-base font-bold"
+      >
+        TECHCORP
+      </text>
+    </svg>

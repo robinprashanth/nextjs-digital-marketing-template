@@ -1,13 +1,11 @@
 "use client";
-"use client";
 
-import { FC } from "react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import Link from "next/link";
-import { whyChooseUsContent, features, type Feature } from "../data/content";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { FC } from "react";
+import { features, whyChooseUsContent, type Feature } from "../data/content";
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
 
 interface FeatureCardProps extends Feature {
   index: number;
@@ -73,12 +71,8 @@ export const WhyChooseUs: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <Badge 
-            variant="secondary" 
-            className="mb-4 px-4 py-1.5"
-          >
-            {whyChooseUsContent.subtitle}
-          </Badge>
+          <SubTitleBadge text={whyChooseUsContent.subtitle} />
+         
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {whyChooseUsContent.title.prefix}
             <span className="text-primary">
@@ -98,21 +92,7 @@ export const WhyChooseUs: FC = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <ScrollInView
-          useInView={true}
-          className="mx-auto mt-20 max-w-3xl text-center"
-        >
-          <Button 
-            variant="default"
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
-          >
-            <Link href={whyChooseUsContent.cta.href}>
-              {whyChooseUsContent.cta.text}
-            </Link>
-          </Button>
-        </ScrollInView>
+  
       </div>
     </section>
   );

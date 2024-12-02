@@ -1,4 +1,5 @@
 "use client";
+
 import { FC } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";

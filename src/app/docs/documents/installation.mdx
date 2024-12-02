@@ -1,0 +1,111 @@
+---
+title: Installation
+description: Learn how to install and setup the Digital Marketing template.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js v20.18.1 or higher (required)
+- Git
+- npm or yarn or pnpm
+
+> **Important**: This template requires Node.js version 20.18.1 or higher. Using an older version will cause build failures and compatibility issues.
+
+## Create project
+
+1. Clone the repository:
+
+<CodeBlock>
+  git clone https://github.com/your-username/digital-marketing-template.git cd
+  digital-marketing-template
+</CodeBlock>
+
+2. Install dependencies:
+
+<CodeBlock>npm install --legacy-peer-deps</CodeBlock>
+
+> **Note**: The `--legacy-peer-deps` flag is required due to some package dependencies. Without this flag, installation will fail.
+
+3. Start the development server:
+
+<CodeBlock>npm run dev</CodeBlock>
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── (main)/           # Main website routes
+│   ├── api/              # API routes
+│   ├── coming-soon/      # Coming soon page
+│   ├── docs/             # Documentation pages
+│   ├── fonts/            # Font configurations
+│   ├── tos/              # Terms of service
+│   ├── favicon.ico
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout
+│   ├── not-found.tsx    # 404 page
+│   ├── opengraph-image.png
+│   ├── robots.ts        # SEO robots config
+│   └── sitemap.ts       # SEO sitemap config
+├── components/
+│   ├── ui/              # shadcn components
+│   └── ...              # Other components
+├── lib/
+│   └── utils.ts         # Utility functions
+├── styles/
+│   └── globals.css      # Global styles
+└── types/
+    └── index.ts         # TypeScript types
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Font**: GeistVF and GeistMonoVF
+
+## Configuration
+
+After installation:
+
+1. Rename .env.example to .env.local:
+
+<CodeBlock filename=".env.local">
+  NEXT_PUBLIC_SITE_URL=http://localhost:3000 # Add other environment variables
+  here
+</CodeBlock>
+
+2. Update the site configuration:
+
+## Common Issues
+
+1. **Node Version Error**:
+   If you see dependency errors, ensure you're using Node.js v20.18.1 or higher:
+
+   ```bash
+   node --version
+   ```
+
+2. **Installation Failures**:
+   Always use `--legacy-peer-deps` when installing:
+
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+
+3. **Build Errors**:
+   Make sure all dependencies are properly installed and you're using the correct Node version.
+
+## Next Steps
+
+1. [Configure Components](/docs/components)
+2. [Add Content](/docs/content)
+3. [Deploy](/docs/deployment)
+
+Need help? Join our [Discord community](https://discord.gg/your-server) or check the [FAQ](/docs/faq).

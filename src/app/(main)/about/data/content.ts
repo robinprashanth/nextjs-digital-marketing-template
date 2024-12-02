@@ -1,3 +1,4 @@
+import { Testimonial } from "@/types";
 import { LucideIcon, Trophy, Target, Heart, Users, Lightbulb, Shield, Rocket, Globe, Search, LineChart, Settings, BarChart2, TrendingUp, Star, Award, ExternalLink } from "lucide-react";
 
 export const companyTimeline = {
@@ -213,7 +214,7 @@ export const companyTimeline = {
     };
   }
   
-  export const whyChooseUsContent: WhyChooseUsContent = {
+export const whyChooseUsContent: WhyChooseUsContent = {
     title: {
       prefix: "Driving ",
       highlighted: "Digital Excellence",
@@ -378,15 +379,6 @@ export const companyTimeline = {
     label: string;
     value: string;
     icon: LucideIcon;
-  }
-  
-  export interface Testimonial {
-    author: string;
-    role: string;
-    company: string;
-    image: string;
-    content: string;
-    rating?: number;
   }
   
   export interface CaseStudy {

@@ -2,12 +2,11 @@
 
 import { FC } from "react";
 import { Clock, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { processContent, processSteps, type ProcessStep } from "../data/content";
+import SubTitltBadge from "@/components/badge/SubTitleBadge";
 
 interface ProcessCardProps extends ProcessStep {
   index: number;
@@ -92,12 +91,8 @@ export const OurProcess: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <Badge 
-            variant="outline" 
-            className="mb-4 bg-theme-primary-500/10 px-4 py-1.5 text-theme-primary-400"
-          >
-            {processContent.subtitle}
-          </Badge>
+          <SubTitltBadge text= {processContent.subtitle} />
+         
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {processContent.title.prefix}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
@@ -122,21 +117,7 @@ export const OurProcess: FC = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <ScrollInView
-          useInView={true}
-          className="mx-auto mt-20 max-w-3xl text-center"
-        >
-          <Button 
-            variant="default"
-            size="lg"
-            className="bg-theme-primary-500 text-white hover:bg-theme-primary-600"
-          >
-            <Link href={processContent.cta.href}>
-              {processContent.cta.text}
-            </Link>
-          </Button>
-        </ScrollInView>
+
       </div>
     </section>
   );

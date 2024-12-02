@@ -1,0 +1,290 @@
+---
+title: Button
+description: Interactive button component with multiple variants and styles.
+---
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button";
+```
+
+## Examples
+
+### Default Button Variants
+
+```tsx
+<Button>Default Button</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+```
+
+### Custom Variants
+
+#### Premium Button
+
+A gradient button transitioning from green to tulip.
+
+```tsx
+<Button variant="premium">Premium Features</Button>
+```
+
+#### Glass Button
+
+A translucent button with backdrop blur effect.
+
+```tsx
+<Button variant="glass">Glass Effect</Button>
+```
+
+#### Gradient Button
+
+A gradient button transitioning between primary and indigo.
+
+```tsx
+<Button variant="gradient">Get Started</Button>
+```
+
+#### Submit Button
+
+A rounded button with gradient and hover effects.
+
+```tsx
+<Button variant="submit">Submit Form</Button>
+```
+
+#### Action Button
+
+A solid colored button with shadow and scale effects.
+
+```tsx
+<Button variant="action">Take Action</Button>
+```
+
+#### White Action Button
+
+A white button with colored text and scale effect.
+
+```tsx
+<Button variant="white-action">Start Now</Button>
+```
+
+#### CTA Buttons
+
+Two different call-to-action button styles.
+
+```tsx
+<Button variant="cta">
+  Primary CTA
+</Button>
+
+<Button variant="cta2">
+  Secondary CTA
+</Button>
+```
+
+#### Text Link
+
+A minimal text-style button with icon animation.
+
+```tsx
+<Button variant="text-link">
+  Learn More <ArrowRight />
+</Button>
+```
+
+#### Soft Button
+
+A subtle button with background opacity.
+
+```tsx
+<Button variant="soft">Soft Action</Button>
+```
+
+#### Tag Button
+
+A tag-style button for categorization.
+
+```tsx
+<Button variant="tag">Category</Button>
+```
+
+## Button Sizes
+
+The button component supports various sizes:
+
+```tsx
+<Button size="default">Default Size</Button>
+<Button size="sm">Small</Button>
+<Button size="sm-rounded">Small Rounded</Button>
+<Button size="lg">Large</Button>
+<Button size="lg-rounded">Large Rounded</Button>
+<Button size="xl">Extra Large</Button>
+<Button size="icon">🔍</Button>
+<Button size="fluid">Fluid Width</Button>
+```
+
+## Border Radius Options
+
+```tsx
+<Button rounded="default">Default Radius</Button>
+<Button rounded="full">Full Radius</Button>
+```
+
+## Style Reference
+
+Here's a complete list of button variants and their styles:
+
+```tsx
+const variants = {
+  // Default variants
+  default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+  destructive:
+    "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+  outline:
+    "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+  secondary:
+    "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+  ghost: "hover:bg-accent hover:text-accent-foreground",
+  link: "text-primary underline-offset-4 hover:underline",
+
+  // Custom variants
+  premium:
+    "bg-gradient-to-r from-green-600 to-theme-tulip-400 text-white shadow hover:from-green-600/90 hover:to-theme-tulip-400/90",
+  glass:
+    "bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 border border-white/10",
+  gradient:
+    "bg-gradient-to-r from-theme-primary-600 to-theme-indigo-600 text-white shadow hover:from-theme-primary-600/90 hover:to-theme-indigo-600/90",
+  submit:
+    "rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 text-white shadow transition-all hover:from-purple-700 hover:to-blue-700 hover:shadow-lg",
+  action:
+    "bg-theme-primary-600 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl py-4 px-8 text-base font-medium",
+  "white-action":
+    "bg-white text-theme-primary-600 font-semibold shadow-lg transition-transform duration-300 hover:scale-105 py-3 px-8 rounded-full",
+  cta: "bg-gradient-to-r from-theme-primary-500 to-purple-700 text-white text-base font-semibold py-3 px-8 transition-all hover:brightness-110 rounded-full",
+  cta2: "bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl py-4 px-8 text-base font-medium rounded-full",
+  "text-link":
+    "p-0 h-auto text-theme-primary-400 hover:text-purple-300 transition-colors [&_svg]:transition-transform [&_svg]:group-hover:translate-x-0.5 [&_svg]:group-hover:-translate-y-0.5",
+  soft: "bg-theme-primary-500/10 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20 py-3 px-6 [&_svg]:transition-transform [&_svg]:group-hover:translate-x-0.5 rounded-full",
+  tag: "bg-theme-primary-500/10 text-theme-primary-400 py-2 px-6 transition-colors hover:bg-theme-primary-500/20 text-sm font-medium",
+};
+```
+
+## Props
+
+The Button component extends the standard HTML button attributes with these additional props:
+
+```typescript
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?:
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link"
+    | "premium"
+    | "glass"
+    | "gradient"
+    | "submit"
+    | "action"
+    | "white-action"
+    | "cta"
+    | "cta2"
+    | "text-link"
+    | "soft"
+    | "tag";
+  size?:
+    | "default"
+    | "sm"
+    | "sm-rounded"
+    | "lg"
+    | "lg-rounded"
+    | "xl"
+    | "icon"
+    | "fluid";
+  rounded?: "default" | "full";
+  asChild?: boolean;
+}
+```
+
+## Examples in Context
+
+### Marketing CTA Section
+
+```tsx
+export function CTASection() {
+  return (
+    <div className="space-y-4">
+      <Button variant="cta" size="lg-rounded">
+        Get Started Now
+      </Button>
+      <Button variant="text-link" className="group">
+        Learn More <ArrowRight />
+      </Button>
+    </div>
+  );
+}
+```
+
+### Form Submit Button
+
+```tsx
+export function SubmitForm() {
+  return (
+    <form>
+      {/* Form fields */}
+      <Button variant="submit" type="submit">
+        Submit Application
+      </Button>
+    </form>
+  );
+}
+```
+
+### Premium Features Section
+
+```tsx
+export function PremiumFeatures() {
+  return (
+    <div className="space-y-4">
+      <Button variant="premium" size="lg">
+        Upgrade to Premium
+      </Button>
+      <Button variant="soft">View Features</Button>
+    </div>
+  );
+}
+```
+
+## Accessibility
+
+- All buttons are keyboard accessible
+- Proper ARIA attributes are automatically applied
+- Focus states are clearly visible
+- Disabled states are properly handled
+
+## Best Practices
+
+1. Use appropriate variants for different contexts:
+
+   - `cta` for primary actions
+   - `soft` for secondary actions
+   - `text-link` for navigation
+   - `tag` for categorization
+
+2. Maintain consistency:
+
+   - Use similar button variants for similar actions
+   - Keep size consistent within sections
+   - Match button style to overall design theme
+
+3. Consider accessibility:
+   - Ensure sufficient color contrast
+   - Provide hover and focus states
+   - Include descriptive text for screen readers
+
+Need help? Check our [GitHub repository](https://github.com/your-repo) or join our Discord community.

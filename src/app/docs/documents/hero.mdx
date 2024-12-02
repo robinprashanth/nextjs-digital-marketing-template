@@ -1,0 +1,157 @@
+---
+title: Component Structure
+description: Learn about the component organization and file structure in the Digital Marketing template.
+---
+
+# Component Structure
+
+The template follows a well-organized component structure that separates reusable components from page-specific components.
+
+![Hero Section Preview](/docs/hero.png)
+
+## File Organization
+
+```
+src/
+├── components/          # Reusable components
+│   ├── ui/             # UI components (buttons, cards, etc.)
+│   └── motion/         # Animation components
+├── app/
+│   ├── (main)/         # Main website routes
+│   │   ├── page.tsx    # Home page
+│   │   └── _components/# Page-level components
+│   │       ├── hero/   # Hero section components
+│   │       │   ├── ClientAvatar.tsx
+│   │       │   ├── StatCard.tsx
+│   │       │   └── TestimonialCard.tsx
+│   │       └── HeroContent.tsx
+│   └── layout.tsx      # Root layout
+```
+
+## Component Types
+
+### Page-Level Components
+
+Components specific to a particular page are placed in the `_components` folder within their respective route folders:
+
+```tsx
+// src/app/(main)/_components/HeroContent.tsx
+"use client";
+
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/motion";
+import { Button } from "@/components/ui/button";
+
+export const HeroSection: FC = () => {
+  return (
+    <div className="relative min-h-[calc(100vh-120px)] w-full pt-10">
+      {/* Component content */}
+    </div>
+  );
+};
+```
+
+### Reusable Components
+
+Shared components that are used across multiple pages are placed in the root `components` directory:
+
+```tsx
+// src/components/motion/FadeIn.tsx
+"use client";
+
+import { motion } from "framer-motion";
+
+export const FadeIn: FC<FadeInProps> = ({
+  children,
+  delay = 0,
+  y = 20,
+  // ... other props
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y }}
+      animate={{ opacity: 1, y: 0 }}
+      // ... motion props
+    >
+      {children}
+    </motion.div>
+  );
+};
+```
+
+## Hero Section Example
+
+Here's how the hero section is structured:
+
+1. Main Component (`HeroContent.tsx`):
+
+```tsx
+export const HeroSection: FC = () => {
+  return (
+    <div className="relative min-h-[calc(100vh-120px)] w-full pt-10">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[conic-gradient(...)] opacity-50" />
+
+      {/* Content */}
+      <div className="container relative mx-auto">
+        <div className="relative max-w-[90%] py-20 lg:max-w-[60%]">
+          {/* Badge */}
+          <FadeIn className="bg-theme-rose-500/10 mb-6 inline-block rounded-full">
+            Leading Digital Marketing Agency
+          </FadeIn>
+
+          {/* Main Content */}
+          <FadeInStagger delayStep={0.1}>
+            <FadeInStaggerItem>
+              <h1 className="text-4xl font-bold">
+                <span className="text-white">ELEVATE</span>
+                {/* ... other text */}
+              </h1>
+            </FadeInStaggerItem>
+
+            {/* CTA Section */}
+            <FadeInStaggerItem>
+              <div className="mt-10 flex flex-wrap items-center gap-6">
+                <Button size="lg">GET IN TOUCH</Button>
+
+                {/* Client Avatars */}
+                <div className="flex items-center gap-3">
+                  {clientAvatars.map((avatar, i) => (
+                    <ClientAvatar key={i} {...avatar} index={i} />
+                  ))}
+                </div>
+              </div>
+            </FadeInStaggerItem>
+          </FadeInStagger>
+        </div>
+
+        {/* Stats and Testimonials */}
+        <div className="absolute right-0 top-10 hidden lg:block">
+          <TestimonialCard {...testimonial} />
+          {stats.map((stat, index) => (
+            <StatCard key={index} {...stat} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+```
+
+2. Supporting Components:
+
+```tsx
+// ClientAvatar.tsx
+export const ClientAvatar: FC<ClientAvatarProps> = ({ image, name, index }) => (
+  <img
+    src={image}
+    alt={name}
+    className="h-8 w-8 rounded-full border-2 border-white"
+    style={{ zIndex: 10 - index }}
+  />
+);
+
+// StatCard.tsx
+export const StatCard: FC<StatCardProps> = ({ title, value, trend }) => (
+  <div className="rounded-xl bg-white/10 p-4">{/* Stat content */}</div>
+);
+```

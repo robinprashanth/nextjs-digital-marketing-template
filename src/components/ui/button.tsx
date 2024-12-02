@@ -28,7 +28,7 @@ const buttonVariants = cva(
         submit:
           " rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 text-white shadow transition-all hover:from-purple-700 hover:to-blue-700 hover:shadow-lg",
         action:
-          "bg-theme-primary-600 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl py-4 px-8 text-base font-medium",
+          "bg-theme-primary-600 text-white shadow-lg transition-all duration-300 hover:bg-purple-700 hover:shadow-xl py-4 px-8 text-base font-medium rounded-full",
         "white-action":
           "bg-white text-theme-primary-600 font-semibold shadow-lg transition-transform duration-300 hover:scale-105 py-3 px-8 rounded-full",
         cta: "bg-gradient-to-r from-theme-primary-500 to-purple-700 text-white text-base font-semibold py-3 px-8 transition-all hover:brightness-110 rounded-full",

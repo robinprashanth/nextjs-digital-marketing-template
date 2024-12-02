@@ -18,6 +18,7 @@ import {
   Sparkles,
   LucideIcon,
 } from "lucide-react";
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
 
 const iconMap: Record<string, LucideIcon> = {
   Rocket,
@@ -106,9 +107,9 @@ export const OurStory: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-            {companyTimeline.subtitle}
-          </span>
+           <SubTitleBadge text={companyTimeline.subtitle} />
+          
+
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {companyTimeline.title.split("Excellence")[0]}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">

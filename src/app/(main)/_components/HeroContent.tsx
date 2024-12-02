@@ -1,16 +1,17 @@
 "use client";
-import React, { FC } from "react";
-import { ArrowRight } from "lucide-react";
+
+import { FadeIn } from "@/components/motion/FadeIn";
+import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import React, { FC } from "react";
 import { FloatingShape } from "../../../components/motion/FloatingShape";
+import { decorativeShapes } from "../data/content";
 import { ClientAvatar } from "./hero/ClientAvatar";
 import { clientAvatars, stats, testimonial } from "./hero/heroData";
-import { TestimonialCard } from "./hero/TestimonialCard";
 import { StatCard } from "./hero/StatCard";
-import { FadeIn } from "@/components/motion/FadeIn";
-import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
-import { FadeInStagger } from "@/components/motion/FadeInStagger";
-import { decorativeShapes } from "../data/content";
+import { TestimonialCard } from "./hero/TestimonialCard";
 
 export const HeroSection: FC = () => {
   const renderShape = (shape: typeof decorativeShapes[0]) => {

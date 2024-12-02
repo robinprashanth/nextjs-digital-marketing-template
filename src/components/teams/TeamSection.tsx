@@ -3,8 +3,8 @@ import { FC } from "react";
 import Image from "next/image";
 import { Twitter, Github, Dribbble } from "lucide-react";
 import { TeamMember } from "@/types";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { JoinTeamCTA } from "@/components/cta/Presets";
 
 const socialIcons = {
   twitter: Twitter,
@@ -135,20 +135,7 @@ export const TeamSection: FC = () => {
         </div>
 
         {/* Join the Team CTA */}
-        <ScrollInView
-        useInView={true}
-          className="mx-auto mt-16 max-w-3xl rounded-2xl bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 p-8 text-center text-white"
-        >
-          <h3 className="mb-4 text-2xl font-bold">Join Our Team</h3>
-          <p className="mb-6">
-            We&apos;re always looking for talented individuals to join our
-            growing team. Check out our open positions and become part of our
-            success story.
-          </p>
-          <Button variant="white-action" size="fluid" rounded="full">
-            View Open Positions
-          </Button>
-        </ScrollInView>
+        <JoinTeamCTA />
       </div>
     </section>
   );

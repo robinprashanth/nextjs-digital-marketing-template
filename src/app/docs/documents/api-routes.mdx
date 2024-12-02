@@ -1,0 +1,284 @@
+---
+title: API Routes
+description: The template uses Next.js App Router API routes for handling server-side functionality. Here's how to work with API routes in your application.
+---
+
+## Route Structure
+
+API routes are placed in the `app/api` directory. Each route is defined by creating a `route.ts` file in the appropriate directory.
+
+```
+app/
+  api/
+    jobs/
+      route.ts      # Handles /api/jobs
+```
+
+## Basic Route Handler
+
+Here's an example of a basic API route handler:
+
+```typescript
+// app/api/example/route.ts
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(request: NextRequest) {
+  try {
+    return NextResponse.json({ message: "Hello World" });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+}
+```
+
+## Advanced Route Example
+
+Here's a complete example of a jobs API with filtering, pagination, and error handling:
+
+```typescript
+// app/api/jobs/route.ts
+import { NextRequest, NextResponse } from "next/server";
+import { getAllJobs } from "@/lib/jobs";
+
+export async function GET(request: NextRequest) {
+  // Get query parameters
+  const searchParams = request.nextUrl.searchParams;
+  const page = parseInt(searchParams.get("page") || "1");
+  const limit = parseInt(searchParams.get("limit") || "5");
+
+  // Get filter parameters
+  const searchTerm = searchParams.get("search") || "";
+  const department = searchParams.get("department") || "All";
+  const jobType = searchParams.get("type") || "All";
+  const location = searchParams.get("location") || "All";
+
+  try {
+    // Fetch and filter data
+    const { jobs: allJobs, total: totalUnfiltered } = await getAllJobs(
+      1,
+      Number.MAX_SAFE_INTEGER,
+    );
+
+    // Apply filters
+    const filteredJobs = allJobs.filter((job) => {
+      const matchesSearch =
+        searchTerm === "" ||
+        job.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesDepartment =
+        department === "All" || job.department === department;
+      const matchesType = jobType === "All" || job.type === jobType;
+      const matchesLocation = location === "All" || job.location === location;
+
+      return (
+        matchesSearch && matchesDepartment && matchesType && matchesLocation
+      );
+    });
+
+    // Apply pagination
+    const startIndex = (page - 1) * limit;
+    const paginatedJobs = filteredJobs.slice(startIndex, startIndex + limit);
+
+    return NextResponse.json({
+      jobs: paginatedJobs,
+      total: filteredJobs.length,
+      hasMore: startIndex + limit < filteredJobs.length,
+      currentPage: page,
+      totalUnfiltered,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to fetch jobs" },
+      { status: 500 },
+    );
+  }
+}
+```
+
+## HTTP Methods
+
+You can export different functions for different HTTP methods:
+
+```typescript
+// app/api/posts/route.ts
+export async function GET(request: NextRequest) {
+  // Handle GET request
+}
+
+export async function POST(request: NextRequest) {
+  // Handle POST request
+  const data = await request.json();
+}
+
+export async function PUT(request: NextRequest) {
+  // Handle PUT request
+}
+
+export async function DELETE(request: NextRequest) {
+  // Handle DELETE request
+}
+```
+
+## Dynamic Routes
+
+For dynamic routes, use square brackets in the directory name:
+
+```typescript
+// app/api/posts/[id]/route.ts
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } },
+) {
+  const postId = params.id;
+  // Fetch post with postId
+}
+```
+
+## Request Handling
+
+### Query Parameters
+
+```typescript
+// Accessing query parameters
+const searchParams = request.nextUrl.searchParams;
+const page = searchParams.get("page");
+const limit = searchParams.get("limit");
+```
+
+### Request Body
+
+```typescript
+// Handling POST request body
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  // Process body data
+}
+```
+
+### Headers
+
+```typescript
+// Setting response headers
+return NextResponse.json(
+  { data: result },
+  {
+    headers: {
+      "Cache-Control": "max-age=0, s-maxage=60",
+      "Content-Type": "application/json",
+    },
+  },
+);
+```
+
+## Error Handling
+
+Implement proper error handling in your routes:
+
+```typescript
+export async function GET(request: NextRequest) {
+  try {
+    // Your logic here
+    throw new Error("Something went wrong");
+  } catch (error) {
+    console.error("API Error:", error);
+
+    if (error instanceof ValidationError) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
+  }
+}
+```
+
+## Best Practices
+
+1. **Input Validation**
+
+```typescript
+function validateInput(data: unknown) {
+  if (!data || typeof data !== "object") {
+    throw new Error("Invalid input");
+  }
+  // More validation
+}
+```
+
+2. **Response Format**
+
+```typescript
+function createResponse(data: any, success = true) {
+  return NextResponse.json({
+    success,
+    data,
+    timestamp: new Date().toISOString(),
+  });
+}
+```
+
+3. **Rate Limiting**
+
+```typescript
+import { rateLimit } from "@/lib/rate-limit";
+
+export async function GET(request: NextRequest) {
+  const limiter = rateLimit({
+    interval: 60 * 1000, // 1 minute
+    uniqueTokenPerInterval: 500,
+  });
+
+  try {
+    await limiter.check(request);
+    // Your route logic
+  } catch {
+    return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
+  }
+}
+```
+
+4. **CORS Configuration**
+
+```typescript
+export async function GET(request: NextRequest) {
+  return NextResponse.json(
+    { data: "result" },
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    },
+  );
+}
+```
+
+## Testing Routes
+
+Create tests for your API routes:
+
+```typescript
+// __tests__/api/jobs.test.ts
+import { GET } from "@/app/api/jobs/route";
+
+describe("Jobs API", () => {
+  it("returns filtered jobs", async () => {
+    const request = new Request(
+      "http://localhost:3000/api/jobs?search=developer",
+    );
+
+    const response = await GET(request);
+    const data = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(data.jobs).toBeDefined();
+  });
+});
+```
+
+Need help? Check our [GitHub repository](https://github.com/your-repo) or join our Discord community.

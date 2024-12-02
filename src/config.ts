@@ -3,7 +3,7 @@ export const siteConfig = {
   appName: "DIGITRA",
   appDescription:
     "Transform your digital presence with data-driven strategies and innovative solutions",
-  domainName: "Digitra.agency", // Replace with your domain
+  domainName: "Digitra", // Replace with your domain
 
   // Company Info
   company: {

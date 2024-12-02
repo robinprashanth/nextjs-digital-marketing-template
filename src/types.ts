@@ -65,7 +65,7 @@ export interface TestimonialProps {
   content: string;
   image: string;
   rating: number;
-  companyLogo: React.ReactNode;
+  companyLogo: string;
 }
 
 export interface TestimonialSectionCardProps extends TestimonialProps {
@@ -384,4 +384,37 @@ export interface JobPosting {
   responsibilities: string[];
   requirements: string[];
   benefits: string[];
+}
+
+export interface DocMetadata {
+  title: string;
+  description: string;
+  category?: string;
+  tags?: string[];
+  author?: {
+    name: string;
+    avatar: string;
+  };
+  date?: string;
+  readTime?: string;
+}
+
+export interface Doc {
+  slug: string;
+  frontMatter: DocMetadata;
+  content: string;
+}
+
+export interface DocCategory {
+  title: string;
+  items: Doc[];
+}
+
+export interface Testimonial {
+  author: string;
+  role: string;
+  company: string;
+  image: string;
+  content: string;
+  rating?: number;
 }

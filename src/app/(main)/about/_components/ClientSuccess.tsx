@@ -2,9 +2,7 @@
 
 import { FC } from "react";
 import {
-  Star,
   ArrowUpRight,
-  Quote,
   ChevronRight,
 } from "lucide-react";
 import Image from "next/image";
@@ -12,7 +10,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import { caseStudies, type Metric, type Testimonial } from "../data/content";
+import { caseStudies, type Metric } from "../data/content";
+import Link from "next/link";
+import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
 
 const ClientMetric: FC<Metric & { index: number }> = ({
   label,
@@ -33,38 +33,7 @@ const ClientMetric: FC<Metric & { index: number }> = ({
   </ScrollInView>
 );
 
-const TestimonialCard: FC<Testimonial & { index: number }> = ({
-  author,
-  role,
-  company,
-  image,
-  content
-}) => (
-  <Card className="relative hover:shadow-md">
-    <CardContent className="relative p-6">
-      <Quote className="absolute right-6 top-6 h-12 w-12 text-theme-primary-400 opacity-20" />
-      <div className="pt-10">
-        <p className="mb-6 text-lg text-muted-foreground">{content}</p>
-        <div className="flex items-center gap-4">
-          <div className="relative h-12 w-12 overflow-hidden rounded-full">
-            <Image src={image} alt={author} fill className="object-cover" />
-          </div>
-          <div>
-            <div className="font-semibold text-foreground">{author}</div>
-            <div className="text-sm text-muted-foreground">
-              {role}, {company}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="absolute right-6 top-6 flex">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} className="h-4 w-4 fill-theme-primary-400 text-theme-primary-400" />
-        ))}
-      </div>
-    </CardContent>
-  </Card>
-);
+
 
 const CaseStudyCard: FC<(typeof caseStudies)[0] & { index: number }> = ({
   client,
@@ -159,13 +128,17 @@ export const ClientSuccess: FC = () => {
           useInView={true}
           className="mx-auto mt-16 flex max-w-3xl flex-col items-center space-y-8"
         >
-          <Button 
-            size="lg"
+          <Link href="/case-studies">
+          <Button
+          variant="action"
+            size="fluid"
+            rounded="full"
             className="bg-theme-primary-500 text-white hover:bg-theme-primary-600"
           >
             View More Case Studies
             <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
+          </Link>
 
           {/* Success Metrics */}
           <Card className="w-full">

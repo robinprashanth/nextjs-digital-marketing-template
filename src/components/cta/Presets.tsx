@@ -264,3 +264,25 @@ export const TeamCollaborationCTA: FC<{ href?: string }> = ({ href = '/contact' 
       className={className}
     />
   );
+
+  export const ContactCTA: FC<{ className?: string }> = ({ className }) => (
+    <GradientCTA
+      title="Ready to Get Started?"
+      description="Join thousands of businesses already using our platform to grow
+              their digital presence. Start your 14-day free trial today."
+      buttons={[
+        {
+          text: "Start Free Trial",
+          href: "/contact",
+          variant: "primary",
+        },
+        {
+          text: "Contact Sales",
+          href: "/contact",
+          variant: "secondary",
+        },
+      ]}
+      gradient="purple"
+      className={className}
+    />
+  );

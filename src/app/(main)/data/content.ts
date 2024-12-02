@@ -1,3 +1,5 @@
+import { TestimonialProps } from "@/types";
+
 export const decorativeShapes = [
     {
       type: 'blur',
@@ -45,4 +47,39 @@ export const decorativeShapes = [
       delay: 0.8,
     },
   ];
-  
+
+export const testimonials: TestimonialProps[] = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      role: "Marketing Director",
+      company: "TechCorp",
+      content:
+        "Working with this team has been transformative for our digital presence. Their strategic approach and attention to detail resulted in a 200% increase in our online engagement. They're not just service providers; they're growth partners.",
+      image: "/assets/profile1.jpg",
+      rating: 5,
+      companyLogo: "/images/clients/techcorp.jpg",
+    },
+    {
+      id: 2,
+      name: "Michael Chen",
+      role: "CEO",
+      company: "Globaltrade Labs",
+      content:
+        "The ROI we've seen since partnering with them has been incredible. They took the time to understand our unique challenges and crafted solutions that perfectly aligned with our goals. Their data-driven approach made all the difference.",
+      image: "/assets/profile1.jpg",
+      rating: 5,
+      companyLogo: "/images/clients/globaltrade.jpg",
+    },
+    {
+      id: 3,
+      name: "Emma Davis",
+      role: "E-commerce Manager",
+      company: "Wellness Pro",
+      content:
+        "Their expertise in digital marketing has been instrumental in our growth. They helped us achieve a 150% increase in online sales through targeted campaigns and optimization. Their team is responsive, creative, and truly cares about our success.",
+      image: "/assets/profile1.jpg",
+      rating: 5,
+      companyLogo: "/images/clients/wellness-pro.jpg",
+    },
+  ];

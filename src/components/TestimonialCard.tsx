@@ -53,20 +53,14 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
             </p>
           </div>
         </div>
-        {/* Company Logo */}
         {companyLogo && (
           <div className="relative h-8 w-24">
-            {/* Check if companyLogo is a React node */}
-            {React.isValidElement(companyLogo) ? (
-              companyLogo
-            ) : (
-              <Image
-                src={companyLogo as string}
-                alt={company}
-                fill
-                className="object-contain"
-              />
-            )}
+            <Image
+              src={companyLogo}
+              alt={`${company} logo`}
+              fill
+              className="object-contain"
+            />
           </div>
         )}
       </div>
