@@ -1,8 +1,8 @@
 "use client";
 import { FC, useState } from "react";
-import { PricingCard } from "./Pricing/PricingCard";
-import { PricingToggle } from "./Pricing/PricingToggle";
-import { pricingPlans } from "./Pricing/pricingPlans";
+import { PricingCard } from "./PricingCard";
+import { PricingToggle } from "./PricingToggle";
+import { pricingPlans } from "./pricingPlans";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { CustomSolutionCTA } from "@/components/cta/Presets";
 

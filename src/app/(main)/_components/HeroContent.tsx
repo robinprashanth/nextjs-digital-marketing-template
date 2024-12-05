@@ -3,15 +3,15 @@
 import { FadeIn } from "@/components/motion/FadeIn";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
 import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { FloatingShape } from "@/components/motion/FloatingShape";
+import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
+import { TestimonialSmall } from "@/components/testimonials/TestimonialSmall";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import React, { FC } from "react";
-import { FloatingShape } from "../../../components/motion/FloatingShape";
 import { decorativeShapes } from "../data/content";
-import { ClientAvatar } from "./hero/ClientAvatar";
-import { clientAvatars, stats, testimonial } from "./hero/heroData";
+import { clientAvatars, stats, testimonials } from "./hero/heroData";
 import { StatCard } from "./hero/StatCard";
-import { TestimonialCard } from "./hero/TestimonialCard";
 
 export const HeroSection: FC = () => {
   const renderShape = (shape: typeof decorativeShapes[0]) => {
@@ -37,7 +37,6 @@ export const HeroSection: FC = () => {
 
   return (
     <div className="relative min-h-[calc(100vh-120px)] w-full pt-10">
-      {/* Background gradient with improved performance */}
       <div className="absolute inset-0 bg-[conic-gradient(from_45deg_at_50%_50%,#0B0B1E_0%,#1A1A2E_100%)] opacity-50" />
 
       {/* Render decorative shapes */}
@@ -83,17 +82,7 @@ export const HeroSection: FC = () => {
                     GET IN TOUCH <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
 
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-3">
-                      {clientAvatars.map((avatar, i) => (
-                        <ClientAvatar key={i} {...avatar} index={i} />
-                      ))}
-                    </div>
-                    <div className="text-sm">
-                      <span className="font-bold text-white">500+</span>{" "}
-                      <span className="text-theme-neutral-400">Happy Clients</span>
-                    </div>
-                  </div>
+                  <TestimonialSmall clientAvatars={clientAvatars} />
                 </div>
               </FadeInStaggerItem>
             </FadeInStagger>
@@ -111,7 +100,8 @@ export const HeroSection: FC = () => {
             </div>
           </div>
 
-          <TestimonialCard {...testimonial} />
+          {/* <TestimonialCard {...testimonial} /> */}
+          <TestimonialCarousel testimonials={testimonials} />
 
           {stats.map((stat, index) => (
             <div key={index} className={stat.position}>

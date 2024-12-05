@@ -1,10 +1,17 @@
-export const testimonial = {
+export const testimonials = [{
   name: "Sarah Parker",
   role: "Marketing Director",
   image: "/assets/profile1.jpg",
   rating: 5,
   quote: "The results have been incredible. Would highly recommend!",
-};
+},
+{
+  name: "Michael Chen",
+  role: "CEO",
+  image: "/assets/profile2.jpg",
+  rating: 5,
+  quote: "Outstanding service and remarkable results. Highly recommended!"
+}];
 
 export const stats = [
   {
