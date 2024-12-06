@@ -1,13 +1,14 @@
 "use client";
 
-import { FC, useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import type { CaseStudy } from "@/types";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import type { CaseStudy } from "@/types";
-import { Button } from "@/components/ui/button";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+import { FC, useEffect, useState } from "react";
 
 interface CaseStudiesProps {
   initialCaseStudies: CaseStudy[];
@@ -118,25 +119,16 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
   return (
     <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <ScrollInView
-        useInView={true}
-          className="mx-auto mb-16 max-w-2xl text-center"
-        >
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-            SUCCESS STORIES
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-            Transforming Businesses
-            <br />
-            Through Digital Excellence
-          </h2>
-          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-            Explore our portfolio of successful partnerships and discover how
-            we&apos;ve helped businesses achieve exceptional growth through
-            innovative digital strategies.
-          </p>
-        </ScrollInView>
+      <SectionHeading
+          alignment="center"
+            title={["Transforming Businesses", "Through Digital Excellence"]}
+            subtitle="SUCCESS STORIES"
+            subtitleColor="rose"
+            paragraph=" We combine strategic thinking, cutting-edge technology, and creative
+              expertise to deliver measurable results that accelerate your business
+              growth in the digital landscape."
+          />
+        
 
         {/* Category Filter */}
         <div className="mb-12 flex flex-wrap items-center justify-center gap-4">

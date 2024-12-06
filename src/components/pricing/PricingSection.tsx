@@ -1,10 +1,12 @@
 "use client";
+
+import { CustomSolutionCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { FC, useState } from "react";
+import { SectionHeading } from "../ui/SectionHeading";
 import { PricingCard } from "./PricingCard";
 import { PricingToggle } from "./PricingToggle";
 import { pricingPlans } from "./pricingPlans";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { CustomSolutionCTA } from "@/components/cta/Presets";
 
 export const PricingSection: FC = () => {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
@@ -15,20 +17,18 @@ export const PricingSection: FC = () => {
     <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
+        <SectionHeading
+            alignment="center"
+            title={["Choose the Right Plan for Your Growth"]}
+            subtitle="PRICING PLANS"
+            subtitleColor="ocean"
+            animated={true}
+            paragraph="Flexible pricing options designed to scale with your business needs"
+          />
         <ScrollInView
         useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-            PRICING PLANS
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-            Choose the Right Plan for Your Growth
-          </h2>
-          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-            Flexible pricing options designed to scale with your business needs
-          </p>
-
           <PricingToggle
             billingPeriod={billingPeriod}
             onToggle={setBillingPeriod}

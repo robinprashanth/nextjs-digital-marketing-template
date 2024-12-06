@@ -49,7 +49,7 @@ export const HeroSection: FC = () => {
       <div className="container relative mx-auto flex h-full items-center px-4 sm:px-6">
         <div className="relative max-w-[90%] py-20 lg:max-w-[60%]">
           <FadeIn className="mb-6 inline-block rounded-full bg-theme-rose-500/10 px-4 py-1 text-sm text-theme-rose-400">
-            Leading Digital Marketing Agency
+            #1 Leading Digital Marketing Agency
           </FadeIn>
 
           <div className="space-y-4">

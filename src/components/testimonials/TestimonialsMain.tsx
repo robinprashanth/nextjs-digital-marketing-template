@@ -2,11 +2,11 @@
 import React, { FC, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { TestimonialCard } from "@/components/TestimonialCard";
-import { ScrollInView } from "@/components/motion/ScrollInView";
 import { BackgroundPattern } from "@/components/SVG/TestimonialSVGs";
 import { TestimonialProps } from "@/types";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SectionHeading } from "../ui/SectionHeading";
 
 export interface TestimonialSectionProps {
   testimonials: TestimonialProps[];
@@ -74,18 +74,15 @@ export const TestimonialsMain: FC<TestimonialSectionProps> = ({
       <BackgroundPattern />
 
       <div className="container relative mx-auto px-4 sm:px-6">
-        {/* Heading Section */}
-        <ScrollInView useInView={true} className="mx-auto mb-16 max-w-2xl text-center">
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-            {heading.label}
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-            {heading.title}
-          </h2>
-          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-            {heading.description}
-          </p>
-        </ScrollInView>
+      <SectionHeading
+            alignment="center"
+            title={[`${heading.label}`]}
+            subtitle={`${heading.label}`}
+            subtitleColor="rose"
+            animated={true}
+            paragraph={`${heading.description}`}
+          />
+
 
         {/* Testimonials Carousel */}
         <div className="relative">

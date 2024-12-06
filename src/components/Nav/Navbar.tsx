@@ -135,8 +135,8 @@ export const Navbar: FC = () => {
                       title: "Ready to Get Started?",
                       description:
                         "Join thousands of companies already using our platform",
-                      ctaText: "Start Free Trial",
-                      ctaHref: "/trial",
+                      ctaText: "Talk to Expert",
+                      ctaHref: "/contact",
                     }}
                   />
                 )}

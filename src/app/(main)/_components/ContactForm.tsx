@@ -1,17 +1,18 @@
 "use client";
-import { FC } from "react";
-import { motion } from "motion/react";
+
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
-  Phone,
-  Mail,
-  MapPin,
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
 } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
 import { ContactForm } from "./Contact/ContactForm";
-import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const ContactInfo = () => (
   <div className="space-y-6">
@@ -71,21 +72,16 @@ export const ContactSection: FC = () => {
     <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <ScrollInView
-        useInView={true}
-          className="mx-auto mb-16 max-w-2xl text-center"
-        >
-          <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-            GET IN TOUCH
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-            Let&apos;s Discuss Your Project
-          </h2>
-          <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-            We&apos;re here to help you grow your business. Tell us about your
-            project, and we&apos;ll get back to you with a customized solution.
-          </p>
-        </ScrollInView>
+        <SectionHeading
+            alignment="center"
+            title={["Let's Discuss Your Project"]}
+            subtitle="GET IN TOUCH"
+            subtitleColor="ocean"
+            animated={true}
+            paragraph="We're here to help you grow your business. Tell us about your
+           project, and we'll get back to you with a customized solution."
+          />
+        
 
         {/* Contact Grid */}
         <div className="mx-auto max-w-5xl">

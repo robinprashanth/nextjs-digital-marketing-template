@@ -1,18 +1,18 @@
 "use client";
-import { FC } from "react";
-import { useRouter } from "next/navigation";
-import {
-  Search,
-  BarChart3,
-  Mail,
-  Globe,
-  MonitorSmartphone,
-  MessageSquareText,
-  ArrowUpRight,
-} from "lucide-react";
-import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
-import { FadeIn } from "@/components/motion/FadeIn";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  ArrowUpRight,
+  BarChart3,
+  Globe,
+  Mail,
+  MessageSquareText,
+  MonitorSmartphone,
+  Search,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
 // Types
 interface Service {
   icon: React.ReactNode;
@@ -135,29 +135,20 @@ const StatItem: FC<Stat> = ({ number, text }) => (
   </FadeInStaggerItem>
 );
 
-// Main Component
 export const ServicesSection: FC = () => {
   return (
     <section className="bg-white py-24">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-16 max-w-3xl">
-          <FadeIn className="flex flex-col gap-4">
-            <span className="text-sm font-semibold uppercase tracking-wider text-theme-rose-500">
-              Comprehensive Solutions
-            </span>
-            <h2 className="text-4xl font-bold leading-tight text-theme-neutral-900 md:text-5xl">
-              Digital Marketing Excellence
-              <br />
-              Tailored to Your Growth
-            </h2>
-            <p className="text-lg text-theme-neutral-600">
-              We combine strategic thinking, cutting-edge technology, and creative
+        <SectionHeading
+            subtitleColor="rose"
+            alignment="center"
+            title={["Digital Marketing Excellence Tailored to Your Growth"]}
+            subtitle="Comprehensive Solutions"
+            paragraph="We combine strategic thinking, cutting-edge technology, and creative
               expertise to deliver measurable results that accelerate your business
-              growth in the digital landscape.
-            </p>
-          </FadeIn>
-        </div>
+              growth in the digital landscape."
+          />
 
         {/* Services Grid */}
         <FadeInStagger
