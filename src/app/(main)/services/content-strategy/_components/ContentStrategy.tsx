@@ -30,6 +30,7 @@ import {
 } from "../data/content";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { ContentStrategyCTA } from "@/components/cta/Presets";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const iconMap = {
   FileText,
@@ -109,21 +110,12 @@ export const ContentStrategy: FC = () => {
       {/* Content Types Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              CONTENT TYPES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Multi-Format Content
-              <br />
-              Excellence
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Professional content creation across all formats and channels.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="CONTENT TYPES"
+  heading="Multi-Format Content Excellence"
+  description="Professional content creation across all formats and channels."
+  theme="indigo"
+/>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {contentTypes.map((type, index) => {
@@ -170,21 +162,12 @@ export const ContentStrategy: FC = () => {
       {/* Services Grid */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              OUR SERVICES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Comprehensive Content
-              <br />
-              Solutions
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              End-to-end content strategy, creation, and distribution services.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="OUR SERVICES"
+  heading="Comprehensive Content Solutions"
+  description="End-to-end content strategy, creation, and distribution services."
+  theme="indigo"
+/>
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
@@ -234,18 +217,11 @@ export const ContentStrategy: FC = () => {
       {/* Results Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              SUCCESS STORIES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Content That Drives
-              <br />
-              Business Results
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="SUCCESS STORIES"
+  heading="Content That Drives Business Results"
+  theme="indigo"
+/>
 
           <div className="grid gap-8 md:grid-cols-3">
             {results.map((result, index) => (
@@ -301,19 +277,12 @@ export const ContentStrategy: FC = () => {
       {/* Process Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-400 to-theme-violet-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              OUR PROCESS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-              How We Create
-              <br />
-              Winning Content
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="OUR PROCESS"
+  heading="How We Create Winning Content"
+  theme="indigo_light"
+  useInView={true}
+/>
 
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
@@ -344,17 +313,11 @@ export const ContentStrategy: FC = () => {
       {/* Tools Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-violet-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              TOOLS & TECHNOLOGY
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Professional Tools We Use
-            </h2>
-          </ScrollInView>
-
+        <AnimatedHeading
+  title="TOOLS & TECHNOLOGY"
+  heading="Professional Tools We Use"
+  theme="indigo_small"
+/>
           <div className="grid gap-6 md:grid-cols-4">
             {tools.map((tool, index) => {
               const IconComponent = iconMap[tool.icon as keyof typeof iconMap];

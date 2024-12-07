@@ -27,6 +27,7 @@ import {
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { DigitalMarketingCTA } from "@/components/cta/Presets";
 import ModernTestimonials from "@/components/testimonials/ModernTestimonials";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const iconMap = {
   BarChart,
@@ -106,23 +107,11 @@ export const DigitalMarketing: FC = () => {
       {/* Services Grid */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              OUR SERVICES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Comprehensive Digital
-              <br />
-              Marketing Solutions
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Integrated marketing strategies that drive growth across all
-              digital channels and platforms.
-            </p>
-          </ScrollInView>
+          <AnimatedHeading
+            title="OUR SERVICESs"
+            heading="Comprehensive Digital Marketing Solutions"
+            description="Integrated marketing strategies that drive growth."
+          />
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => {
@@ -169,19 +158,11 @@ export const DigitalMarketing: FC = () => {
       {/* Platforms Section */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              ADVERTISING PLATFORMS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Multi-Platform Advertising
-              <br />
-              Excellence
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+            title="ADVERTISING PLATFORMS"
+            heading=" Multi-Platform Advertising Excellence"
+          />
+          
 
           <div className="grid gap-6 md:grid-cols-4">
             {platforms.map((platform, index) => {
@@ -213,23 +194,13 @@ export const DigitalMarketing: FC = () => {
       {/* Success Stories Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              SUCCESS STORIES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Real Results for
-              <br />
-              Real Businesses
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              See how our digital marketing strategies have transformed
-              businesses across different industries.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+            title=" SUCCESS STORIES"
+            heading=" Real Results for  Real Businesses"
+            description="See how our digital marketing strategies have transformed
+              businesses across different industries."
+          />
+          
 
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
@@ -274,19 +245,11 @@ export const DigitalMarketing: FC = () => {
       {/* Process Section */}
       <section className="relative overflow-hidden bg-navy py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-primary-400 to-pink-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              OUR PROCESS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-              Strategic Approach to
-              <br />
-              Digital Success
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="OUR PROCESS"
+  heading="Strategic Approach to Digital Success"
+  theme="secondary"
+/>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
@@ -317,23 +280,12 @@ export const DigitalMarketing: FC = () => {
       {/* Features Grid */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              KEY FEATURES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Advanced Marketing
-              <br />
-              Capabilities
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Cutting-edge features and tools to maximize your marketing
-              performance.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="KEY FEATURES"
+  heading="Advanced Marketing Capabilities"
+  description="Cutting-edge features and tools to maximize your marketing performance."
+  theme="primary"
+/>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => {
@@ -371,23 +323,12 @@ export const DigitalMarketing: FC = () => {
 
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-pink-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              SUCCESS STORIES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Real Results for
-              <br />
-              Real Businesses
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              See how our digital marketing strategies have transformed
-              businesses across different industries.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="SUCCESS STORIES"
+  heading="Real Results for Real Businesses"
+  description="See how our digital marketing strategies have transformed businesses across different industries."
+  theme="primary"
+/>
 
           <ModernTestimonials testimonials={testimonials} />
         </div>

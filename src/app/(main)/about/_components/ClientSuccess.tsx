@@ -13,6 +13,7 @@ import { ScrollInView } from "@/components/motion/ScrollInView";
 import { caseStudies, type Metric } from "../data/content";
 import Link from "next/link";
 import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
 
 const ClientMetric: FC<Metric & { index: number }> = ({
   label,
@@ -98,11 +99,8 @@ export const ClientSuccess: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <Badge 
-            className="mb-4 bg-theme-primary-500/10 px-4 py-1.5 text-theme-primary-400"
-          >
-            Success Stories
-          </Badge>
+          <SubTitleBadge text=" Success Stories"/>
+        
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Delivering{" "}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">

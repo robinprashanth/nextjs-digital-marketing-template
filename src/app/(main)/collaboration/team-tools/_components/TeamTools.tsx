@@ -11,6 +11,7 @@ import {
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { TeamCollaborationCTA } from "@/components/cta/Presets";
 import { BentoGrid } from "./BentoGrid";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 export const TeamTools: FC = () => {
   return (
@@ -91,22 +92,14 @@ export const TeamTools: FC = () => {
       {/* Features Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-3xl text-center"
-          >
-            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
-              KEY FEATURES
-            </span>
-            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Everything You Need for
-              <br />
-              Seamless Collaboration
-            </h2>
-            <p className="mt-4 text-theme-neutral-600 dark:text-theme-neutral-400">
-              Powerful features to help your team work better together
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="KEY FEATURES"
+  heading="Everything You Need for Seamless Collaboration"
+  description="Powerful features to help your team work better together"
+  theme="primary"
+  useInView={true}
+  className="mx-auto mb-16 max-w-3xl text-center"
+/>
 
          
 
@@ -155,46 +148,28 @@ export const TeamTools: FC = () => {
       {/* Tools Grid */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-800">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-          viewport={true}
-            className="mx-auto mb-16 max-w-3xl text-center"
-          >
-            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
-              TEAM TOOLS
-            </span>
-            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Everything Your Team Needs
-              <br />
-              In One Place
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="TEAM TOOLS"
+  heading="Everything Your Team Needs In One Place"
+  theme="primary"
+  useInView={true}
+  className="mx-auto mb-16 max-w-3xl text-center"
+/>
           <div className="rounded-2xl bg-gradient-to-br from-theme-neutral-100 to-theme-neutral-200 dark:from-theme-neutral-900 dark:to-theme-neutral-800 p-8">
   <BentoGrid items={teamTools} />
 </div>
-
-
-        
         </div>
       </section>
 
       {/* Integrations Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-        <ScrollInView
-        useInView={true}
-        viewport={true}
-            className="mx-auto mb-16 max-w-3xl text-center"
-          >
-            <span className="mb-4 inline-block text-sm font-semibold text-theme-primary-600">
-              INTEGRATIONS
-            </span>
-            <h2 className="text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Works With Your
-              <br />
-              Favorite Tools
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="INTEGRATIONS"
+  heading="Works With Your Favorite Tools"
+  theme="primary"
+  useInView={true}
+/>
 
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
             {integrations.map((integration, index) => {

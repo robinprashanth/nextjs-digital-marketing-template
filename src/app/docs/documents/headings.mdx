@@ -1,0 +1,279 @@
+---
+title: Heading Components
+description: Documentation for AnimatedHeading and SectionHeading components with various themes and animations.
+---
+
+# Heading Components
+
+The template provides two main heading components with different styles and animations:
+
+- `AnimatedHeading`: Gradient-styled headings with scroll animations
+- `SectionHeading`: Color-themed headings with staggered animations
+
+## Component Imports
+
+```tsx
+import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+```
+
+## AnimatedHeading Component
+
+![Animated-heading Preview](/docs/animated-heading.png)
+
+### Basic Usage
+
+```tsx
+<AnimatedHeading
+  title="OUR SERVICES"
+  heading="Main Heading Text"
+  description="Optional description text."
+  theme="primary"
+/>
+```
+
+### Available Themes
+
+```tsx
+type Theme =
+  | "primary"
+  | "secondary"
+  | "ocean"
+  | "ocean_small"
+  | "indigo"
+  | "indigo_small"
+  | "indigo_light"
+  | "light"
+  | "dark";
+```
+
+### Theme Examples
+
+```tsx
+// Primary Theme
+<AnimatedHeading
+  title="FEATURES"
+  heading="Primary Theme Example"
+  theme="primary"
+/>
+
+// Indigo Theme
+<AnimatedHeading
+  title="OUR SERVICES"
+  heading="Indigo Theme Example"
+  theme="indigo"
+/>
+
+// Small Variant
+<AnimatedHeading
+  title="TOOLS"
+  heading="Smaller Heading Size"
+  theme="indigo_small"
+/>
+
+// Light Variant with White Text
+<AnimatedHeading
+  title="PROCESS"
+  heading="Light Theme on Dark Background"
+  theme="indigo_light"
+/>
+```
+
+### Props Interface
+
+```typescript
+interface AnimatedHeadingProps {
+  title?: string;
+  heading: string;
+  description?: string;
+  className?: string;
+  useInView?: boolean;
+  theme?: Theme;
+  customTitleClass?: string;
+  customHeadingClass?: string;
+  customDescriptionClass?: string;
+}
+```
+
+## SectionHeading Component
+
+![Section Heading Preview](/docs/section-heading.png)
+
+### Basic Usage
+
+```tsx
+<SectionHeading
+  title="Main Heading Text"
+  subtitle="Optional Subtitle"
+  paragraph="Optional paragraph text"
+  alignment="center"
+  subtitleColor="ocean"
+/>
+```
+
+### Multi-line Titles
+
+```tsx
+// Using string array
+<SectionHeading
+  title={[
+    "First Line",
+    "Second Line"
+  ]}
+  subtitle="SUBTITLE TEXT"
+/>
+
+// Using line breaks
+<SectionHeading
+  title="First Line\nSecond Line"
+  subtitle="SUBTITLE TEXT"
+/>
+```
+
+### Props Interface
+
+```typescript
+interface SectionHeadingProps {
+  title: string | string[];
+  subtitle?: string;
+  paragraph?: string;
+  alignment?: "left" | "center";
+  subtitleColor?: SubtitleColor;
+  animated?: boolean;
+}
+
+type SubtitleColor =
+  | "primary"
+  | "secondary"
+  | "sunflower"
+  | "tulip"
+  | "rose"
+  | "ocean"
+  | "indigo"
+  | "violet";
+```
+
+### Color Variants
+
+```tsx
+// Ocean theme
+<SectionHeading
+  title="Ocean Theme"
+  subtitle="SUBTITLE"
+  subtitleColor="ocean"
+/>
+
+// Indigo theme
+<SectionHeading
+  title="Indigo Theme"
+  subtitle="SUBTITLE"
+  subtitleColor="indigo"
+/>
+
+// Rose theme
+<SectionHeading
+  title="Rose Theme"
+  subtitle="SUBTITLE"
+  subtitleColor="rose"
+/>
+```
+
+### Alignment Options
+
+```tsx
+// Center aligned
+<SectionHeading
+  title="Centered Heading"
+  subtitle="SUBTITLE"
+  alignment="center"
+/>
+
+// Left aligned
+<SectionHeading
+  title="Left Aligned"
+  subtitle="SUBTITLE"
+  alignment="left"
+/>
+```
+
+## Examples
+
+### Marketing Section
+
+```tsx
+export default function MarketingPage() {
+  return (
+    <section className="dark:bg-theme-neutral-900 bg-white py-24">
+      <AnimatedHeading
+        title="OUR SERVICES"
+        heading="Comprehensive Digital Solutions"
+        description="Integrated strategies that drive growth."
+        theme="indigo"
+      />
+      {/* Content */}
+    </section>
+  );
+}
+```
+
+### Hero Section
+
+```tsx
+export default function HeroSection() {
+  return (
+    <section className="bg-theme-neutral-900 py-24">
+      <SectionHeading
+        title={["Transform Your", "Digital Presence"]}
+        subtitle="WELCOME"
+        paragraph="Innovative solutions for modern businesses"
+        alignment="center"
+        subtitleColor="ocean"
+      />
+      {/* Hero content */}
+    </section>
+  );
+}
+```
+
+## Customization
+
+### Custom Classes
+
+```tsx
+// AnimatedHeading with custom classes
+<AnimatedHeading
+  title="CUSTOM STYLING"
+  heading="Custom Classes Example"
+  customTitleClass="text-xl font-bold"
+  customHeadingClass="text-6xl"
+  customDescriptionClass="text-xl"
+/>
+
+// SectionHeading with additional classes
+<SectionHeading
+  title="Custom Section"
+  subtitle="CUSTOM"
+  className="my-custom-class"
+/>
+```
+
+### Animation Control
+
+```tsx
+// Disable scroll animation
+
+<AnimatedHeading
+  title="NO ANIMATION"
+  heading="Static Heading"
+  useInView={false}
+/>
+
+
+
+// Custom stagger timing
+<SectionHeading
+  title="Custom Animation"
+  subtitle="ANIMATED"
+  animated={true}
+/>
+```

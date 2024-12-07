@@ -1,13 +1,13 @@
 "use client"
 
-import React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 
 interface DocsLayoutProps {
   children: React.ReactNode;
@@ -33,6 +33,7 @@ const sidebarItems = [
       { href: '/docs/blog', title: 'Blog' },
       { href: '/docs/cta', title: 'CTAs' },
       { href: '/docs/testimonials', title: 'Testimonials' },
+      { href: '/docs/headings', title: 'Headings' },
       { href: '/docs/components/contact', title: 'Contact Form' },
     ],
   },

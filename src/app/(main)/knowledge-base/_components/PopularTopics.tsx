@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Star, ArrowRight, TrendingUp, Book, Users } from "lucide-react";
 import { KnowledgeArticle } from "@/types";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 interface PopularTopicsProps {
   articles: KnowledgeArticle[];
@@ -38,20 +39,14 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
   return (
     <section className="border-t border-theme-neutral-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
-        <ScrollInView
-         useInView={true}
-          className="mx-auto mb-12 max-w-3xl text-center"
-        >
-          <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-            TRENDING TOPICS
-          </span>
-          <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-            Most Viewed Articles
-          </h2>
-          <p className="text-muted-foreground">
-            Check out our most popular articles and frequently asked questions.
-          </p>
-        </ScrollInView>
+      <AnimatedHeading
+  title="TRENDING TOPICS"
+  heading="Most Viewed Articles"
+  description="Check out our most popular articles and frequently asked questions."
+  theme="badge"
+  useInView={true}
+  className="mx-auto mb-12 max-w-3xl text-center"
+/>
 
         <div className="grid gap-8 md:grid-cols-2">
           {topCategories.map((categoryGroup, index) => (

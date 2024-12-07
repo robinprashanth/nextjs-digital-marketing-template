@@ -18,6 +18,7 @@ import PartnersHero from "./PartnersHero";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 interface Partner {
   name: string;
@@ -229,21 +230,13 @@ const Partners: FC = () => {
       {/* Partnership Levels */}
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            viewport={{ once: true }}
-            className="mx-auto mb-12 max-w-3xl text-center"
-          >
-            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-              PARTNERSHIP LEVELS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-              Choose Your Partnership Journey
-            </h2>
-            <p className="text-muted-foreground">
-              Join our partner ecosystem and unlock exclusive benefits as you
-              grow with us.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="PARTNERSHIP LEVELS"
+  heading="Choose Your Partnership Journey"
+  description="Join our partner ecosystem and unlock exclusive benefits as you grow with us."
+  theme="badge"
+  viewport={{ once: true }}
+/>
 
           <div className="grid gap-8 md:grid-cols-3">
             {partnershipLevels.map((level, index) => (
@@ -282,20 +275,13 @@ const Partners: FC = () => {
       {/* Benefits Section */}
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-12 max-w-3xl text-center"
-          >
-            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-              PARTNER BENEFITS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-              Why Partner With Us?
-            </h2>
-            <p className="text-muted-foreground">
-              Discover the advantages of joining our partner ecosystem.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="PARTNER BENEFITS"
+  heading="Why Partner With Us?"
+  description="Discover the advantages of joining our partner ecosystem."
+  theme="badge"
+  useInView={true}
+/>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -386,21 +372,13 @@ const Partners: FC = () => {
       {/* FAQs */}
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-           useInView={true}
-            className="mx-auto mb-12 max-w-3xl text-center"
-          >
-            <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
-              FAQs
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-              Common Questions
-            </h2>
-            <p className="text-muted-foreground">
-              Find answers to frequently asked questions about our partnership
-              program.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="FAQs"
+  heading="Common Questions"
+  description="Find answers to frequently asked questions about our partnership program."
+  theme="badge"
+  useInView={true}
+/>
 
           <div className="mx-auto grid max-w-3xl gap-6">
             {[

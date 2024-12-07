@@ -16,6 +16,7 @@ import { features, metrics, processSteps, toolsUsed } from "../data/content";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const iconMap = {
   Search,
@@ -92,23 +93,12 @@ export const SEO: FC = () => {
       {/* Features Grid Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              COMPREHENSIVE SEO SERVICES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Full-Spectrum SEO
-              <br />
-              Solutions
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Strategic SEO services designed to improve your search rankings,
-              drive organic traffic, and increase conversions.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="COMPREHENSIVE SEO SERVICES"
+  heading="Full-Spectrum SEO Solutions"
+  description="Strategic SEO services designed to improve your search rankings, drive organic traffic, and increase conversions."
+  theme="indigo"
+/>
 
           {/* Features Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -270,23 +260,12 @@ export const SEO: FC = () => {
       {/* Results Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              PROVEN RESULTS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Real Results for
-              <br />
-              Real Businesses
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Our data-driven approach consistently delivers outstanding results
-              across various industries and business sizes.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="PROVEN RESULTS"
+  heading="Real Results for Real Businesses"
+  description="Our data-driven approach consistently delivers outstanding results across various industries and business sizes."
+  theme="indigo"
+/>
 
           {/* Results Grid */}
           <div className="grid gap-8 md:grid-cols-3">
@@ -339,17 +318,11 @@ export const SEO: FC = () => {
       {/* FAQ Section */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              FAQ
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Frequently Asked Questions
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="FAQ"
+  heading="Frequently Asked Questions"
+ theme="indigo"
+/>
 
           <div className="mx-auto max-w-3xl space-y-6">
             {[

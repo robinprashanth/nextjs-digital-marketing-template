@@ -36,6 +36,7 @@ import {
 } from "../data/content";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { SocialMediaCTA } from "@/components/cta/Presets";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 
 const iconMap = {
   Instagram,
@@ -122,22 +123,13 @@ export const SocialMedia: FC = () => {
       {/* Platforms Grid */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              PLATFORMS WE MANAGE
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Multi-Platform
-              <br />
-              Social Excellence
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Comprehensive social media management across all major platforms.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="PLATFORMS WE MANAGE"
+  heading="Multi-Platform Social Excellence"
+  description="Comprehensive social media management across all major platforms."
+  theme="indigo"
+  useInView={true}
+/>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {platforms.map((platform, index) => {
@@ -186,23 +178,13 @@ export const SocialMedia: FC = () => {
       {/* Services Section */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="bg- 600 mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              OUR SERVICES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Comprehensive Social
-              <br />
-              Media Solutions
-            </h2>
-            <p className="text-lg text-theme-neutral-600 dark:text-theme-neutral-400">
-              Full-service social media management tailored to your business
-              goals.
-            </p>
-          </ScrollInView>
+        <AnimatedHeading
+  title="OUR SERVICES"
+  heading="Comprehensive Social Media Solutions"
+  description="Full-service social media management tailored to your business goals."
+  theme="indigo"
+  useInView={true}
+/>
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
@@ -252,19 +234,12 @@ export const SocialMedia: FC = () => {
       {/* Success Stories Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              SUCCESS STORIES
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-5xl">
-              Real Results for
-              <br />
-              Real Brands
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="SUCCESS STORIES"
+  heading="Real Results for Real Brands"
+  theme="indigo"
+  useInView={true}
+/>
 
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
@@ -320,19 +295,12 @@ export const SocialMedia: FC = () => {
       {/* Process Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-400 to-theme-ocean-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              OUR PROCESS
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-              How We Drive Social
-              <br />
-              Media Success
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="OUR PROCESS"
+  heading="How We Drive Social Media Success"
+  theme="indigo_light"
+  useInView={true}
+/>
 
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
@@ -363,17 +331,12 @@ export const SocialMedia: FC = () => {
       {/* Tools Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-          useInView={true}
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
-            <span className="mb-4 block bg-gradient-to-r from-theme-indigo-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
-              TOOLS & TECHNOLOGY
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-theme-neutral-900 dark:text-white md:text-4xl">
-              Professional Tools We Use
-            </h2>
-          </ScrollInView>
+        <AnimatedHeading
+  title="TOOLS & TECHNOLOGY"
+  heading="Professional Tools We Use"
+  theme="indigo_small"
+  useInView={true}
+/>
 
           <div className="grid gap-6 md:grid-cols-4">
             {tools.map((tool, index) => {

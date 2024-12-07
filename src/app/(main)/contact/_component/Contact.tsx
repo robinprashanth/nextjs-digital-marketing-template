@@ -1,22 +1,22 @@
 "use client";
 
-import { FC } from "react";
-import { motion } from "motion/react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
+import { ContactFormData, contactFormPageSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import {
-  Phone,
+  AlertCircle,
+  CheckCircle2,
+  Clock,
   Mail,
   MapPin,
+  Phone,
   Send,
-  Clock,
-  CheckCircle2,
-  AlertCircle,
 } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { ContactFormData, contactFormPageSchema } from "@/lib/validation";
+import { motion } from "motion/react";
+import { FC, useState } from "react";
+import { useForm } from "react-hook-form";
+import { budgetOptions, faqs, services } from "../data/content";
 
 const Contact: FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,21 +48,6 @@ const Contact: FC = () => {
     }
   };
 
-  const services = [
-    "Digital Marketing",
-    "SEO",
-    "Social Media",
-    "Content Marketing",
-    "PPC Advertising",
-    "Email Marketing",
-  ];
-
-  const budgetOptions = [
-    { value: "<10k", label: "Less than $10,000" },
-    { value: "10k-25k", label: "$10,000 - $25,000" },
-    { value: "25k-50k", label: "$25,000 - $50,000" },
-    { value: "50k+", label: "$50,000+" },
-  ];
 
   return (
     <main className="min-h-screen bg-background">
@@ -463,28 +448,7 @@ const Contact: FC = () => {
           </ScrollInView>
 
           <div className="mx-auto grid max-w-3xl gap-6">
-            {[
-              {
-                question: "What is your typical response time?",
-                answer:
-                  "We aim to respond to all inquiries within 24 hours during business days. For urgent matters, you can reach us by phone.",
-              },
-              {
-                question: "Do you offer customized solutions?",
-                answer:
-                  "Yes, we tailor our digital marketing strategies to meet your specific business needs and objectives.",
-              },
-              {
-                question: "What is your minimum project budget?",
-                answer:
-                  "Our minimum project budget starts at $5,000, but we can discuss flexible options based on your needs.",
-              },
-              {
-                question: "Do you sign NDAs?",
-                answer:
-                  "Yes, we&apos;re happy to sign NDAs to protect your confidential information and project details.",
-              },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <ScrollInView
               useInView={true}
                 key={index}

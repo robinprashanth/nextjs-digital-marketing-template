@@ -48,7 +48,7 @@ export const MDXComponents = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded bg-theme-neutral-100 px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "relative rounded bg-black px-[0.3rem] py-[0.2rem] font-mono text-sm",
         className
       )}
       {...props}

@@ -205,10 +205,6 @@ body {
     @apply mb-4 mt-6 overflow-x-auto rounded-lg border border-border bg-card p-4;
   }
 
-  .prose code {
-    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold text-primary;
-  }
-
   .prose thead {
     @apply border-b border-border;
   }
