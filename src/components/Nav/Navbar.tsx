@@ -55,7 +55,7 @@ export const Navbar: FC = () => {
         priority // Ensures the logo loads quickly as it's a primary visual
       />
   </div>
-  <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent">
+  <span className=" bg-clip-text text-2xl font-bold text-white">
     {siteConfig.appName}
   </span>
 </Link>

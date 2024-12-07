@@ -40,7 +40,7 @@ export const features: NavSection[] = [
     items: [
       {
         title: "Workflow Builder",
-        href: "automation/workflow-builder",
+        href: "/automation/workflow-builder",
         description: "Create automated marketing workflows",
         icon: Settings,
       },

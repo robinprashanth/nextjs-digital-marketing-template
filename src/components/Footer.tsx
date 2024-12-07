@@ -56,9 +56,9 @@ export const Footer: FC = () => {
       />
                   </div>
                 </div>
-                <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-2xl font-bold text-transparent">
-                {siteConfig.appName}
-                </span>
+                <span className=" bg-clip-text text-2xl font-bold text-white">
+    {siteConfig.appName}
+  </span>
               </div>
               <p className="text-theme-neutral-400">
                 Transforming digital presence through innovative marketing

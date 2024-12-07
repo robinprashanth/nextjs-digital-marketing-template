@@ -82,11 +82,11 @@ export const Newsletter: FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-col md:flex-row">
                       <div className="relative flex-1">
                         <Input
                           placeholder="Enter your email"
-                          className="rounded-full border-theme-primary-500/20 bg-white/5 pr-12 backdrop-blur-sm placeholder:text-theme-neutral-500 focus:border-theme-primary-500/40 focus:ring-theme-primary-500/40"
+                          className="text-white rounded-full border-theme-primary-500/20 bg-white/5 pr-12 backdrop-blur-sm placeholder:text-theme-neutral-500 focus:border-theme-primary-500/40 focus:ring-theme-primary-500/40"
                           {...field}
                         />
                         {/* Email icon or validation status */}
