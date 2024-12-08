@@ -1,12 +1,11 @@
-import { FC, PropsWithChildren } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { format } from 'date-fns';
-import { Clock, ArrowLeft, ChevronRight } from 'lucide-react';
-import { BlogPostMetadata } from '@/types';
-import { ScrollInView } from '@/components/motion/ScrollInView';
-import { SocialShareModern } from '@/components/SocialShareModern';
-
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { SocialShareModern } from "@/components/SocialShareModern";
+import { BlogPostMetadata } from "@/types";
+import { format } from "date-fns";
+import { ArrowLeft, ChevronRight, Clock } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC, PropsWithChildren } from "react";
 
 interface BlogPostLayoutProps extends PropsWithChildren {
   metadata: BlogPostMetadata;
@@ -23,11 +22,12 @@ export const BlogPostLayout: FC<BlogPostLayoutProps> = ({
       {/* Hero Header */}
       <header className="relative overflow-hidden bg-[linear-gradient(to_b,hsl(var(--theme-primary-600))_0%,hsl(var(--background))_100%)] pb-20 pt-24">
         {/* Grid Background */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]" 
-          style={{ 
-            backgroundImage: 'linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)',
-            backgroundSize: '4rem 4rem'
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "4rem 4rem",
           }}
         />
 
@@ -37,7 +37,7 @@ export const BlogPostLayout: FC<BlogPostLayoutProps> = ({
         <div className="container relative mx-auto px-4 sm:px-6">
           {/* Back Button */}
           <ScrollInView className="mb-8">
-            <Link 
+            <Link
               href="/blog"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-background/5 px-4 py-2 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-background/10"
             >
@@ -57,7 +57,7 @@ export const BlogPostLayout: FC<BlogPostLayoutProps> = ({
                   </span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </div>
-                <time 
+                <time
                   dateTime={metadata.date}
                   className="text-sm text-muted-foreground"
                 >
@@ -100,7 +100,7 @@ export const BlogPostLayout: FC<BlogPostLayoutProps> = ({
         <div className="relative mx-auto max-w-4xl">
           {/* Cover Image */}
           <ScrollInView className="-mt-20 mb-16">
-            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-lg my-10">
+            <div className="my-10 overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
               <div className="relative aspect-[16/9]">
                 <Image
                   src={metadata.coverImage}
@@ -115,18 +115,18 @@ export const BlogPostLayout: FC<BlogPostLayoutProps> = ({
 
           {/* Article Content */}
           <main>
-            <article className="prose prose-lg dark:prose-invert max-w-none">
+            <article className="prose prose-lg max-w-none dark:prose-invert">
               {children}
             </article>
           </main>
 
-          <div className="mt-12 mb-16">
-  <SocialShareModern 
-    url={`/blog/theme-2/${slug}`}
-    title={metadata.title}
-    description={metadata.excerpt}
-  />
-</div>
+          <div className="mb-16 mt-12">
+            <SocialShareModern
+              url={`/blog/theme-2/${slug}`}
+              title={metadata.title}
+              description={metadata.excerpt}
+            />
+          </div>
 
           {/* Tags */}
           <footer className="my-12">

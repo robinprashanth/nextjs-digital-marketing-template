@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { FC } from 'react';
+import { FC } from "react";
 import {
-  FacebookShareButton,
-  TwitterShareButton,
-  LinkedinShareButton,
-  WhatsappShareButton,
+  EmailIcon,
   EmailShareButton,
   FacebookIcon,
-  TwitterIcon,
+  FacebookShareButton,
   LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
   WhatsappIcon,
-  EmailIcon,
-} from 'react-share';
+  WhatsappShareButton,
+} from "react-share";
 
 const domain = process.env.NEXT_PUBLIC_APP_URL!;
 
@@ -35,25 +35,46 @@ export const SocialShareMinimal: FC<SocialShareMinimalProps> = ({
       <div className="text-sm font-medium text-muted-foreground">
         Share this post:
       </div>
-      
+
       <div className="flex gap-2">
-        <FacebookShareButton url={`${domain}${url}`} className="transition-transform hover:scale-110">
+        <FacebookShareButton
+          url={`${domain}${url}`}
+          className="transition-transform hover:scale-110"
+        >
           <FacebookIcon size={iconSize} round={round} />
         </FacebookShareButton>
 
-        <TwitterShareButton url={`${domain}${url}`} title={title} className="transition-transform hover:scale-110">
+        <TwitterShareButton
+          url={`${domain}${url}`}
+          title={title}
+          className="transition-transform hover:scale-110"
+        >
           <TwitterIcon size={iconSize} round={round} />
         </TwitterShareButton>
 
-        <LinkedinShareButton url={`${domain}${url}`} title={title} summary={description} className="transition-transform hover:scale-110">
+        <LinkedinShareButton
+          url={`${domain}${url}`}
+          title={title}
+          summary={description}
+          className="transition-transform hover:scale-110"
+        >
           <LinkedinIcon size={iconSize} round={round} />
         </LinkedinShareButton>
 
-        <WhatsappShareButton url={`${domain}${url}`} title={title} className="transition-transform hover:scale-110">
+        <WhatsappShareButton
+          url={`${domain}${url}`}
+          title={title}
+          className="transition-transform hover:scale-110"
+        >
           <WhatsappIcon size={iconSize} round={round} />
         </WhatsappShareButton>
 
-        <EmailShareButton url={`${domain}${url}`} subject={title} body={description} className="transition-transform hover:scale-110">
+        <EmailShareButton
+          url={`${domain}${url}`}
+          subject={title}
+          body={description}
+          className="transition-transform hover:scale-110"
+        >
           <EmailIcon size={iconSize} round={round} />
         </EmailShareButton>
       </div>

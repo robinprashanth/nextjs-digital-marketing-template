@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight, TrendingUp } from "lucide-react";
-import { CaseStudy } from "@/types";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { CaseStudy } from "@/types";
+import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
@@ -13,8 +13,8 @@ interface CaseStudyCardProps {
 
 export const CaseStudyCard: FC<CaseStudyCardProps> = ({ caseStudy, index }) => (
   <ScrollInView
-  useInView={true}
-  delay={index * 0.1 }
+    useInView={true}
+    delay={index * 0.1}
     className="group cursor-pointer"
   >
     <Link href={`/case-studies/${caseStudy.slug}`}>

@@ -1,6 +1,6 @@
-import { FC } from "react";
-import Image from "next/image";
 import { ClientAvatarProps } from "@/types";
+import Image from "next/image";
+import { FC } from "react";
 
 export const ClientAvatar: FC<ClientAvatarProps> = ({ image, index }) => (
   <div

@@ -1,9 +1,9 @@
 "use client";
 
-import { FC } from "react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+import { FC } from "react";
 
 export const Hero: FC = () => {
   return (
@@ -19,9 +19,7 @@ export const Hero: FC = () => {
         <div className="grid items-center gap-12 pt-12 md:grid-cols-2 md:gap-16">
           {/* Left Content */}
           <div className="relative z-10">
-          <ScrollInView delay={0.6}
-              className="space-y-6"
-            >
+            <ScrollInView delay={0.6} className="space-y-6">
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -63,9 +61,10 @@ export const Hero: FC = () => {
                   { number: "95%", text: "Client Satisfaction" },
                   { number: "150+", text: "Team Members" },
                 ].map((stat, index) => (
-                  <ScrollInView 
-                  className="relative"
-                  delay={ 0.4 + index * 0.1} key={index}  
+                  <ScrollInView
+                    className="relative"
+                    delay={0.4 + index * 0.1}
+                    key={index}
                   >
                     <div className="relative z-10 text-3xl font-bold text-white md:text-4xl">
                       {stat.number}
@@ -139,7 +138,8 @@ export const Hero: FC = () => {
             </motion.div>
 
             {/* Achievement Card */}
-            <ScrollInView delay={ 0.7}
+            <ScrollInView
+              delay={0.7}
               className="absolute -bottom-6 left-1/2 z-10 -translate-x-1/2"
             >
               <div className="rounded-xl bg-[#1A1A2E]/80 p-4 shadow-lg backdrop-blur-sm">

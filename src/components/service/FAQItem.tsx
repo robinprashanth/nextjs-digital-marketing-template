@@ -1,7 +1,8 @@
 "use client";
-import React, { FC } from "react";
-import Image from "next/image";
+
 import { Check, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import React, { FC } from "react";
 import { ScrollInView } from "../motion/ScrollInView";
 
 // Additional Types
@@ -62,9 +63,7 @@ const FAQItem: FC<FAQ & { isOpen: boolean; toggle: () => void }> = ({
 export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
   <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <ScrollInView
-        className="mx-auto mb-16 max-w-3xl text-center"
-      >
+      <ScrollInView className="mx-auto mb-16 max-w-3xl text-center">
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
           Pricing
         </span>
@@ -82,9 +81,9 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier, index) => (
-           <ScrollInView
-           key={index}
-           delay={ index * 0.1}
+          <ScrollInView
+            key={index}
+            delay={index * 0.1}
             className={`relative rounded-2xl border ${
               tier.isPopular
                 ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
@@ -137,9 +136,7 @@ export const Pricing: FC<{ tiers: PricingTier[] }> = ({ tiers }) => (
 export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
   <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <ScrollInView
-        className="mx-auto mb-16 max-w-3xl text-center"
-      >
+      <ScrollInView className="mx-auto mb-16 max-w-3xl text-center">
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
           Case Studies
         </span>
@@ -155,8 +152,8 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
       <div className="grid gap-12">
         {cases.map((study, index) => (
           <ScrollInView
-          key={index}
-          delay={ index * 0.1}
+            key={index}
+            delay={index * 0.1}
             className="grid gap-8 rounded-2xl border border-theme-neutral-800 bg-card p-8 md:grid-cols-2"
           >
             <div>
@@ -184,7 +181,10 @@ export const CaseStudies: FC<{ cases: CaseStudyProps[] }> = ({ cases }) => (
 
               <div className="grid grid-cols-2 gap-4">
                 {study.results.map((result, idx) => (
-                  <div key={idx} className="rounded-xl bg-theme-primary-500/5 p-4">
+                  <div
+                    key={idx}
+                    className="rounded-xl bg-theme-primary-500/5 p-4"
+                  >
                     <div className="text-2xl font-bold text-theme-primary-400">
                       {result.value}
                     </div>
@@ -221,9 +221,7 @@ export const FAQ: FC<{ faqs: FAQ[] }> = ({ faqs }) => {
   return (
     <section className="border-t border-theme-neutral-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
-        <ScrollInView
-          className="mx-auto mb-16 max-w-3xl text-center"
-        >
+        <ScrollInView className="mx-auto mb-16 max-w-3xl text-center">
           <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
             FAQ
           </span>

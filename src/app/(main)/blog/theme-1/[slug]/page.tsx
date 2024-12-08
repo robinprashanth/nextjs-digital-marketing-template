@@ -1,20 +1,19 @@
-import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
-import { BlogPostLayout } from "../_components/BlogPostLayout";
+import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog";
+import { getSEOTags } from "@/lib/seo";
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import { getSEOTags } from "@/lib/seo";
+import { BlogPostLayout } from "../_components/BlogPostLayout";
 
 type Props = {
-  params: Promise<{ slug: string }>
-}
- 
-// Generate metadata for each blog post
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const slug = (await params).slug;
     const { frontMatter } = await getBlogPostBySlug(slug);
-    
+
     return getSEOTags({
       title: frontMatter.title,
       description: frontMatter.excerpt,
@@ -42,7 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-
 // Generate static paths
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
@@ -51,16 +49,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage(
-  { params }: Props
-) {
-  const slug = (await params).slug
+export default async function BlogPostPage({ params }: Props) {
+  const slug = (await params).slug;
   try {
     const { frontMatter, content } = await getBlogPostBySlug(slug);
 
     return (
       <BlogPostLayout metadata={frontMatter} slug={slug}>
-        <article className="prose prose-lg dark:prose-invert max-w-none">
+        <article className="prose prose-lg max-w-none dark:prose-invert">
           <MDXRemote source={content} />
         </article>
       </BlogPostLayout>

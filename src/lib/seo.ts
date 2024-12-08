@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import { siteConfig } from "@/config";
+import { Metadata } from "next";
 
 interface SEOProps extends Partial<Metadata> {
   title?: string;

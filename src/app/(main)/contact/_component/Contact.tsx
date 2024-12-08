@@ -35,7 +35,7 @@ const Contact: FC = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setError(null);
-    
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -44,11 +44,11 @@ const Contact: FC = () => {
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error("Failed to send message");
       }
-  
+
       setIsSuccess(true);
       reset();
     } catch {
@@ -58,15 +58,12 @@ const Contact: FC = () => {
     }
   };
 
-
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[linear-gradient(45deg,#8A6FF9,#6B4FD9)]">
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-3xl text-center"
-          >
+          <ScrollInView className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
               GET IN TOUCH
             </span>
@@ -414,7 +411,7 @@ const Contact: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
-          useInView={true}
+            useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-foreground">
@@ -425,9 +422,7 @@ const Contact: FC = () => {
             </p>
           </ScrollInView>
 
-          <ScrollInView
-            className="relative aspect-video overflow-hidden rounded-2xl border border-theme-neutral-800"
-          >
+          <ScrollInView className="relative aspect-video overflow-hidden rounded-2xl border border-theme-neutral-800">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.2922926!3d48.8583736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1644027036840!5m2!1sen!2sfr"
               width="100%"
@@ -446,7 +441,7 @@ const Contact: FC = () => {
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
-          useInView={true}
+            useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-foreground">
@@ -460,7 +455,7 @@ const Contact: FC = () => {
           <div className="mx-auto grid max-w-3xl gap-6">
             {faqs.map((faq, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"

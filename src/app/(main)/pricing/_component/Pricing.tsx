@@ -1,20 +1,19 @@
 "use client";
-import { FC, useState } from "react";
-import { motion } from "motion/react";
-import { Check, X, HelpCircle } from "lucide-react";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import Image from "next/image";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { companyLogos, features, pricingTiers } from "../data/content";
-import SubTitleBadge from "@/components/badge/SubTitleBadge";
-import TestimonialStarsAbove from "@/components/testimonials/TestimonialStarsAbove";
-import { ContactCTA } from "@/components/cta/Presets";
 
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
+import { ContactCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import TestimonialStarsAbove from "@/components/testimonials/TestimonialStarsAbove";
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { Check, HelpCircle, X } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import { FC, useState } from "react";
+import { companyLogos, features, pricingTiers } from "../data/content";
 
 const Pricing: FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
 
- 
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -23,9 +22,7 @@ const Pricing: FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(139,92,246,0.1),transparent)] opacity-70" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-3xl text-center"
-          >
+          <ScrollInView className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               Pricing Plans
             </span>
@@ -43,7 +40,7 @@ const Pricing: FC = () => {
 
           {/* Billing Toggle */}
           <ScrollInView
-          delay={0.2}
+            delay={0.2}
             className="mx-auto mt-12 flex justify-center"
           >
             <div className="inline-flex items-center rounded-full border border-theme-neutral-800 bg-background p-2">
@@ -93,7 +90,7 @@ const Pricing: FC = () => {
             {pricingTiers.map((tier, index) => (
               <ScrollInView
                 key={tier.name}
-                delay={ index * 0.1}
+                delay={index * 0.1}
                 className={`relative rounded-2xl border ${
                   tier.popular
                     ? "border-theme-primary-500 shadow-[0_0_30px_2px_rgba(147,51,234,0.1)]"
@@ -165,7 +162,7 @@ const Pricing: FC = () => {
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
-           useInView={true}
+            useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
@@ -197,7 +194,10 @@ const Pricing: FC = () => {
               </thead>
               <tbody>
                 {features.map((feature, index) => (
-                  <tr key={index} className="border-b border-theme-neutral-800 text-sm">
+                  <tr
+                    key={index}
+                    className="border-b border-theme-neutral-800 text-sm"
+                  >
                     <td className="py-4">
                       <Tooltip.Provider>
                         <Tooltip.Root>
@@ -269,10 +269,10 @@ const Pricing: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
-           useInView={true}
+            useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-             <SubTitleBadge text="FAQ" />
+            <SubTitleBadge text="FAQ" />
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
               Frequently Asked Questions
             </h2>
@@ -315,7 +315,7 @@ const Pricing: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
@@ -333,11 +333,10 @@ const Pricing: FC = () => {
       {/* Testimonials */}
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-        <ScrollInView
-         useInView={true}
+          <ScrollInView
+            useInView={true}
             className="mx-auto mb-12 max-w-3xl text-center"
           >
-          
             <SubTitleBadge text="TESTIMONIALS" />
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
               Trusted by Industry Leaders
@@ -374,7 +373,11 @@ const Pricing: FC = () => {
                 image: "/images/testimonials/emily.jpg",
               },
             ].map((testimonial, index) => (
-              <TestimonialStarsAbove testimonial={testimonial} delay={index} key= {index} />
+              <TestimonialStarsAbove
+                testimonial={testimonial}
+                delay={index}
+                key={index}
+              />
             ))}
           </div>
         </div>
@@ -383,15 +386,11 @@ const Pricing: FC = () => {
       {/* CTA Section */}
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-         
           <ContactCTA />
 
           {/* Trust Badges */}
           <div className="mt-16 text-center">
-            <ScrollInView
-             useInView={true}
-              className="space-y-8"
-            >
+            <ScrollInView useInView={true} className="space-y-8">
               <p className="text-sm text-muted-foreground">
                 Trusted by leading companies worldwide
               </p>
@@ -434,7 +433,7 @@ const Pricing: FC = () => {
                   { label: "Success Rate", value: "99.9%" },
                 ].map((metric, index) => (
                   <ScrollInView
-                  useInView={true}
+                    useInView={true}
                     key={metric.label}
                     delay={index * 0.1}
                     className="text-center"

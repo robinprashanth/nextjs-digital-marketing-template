@@ -119,16 +119,15 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
   return (
     <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
-      <SectionHeading
+        <SectionHeading
           alignment="center"
-            title={["Transforming Businesses", "Through Digital Excellence"]}
-            subtitle="SUCCESS STORIES"
-            subtitleColor="rose"
-            paragraph=" We combine strategic thinking, cutting-edge technology, and creative
+          title={["Transforming Businesses", "Through Digital Excellence"]}
+          subtitle="SUCCESS STORIES"
+          subtitleColor="rose"
+          paragraph=" We combine strategic thinking, cutting-edge technology, and creative
               expertise to deliver measurable results that accelerate your business
               growth in the digital landscape."
-          />
-        
+        />
 
         {/* Category Filter */}
         <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
@@ -160,9 +159,7 @@ export const PortfolioSection: FC<CaseStudiesProps> = ({
         </motion.div>
 
         {/* CTA Button */}
-        <ScrollInView
-          className="mt-16 text-center"
-        >
+        <ScrollInView className="mt-16 text-center">
           <Button
             variant="action"
             size="fluid"

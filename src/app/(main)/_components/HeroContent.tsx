@@ -14,16 +14,20 @@ import { clientAvatars, stats, testimonials } from "./hero/heroData";
 import { StatCard } from "./hero/StatCard";
 
 export const HeroSection: FC = () => {
-  const renderShape = (shape: typeof decorativeShapes[0]) => {
+  const renderShape = (shape: (typeof decorativeShapes)[0]) => {
     let content;
     switch (shape.type) {
-      case 'blur':
-        content = <div className={`rounded-full blur-lg ${shape.size} ${shape.color}`} />;
+      case "blur":
+        content = (
+          <div
+            className={`rounded-full blur-lg ${shape.size} ${shape.color}`}
+          />
+        );
         break;
-      case 'star':
+      case "star":
         content = <div className={`text-4xl ${shape.color}`}>✦</div>;
         break;
-      case 'plus':
+      case "plus":
         content = <div className={`text-3xl ${shape.color}`}>+</div>;
         break;
     }
@@ -69,7 +73,8 @@ export const HeroSection: FC = () => {
               <FadeInStaggerItem>
                 <p className="mt-8 max-w-xl text-lg text-theme-neutral-400">
                   Transform your brand with data-driven strategies, innovative
-                  solutions, and measurable results that drive real business growth.
+                  solutions, and measurable results that drive real business
+                  growth.
                 </p>
               </FadeInStaggerItem>
 

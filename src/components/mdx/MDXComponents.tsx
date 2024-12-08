@@ -1,13 +1,13 @@
-import { FC } from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { FC } from "react";
 
 export const MDXComponents = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
         "mt-2 scroll-m-20 text-4xl font-bold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -16,7 +16,7 @@ export const MDXComponents = {
     <h2
       className={cn(
         "mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
-        className
+        className,
       )}
       {...props}
     />
@@ -25,7 +25,7 @@ export const MDXComponents = {
     <h3
       className={cn(
         "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -49,7 +49,7 @@ export const MDXComponents = {
     <code
       className={cn(
         "relative rounded bg-black px-[0.3rem] py-[0.2rem] font-mono text-sm",
-        className
+        className,
       )}
       {...props}
     />

@@ -1,21 +1,22 @@
 "use client";
-import { FC } from "react";
+
+import { FadeIn } from "@/components/motion/FadeIn";
+import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { GridPattern } from "@/components/motion/GridPattern";
+import { ScaleIn } from "@/components/motion/ScaleIn";
 import { BarChart2 } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
+import {
+  additionalMetrics,
+  chartConfigs,
+  keyMetrics,
+  performanceData,
+} from "../data/content";
+import { AdditionalMetricCard } from "./AdditionalMetricCard";
 import { MetricCard } from "./MetricCard";
 import { PerformanceChart } from "./PerformanceChart";
-import { AdditionalMetricCard } from "./AdditionalMetricCard";
-import {
-  performanceData,
-  keyMetrics,
-  chartConfigs,
-  additionalMetrics,
-} from "../data/content";
-import { GridPattern } from "@/components/motion/GridPattern";
-import { FadeIn } from "@/components/motion/FadeIn";
-import { ScaleIn } from "@/components/motion/ScaleIn";
-import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
-import { FadeInStagger } from "@/components/motion/FadeInStagger";
-import { motion } from "motion/react";
 
 const quickStats = [
   { label: "Data Points", value: "10M+" },
@@ -67,14 +68,14 @@ export const PerformanceMetrics: FC = () => {
             </p>
 
             {/* Quick Stats */}
-            <FadeInStagger 
-              className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4" 
+            <FadeInStagger
+              className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4"
               delayStep={0.1}
             >
               {quickStats.map((stat, index) => (
                 <FadeInStaggerItem key={index}>
-                  <ScaleIn 
-                    delay={index * 0.1} 
+                  <ScaleIn
+                    delay={index * 0.1}
                     className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm hover:bg-white/15"
                   >
                     <div className="text-2xl font-bold text-white">
@@ -93,7 +94,7 @@ export const PerformanceMetrics: FC = () => {
       <section className="relative -mt-10 pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Key Metrics Grid */}
-          <FadeInStagger 
+          <FadeInStagger
             className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
             delayStep={0.1}
           >
@@ -105,7 +106,7 @@ export const PerformanceMetrics: FC = () => {
           </FadeInStagger>
 
           {/* Charts Section */}
-          <FadeInStagger 
+          <FadeInStagger
             className="mb-12 grid gap-8 lg:grid-cols-2"
             delayStep={0.2}
           >
@@ -128,10 +129,7 @@ export const PerformanceMetrics: FC = () => {
           </FadeInStagger>
 
           {/* Additional Metrics */}
-          <FadeInStagger 
-            className="grid gap-6 md:grid-cols-3"
-            delayStep={0.1}
-          >
+          <FadeInStagger className="grid gap-6 md:grid-cols-3" delayStep={0.1}>
             {additionalMetrics.map((metric, index) => (
               <FadeInStaggerItem key={index}>
                 <ScaleIn delay={index * 0.1}>

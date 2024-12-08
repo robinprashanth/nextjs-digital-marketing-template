@@ -1,8 +1,8 @@
-import { FC } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowLeft, Clock } from "lucide-react";
 import { ArticleMetadata } from "@/types";
+import { ArrowLeft, Clock } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
 interface ArticleLayoutProps {
   metadata: ArticleMetadata;

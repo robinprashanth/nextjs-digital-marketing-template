@@ -1,15 +1,9 @@
 "use client";
 
-import { FC, ReactNode } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import {
-  Square,
-  Play,
-  Component,
-  Palette,
-  MessageSquare
-} from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Component, MessageSquare, Palette, Play, Square } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { FC, ReactNode } from "react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -50,7 +44,7 @@ const navigation = [
     name: "CTAs",
     href: "/user-interface/cta",
     icon: MessageSquare,
-  }
+  },
 ];
 
 const UILayout: FC<LayoutProps> = ({ children }) => {
@@ -65,14 +59,16 @@ const UILayout: FC<LayoutProps> = ({ children }) => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="py-4">
             <h1 className="mb-4 text-2xl font-bold">UI Components</h1>
-            
+
             {/* Desktop Tabs */}
             <div className="hidden sm:block">
               <Tabs
                 defaultValue={currentPath || "buttons"}
-                onValueChange={(value) => router.push(`/user-interface/${value}`)}
+                onValueChange={(value) =>
+                  router.push(`/user-interface/${value}`)
+                }
               >
-                <TabsList className="h-auto flex-wrap gap-2 bg-transparent p-0 overflow-x-auto">
+                <TabsList className="h-auto flex-wrap gap-2 overflow-x-auto bg-transparent p-0">
                   {navigation.map((item) => (
                     <TabsTrigger
                       key={item.name}
@@ -91,7 +87,9 @@ const UILayout: FC<LayoutProps> = ({ children }) => {
             <div className="hide-scrollbar overflow-x-auto sm:hidden">
               <Tabs
                 defaultValue={currentPath || "buttons"}
-                onValueChange={(value) => router.push(`/user-interface/${value}`)}
+                onValueChange={(value) =>
+                  router.push(`/user-interface/${value}`)
+                }
               >
                 <TabsList className="inline-flex h-auto gap-2 bg-transparent p-0">
                   {navigation.map((item) => (
@@ -112,9 +110,7 @@ const UILayout: FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Main content */}
-      <main className="container mx-auto px-4 py-8 sm:px-6">
-        {children}
-      </main>
+      <main className="container mx-auto px-4 py-8 sm:px-6">{children}</main>
 
       {/* Scrollbar hiding styles */}
       <style jsx global>{`

@@ -1,12 +1,12 @@
 "use client";
 
-import { FC, useState } from "react";
-import Image from "next/image";
-import { Linkedin, Twitter, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import { JoinTeamCTA } from "../cta/Presets";
+import { Button } from "@/components/ui/button";
+import { Linkedin, Mail, Twitter } from "lucide-react";
+import Image from "next/image";
+import { FC, useState } from "react";
 import SubTitleBadge from "../badge/SubTitleBadge";
+import { JoinTeamCTA } from "../cta/Presets";
 
 interface TeamMember {
   name: string;
@@ -138,16 +138,19 @@ export const TeamSectionSelect: FC = () => {
     "Development",
   ];
 
-  const filteredTeamMembers = teamMembers.filter(member => 
-    selectedDepartment === "All" || member.department === selectedDepartment
+  const filteredTeamMembers = teamMembers.filter(
+    (member) =>
+      selectedDepartment === "All" || member.department === selectedDepartment,
   );
 
   return (
     <section className="relative border-t border-theme-neutral-800 py-24">
       <div className="container mx-auto px-4 sm:px-6">
-        <ScrollInView useInView={true} className="mx-auto mb-20 max-w-3xl text-center">
-        
-          <SubTitleBadge  text="Our Team"/>
+        <ScrollInView
+          useInView={true}
+          className="mx-auto mb-20 max-w-3xl text-center"
+        >
+          <SubTitleBadge text="Our Team" />
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Meet the{" "}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">

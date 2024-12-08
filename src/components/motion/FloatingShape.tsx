@@ -1,6 +1,8 @@
-import { FC } from "react";
-import { motion } from "motion/react";
+"use client";
+
 import { FloatingShapeProps } from "@/types";
+import { motion } from "motion/react";
+import { FC } from "react";
 
 export const FloatingShape: FC<FloatingShapeProps> = ({
   className,

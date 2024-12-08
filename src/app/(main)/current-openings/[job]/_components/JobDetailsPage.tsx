@@ -46,10 +46,10 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
 
     try {
       // Send application data to your API
-      const response = await fetch('/api/jobs/apply', {
-        method: 'POST',
+      const response = await fetch("/api/jobs/apply", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           jobId: job.id,
@@ -58,18 +58,17 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit application');
+        throw new Error("Failed to submit application");
       }
 
       setIsSuccess(true);
       reset();
-    } catch  {
+    } catch {
       setError("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
   };
-
 
   if (!job) {
     return (
@@ -104,9 +103,7 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
             Back to all openings
           </Link>
 
-          <ScrollInView
-            className="max-w-3xl"
-          >
+          <ScrollInView className="max-w-3xl">
             <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
               {job.title}
             </h1>
@@ -152,9 +149,7 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Left Column - Job Details */}
             <div className="lg:col-span-2">
-              <ScrollInView
-                className="space-y-8"
-              >
+              <ScrollInView className="space-y-8">
                 {/* Overview */}
                 <div className="rounded-2xl border border-theme-neutral-800 bg-card p-6">
                   <h2 className="mb-4 text-2xl font-bold text-foreground">
@@ -221,8 +216,8 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
 
             {/* Right Column - Application Form */}
             <ScrollInView
-            useInView={true}
-            delay={0.2}
+              useInView={true}
+              delay={0.2}
               className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
             >
               <h2 className="mb-6 text-2xl font-bold text-foreground">
@@ -385,7 +380,9 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
                         <Upload className="h-6 w-6 text-theme-primary-400" />
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        <span className="text-theme-primary-400">Click to upload</span>{" "}
+                        <span className="text-theme-primary-400">
+                          Click to upload
+                        </span>{" "}
                         or drag and drop
                       </div>
                       <div className="text-xs text-muted-foreground">
@@ -455,9 +452,7 @@ const JobDetailsPage: FC<JobDetailsPageProps> = ({ job }) => {
                 )}
 
                 {error && (
-                  <ScrollInView
-                    className="rounded-lg bg-theme-rose-500/10 p-4"
-                  >
+                  <ScrollInView className="rounded-lg bg-theme-rose-500/10 p-4">
                     <div className="flex items-center gap-2 text-theme-rose-500">
                       <AlertCircle className="h-5 w-5" />
                       <p className="text-sm font-medium">{error}</p>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { FC, PropsWithChildren } from "react";
 import { motion } from "motion/react";

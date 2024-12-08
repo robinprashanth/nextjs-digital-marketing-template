@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
-// Types
 interface Service {
   icon: React.ReactNode;
   title: string;
@@ -130,7 +129,9 @@ const ServiceCard: FC<Service> = ({
 
 const StatItem: FC<Stat> = ({ number, text }) => (
   <FadeInStaggerItem className="p-6">
-    <div className="mb-2 text-4xl font-bold text-theme-neutral-900">{number}</div>
+    <div className="mb-2 text-4xl font-bold text-theme-neutral-900">
+      {number}
+    </div>
     <div className="text-theme-neutral-600">{text}</div>
   </FadeInStaggerItem>
 );
@@ -141,14 +142,14 @@ export const ServicesSection: FC = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <SectionHeading
-            subtitleColor="rose"
-            alignment="center"
-            title={["Digital Marketing Excellence Tailored to Your Growth"]}
-            subtitle="Comprehensive Solutions"
-            paragraph="We combine strategic thinking, cutting-edge technology, and creative
+          subtitleColor="rose"
+          alignment="center"
+          title={["Digital Marketing Excellence Tailored to Your Growth"]}
+          subtitle="Comprehensive Solutions"
+          paragraph="We combine strategic thinking, cutting-edge technology, and creative
               expertise to deliver measurable results that accelerate your business
               growth in the digital landscape."
-          />
+        />
 
         {/* Services Grid */}
         <FadeInStagger

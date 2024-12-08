@@ -1,17 +1,13 @@
 "use client";
-import { FC, useState } from "react";
-import { motion } from "motion/react";
-import {
-  Search,
-  HelpCircle,
-  ArrowRight,
-  ChevronDown,
-} from "lucide-react";
-import type { SearchState } from "../data/content";
-import { pageConfig, categories, faqs, popularSearches } from "../data/content";
-import { Button } from "@/components/ui/button";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+
 import { SupportCTA } from "@/components/cta/SupportCTA";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ChevronDown, HelpCircle, Search } from "lucide-react";
+import { motion } from "motion/react";
+import { FC, useState } from "react";
+import type { SearchState } from "../data/content";
+import { categories, faqs, pageConfig, popularSearches } from "../data/content";
 
 export const FAQs: FC = () => {
   const [searchState, setSearchState] = useState<SearchState>({
@@ -42,9 +38,7 @@ export const FAQs: FC = () => {
         </div>
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-3xl text-center"
-          >
+          <ScrollInView className="mx-auto max-w-3xl text-center">
             {/* Title Badge */}
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
               HELP CENTER
@@ -113,7 +107,7 @@ export const FAQs: FC = () => {
         </div>
       </section>
       {/* Content Section */}
-      <section className=" relative bg-background pb-24">
+      <section className="relative bg-background pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Categories Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -181,7 +175,6 @@ export const FAQs: FC = () => {
 
           {/* Still Have Questions Section */}
           <SupportCTA />
-
         </div>
       </section>
     </main>

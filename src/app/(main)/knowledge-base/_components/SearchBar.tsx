@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import { Search } from "lucide-react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Search } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
 
 interface SearchBarProps {
   value: string;
@@ -32,10 +32,7 @@ export const SearchBar: FC<SearchBarProps> = ({
     </p>
 
     {/* Search Input */}
-    <ScrollInView
-    delay={0.2}
-      className="mt-8"
-    >
+    <ScrollInView delay={0.2} className="mt-8">
       <div className="relative mx-auto max-w-2xl">
         <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-theme-neutral-400" />
         <input
@@ -50,7 +47,7 @@ export const SearchBar: FC<SearchBarProps> = ({
 
     {/* Popular Searches */}
     <ScrollInView
-    delay={0.3}
+      delay={0.3}
       className="mt-4 flex flex-wrap justify-center gap-2"
     >
       <span className="text-sm text-white/60">Popular:</span>

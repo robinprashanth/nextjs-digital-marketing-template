@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import type { FC } from "react";
@@ -76,7 +77,8 @@ export const StatsGrid: FC = () => (
             SPEND CONSISTENTLY!
           </div>
           <div className="mt-3 text-sm text-theme-neutral-400 sm:mt-4 sm:text-base">
-            AVERAGE <span className="text-theme-ocean-400">INCREASE IN ROI</span>
+            AVERAGE{" "}
+            <span className="text-theme-ocean-400">INCREASE IN ROI</span>
             <br className="hidden sm:block" />
             FOR OUR CLIENTS.
           </div>

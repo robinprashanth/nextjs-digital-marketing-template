@@ -1,37 +1,38 @@
 "use client";
-import { FC } from "react";
+
+import { ContentStrategyCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { PlatformCard } from "@/components/PlatformCard";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import {
-  FileText,
-  Video,
-  Share2,
-  Mail,
-  Users,
-  FileSearch,
-  Search,
-  Calendar,
-  Image,
-  Share,
-  BarChart,
-  TrendingUp,
-  PieChart,
-  Settings,
-  Globe,
   ArrowUpRight,
+  BarChart,
   BarChart2,
+  Calendar,
+  FileSearch,
+  FileText,
+  Globe,
+  Image,
+  Mail,
+  PieChart,
+  Search,
+  Settings,
+  Share,
+  Share2,
+  TrendingUp,
+  Users,
+  Video,
 } from "lucide-react";
 import NextImage from "next/image";
+import { FC } from "react";
 import {
-  metrics,
   contentTypes,
-  services,
+  metrics,
   processSteps,
   results,
+  services,
   tools,
 } from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { ContentStrategyCTA } from "@/components/cta/Presets";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import { PlatformCard } from "@/components/PlatformCard";
 
 const iconMap = {
   FileText,
@@ -70,9 +71,7 @@ export const ContentStrategy: FC = () => {
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-violet-500/20 blur-xl" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="max-w-4xl"
-          >
+          <ScrollInView className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full bg-theme-indigo-500/10 px-4 py-1 text-sm text-theme-indigo-400">
               CONTENT STRATEGY
             </div>
@@ -90,10 +89,12 @@ export const ContentStrategy: FC = () => {
               {metrics.map((metric, index) => (
                 <ScrollInView
                   key={index}
-                  delay={ index * 0.1}
+                  delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">
+                    {metric.label}
+                  </p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
@@ -111,12 +112,12 @@ export const ContentStrategy: FC = () => {
       {/* Content Types Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="CONTENT TYPES"
-  heading="Multi-Format Content Excellence"
-  description="Professional content creation across all formats and channels."
-  theme="indigo"
-/>
+          <AnimatedHeading
+            title="CONTENT TYPES"
+            heading="Multi-Format Content Excellence"
+            description="Professional content creation across all formats and channels."
+            theme="indigo"
+          />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {contentTypes.map((type, index) => {
@@ -163,17 +164,17 @@ export const ContentStrategy: FC = () => {
       {/* Services Grid */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="OUR SERVICES"
-  heading="Comprehensive Content Solutions"
-  description="End-to-end content strategy, creation, and distribution services."
-  theme="indigo"
-/>
+          <AnimatedHeading
+            title="OUR SERVICES"
+            heading="Comprehensive Content Solutions"
+            description="End-to-end content strategy, creation, and distribution services."
+            theme="indigo"
+          />
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-3xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800"
@@ -218,16 +219,16 @@ export const ContentStrategy: FC = () => {
       {/* Results Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="SUCCESS STORIES"
-  heading="Content That Drives Business Results"
-  theme="indigo"
-/>
+          <AnimatedHeading
+            title="SUCCESS STORIES"
+            heading="Content That Drives Business Results"
+            theme="indigo"
+          />
 
           <div className="grid gap-8 md:grid-cols-3">
             {results.map((result, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="group relative overflow-hidden rounded-3xl"
@@ -278,17 +279,17 @@ export const ContentStrategy: FC = () => {
       {/* Process Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="OUR PROCESS"
-  heading="How We Create Winning Content"
-  theme="indigo_light"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="OUR PROCESS"
+            heading="How We Create Winning Content"
+            theme="indigo_light"
+            useInView={true}
+          />
 
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative"
@@ -314,29 +315,26 @@ export const ContentStrategy: FC = () => {
       {/* Tools Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="TOOLS & TECHNOLOGY"
-  heading="Professional Tools We Use"
-  theme="indigo_small"
-/>
+          <AnimatedHeading
+            title="TOOLS & TECHNOLOGY"
+            heading="Professional Tools We Use"
+            theme="indigo_small"
+          />
           <div className="grid gap-6 md:grid-cols-4">
-          {tools.map((platform, index) => (
-        <PlatformCard
-          key={index}
-          platform={platform}
-          iconMap={iconMap}
-          index={index}
-        />
-      ))}
-          
-
+            {tools.map((platform, index) => (
+              <PlatformCard
+                key={index}
+                platform={platform}
+                iconMap={iconMap}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <ContentStrategyCTA />
-
     </main>
   );
 };

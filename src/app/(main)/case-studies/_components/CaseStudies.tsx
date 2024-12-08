@@ -1,10 +1,10 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { CaseStudyCard } from "./CaseStudyCard";
-import { CaseStudy } from "@/types";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { CaseStudy } from "@/types";
+import { motion } from "motion/react";
+import { FC, useEffect, useState } from "react";
+import { CaseStudyCard } from "./CaseStudyCard";
 
 interface CaseStudiesProps {
   initialCaseStudies: CaseStudy[];
@@ -68,9 +68,7 @@ export const CaseStudies: FC<CaseStudiesProps> = ({ initialCaseStudies }) => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="mx-auto max-w-3xl text-center"
-          >
+          <ScrollInView className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
               CASE STUDIES
             </span>

@@ -1,4 +1,6 @@
 "use client";
+
+import { FeatureCard } from "@/components/FeatureCard";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import { Button } from "@/components/ui/button";
@@ -17,7 +19,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { features, metrics, processSteps, toolsUsed } from "../data/content";
-import { FeatureCard } from "@/components/FeatureCard";
 
 const iconMap = {
   Search,
@@ -51,9 +52,7 @@ export const SEO: FC = () => {
 
         {/* Content */}
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="max-w-4xl"
-          >
+          <ScrollInView className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full bg-emerald-500/10 px-4 py-1 text-sm text-emerald-400">
               SEO EXCELLENCE
             </div>
@@ -76,7 +75,9 @@ export const SEO: FC = () => {
                   delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">
+                    {metric.label}
+                  </p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
@@ -94,22 +95,22 @@ export const SEO: FC = () => {
       {/* Features Grid Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="COMPREHENSIVE SEO SERVICES"
-  heading="Full-Spectrum SEO Solutions"
-  description="Strategic SEO services designed to improve your search rankings, drive organic traffic, and increase conversions."
-  theme="indigo"
-/>
+          <AnimatedHeading
+            title="COMPREHENSIVE SEO SERVICES"
+            heading="Full-Spectrum SEO Solutions"
+            description="Strategic SEO services designed to improve your search rankings, drive organic traffic, and increase conversions."
+            theme="indigo"
+          />
           {/* Features Grid */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-        <FeatureCard
-          key={index}
-          feature={feature}
-          iconMap={iconMap}
-          index={index}
-        />
-      ))}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                feature={feature}
+                iconMap={iconMap}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -118,11 +119,7 @@ export const SEO: FC = () => {
       <section className="relative overflow-hidden bg-gray-50 py-24 dark:bg-theme-neutral-900">
         <div className="container relative mx-auto px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
-            <ScrollInView
-            useInView={true}
-            x={-20}
-              className="max-w-xl"
-            >
+            <ScrollInView useInView={true} x={-20} className="max-w-xl">
               <span className="mb-4 block bg-gradient-to-r from-emerald-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 OUR PROCESS
               </span>
@@ -135,9 +132,9 @@ export const SEO: FC = () => {
               <div className="space-y-6">
                 {processSteps.map((step, index) => (
                   <ScrollInView
-                  useInView={true}
+                    useInView={true}
                     key={index}
-                    delay={index * 0.1 }
+                    delay={index * 0.1}
                     className="flex gap-4"
                   >
                     <span className="text-2xl font-bold text-emerald-600">
@@ -157,10 +154,7 @@ export const SEO: FC = () => {
             </ScrollInView>
 
             {/* Tools Section */}
-            <ScrollInView
-            useInView={true}
-              className="relative"
-            >
+            <ScrollInView useInView={true} className="relative">
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-theme-neutral-900 dark:text-white">
                   Professional Tools & Technology
@@ -171,9 +165,9 @@ export const SEO: FC = () => {
                       iconMap[tool.icon as keyof typeof iconMap];
                     return (
                       <ScrollInView
-                      useInView={true}
+                        useInView={true}
                         key={index}
-                       delay={index * 0.1}
+                        delay={index * 0.1}
                         className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
                       >
                         <div className="mb-4 rounded-xl bg-emerald-500/10 p-2 dark:bg-emerald-500/5">
@@ -192,10 +186,7 @@ export const SEO: FC = () => {
               </div>
 
               {/* Dashboard Preview */}
-              <ScrollInView
-              useInView={true}
-                className="mt-12"
-              >
+              <ScrollInView useInView={true} className="mt-12">
                 <div className="relative h-[400px] overflow-hidden rounded-3xl">
                   <Image
                     src="/images/services/seo-dashboard.jpg"
@@ -215,7 +206,7 @@ export const SEO: FC = () => {
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
-          useInView={true}
+            useInView={true}
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">
@@ -239,12 +230,12 @@ export const SEO: FC = () => {
       {/* Results Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="PROVEN RESULTS"
-  heading="Real Results for Real Businesses"
-  description="Our data-driven approach consistently delivers outstanding results across various industries and business sizes."
-  theme="indigo"
-/>
+          <AnimatedHeading
+            title="PROVEN RESULTS"
+            heading="Real Results for Real Businesses"
+            description="Our data-driven approach consistently delivers outstanding results across various industries and business sizes."
+            theme="indigo"
+          />
 
           {/* Results Grid */}
           <div className="grid gap-8 md:grid-cols-3">
@@ -272,7 +263,7 @@ export const SEO: FC = () => {
               },
             ].map((result, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800"
@@ -286,7 +277,9 @@ export const SEO: FC = () => {
                 <p className="mb-2 text-theme-neutral-600 dark:text-theme-neutral-400">
                   {result.description}
                 </p>
-                <p className="text-sm text-theme-neutral-500">in {result.duration}</p>
+                <p className="text-sm text-theme-neutral-500">
+                  in {result.duration}
+                </p>
                 <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-emerald-500/5 blur-xl" />
               </ScrollInView>
             ))}
@@ -297,11 +290,11 @@ export const SEO: FC = () => {
       {/* FAQ Section */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="FAQ"
-  heading="Frequently Asked Questions"
- theme="indigo"
-/>
+          <AnimatedHeading
+            title="FAQ"
+            heading="Frequently Asked Questions"
+            theme="indigo"
+          />
 
           <div className="mx-auto max-w-3xl space-y-6">
             {[
@@ -322,7 +315,7 @@ export const SEO: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
@@ -330,7 +323,9 @@ export const SEO: FC = () => {
                 <h3 className="mb-3 text-lg font-bold text-theme-neutral-900 dark:text-white">
                   {faq.question}
                 </h3>
-                <p className="text-theme-neutral-600 dark:text-theme-neutral-400">{faq.answer}</p>
+                <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
+                  {faq.answer}
+                </p>
               </ScrollInView>
             ))}
           </div>

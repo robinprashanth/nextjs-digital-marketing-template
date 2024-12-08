@@ -1,18 +1,19 @@
 "use client";
-import { FC } from "react";
+
+import { EmailMarketingCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import {
+  ArrowUpRight,
+  BarChart3,
+  LineChart,
   Mail,
   Target,
-  BarChart3,
   Users,
   Zap,
-  LineChart,
-  ArrowUpRight,
 } from "lucide-react";
 import Image from "next/image";
+import { FC } from "react";
 import { features, metrics, processSteps } from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { EmailMarketingCTA } from "@/components/cta/Presets";
 
 const iconMap = {
   Mail,
@@ -44,9 +45,7 @@ export const EmailMarketing: FC = () => {
 
         {/* Content */}
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="max-w-4xl"
-          >
+          <ScrollInView className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1 text-sm text-theme-primary-400">
               EMAIL MARKETING SOLUTIONS
             </div>
@@ -69,7 +68,9 @@ export const EmailMarketing: FC = () => {
                   delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">
+                    {metric.label}
+                  </p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
@@ -88,7 +89,7 @@ export const EmailMarketing: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
-          useInView={true}
+            useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -112,9 +113,9 @@ export const EmailMarketing: FC = () => {
                 iconMap[feature.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
-                useInView={true}
+                  useInView={true}
                   key={index}
-                  delay={index * 0.1 }
+                  delay={index * 0.1}
                   className="group cursor-pointer"
                 >
                   <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800">
@@ -147,10 +148,7 @@ export const EmailMarketing: FC = () => {
       <section className="relative overflow-hidden bg-gray-50 py-24 dark:bg-theme-neutral-900">
         <div className="container relative mx-auto px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
-            <ScrollInView
-            useInView={true}
-              className="max-w-xl"
-            >
+            <ScrollInView useInView={true} className="max-w-xl">
               <span className="mb-4 block bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 OUR PROCESS
               </span>
@@ -164,7 +162,7 @@ export const EmailMarketing: FC = () => {
               <div className="space-y-6">
                 {processSteps.map((step, index) => (
                   <ScrollInView
-                  useInView={true}
+                    useInView={true}
                     key={index}
                     delay={index * 0.1}
                     className="flex gap-4"
@@ -186,10 +184,7 @@ export const EmailMarketing: FC = () => {
             </ScrollInView>
 
             {/* Image/Visualization Section */}
-            <ScrollInView
-            useInView={true}
-              className="relative"
-            >
+            <ScrollInView useInView={true} className="relative">
               <div className="relative h-[600px] overflow-hidden rounded-3xl">
                 <Image
                   src="/images/services/email-marketing-dashboard.jpg"

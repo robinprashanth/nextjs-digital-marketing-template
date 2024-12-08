@@ -1,11 +1,11 @@
 "use client";
 
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { FC } from "react";
 import { features, whyChooseUsContent, type Feature } from "../data/content";
-import SubTitleBadge from "@/components/badge/SubTitleBadge";
 
 interface FeatureCardProps extends Feature {
   index: number;
@@ -18,11 +18,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
   stats,
   index,
 }) => (
-  <ScrollInView 
-    delay={index * 0.1}
-    useInView={true}
-    className="group"
-  >
+  <ScrollInView delay={index * 0.1} useInView={true} className="group">
     <Card className="relative h-full overflow-hidden border-border bg-card transition-all duration-300 hover:shadow-lg">
       <CardHeader className="space-y-4 p-6">
         <div className="flex items-center justify-between">
@@ -42,13 +38,12 @@ const FeatureCard: FC<FeatureCardProps> = ({
       <CardContent className="p-6 pt-0">
         <div className="grid grid-cols-2 gap-4">
           {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="rounded-lg bg-muted/50 p-4 text-center"
-            >
+            <div key={idx} className="rounded-lg bg-muted/50 p-4 text-center">
               <div className="space-y-1">
                 <div className="text-2xl font-bold text-foreground">
-                  {stat.prefix}{stat.value}{stat.suffix}
+                  {stat.prefix}
+                  {stat.value}
+                  {stat.suffix}
                 </div>
                 <div className="text-xs text-muted-foreground">
                   {stat.label}
@@ -72,7 +67,7 @@ export const WhyChooseUs: FC = () => {
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <SubTitleBadge text={whyChooseUsContent.subtitle} />
-         
+
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {whyChooseUsContent.title.prefix}
             <span className="text-primary">
@@ -91,8 +86,6 @@ export const WhyChooseUs: FC = () => {
             <FeatureCard key={index} {...feature} index={index} />
           ))}
         </div>
-
-  
       </div>
     </section>
   );

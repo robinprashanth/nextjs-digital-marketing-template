@@ -9,7 +9,7 @@ export const PricingToggle: FC<PricingToggleProps> = ({
   billingPeriod,
   onToggle,
 }) => (
-  <div className=" mt-8 inline-flex items-center rounded-full bg-theme-neutral-100 p-1 dark:bg-theme-neutral-800">
+  <div className="mt-8 inline-flex items-center rounded-full bg-theme-neutral-100 p-1 dark:bg-theme-neutral-800">
     <button
       onClick={() => onToggle("monthly")}
       className={`rounded-full px-6 py-2 text-sm font-medium transition-all ${

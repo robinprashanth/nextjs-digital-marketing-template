@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import Link from "next/link";
-import Image from "next/image";
-import { Calendar, Clock, Tag } from "lucide-react";
 import { BlogPost } from "@/types";
+import { Calendar, Clock, Tag } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
 interface BlogCardProps {
   post: BlogPost;

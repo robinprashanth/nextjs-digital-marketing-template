@@ -1,7 +1,16 @@
-import { FC } from "react";
+import {
+  CertificationsCTA,
+  ConsultationCTA,
+  ContentStrategyCTA,
+  CustomSolutionCTA,
+  DigitalMarketingCTA,
+  DigitalPresenceCTA,
+  EmailMarketingCTA,
+  JoinTeamCTA,
+  TeamCollaborationCTA,
+} from "@/components/cta/Presets";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import { JoinTeamCTA, CustomSolutionCTA, CertificationsCTA, ConsultationCTA } from "@/components/cta/Presets";
-import { TeamCollaborationCTA, ContentStrategyCTA, DigitalMarketingCTA, EmailMarketingCTA, DigitalPresenceCTA } from "@/components/cta/Presets";
+import { FC } from "react";
 
 const CTAPage: FC = () => {
   return (
@@ -86,7 +95,9 @@ const CTAPage: FC = () => {
           <h2 className="mb-6 text-2xl font-semibold">Section CTAs</h2>
           <div className="space-y-16">
             <div>
-              <h3 className="mb-4 text-xl font-medium">Team Collaboration CTA</h3>
+              <h3 className="mb-4 text-xl font-medium">
+                Team Collaboration CTA
+              </h3>
               <TeamCollaborationCTA />
               <div className="mt-4 rounded-lg border border-border p-4">
                 <pre className="text-sm">
@@ -114,7 +125,9 @@ const CTAPage: FC = () => {
             </div>
 
             <div>
-              <h3 className="mb-4 text-xl font-medium">Digital Marketing CTA</h3>
+              <h3 className="mb-4 text-xl font-medium">
+                Digital Marketing CTA
+              </h3>
               <DigitalMarketingCTA />
               <div className="mt-4 rounded-lg border border-border p-4">
                 <pre className="text-sm">

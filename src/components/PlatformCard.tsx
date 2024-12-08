@@ -1,8 +1,8 @@
 "use client";
 
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { LucideIcon } from "lucide-react";
 
 // Array of background colors using our theme
 const bgColors = [
@@ -34,25 +34,31 @@ interface PlatformCardProps {
   delay?: number;
 }
 
-export function PlatformCard({ platform, iconMap, index, delay = 0.1 }: PlatformCardProps) {
+export function PlatformCard({
+  platform,
+  iconMap,
+  index,
+  delay = 0.1,
+}: PlatformCardProps) {
   const IconComponent = iconMap[platform.icon as keyof typeof iconMap];
   const bgColor = bgColors[index % bgColors.length];
   const iconColor = iconColors[index % iconColors.length];
 
   return (
-    <ScrollInView
-      useInView={true}
-      delay={index * delay}
-    >
-      <div className={cn(
-        "group relative h-full rounded-3xl p-8 transition-all duration-300",
-        bgColor,
-        "hover:shadow-lg hover:scale-[1.02]"
-      )}>
+    <ScrollInView useInView={true} delay={index * delay}>
+      <div
+        className={cn(
+          "group relative h-full rounded-3xl p-8 transition-all duration-300",
+          bgColor,
+          "hover:scale-[1.02] hover:shadow-lg",
+        )}
+      >
         {/* Icon Container */}
-        <div className={cn(
-          "mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 transition-transform duration-300 group-hover:scale-110 dark:bg-white/10",
-        )}>
+        <div
+          className={cn(
+            "mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 transition-transform duration-300 group-hover:scale-110 dark:bg-white/10",
+          )}
+        >
           <IconComponent className={cn("h-6 w-6", iconColor)} />
         </div>
 

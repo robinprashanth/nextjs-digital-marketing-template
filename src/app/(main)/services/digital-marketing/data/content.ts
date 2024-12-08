@@ -184,7 +184,6 @@ export const services = [
 ];
 
 export const testimonials = [
-  
   {
     quote:
       "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",

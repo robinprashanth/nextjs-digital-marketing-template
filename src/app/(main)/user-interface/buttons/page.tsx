@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { FC } from "react";
 
 const ButtonsPage: FC = () => {
   return (

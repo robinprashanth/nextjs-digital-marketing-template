@@ -1,11 +1,12 @@
 "use client";
-import { FC } from "react";
-import Link from "next/link";
-import { motion } from "motion/react";
-import { Home, ArrowRight } from "lucide-react";
-import { useWindowSize } from "@/hooks/useWindowSize";
-import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { ArrowRight, Home } from "lucide-react";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { FC } from "react";
 
 // Quick links data
 const quickLinks = [
@@ -104,8 +105,8 @@ const NotFound: FC = () => {
               Page Not Found
             </h1>
             <p className="text-lg text-white/80">
-              Oops! It seems you&apos;ve ventured into digital space where no page
-              exists. Let&apos;s get you back on track.
+              Oops! It seems you&apos;ve ventured into digital space where no
+              page exists. Let&apos;s get you back on track.
             </p>
           </FadeInStaggerItem>
 

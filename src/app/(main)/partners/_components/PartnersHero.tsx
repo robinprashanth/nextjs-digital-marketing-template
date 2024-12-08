@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import { Share2, Globe, Shield, Network } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
+import { Globe, Network, Share2, Shield } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
 
 interface StatCardProps {
   icon: typeof Globe;
@@ -29,14 +29,14 @@ const PartnersHero: FC = () => {
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(147,51,234,0.15),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(139,92,246,0.15),transparent_50%)]" />
-      
+
       {/* Grid Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
                            linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-          backgroundSize: '4rem 4rem'
+          backgroundSize: "4rem 4rem",
         }}
       />
 
@@ -109,7 +109,7 @@ const PartnersHero: FC = () => {
                   <span className="relative z-10 bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
                     Future
                   </span>
-                  <motion.span 
+                  <motion.span
                     className="absolute -inset-1 -z-10 block rounded-lg bg-theme-primary-500/20 blur-xl"
                     animate={{
                       opacity: [0.5, 0.8, 0.5],
@@ -132,8 +132,8 @@ const PartnersHero: FC = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button 
-                variant="action" 
+              <Button
+                variant="action"
                 size="lg-rounded"
                 className="bg-gradient-to-r from-theme-primary-500 to-theme-primary-600 hover:from-theme-primary-600 hover:to-theme-primary-700"
               >

@@ -1,11 +1,9 @@
-import { FC } from "react";
-import { Search } from "lucide-react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Search } from "lucide-react";
+import { FC } from "react";
 
 export const BlogNoResults: FC = () => (
-  <ScrollInView
-    className="text-center"
-  >
+  <ScrollInView className="text-center">
     <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-muted">
       <Search className="h-10 w-10 text-muted-foreground" />
     </div>

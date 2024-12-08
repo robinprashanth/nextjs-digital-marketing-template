@@ -1,15 +1,15 @@
 import { TeamSection } from "@/components/teams/TeamSection";
+import { getAllCaseStudies } from "@/lib/case-studies";
+import { PricingSection } from "../../components/pricing/PricingSection";
+import { TestimonialsMain } from "../../components/testimonials/TestimonialsMain";
 import { ContactSection } from "./_components/ContactForm";
 import { HeroSection } from "./_components/HeroContent";
 import { IndustriesSection } from "./_components/IndustriesSection";
 import { PortfolioSection } from "./_components/PortfolioSection";
-import { PricingSection } from "../../components/pricing/PricingSection";
 import { ServicesSection } from "./_components/ServicesSection";
 import { StatsGrid } from "./_components/StatsGrid";
 import { TechStackSection } from "./_components/TechStackSection";
-import { TestimonialsMain } from "../../components/testimonials/TestimonialsMain";
 import { WorkingMethodSection } from "./_components/WorkingMethodSection";
-import { getAllCaseStudies } from "@/lib/case-studies";
 import { companyLogos, testimonials } from "./data/content";
 
 export default async function Home() {
@@ -41,11 +41,15 @@ export default async function Home() {
       <ServicesSection />
       <WorkingMethodSection />
       <PortfolioSection initialCaseStudies={caseStudies} />
-      <TestimonialsMain companyLogos={companyLogos} testimonials={testimonials} heading={{
-    label: "TESTIMONIALS",
-    title: "Customer Stories",
-    description: "See what our clients have to say"
-  }}/>
+      <TestimonialsMain
+        companyLogos={companyLogos}
+        testimonials={testimonials}
+        heading={{
+          label: "TESTIMONIALS",
+          title: "Customer Stories",
+          description: "See what our clients have to say",
+        }}
+      />
       <TeamSection />
       <PricingSection />
       <ContactSection />

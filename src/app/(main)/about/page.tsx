@@ -7,7 +7,6 @@ import OurProcess from "./_components/OurProcess";
 import { OurStory } from "./_components/OurStory";
 import WhyChooseUs from "./_components/WhyChooseUs";
 
-
 export default function AboutPage() {
   return (
     <main className="bg-background">
@@ -18,19 +17,8 @@ export default function AboutPage() {
       <WhyChooseUs />
       <OurProcess />
       <ClientSuccess />
-     
+
       <Awards />
-      {/* <OurStory />
-        <MissionValues />
-        <TeamSection />
-        <WhyChooseUs />
-        <OurProcess />
-        <TechStack />
-        <ClientSuccess />
-        <OfficeAndCulture />
-        <GlobalPresence />
-        <Awards />
-        <JoinTeam /> */}
     </main>
   );
 }

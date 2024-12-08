@@ -1,13 +1,13 @@
-import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
+import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog";
+import { getSEOTags } from "@/lib/seo";
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { BlogPostLayoutPop } from "../_components/BlogPostLayout";
-import { getSEOTags } from "@/lib/seo";
-import { Metadata } from "next";
 
 type Props = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const slug = (await params).slug;
     const { frontMatter } = await getBlogPostBySlug(slug);
-    
+
     return getSEOTags({
       title: frontMatter.title,
       description: frontMatter.excerpt,
@@ -49,9 +49,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function PopBlogPostPage( { params }: Props
-) {
-  const slug = (await params).slug
+export default async function PopBlogPostPage({ params }: Props) {
+  const slug = (await params).slug;
   try {
     const { frontMatter, content } = await getBlogPostBySlug(slug);
     return (

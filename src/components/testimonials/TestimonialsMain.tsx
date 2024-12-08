@@ -1,11 +1,11 @@
 "use client";
-import React, { FC, useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { BackgroundPattern } from "@/components/SVG/TestimonialSVGs";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { TestimonialProps } from "@/types";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { FC, useState } from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 
 export interface TestimonialSectionProps {
@@ -25,9 +25,10 @@ export const TestimonialsMain: FC<TestimonialSectionProps> = ({
   heading = {
     label: "CLIENT SUCCESS STORIES",
     title: "What Our Clients Say",
-    description: "Discover how we've helped businesses achieve their digital marketing goals and drive remarkable results."
+    description:
+      "Discover how we've helped businesses achieve their digital marketing goals and drive remarkable results.",
   },
-  className = ""
+  className = "",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -37,7 +38,7 @@ export const TestimonialsMain: FC<TestimonialSectionProps> = ({
 
   const prevTestimonial = () => {
     setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
+      prev === 0 ? testimonials.length - 1 : prev - 1,
     );
   };
 
@@ -66,23 +67,24 @@ export const TestimonialsMain: FC<TestimonialSectionProps> = ({
           ease: "linear",
         },
       },
-    }
+    },
   };
 
   return (
-    <section className={`relative overflow-hidden bg-gray-50 py-24 dark:bg-theme-neutral-900 ${className}`}>
+    <section
+      className={`relative overflow-hidden bg-gray-50 py-24 dark:bg-theme-neutral-900 ${className}`}
+    >
       <BackgroundPattern />
 
       <div className="container relative mx-auto px-4 sm:px-6">
-      <SectionHeading
-            alignment="center"
-            title={[`${heading.label}`]}
-            subtitle={`${heading.label}`}
-            subtitleColor="rose"
-            animated={true}
-            paragraph={`${heading.description}`}
-          />
-
+        <SectionHeading
+          alignment="center"
+          title={[`${heading.label}`]}
+          subtitle={`${heading.label}`}
+          subtitleColor="rose"
+          animated={true}
+          paragraph={`${heading.description}`}
+        />
 
         {/* Testimonials Carousel */}
         <div className="relative">

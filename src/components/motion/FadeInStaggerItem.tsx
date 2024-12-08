@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
+import { AnimationProps } from "@/types";
 import { motion } from "motion/react";
 import { FC } from "react";
-import { AnimationProps } from "@/types";
 
 export const FadeInStaggerItem: FC<AnimationProps> = ({
   children,

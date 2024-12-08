@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { CaseStudy, CaseStudyMetadata } from "@/types";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 const caseStudiesDirectory = path.join(
   process.cwd(),
@@ -25,7 +25,7 @@ export async function getCaseStudyBySlug(slug: string) {
     gradient: data.gradient,
     metrics: data.metrics,
     featured: data.featured,
-    slug: data.slug
+    slug: data.slug,
   };
 
   return {

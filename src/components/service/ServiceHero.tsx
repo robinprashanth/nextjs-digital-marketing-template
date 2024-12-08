@@ -1,7 +1,8 @@
 "use client";
-import { FC } from "react";
-import { motion } from "motion/react";
+
 import { ServiceHeroProps } from "@/types";
+import { motion } from "motion/react";
+import { FC } from "react";
 import { ScrollInView } from "../motion/ScrollInView";
 
 // Service Hero Component
@@ -20,9 +21,7 @@ export const ServiceHero: FC<ServiceHeroProps> = ({
 
     <div className="container relative mx-auto px-4 py-24 sm:px-6">
       <div className="grid gap-12 md:grid-cols-2">
-        <ScrollInView
-          className="flex flex-col justify-center"
-        >
+        <ScrollInView className="flex flex-col justify-center">
           <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
             {icon}
           </div>

@@ -1,17 +1,18 @@
 "use client";
-import { FC } from "react";
-import { Users, Check, Play, ArrowRight, ArrowUpRight } from "lucide-react";
-import { getIcon } from "../utils/icons";
-import {
-  teamStats,
-  collaborationFeatures,
-  teamTools,
-  integrations,
-} from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+
 import { TeamCollaborationCTA } from "@/components/cta/Presets";
-import { BentoGrid } from "./BentoGrid";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import { ArrowRight, ArrowUpRight, Check, Play, Users } from "lucide-react";
+import { FC } from "react";
+import {
+  collaborationFeatures,
+  integrations,
+  teamStats,
+  teamTools,
+} from "../data/content";
+import { getIcon } from "../utils/icons";
+import { BentoGrid } from "./BentoGrid";
 
 export const TeamTools: FC = () => {
   return (
@@ -29,10 +30,7 @@ export const TeamTools: FC = () => {
         />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-          once={false}
-            className="mx-auto max-w-4xl text-center"
-          >
+          <ScrollInView once={false} className="mx-auto max-w-4xl text-center">
             {/* Title Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2">
               <Users className="h-4 w-4 text-white" />
@@ -71,7 +69,7 @@ export const TeamTools: FC = () => {
               {teamStats.map((stat, index) => (
                 <ScrollInView
                   key={index}
-                  delay={index * 0.1 }
+                  delay={index * 0.1}
                   className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all hover:bg-white/10"
                 >
                   <div className="text-3xl font-bold text-white">
@@ -92,24 +90,22 @@ export const TeamTools: FC = () => {
       {/* Features Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="KEY FEATURES"
-  heading="Everything You Need for Seamless Collaboration"
-  description="Powerful features to help your team work better together"
-  theme="primary"
-  useInView={true}
-  className="mx-auto mb-16 max-w-3xl text-center"
-/>
-
-         
+          <AnimatedHeading
+            title="KEY FEATURES"
+            heading="Everything You Need for Seamless Collaboration"
+            description="Powerful features to help your team work better together"
+            theme="primary"
+            useInView={true}
+            className="mx-auto mb-16 max-w-3xl text-center"
+          />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {collaborationFeatures.map((feature, index) => {
               const IconComponent = getIcon(feature.icon);
               return (
                 <ScrollInView
-                useInView={true}
-                delay={index * 0.1 }
+                  useInView={true}
+                  delay={index * 0.1}
                   key={index}
                   viewport={true}
                   className="group rounded-2xl border border-theme-neutral-200 bg-white p-8 transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-800 dark:bg-theme-neutral-900"
@@ -148,38 +144,38 @@ export const TeamTools: FC = () => {
       {/* Tools Grid */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-800">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="TEAM TOOLS"
-  heading="Everything Your Team Needs In One Place"
-  theme="primary"
-  useInView={true}
-  className="mx-auto mb-16 max-w-3xl text-center"
-/>
-          <div className="rounded-2xl bg-gradient-to-br from-theme-neutral-100 to-theme-neutral-200 dark:from-theme-neutral-900 dark:to-theme-neutral-800 p-8">
-  <BentoGrid items={teamTools} />
-</div>
+          <AnimatedHeading
+            title="TEAM TOOLS"
+            heading="Everything Your Team Needs In One Place"
+            theme="primary"
+            useInView={true}
+            className="mx-auto mb-16 max-w-3xl text-center"
+          />
+          <div className="rounded-2xl bg-gradient-to-br from-theme-neutral-100 to-theme-neutral-200 p-8 dark:from-theme-neutral-900 dark:to-theme-neutral-800">
+            <BentoGrid items={teamTools} />
+          </div>
         </div>
       </section>
 
       {/* Integrations Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="INTEGRATIONS"
-  heading="Works With Your Favorite Tools"
-  theme="primary"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="INTEGRATIONS"
+            heading="Works With Your Favorite Tools"
+            theme="primary"
+            useInView={true}
+          />
 
           <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-6">
             {integrations.map((integration, index) => {
               const IconComponent = getIcon(integration.icon);
               return (
                 <ScrollInView
-                useInView={true}
-                key={index}
-                viewport={true}
-                delay={index * 0.1}
+                  useInView={true}
+                  key={index}
+                  viewport={true}
+                  delay={index * 0.1}
                   className="group cursor-pointer rounded-2xl border border-theme-neutral-200 bg-white p-6 text-center transition-all hover:border-theme-primary-500/20 dark:border-theme-neutral-700 dark:bg-theme-neutral-900"
                 >
                   <div className="mx-auto mb-4 rounded-xl bg-theme-primary-500/10 p-3 transition-colors group-hover:bg-theme-primary-500/20">
@@ -197,7 +193,6 @@ export const TeamTools: FC = () => {
 
       {/* CTA Section */}
       <TeamCollaborationCTA />
-
     </main>
   );
 };

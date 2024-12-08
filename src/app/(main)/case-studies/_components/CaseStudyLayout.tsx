@@ -1,19 +1,19 @@
 "use client";
 
-import { FC } from "react";
-import Link from "next/link";
+import { ProjectCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { SocialShareMinimal } from "@/components/SocialShareMinimal";
+import { CaseStudyMetadata } from "@/types";
 import {
   ArrowLeft,
-  TrendingUp,
   Building2,
   Calendar,
   Clock,
   Share2,
+  TrendingUp,
 } from "lucide-react";
-import { CaseStudyMetadata } from "@/types";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { SocialShareMinimal } from "@/components/SocialShareMinimal";
-import { ProjectCTA } from "@/components/cta/Presets";
+import Link from "next/link";
+import { FC } from "react";
 
 interface CaseStudyLayoutProps {
   metadata: CaseStudyMetadata;
@@ -24,7 +24,7 @@ interface CaseStudyLayoutProps {
 export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
   metadata,
   children,
-  slug
+  slug,
 }) => {
   return (
     <article className="min-h-screen bg-background">
@@ -80,12 +80,10 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
 
         {/* Metrics Section */}
         <div className="container relative mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto -mb-16 grid max-w-4xl gap-6 md:grid-cols-2 lg:grid-cols-4"
-          >
+          <ScrollInView className="mx-auto -mb-16 grid max-w-4xl gap-6 md:grid-cols-2 lg:grid-cols-4">
             {metadata.metrics.map((metric, index) => (
               <ScrollInView
-              delay={index * 0.1}
+                delay={index * 0.1}
                 key={metric.label}
                 className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg"
               >
@@ -129,11 +127,11 @@ export const CaseStudyLayout: FC<CaseStudyLayoutProps> = ({
                 Share this case study:
               </span>
               {/* Share buttons */}
-              <SocialShareMinimal 
-    url={`/blog/theme-1/${slug}`}
-    title={metadata.title}
-    description={metadata.excerpt}
-  />
+              <SocialShareMinimal
+                url={`/blog/theme-1/${slug}`}
+                title={metadata.title}
+                description={metadata.excerpt}
+              />
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="h-4 w-4" />

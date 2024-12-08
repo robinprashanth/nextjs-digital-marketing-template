@@ -29,15 +29,14 @@ export const TechStackSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <SectionHeading
-            alignment="center"
-            title={["Powered by Leading Technology"]}
-            subtitle="OUR TECH STACK"
-            subtitleColor="ocean"
-            animated={true}
-            paragraph=" We leverage industry-leading tools and platforms to deliver
+          alignment="center"
+          title={["Powered by Leading Technology"]}
+          subtitle="OUR TECH STACK"
+          subtitleColor="ocean"
+          animated={true}
+          paragraph=" We leverage industry-leading tools and platforms to deliver
            exceptional results for our clients."
-          />
-        
+        />
 
         {/* Categories Filter */}
         <div className="mb-12">
@@ -57,7 +56,6 @@ export const TechStackSection: FC = () => {
 
         {/* Certifications CTA */}
         <CertificationsCTA path="/about" />
-
       </div>
     </section>
   );

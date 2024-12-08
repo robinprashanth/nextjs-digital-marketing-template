@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { FC, PropsWithChildren } from "react";
 import { motion } from "motion/react";
+import { FC, PropsWithChildren } from "react";
 
 interface FloatInProps extends PropsWithChildren {
   y?: number;

@@ -1,6 +1,6 @@
+import { contactFormPageSchema } from "@/lib/validation";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { contactFormPageSchema } from "@/lib/validation";
 import { z } from "zod";
 
 // Create email transporter
@@ -22,13 +22,13 @@ const createEmailHTML = (data: z.infer<typeof contactFormPageSchema>) => `
       <p><strong>Name:</strong> ${data.name}</p>
       <p><strong>Email:</strong> ${data.email}</p>
       <p><strong>Phone:</strong> ${data.phone}</p>
-      ${data.company ? `<p><strong>Company:</strong> ${data.company}</p>` : ''}
+      ${data.company ? `<p><strong>Company:</strong> ${data.company}</p>` : ""}
     </div>
 
     <div style="margin: 20px 0;">
       <h3 style="color: #666;">Project Details</h3>
       <p><strong>Subject:</strong> ${data.subject}</p>
-      <p><strong>Services Interested:</strong> ${data.services.join(', ')}</p>
+      <p><strong>Services Interested:</strong> ${data.services.join(", ")}</p>
       <p><strong>Budget Range:</strong> ${data.budget}</p>
     </div>
 
@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     // Prepare email data
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.CONTACT_EMAIL || 'contact@gmail.com',
+      to: process.env.CONTACT_EMAIL || "contact@gmail.com",
       subject: `New Contact Form Submission: ${validatedData.subject}`,
       html: createEmailHTML(validatedData),
       replyTo: validatedData.email, // Allow direct replies to the sender
@@ -60,20 +60,20 @@ export async function POST(req: Request) {
 
       // Return success response
       return NextResponse.json(
-        { 
-          success: true, 
-          message: "Thank you for your message. We'll get back to you soon!" 
+        {
+          success: true,
+          message: "Thank you for your message. We'll get back to you soon!",
         },
-        { status: 200 }
+        { status: 200 },
       );
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
       return NextResponse.json(
-        { 
-          success: false, 
-          error: "Failed to send email. Please try again later." 
+        {
+          success: false,
+          error: "Failed to send email. Please try again later.",
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
   } catch (error) {
@@ -83,23 +83,23 @@ export async function POST(req: Request) {
         {
           success: false,
           error: "Invalid form data",
-          issues: error.issues.map(issue => ({
-            field: issue.path.join('.'),
-            message: issue.message
-          }))
+          issues: error.issues.map((issue) => ({
+            field: issue.path.join("."),
+            message: issue.message,
+          })),
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Handle other errors
     console.error("Unexpected error:", error);
     return NextResponse.json(
-      { 
-        success: false, 
-        error: "An unexpected error occurred. Please try again later." 
+      {
+        success: false,
+        error: "An unexpected error occurred. Please try again later.",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

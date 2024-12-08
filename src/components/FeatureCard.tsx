@@ -15,7 +15,12 @@ interface FeatureCardProps {
   delay?: number;
 }
 
-export function FeatureCard({ feature, iconMap, index, delay = 0.1 }: FeatureCardProps) {
+export function FeatureCard({
+  feature,
+  iconMap,
+  index,
+  delay = 0.1,
+}: FeatureCardProps) {
   const IconComponent = iconMap[feature.icon as keyof typeof iconMap];
 
   return (
@@ -25,7 +30,9 @@ export function FeatureCard({ feature, iconMap, index, delay = 0.1 }: FeatureCar
       className="group cursor-pointer"
     >
       <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800">
-        <div className={`mb-6 inline-block rounded-2xl p-3 ${feature.gradient}`}>
+        <div
+          className={`mb-6 inline-block rounded-2xl p-3 ${feature.gradient}`}
+        >
           <IconComponent className="h-6 w-6 text-white" />
         </div>
 

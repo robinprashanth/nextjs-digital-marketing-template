@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
+import { AnimationProps } from "@/types";
 import { motion } from "motion/react";
 import { FC } from "react";
-import { AnimationProps } from "@/types";
 
 interface FadeInStaggerProps extends AnimationProps {
   delayStep?: number;

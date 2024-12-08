@@ -1,35 +1,36 @@
 "use client";
-import { FC } from "react";
+
+import { DigitalMarketingCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { PlatformCard } from "@/components/PlatformCard";
+import { ServiceCard } from "@/components/ServiceCard";
+import ModernTestimonials from "@/components/testimonials/ModernTestimonials";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import {
-  BarChart,
-  Users,
-  Mail,
-  LineChart,
-  Search,
-  PenTool,
   ArrowUpRight,
-  FacebookIcon,
-  LinkedinIcon,
-  Video,
-  Target,
-  FileText,
+  BarChart,
   BarChart2,
+  FacebookIcon,
+  FileText,
+  LineChart,
+  LinkedinIcon,
+  Mail,
+  PenTool,
+  Search,
+  Target,
+  Users,
+  Video,
 } from "lucide-react";
+import { FC } from "react";
 import {
   features,
   metrics,
-  processSteps,
   platforms,
-  successStories,
+  processSteps,
   services,
+  successStories,
   testimonials,
 } from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { DigitalMarketingCTA } from "@/components/cta/Presets";
-import ModernTestimonials from "@/components/testimonials/ModernTestimonials";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import { ServiceCard } from "@/components/ServiceCard";
-import { PlatformCard } from "@/components/PlatformCard";
 
 const iconMap = {
   BarChart,
@@ -67,9 +68,7 @@ export const DigitalMarketing: FC = () => {
 
         {/* Content */}
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="max-w-4xl"
-          >
+          <ScrollInView className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1 text-sm text-theme-primary-400">
               DIGITAL MARKETING SOLUTIONS
             </div>
@@ -91,7 +90,9 @@ export const DigitalMarketing: FC = () => {
                   delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">
+                    {metric.label}
+                  </p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
@@ -116,14 +117,14 @@ export const DigitalMarketing: FC = () => {
           />
 
           <div className="grid gap-8 md:grid-cols-2">
-          {services.map((service, index) => (
-        <ServiceCard
-          key={index}
-          service={service}
-          iconMap={iconMap}
-          index={index}
-        />
-      ))}
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                service={service}
+                iconMap={iconMap}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -131,21 +132,20 @@ export const DigitalMarketing: FC = () => {
       {/* Platforms Section */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
+          <AnimatedHeading
             title="ADVERTISING PLATFORMS"
             heading=" Multi-Platform Advertising Excellence"
           />
-          
 
           <div className="grid gap-6 md:grid-cols-4">
-          {platforms.map((platform, index) => (
-        <PlatformCard
-          key={index}
-          platform={platform}
-          iconMap={iconMap}
-          index={index}
-        />
-      ))}
+            {platforms.map((platform, index) => (
+              <PlatformCard
+                key={index}
+                platform={platform}
+                iconMap={iconMap}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -153,13 +153,12 @@ export const DigitalMarketing: FC = () => {
       {/* Success Stories Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
+          <AnimatedHeading
             title=" SUCCESS STORIES"
             heading=" Real Results for  Real Businesses"
             description="See how our digital marketing strategies have transformed
               businesses across different industries."
           />
-          
 
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
@@ -204,16 +203,16 @@ export const DigitalMarketing: FC = () => {
       {/* Process Section */}
       <section className="relative overflow-hidden bg-navy py-24">
         <div className="container relative mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="OUR PROCESS"
-  heading="Strategic Approach to Digital Success"
-  theme="secondary"
-/>
+          <AnimatedHeading
+            title="OUR PROCESS"
+            heading="Strategic Approach to Digital Success"
+            theme="secondary"
+          />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative"
@@ -239,21 +238,21 @@ export const DigitalMarketing: FC = () => {
       {/* Features Grid */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="KEY FEATURES"
-  heading="Advanced Marketing Capabilities"
-  description="Cutting-edge features and tools to maximize your marketing performance."
-  theme="primary"
-/>
+          <AnimatedHeading
+            title="KEY FEATURES"
+            heading="Advanced Marketing Capabilities"
+            description="Cutting-edge features and tools to maximize your marketing performance."
+            theme="primary"
+          />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
               <ServiceCard
-              key={index}
-              service={feature}
-              iconMap={iconMap}
-              index={index}
-            />
+                key={index}
+                service={feature}
+                iconMap={iconMap}
+                index={index}
+              />
             ))}
           </div>
         </div>
@@ -261,12 +260,12 @@ export const DigitalMarketing: FC = () => {
 
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="SUCCESS STORIES"
-  heading="Real Results for Real Businesses"
-  description="See how our digital marketing strategies have transformed businesses across different industries."
-  theme="primary"
-/>
+          <AnimatedHeading
+            title="SUCCESS STORIES"
+            heading="Real Results for Real Businesses"
+            description="See how our digital marketing strategies have transformed businesses across different industries."
+            theme="primary"
+          />
 
           <ModernTestimonials testimonials={testimonials} />
         </div>

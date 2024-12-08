@@ -1,7 +1,7 @@
+import { Doc, DocMetadata } from "@/types";
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
-import { DocMetadata, Doc } from "@/types";
+import path from "path";
 
 const docsDirectory = path.join(process.cwd(), "src/app/docs/documents");
 
@@ -37,7 +37,6 @@ export async function getAllDocs(): Promise<Doc[]> {
       const frontMatter: DocMetadata = {
         title: data.title,
         description: data.description,
-       
       };
 
       return {
@@ -49,4 +48,3 @@ export async function getAllDocs(): Promise<Doc[]> {
 
   return docs;
 }
-

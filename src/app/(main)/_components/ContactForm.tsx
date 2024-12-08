@@ -21,8 +21,12 @@ const ContactInfo = () => (
         <Phone className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
-        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">Phone</h3>
-        <p className="text-theme-neutral-600 dark:text-theme-neutral-400">+1 (555) 000-0000</p>
+        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">
+          Phone
+        </h3>
+        <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
+          +1 (555) 000-0000
+        </p>
       </div>
     </div>
     <div className="flex items-center gap-4">
@@ -30,7 +34,9 @@ const ContactInfo = () => (
         <Mail className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
-        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">Email</h3>
+        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">
+          Email
+        </h3>
         <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
           contact@youragency.com
         </p>
@@ -41,7 +47,9 @@ const ContactInfo = () => (
         <MapPin className="h-6 w-6 text-theme-primary-600" />
       </div>
       <div>
-        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">Address</h3>
+        <h3 className="font-semibold text-theme-neutral-900 dark:text-white">
+          Address
+        </h3>
         <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
           123 Marketing St, Digital City, DC 12345
         </p>
@@ -73,15 +81,14 @@ export const ContactSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <SectionHeading
-            alignment="center"
-            title={["Let's Discuss Your Project"]}
-            subtitle="GET IN TOUCH"
-            subtitleColor="ocean"
-            animated={true}
-            paragraph="We're here to help you grow your business. Tell us about your
+          alignment="center"
+          title={["Let's Discuss Your Project"]}
+          subtitle="GET IN TOUCH"
+          subtitleColor="ocean"
+          animated={true}
+          paragraph="We're here to help you grow your business. Tell us about your
            project, and we'll get back to you with a customized solution."
-          />
-        
+        />
 
         {/* Contact Grid */}
         <div className="mx-auto max-w-5xl">

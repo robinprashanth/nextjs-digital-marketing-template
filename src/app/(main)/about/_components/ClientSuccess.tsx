@@ -1,19 +1,21 @@
 "use client";
 
-import { FC } from "react";
-import {
-  ArrowUpRight,
-  ChevronRight,
-} from "lucide-react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { caseStudies, type Metric } from "../data/content";
-import Link from "next/link";
-import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
 import SubTitleBadge from "@/components/badge/SubTitleBadge";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
+import { caseStudies, type Metric } from "../data/content";
 
 const ClientMetric: FC<Metric & { index: number }> = ({
   label,
@@ -21,7 +23,7 @@ const ClientMetric: FC<Metric & { index: number }> = ({
   icon: Icon,
   index,
 }) => (
-  <ScrollInView 
+  <ScrollInView
     delay={0.1 * index}
     useInView={true}
     className="flex flex-col items-center space-y-2 text-center"
@@ -34,8 +36,6 @@ const ClientMetric: FC<Metric & { index: number }> = ({
   </ScrollInView>
 );
 
-
-
 const CaseStudyCard: FC<(typeof caseStudies)[0] & { index: number }> = ({
   client,
   industry,
@@ -46,10 +46,7 @@ const CaseStudyCard: FC<(typeof caseStudies)[0] & { index: number }> = ({
   testimonial,
   index,
 }) => (
-  <ScrollInView 
-    delay={0.1 * index}
-    useInView={true}
-  >
+  <ScrollInView delay={0.1 * index} useInView={true}>
     <Card className="h-full transition-all duration-300 hover:shadow-lg hover:shadow-theme-primary-500/5">
       <CardHeader className="p-6">
         <div className="flex items-start justify-between">
@@ -78,8 +75,8 @@ const CaseStudyCard: FC<(typeof caseStudies)[0] & { index: number }> = ({
       </CardContent>
 
       <CardFooter className="justify-end p-6">
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           className="text-theme-primary-400 hover:bg-theme-primary-500/10 hover:text-theme-primary-500"
         >
           View Case Study
@@ -99,8 +96,8 @@ export const ClientSuccess: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <SubTitleBadge text=" Success Stories"/>
-        
+          <SubTitleBadge text=" Success Stories" />
+
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Delivering{" "}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
@@ -127,15 +124,15 @@ export const ClientSuccess: FC = () => {
           className="mx-auto mt-16 flex max-w-3xl flex-col items-center space-y-8"
         >
           <Link href="/case-studies">
-          <Button
-          variant="action"
-            size="fluid"
-            rounded="full"
-            className="bg-theme-primary-500 text-white hover:bg-theme-primary-600"
-          >
-            View More Case Studies
-            <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
+            <Button
+              variant="action"
+              size="fluid"
+              rounded="full"
+              className="bg-theme-primary-500 text-white hover:bg-theme-primary-600"
+            >
+              View More Case Studies
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
           </Link>
 
           {/* Success Metrics */}

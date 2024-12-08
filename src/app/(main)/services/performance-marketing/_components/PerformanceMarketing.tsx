@@ -1,47 +1,48 @@
 "use client";
-import { FC } from "react";
+
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
 import {
-  Search,
-  Users,
-  Target,
-  Repeat,
-  Share2,
-  Wallet,
-  Lightbulb,
-  Rocket,
-  Settings,
-  PiSquare,
-  TrendingUp,
   ActivitySquare,
-  GitBranch,
+  ArrowUpRight,
   BarChart,
+  BarChart2,
+  Database,
+  Eye,
+  Facebook,
   FileText,
   Filter,
+  GitBranch,
   Layout,
-  Route,
-  MousePointer,
-  Facebook,
+  Lightbulb,
   Linkedin,
-  Video,
-  BarChart2,
-  Eye,
-  Database,
+  MousePointer,
   PieChart,
-  ArrowUpRight,
+  PiSquare,
+  Repeat,
+  Rocket,
+  Route,
+  Search,
+  Settings,
+  Share2,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
+  Wallet,
 } from "lucide-react";
 import NextImage from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 import {
-  metrics,
   channels,
-  services,
+  metrics,
+  platforms,
   processSteps,
   results,
-  platforms,
+  services,
   tools,
 } from "../data/content";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ScrollInView } from "@/components/motion/ScrollInView";
 
 const iconMap = {
   Search,
@@ -90,9 +91,7 @@ export const PerformanceMarketing: FC = () => {
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-indigo-500/20 blur-xl" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="max-w-4xl"
-          >
+          <ScrollInView className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full bg-theme-ocean-500/10 px-4 py-1 text-sm text-theme-ocean-400">
               PERFORMANCE MARKETING
             </div>
@@ -110,10 +109,12 @@ export const PerformanceMarketing: FC = () => {
               {metrics.map((metric, index) => (
                 <ScrollInView
                   key={index}
-                delay={index * 0.1}
+                  delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">
+                    {metric.label}
+                  </p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
@@ -131,9 +132,7 @@ export const PerformanceMarketing: FC = () => {
       {/* Marketing Channels Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
+          <ScrollInView className="mx-auto mb-16 max-w-2xl text-center">
             <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               MARKETING CHANNELS
             </span>
@@ -154,7 +153,7 @@ export const PerformanceMarketing: FC = () => {
               return (
                 <ScrollInView
                   key={index}
-                 delay={index * 0.1}
+                  delay={index * 0.1}
                   className="group cursor-pointer"
                 >
                   <div
@@ -207,9 +206,7 @@ export const PerformanceMarketing: FC = () => {
       {/* Services Grid */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
+          <ScrollInView className="mx-auto mb-16 max-w-2xl text-center">
             <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               OUR SERVICES
             </span>
@@ -270,9 +267,7 @@ export const PerformanceMarketing: FC = () => {
       {/* Results Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-          <ScrollInView
-            className="mx-auto mb-16 max-w-2xl text-center"
-          >
+          <ScrollInView className="mx-auto mb-16 max-w-2xl text-center">
             <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
               CLIENT RESULTS
             </span>
@@ -286,10 +281,9 @@ export const PerformanceMarketing: FC = () => {
           <div className="grid gap-8 md:grid-cols-3">
             {results.map((result, index) => (
               <ScrollInView
-              useInView={true}
-              delay={index * 0.1}
+                useInView={true}
+                delay={index * 0.1}
                 key={index}
-               
                 className="group relative overflow-hidden rounded-3xl"
               >
                 <div className="relative aspect-[4/5]">
@@ -339,7 +333,7 @@ export const PerformanceMarketing: FC = () => {
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
-          useInView={true}
+            useInView={true}
             className="mx-auto mb-16 max-w-2xl text-center"
           >
             <span className="mb-4 block bg-gradient-to-r from-theme-ocean-400 to-theme-indigo-400 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
@@ -355,9 +349,9 @@ export const PerformanceMarketing: FC = () => {
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
-                delay={ index * 0.1}
+                delay={index * 0.1}
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
@@ -382,10 +376,7 @@ export const PerformanceMarketing: FC = () => {
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Platforms */}
-          <ScrollInView
-          useInView={true}
-            className="mb-20"
-          >
+          <ScrollInView useInView={true} className="mb-20">
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 PLATFORMS
@@ -401,7 +392,7 @@ export const PerformanceMarketing: FC = () => {
                   iconMap[platform.icon as keyof typeof iconMap];
                 return (
                   <ScrollInView
-                  useInView={true}
+                    useInView={true}
                     key={index}
                     delay={index * 0.1}
                     className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
@@ -422,9 +413,7 @@ export const PerformanceMarketing: FC = () => {
           </ScrollInView>
 
           {/* Tools */}
-          <ScrollInView
-          useInView={true}
-          >
+          <ScrollInView useInView={true}>
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <span className="mb-4 block bg-gradient-to-r from-theme-ocean-600 to-theme-indigo-600 bg-clip-text text-sm font-semibold tracking-wider text-transparent">
                 TOOLS
@@ -440,9 +429,9 @@ export const PerformanceMarketing: FC = () => {
                   iconMap[tool.icon as keyof typeof iconMap];
                 return (
                   <ScrollInView
-                  useInView={true}
+                    useInView={true}
                     key={index}
-                   delay={index * 0.1}
+                    delay={index * 0.1}
                     className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
                   >
                     <div className="mb-4 rounded-xl bg-theme-ocean-500/10 p-2 dark:bg-theme-ocean-500/5">
@@ -466,7 +455,7 @@ export const PerformanceMarketing: FC = () => {
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView
-          useInView={true}
+            useInView={true}
             className="mx-auto max-w-4xl text-center"
           >
             <h2 className="mb-8 text-3xl font-bold text-white md:text-5xl">

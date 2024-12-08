@@ -1,12 +1,16 @@
 "use client";
 
-import { FC } from "react";
-import { Clock, CheckCircle } from "lucide-react";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { processContent, processSteps, type ProcessStep } from "../data/content";
 import SubTitltBadge from "@/components/badge/SubTitleBadge";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { CheckCircle, Clock } from "lucide-react";
+import { FC } from "react";
+import {
+  processContent,
+  processSteps,
+  type ProcessStep,
+} from "../data/content";
 
 interface ProcessCardProps extends ProcessStep {
   index: number;
@@ -34,9 +38,7 @@ const ProcessCard: FC<ProcessCardProps> = ({
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-theme-primary-500/10">
           <Icon className="h-8 w-8 text-theme-primary-400" />
         </div>
-        <Badge 
-          className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-theme-primary-500 p-0 text-white"
-        >
+        <Badge className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-theme-primary-500 p-0 text-white">
           {index + 1}
         </Badge>
       </div>
@@ -50,7 +52,10 @@ const ProcessCard: FC<ProcessCardProps> = ({
       <Card className="transition-all duration-300 hover:shadow-lg hover:shadow-theme-primary-500/5">
         <CardHeader className="space-y-4">
           <div className="space-y-2">
-            <Badge variant="outline" className="bg-theme-primary-500/10 text-theme-primary-400">
+            <Badge
+              variant="outline"
+              className="bg-theme-primary-500/10 text-theme-primary-400"
+            >
               Phase: {phase}
             </Badge>
             <h3 className="text-xl font-semibold text-foreground">{title}</h3>
@@ -91,8 +96,8 @@ export const OurProcess: FC = () => {
           useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <SubTitltBadge text= {processContent.subtitle} />
-         
+          <SubTitltBadge text={processContent.subtitle} />
+
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {processContent.title.prefix}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
@@ -116,8 +121,6 @@ export const OurProcess: FC = () => {
             />
           ))}
         </div>
-
-
       </div>
     </section>
   );

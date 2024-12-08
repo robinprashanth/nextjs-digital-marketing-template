@@ -1,17 +1,17 @@
 "use client";
-import { FC } from "react";
-import Image from "next/image";
-import { Calendar, ArrowUpRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight, Calendar } from "lucide-react";
+import Image from "next/image";
+import { FC } from "react";
 import {
   achievementMetrics,
   type AwardType,
   type Certification,
   type PressFeature,
 } from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import SubTitleBadge from "@/components/badge/SubTitleBadge";
 
 const AwardCard: FC<AwardType & { index: number }> = ({
   name,
@@ -22,37 +22,41 @@ const AwardCard: FC<AwardType & { index: number }> = ({
   category,
   index,
 }) => (
-  <ScrollInView 
-    useInView={true}
-    delay={0.1 * index}
-  >
+  <ScrollInView useInView={true} delay={0.1 * index}>
     <Card className="group relative overflow-hidden bg-gradient-to-br from-background via-muted/5 to-background backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:shadow-theme-primary-500/10">
       {/* Gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/0 via-transparent to-theme-ocean-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
-      
+
       {/* Glowing dots in corners */}
       <div className="absolute left-0 top-0 h-px w-px bg-theme-primary-400 shadow-[0_0_15px_5px_rgba(147,51,234,0.3)] transition-all duration-500 group-hover:shadow-[0_0_20px_8px_rgba(147,51,234,0.4)]" />
-      <div className="absolute right-0 bottom-0 h-px w-px bg-theme-ocean-400 shadow-[0_0_15px_5px_rgba(59,130,246,0.3)] transition-all duration-500 group-hover:shadow-[0_0_20px_8px_rgba(59,130,246,0.4)]" />
+      <div className="absolute bottom-0 right-0 h-px w-px bg-theme-ocean-400 shadow-[0_0_15px_5px_rgba(59,130,246,0.3)] transition-all duration-500 group-hover:shadow-[0_0_20px_8px_rgba(59,130,246,0.4)]" />
 
       <CardContent className="relative p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="relative h-16 w-16 overflow-hidden rounded-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/10 to-theme-ocean-500/10" />
-            <Image src={image} alt={name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
           </div>
           {category && (
             <Badge className="relative overflow-hidden bg-theme-primary-500/10 text-theme-primary-400 transition-colors hover:bg-theme-primary-500/20">
               <span className="relative z-10">{category}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+              <div className="absolute inset-0 translate-x-[-200%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 group-hover:translate-x-[200%]" />
             </Badge>
           )}
         </div>
 
         <div className="mt-4 space-y-2">
-          <h3 className="text-xl font-semibold text-foreground group-hover:text-theme-primary-400 transition-colors duration-300">
+          <h3 className="text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-theme-primary-400">
             {name}
           </h3>
-          <p className="text-sm font-medium text-theme-primary-400">{organization}</p>
+          <p className="text-sm font-medium text-theme-primary-400">
+            {organization}
+          </p>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
 
@@ -75,14 +79,19 @@ const CertificationCard: FC<Certification & { index: number }> = ({
   <ScrollInView useInView={true} delay={0.1 * index}>
     <Card className="group relative overflow-hidden bg-gradient-to-r from-background via-muted/5 to-background transition-all duration-300 hover:shadow-lg hover:shadow-theme-primary-500/10">
       <div className="absolute inset-0 bg-gradient-to-r from-theme-primary-500/0 to-theme-ocean-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
-      
+
       <CardContent className="relative flex items-center gap-4 p-4">
         <div className="relative h-12 w-12 overflow-hidden rounded-lg">
           <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 to-theme-ocean-500/5" />
-          <Image src={logo} alt={organization} fill className="object-contain transition-transform duration-500 group-hover:scale-110" />
+          <Image
+            src={logo}
+            alt={organization}
+            fill
+            className="object-contain transition-transform duration-500 group-hover:scale-110"
+          />
         </div>
         <div className="flex-1 transition-transform duration-300 group-hover:translate-x-1">
-          <h4 className="font-medium text-foreground group-hover:text-theme-primary-400 transition-colors">
+          <h4 className="font-medium text-foreground transition-colors group-hover:text-theme-primary-400">
             {name}
           </h4>
           <p className="text-sm text-muted-foreground">{organization}</p>
@@ -104,17 +113,22 @@ const PressFeatureCard: FC<PressFeature & { index: number }> = ({
 }) => (
   <Card className="group relative overflow-hidden bg-gradient-to-r from-background via-muted/5 to-background transition-all duration-300 hover:shadow-lg hover:shadow-theme-primary-500/10">
     <div className="absolute inset-0 bg-gradient-to-r from-theme-primary-500/0 to-theme-ocean-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-5" />
-    
-    <CardContent 
+
+    <CardContent
       className="relative flex cursor-pointer items-center gap-4 p-4"
-      onClick={() => window.open(link, '_blank')}
+      onClick={() => window.open(link, "_blank")}
     >
       <div className="relative h-12 w-12 overflow-hidden rounded-lg">
         <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 to-theme-ocean-500/5" />
-        <Image src={logo} alt={publication} fill className="object-contain transition-transform duration-500 group-hover:scale-110" />
+        <Image
+          src={logo}
+          alt={publication}
+          fill
+          className="object-contain transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
       <div className="flex-1 transition-transform duration-300 group-hover:translate-x-1">
-        <h4 className="font-medium text-foreground group-hover:text-theme-primary-400 transition-colors">
+        <h4 className="font-medium text-foreground transition-colors group-hover:text-theme-primary-400">
           {title}
         </h4>
         <p className="text-sm text-muted-foreground">
@@ -125,9 +139,6 @@ const PressFeatureCard: FC<PressFeature & { index: number }> = ({
     </CardContent>
   </Card>
 );
-
-
-
 
 export const Awards: FC = () => {
   const awards: AwardType[] = [
@@ -209,10 +220,10 @@ export const Awards: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mb-20 max-w-3xl text-center"
         >
-         <SubTitleBadge text="Recognition"/>
+          <SubTitleBadge text="Recognition" />
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             Our{" "}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
@@ -264,13 +275,14 @@ export const Awards: FC = () => {
 
         {/* Achievement Metrics */}
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-8 rounded-2xl border border-theme-neutral-800 bg-card p-8 md:grid-cols-4"
         >
           {achievementMetrics.map((metric, index) => (
-            <ScrollInView delay={ 0.1 * index}
-            useInView={true}
-            key={index}
+            <ScrollInView
+              delay={0.1 * index}
+              useInView={true}
+              key={index}
               className="text-center"
             >
               <metric.icon className="mx-auto mb-2 h-6 w-6 text-theme-primary-400" />

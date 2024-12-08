@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { MegaMenuSection } from "@/types";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 import { Button } from "../ui/button";
 
 interface AdvancedMegaMenuProps {
@@ -109,12 +109,9 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
                       <p className="mb-4 text-sm text-white/90">
                         {featuredImage.description}
                       </p>
-                      <Link
-                        href={featuredImage.ctaHref}
-                      >
+                      <Link href={featuredImage.ctaHref}>
                         <Button variant="secondary">
-
-                        {featuredImage.ctaText}
+                          {featuredImage.ctaText}
                         </Button>
                       </Link>
                     </div>

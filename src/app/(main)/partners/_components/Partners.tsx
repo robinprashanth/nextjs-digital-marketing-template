@@ -171,7 +171,7 @@ const Partners: FC = () => {
               .filter((partner) => partner.featured)
               .map((partner, index) => (
                 <ScrollInView
-                delay={index * 0.1}
+                  delay={index * 0.1}
                   key={partner.name}
                   className="group relative rounded-2xl border border-theme-neutral-800 bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20"
                 >
@@ -230,18 +230,18 @@ const Partners: FC = () => {
       {/* Partnership Levels */}
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-        <AnimatedHeading
-  title="PARTNERSHIP LEVELS"
-  heading="Choose Your Partnership Journey"
-  description="Join our partner ecosystem and unlock exclusive benefits as you grow with us."
-  theme="badge"
-  viewport={{ once: true }}
-/>
+          <AnimatedHeading
+            title="PARTNERSHIP LEVELS"
+            heading="Choose Your Partnership Journey"
+            description="Join our partner ecosystem and unlock exclusive benefits as you grow with us."
+            theme="badge"
+            viewport={{ once: true }}
+          />
 
           <div className="grid gap-8 md:grid-cols-3">
             {partnershipLevels.map((level, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={level.name}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
@@ -275,13 +275,13 @@ const Partners: FC = () => {
       {/* Benefits Section */}
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-        <AnimatedHeading
-  title="PARTNER BENEFITS"
-  heading="Why Partner With Us?"
-  description="Discover the advantages of joining our partner ecosystem."
-  theme="badge"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="PARTNER BENEFITS"
+            heading="Why Partner With Us?"
+            description="Discover the advantages of joining our partner ecosystem."
+            theme="badge"
+            useInView={true}
+          />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
@@ -323,7 +323,7 @@ const Partners: FC = () => {
               },
             ].map((benefit, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-card p-6"
@@ -345,7 +345,7 @@ const Partners: FC = () => {
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
-           useInView={true}
+            useInView={true}
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -372,13 +372,13 @@ const Partners: FC = () => {
       {/* FAQs */}
       <section className="border-t border-theme-neutral-800 bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-        <AnimatedHeading
-  title="FAQs"
-  heading="Common Questions"
-  description="Find answers to frequently asked questions about our partnership program."
-  theme="badge"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="FAQs"
+            heading="Common Questions"
+            description="Find answers to frequently asked questions about our partnership program."
+            theme="badge"
+            useInView={true}
+          />
 
           <div className="mx-auto grid max-w-3xl gap-6">
             {[
@@ -409,9 +409,9 @@ const Partners: FC = () => {
               },
             ].map((faq, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
-                delay={index * 0.1 }
+                delay={index * 0.1}
                 className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
               >
                 <h3 className="mb-3 text-lg font-semibold text-foreground">

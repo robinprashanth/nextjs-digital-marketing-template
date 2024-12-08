@@ -1,8 +1,8 @@
-import { FC } from "react";
+import type { MegaMenuProps } from "@/types";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import type { MegaMenuProps } from "@/types";
+import { FC } from "react";
 
 export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
   if (!isOpen) return null;

@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import type { TestimonialSectionCardProps } from "@/types";
+import { Star } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { FC } from "react";
 import { QuoteIcon } from "./SVG/TestimonialSVGs";
-import type { TestimonialSectionCardProps } from "@/types";
 
 export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
   name,
@@ -47,7 +47,9 @@ export const TestimonialCard: FC<TestimonialSectionCardProps> = ({
             <Image src={image} alt={name} fill className="object-cover" />
           </div>
           <div>
-            <h4 className="font-bold text-theme-neutral-900 dark:text-white">{name}</h4>
+            <h4 className="font-bold text-theme-neutral-900 dark:text-white">
+              {name}
+            </h4>
             <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
               {role} at {company}
             </p>

@@ -1,10 +1,11 @@
 "use client";
-import { FC } from "react";
-import Image from "next/image";
-import { Twitter, Github, Dribbble } from "lucide-react";
-import { TeamMember } from "@/types";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+
 import { JoinTeamCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { TeamMember } from "@/types";
+import { Dribbble, Github, Twitter } from "lucide-react";
+import Image from "next/image";
+import { FC } from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 
 const socialIcons = {
@@ -54,7 +55,7 @@ const teamMembers: TeamMember[] = [
 
 const TeamCard: FC<{ member: TeamMember }> = ({ member }) => (
   <ScrollInView
-  useInView={true}
+    useInView={true}
     className="group relative overflow-hidden rounded-2xl bg-white p-4 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-800"
   >
     {/* Image Container */}
@@ -89,8 +90,12 @@ const TeamCard: FC<{ member: TeamMember }> = ({ member }) => (
       <h3 className="text-xl font-bold text-theme-neutral-900 dark:text-white">
         {member.name}
       </h3>
-      <p className="text-theme-primary-600 dark:text-theme-primary-400">{member.role}</p>
-      <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-300">{member.bio}</p>
+      <p className="text-theme-primary-600 dark:text-theme-primary-400">
+        {member.role}
+      </p>
+      <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-300">
+        {member.bio}
+      </p>
 
       {/* Expertise Tags */}
       <div className="flex flex-wrap justify-center gap-2 pt-2">
@@ -111,16 +116,15 @@ export const TeamSection: FC = () => {
   return (
     <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900">
       <div className="container mx-auto px-4 sm:px-6">
-      <SectionHeading
-            alignment="center"
-            title={[" Meet Our Leadership Team"]}
-            subtitle="OUR EXPERTS"
-            subtitleColor="rose"
-            animated={true}
-            paragraph="We bring together expertise across strategy, design, and technology
+        <SectionHeading
+          alignment="center"
+          title={[" Meet Our Leadership Team"]}
+          subtitle="OUR EXPERTS"
+          subtitleColor="rose"
+          animated={true}
+          paragraph="We bring together expertise across strategy, design, and technology
            to deliver exceptional results for our clients."
-          />
-        
+        />
 
         {/* Team Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

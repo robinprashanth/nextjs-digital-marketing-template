@@ -1,18 +1,19 @@
 "use client";
+
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { FC } from "react";
 import {
-  LineChart,
+  Area,
+  AreaChart,
+  CartesianGrid,
   Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
 } from "recharts";
 import type { ChartConfig, PerformanceData } from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
 
 interface PerformanceChartProps {
   config: ChartConfig;
@@ -30,9 +31,7 @@ export const PerformanceChart: FC<PerformanceChartProps> = ({
   const ChartComponent = type === "line" ? LineChart : AreaChart;
 
   return (
-    <ScrollInView
-      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
-    >
+    <ScrollInView className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h3 className="text-lg font-bold text-theme-neutral-900 dark:text-white">

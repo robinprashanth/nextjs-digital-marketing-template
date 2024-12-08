@@ -1,7 +1,6 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import { Check, X, HelpCircle } from "lucide-react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -9,8 +8,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { PricingPlan } from "@/types";
-import { Button } from "@/components/ui/button";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Check, HelpCircle, X } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -23,7 +23,7 @@ export const PricingCard: FC<PricingCardProps> = ({ plan, billingPeriod }) => {
 
   return (
     <ScrollInView
-     useInView={true}
+      useInView={true}
       className={`relative rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-theme-neutral-800 ${
         plan.isPopular ? "ring-2 ring-theme-primary-500" : ""
       }`}

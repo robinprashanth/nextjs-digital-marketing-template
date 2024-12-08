@@ -1,21 +1,21 @@
 "use client";
 
-import { FC, useState, useCallback, useEffect } from "react";
-import {
-  Search,
-  MapPin,
-  Briefcase,
-  Clock,
-  ChevronRight,
-  DollarSign,
-  Users,
-  Building2,
-} from "lucide-react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { Button } from "@/components/ui/button";
 import type { JobPosting } from "@/types";
-import Link from "next/link";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+import {
+  Briefcase,
+  Building2,
+  ChevronRight,
+  Clock,
+  DollarSign,
+  MapPin,
+  Search,
+  Users,
+} from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { FC, useCallback, useEffect, useState } from "react";
 import { cultureImages } from "../data/content";
 
 interface CurrentOpeningsProps {
@@ -45,32 +45,38 @@ const benefits = [
   {
     icon: Building2,
     title: "Flexible Work Environment",
-    description: "Work from home, office, or hybrid options available. We believe in giving you the freedom to work where you're most productive.",
+    description:
+      "Work from home, office, or hybrid options available. We believe in giving you the freedom to work where you're most productive.",
   },
   {
     icon: Users,
     title: "Health & Wellness",
-    description: "Comprehensive health insurance, mental health support, wellness programs, and gym membership reimbursement.",
+    description:
+      "Comprehensive health insurance, mental health support, wellness programs, and gym membership reimbursement.",
   },
   {
     icon: DollarSign,
     title: "Competitive Compensation",
-    description: "Above-market salary packages, performance bonuses, and equity options for all full-time employees.",
+    description:
+      "Above-market salary packages, performance bonuses, and equity options for all full-time employees.",
   },
   {
     icon: Clock,
     title: "Work-Life Balance",
-    description: "Flexible hours, unlimited PTO, paid parental leave, and company-wide wellness days.",
+    description:
+      "Flexible hours, unlimited PTO, paid parental leave, and company-wide wellness days.",
   },
   {
     icon: Briefcase,
     title: "Career Growth",
-    description: "Professional development budget, mentorship programs, and clear career progression paths.",
+    description:
+      "Professional development budget, mentorship programs, and clear career progression paths.",
   },
   {
     icon: Users,
     title: "Team Events",
-    description: "Regular team building activities, annual retreats, and social events to foster strong relationships.",
+    description:
+      "Regular team building activities, annual retreats, and social events to foster strong relationships.",
   },
 ];
 
@@ -88,17 +94,20 @@ const hiringSteps = [
   {
     step: "03",
     title: "Skills Assessment",
-    description: "Complete a relevant task or challenge to showcase your expertise.",
+    description:
+      "Complete a relevant task or challenge to showcase your expertise.",
   },
   {
     step: "04",
     title: "Team Interview",
-    description: "Meet your potential teammates and learn about the role in detail.",
+    description:
+      "Meet your potential teammates and learn about the role in detail.",
   },
   {
     step: "05",
     title: "Final Interview",
-    description: "Discussion with leadership about culture fit and future growth.",
+    description:
+      "Discussion with leadership about culture fit and future growth.",
   },
 ];
 
@@ -120,42 +129,45 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
   const [isFiltering, setIsFiltering] = useState(false);
 
   // Function to fetch jobs with filters
-  const fetchJobs = useCallback(async (newPage: number = 1) => {
-    setLoading(true);
-    try {
-      const searchParams = new URLSearchParams({
-        page: newPage.toString(),
-        limit: "5",
-        search: searchTerm,
-        department: selectedDepartment,
-        type: selectedType,
-        location: selectedLocation
-      });
+  const fetchJobs = useCallback(
+    async (newPage: number = 1) => {
+      setLoading(true);
+      try {
+        const searchParams = new URLSearchParams({
+          page: newPage.toString(),
+          limit: "5",
+          search: searchTerm,
+          department: selectedDepartment,
+          type: selectedType,
+          location: selectedLocation,
+        });
 
-      const response = await fetch(`/api/jobs?${searchParams.toString()}`);
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch jobs');
-      }
+        const response = await fetch(`/api/jobs?${searchParams.toString()}`);
 
-      const data = await response.json();
-      
-      if (newPage === 1) {
-        setJobs(data.jobs);
-        setIsFiltering(data.total !== data.totalUnfiltered);
-      } else {
-        setJobs(prev => [...prev, ...data.jobs]);
+        if (!response.ok) {
+          throw new Error("Failed to fetch jobs");
+        }
+
+        const data = await response.json();
+
+        if (newPage === 1) {
+          setJobs(data.jobs);
+          setIsFiltering(data.total !== data.totalUnfiltered);
+        } else {
+          setJobs((prev) => [...prev, ...data.jobs]);
+        }
+
+        setPage(newPage);
+        setHasMore(data.hasMore);
+        setTotalJobs(data.total);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      } finally {
+        setLoading(false);
       }
-      
-      setPage(newPage);
-      setHasMore(data.hasMore);
-      setTotalJobs(data.total);
-    } catch (error) {
-      console.error('Error fetching jobs:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, [searchTerm, selectedDepartment, selectedType, selectedLocation]);
+    },
+    [searchTerm, selectedDepartment, selectedType, selectedLocation],
+  );
 
   // Load more handler
   const loadMore = useCallback(() => {
@@ -171,7 +183,13 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchTerm, selectedDepartment, selectedType, selectedLocation, fetchJobs]);
+  }, [
+    searchTerm,
+    selectedDepartment,
+    selectedType,
+    selectedLocation,
+    fetchJobs,
+  ]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -191,8 +209,8 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
               Digital Innovators
             </h1>
             <p className="text-lg text-white/80">
-              Be part of a team that&apos;s shaping the future of digital marketing. 
-              Explore our current opportunities below.
+              Be part of a team that&apos;s shaping the future of digital
+              marketing. Explore our current opportunities below.
             </p>
           </ScrollInView>
         </div>
@@ -290,7 +308,8 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
             </div>
             {jobs.length > 0 && (
               <div className="text-sm text-muted-foreground">
-                Showing {Math.min(page * 5, jobs.length)} of {totalJobs} positions
+                Showing {Math.min(page * 5, jobs.length)} of {totalJobs}{" "}
+                positions
               </div>
             )}
           </div>
@@ -304,10 +323,7 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
             <>
               <div className="grid gap-6">
                 {jobs.map((job, index) => (
-                  <ScrollInView
-                    key={job.id}
-                    delay={index * 0.1}
-                  >
+                  <ScrollInView key={job.id} delay={index * 0.1}>
                     <Link href={`/current-openings/${job.slug}`}>
                       <div className="group cursor-pointer rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-theme-primary-500/20">
                         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -325,7 +341,9 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
                                 </p>
                               </div>
                             </div>
-                            <p className="text-muted-foreground">{job.description}</p>
+                            <p className="text-muted-foreground">
+                              {job.description}
+                            </p>
                           </div>
 
                           <div className="flex flex-wrap items-center gap-4 lg:flex-col lg:items-end">
@@ -395,7 +413,8 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
                 No Positions Found
               </h3>
               <p className="text-muted-foreground">
-                We couldn&apos;t find any positions matching your criteria. Try adjusting your filters.
+                We couldn&apos;t find any positions matching your criteria. Try
+                adjusting your filters.
               </p>
             </div>
           )}
@@ -405,9 +424,10 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
       {/* Benefits Section */}
       <section className="border-t border-border bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView 
-          useInView={true}
-          className="mx-auto mb-12 max-w-3xl text-center">
+          <ScrollInView
+            useInView={true}
+            className="mx-auto mb-12 max-w-3xl text-center"
+          >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               BENEFITS & PERKS
             </span>
@@ -415,14 +435,15 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
               Why You&apos;ll Love Working With Us
             </h2>
             <p className="text-muted-foreground">
-              We offer a comprehensive benefits package designed to support your growth, health, and work-life balance.
+              We offer a comprehensive benefits package designed to support your
+              growth, health, and work-life balance.
             </p>
           </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="rounded-2xl border border-border bg-background p-6"
@@ -443,9 +464,10 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
       {/* Culture Section */}
       <section className="border-t border-border">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView 
-          useInView={true}
-          className="mx-auto mb-12 max-w-3xl text-center">
+          <ScrollInView
+            useInView={true}
+            className="mx-auto mb-12 max-w-3xl text-center"
+          >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               OUR CULTURE
             </span>
@@ -453,14 +475,15 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
               Life at Our Agency
             </h2>
             <p className="text-muted-foreground">
-              Get a glimpse of our vibrant company culture and what makes our team special.
+              Get a glimpse of our vibrant company culture and what makes our
+              team special.
             </p>
           </ScrollInView>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {cultureImages.map((image) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={image.id}
                 delay={image.id * 0.1}
                 className="group relative aspect-square overflow-hidden rounded-2xl"
@@ -486,9 +509,10 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
       {/* Hiring Process */}
       <section className="border-t border-border bg-card">
         <div className="container mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView 
-          useInView={true}
-          className="mx-auto mb-12 max-w-3xl text-center">
+          <ScrollInView
+            useInView={true}
+            className="mx-auto mb-12 max-w-3xl text-center"
+          >
             <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
               HIRING PROCESS
             </span>
@@ -496,14 +520,15 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
               Our Recruitment Journey
             </h2>
             <p className="text-muted-foreground">
-              A transparent look at our hiring process from application to offer.
+              A transparent look at our hiring process from application to
+              offer.
             </p>
           </ScrollInView>
 
           <div className="mx-auto max-w-3xl">
             {hiringSteps.map((step, index, array) => (
               <ScrollInView
-              useInView={true}
+                useInView={true}
                 key={index}
                 delay={index * 0.1}
                 className="relative flex gap-8"
@@ -516,7 +541,7 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
                     <div className="mt-4 h-full w-px bg-gradient-to-b from-theme-primary-500/50 to-transparent" />
                   )}
                 </div>
-                
+
                 <div className="flex-1 pb-12">
                   <div className="rounded-2xl border border-border bg-background p-6">
                     <h3 className="mb-2 text-xl font-semibold text-foreground">
@@ -539,8 +564,9 @@ const CurrentOpenings: FC<CurrentOpeningsProps> = ({
               Don&apos;t See the Right Role?
             </h2>
             <p className="mb-8 text-lg text-white/80">
-              We&apos;re always looking for talented individuals to join our team. 
-              Send us your resume and we&apos;ll keep you in mind for future opportunities.
+              We&apos;re always looking for talented individuals to join our
+              team. Send us your resume and we&apos;ll keep you in mind for
+              future opportunities.
             </p>
             <Button
               variant="secondary"

@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
-import { Code2, LineChart, ShoppingBag } from "lucide-react";
+
 import type { Industry } from "@/types";
+import { Code2, LineChart, ShoppingBag } from "lucide-react";
+import { useState } from "react";
 import { IndustryCard } from "./IndustryCard";
 
 const sampleIndustries: Industry[] = [

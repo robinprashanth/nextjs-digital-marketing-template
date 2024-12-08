@@ -15,15 +15,14 @@ export const IndustriesSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <SectionHeading
-            alignment="center"
-            title={["Expertise Across Industries"]}
-            subtitle="INDUSTRIES WE SERVE"
-            subtitleColor="ocean"
-            animated={true}
-            paragraph="  We bring deep industry knowledge and specialized expertise to
+          alignment="center"
+          title={["Expertise Across Industries"]}
+          subtitle="INDUSTRIES WE SERVE"
+          subtitleColor="ocean"
+          animated={true}
+          paragraph="  We bring deep industry knowledge and specialized expertise to
             deliver exceptional results across diverse sectors."
-          />
-       
+        />
 
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Industry Cards */}
@@ -47,7 +46,6 @@ export const IndustriesSection: FC = () => {
 
         {/* CTA Section */}
         <ConsultationCTA />
-
       </div>
     </section>
   );

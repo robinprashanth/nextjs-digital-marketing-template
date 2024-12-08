@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import { ChevronRight } from "lucide-react";
 import { Category } from "@/types";
+import { ChevronRight } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
 
 interface CategoryGridProps {
   categories: Category[];

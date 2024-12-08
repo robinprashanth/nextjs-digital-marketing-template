@@ -1,6 +1,7 @@
 "use client";
-import { FC } from "react";
+
 import { MethodologyStepProps } from "@/types";
+import { FC } from "react";
 import { ScrollInView } from "../motion/ScrollInView";
 
 export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
@@ -8,9 +9,7 @@ export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
 }) => (
   <section className="border-t border-theme-neutral-800 py-24">
     <div className="container mx-auto px-4 sm:px-6">
-      <ScrollInView
-        className="mx-auto mb-16 max-w-3xl text-center"
-      >
+      <ScrollInView className="mx-auto mb-16 max-w-3xl text-center">
         <span className="mb-4 inline-block rounded-full bg-theme-primary-500/10 px-4 py-1.5 text-sm font-semibold text-theme-primary-400">
           Our Approach
         </span>
@@ -25,8 +24,8 @@ export const Methodology: FC<{ steps: MethodologyStepProps[] }> = ({
       <div className="relative mx-auto max-w-4xl">
         {steps.map((step, index) => (
           <ScrollInView
-          key={index}
-          delay={ index * 0.1}
+            key={index}
+            delay={index * 0.1}
             className="relative flex gap-8 pb-12"
           >
             <div className="relative flex flex-col items-center">

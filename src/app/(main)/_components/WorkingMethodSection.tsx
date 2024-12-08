@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { FC } from "react";
 import { ScrollAnimations } from "@/components/motion/ScrollInView";
@@ -26,8 +26,8 @@ const MethodStep: FC<MethodStepProps> = ({
     }`}
     useInView={true}
   >
-    <div className={`relative ${isHighlighted ? 'p-8 md:p-10' : 'p-6'}`}>
-      <div className="flex flex-col md:flex-row gap-6 items-start">
+    <div className={`relative ${isHighlighted ? "p-8 md:p-10" : "p-6"}`}>
+      <div className="flex flex-col items-start gap-6 md:flex-row">
         {/* Number */}
         <span className="text-[6rem] font-black leading-none text-theme-neutral-900">
           {number}
@@ -44,15 +44,13 @@ const MethodStep: FC<MethodStepProps> = ({
                 {line}
               </h3>
             ))}
-            <p className="mt-3 text-sm text-theme-neutral-700">
-              {subtitle}
-            </p>
+            <p className="mt-3 text-sm text-theme-neutral-700">{subtitle}</p>
           </div>
 
           {/* Images for Step 2 */}
           {isHighlighted && (
             <div className="mt-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
                 <ScrollAnimations.View
                   className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-card shadow-sm transition-all duration-300 hover:shadow-md"
                   delay={0.3}
@@ -111,24 +109,28 @@ export const WorkingMethodSection: FC = () => {
     {
       number: "1.",
       title: ["Understanding Your", "Business"],
-      subtitle: "An in-depth analysis of your business objectives, market positioning, and challenges you face."
+      subtitle:
+        "An in-depth analysis of your business objectives, market positioning, and challenges you face.",
     },
     {
       number: "2.",
       title: ["Strategic Planning", "and Creative Execution"],
-      subtitle: "Based on in-depth research and data analysis, we craft a strategic roadmap that outlines clear objectives, timelines and key deliverables.",
-      isHighlighted: true
+      subtitle:
+        "Based on in-depth research and data analysis, we craft a strategic roadmap that outlines clear objectives, timelines and key deliverables.",
+      isHighlighted: true,
     },
     {
       number: "3.",
       title: ["Collaboration and", "Optimization"],
-      subtitle: "We work closely with your team to implement the strategy while continuously optimizing for best results."
+      subtitle:
+        "We work closely with your team to implement the strategy while continuously optimizing for best results.",
     },
     {
       number: "4.",
       title: ["Delivering and", "Reporting Results"],
-      subtitle: "We provide detailed reports of your success, offering full transparency in our process."
-    }
+      subtitle:
+        "We provide detailed reports of your success, offering full transparency in our process.",
+    },
   ];
 
   return (

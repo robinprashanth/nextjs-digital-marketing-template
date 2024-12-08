@@ -1,16 +1,16 @@
 "use client";
 
-import { FC, useEffect, useState, useRef, useCallback } from "react";
-import { Search, ChevronLeft, ChevronRight } from "lucide-react";
-import type { BlogPost } from "@/types";
-import { Button } from "@/components/ui/button";
-import { BlogCard } from "./BlogCard";
-import { BlogLoadingSpinner } from "./BlogLoadingSpinner";
-import { BlogNoResults } from "./BlogNoResults";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { ITEMS_PER_PAGE } from "@/lib/constants";
+import type { BlogPost } from "@/types";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { BlogCard } from "./BlogCard";
+import { BlogLoadingSpinner } from "./BlogLoadingSpinner";
+import { BlogNoResults } from "./BlogNoResults";
 
 // Define the search handler type
 type SearchHandler = (value: string) => void;
@@ -97,16 +97,22 @@ export const Blogs: FC<BlogsProps> = ({ initialPosts }) => {
   const [activeCategory, setActiveCategory] = useState("All");
   const categoriesRef = useRef<HTMLDivElement>(null);
 
-  const categories = ["All", ...Array.from(new Set(initialPosts.map(post => post.category)))];
+  const categories = [
+    "All",
+    ...Array.from(new Set(initialPosts.map((post) => post.category))),
+  ];
 
   const filterPosts = useCallback(() => {
     const filtered = initialPosts.filter((post) => {
-      const matchesSearch = 
+      const matchesSearch =
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+        post.tags.some((tag) =>
+          tag.toLowerCase().includes(searchQuery.toLowerCase()),
+        );
 
-      const matchesCategory = activeCategory === "All" || post.category === activeCategory;
+      const matchesCategory =
+        activeCategory === "All" || post.category === activeCategory;
 
       return matchesSearch && matchesCategory;
     });
@@ -119,7 +125,7 @@ export const Blogs: FC<BlogsProps> = ({ initialPosts }) => {
     if (loading || !hasMore) return;
     setLoading(true);
     setTimeout(() => {
-      setPage(prev => prev + 1);
+      setPage((prev) => prev + 1);
       setLoading(false);
     }, 500);
   }, [loading, hasMore]);
@@ -159,7 +165,8 @@ export const Blogs: FC<BlogsProps> = ({ initialPosts }) => {
               Insights & Updates
             </h1>
             <p className="text-base text-white/80 sm:text-lg">
-              Explore our latest thoughts, strategies, and insights about digital marketing.
+              Explore our latest thoughts, strategies, and insights about
+              digital marketing.
             </p>
           </ScrollInView>
         </div>
@@ -181,101 +188,103 @@ export const Blogs: FC<BlogsProps> = ({ initialPosts }) => {
         <div className="container mx-auto px-4 sm:px-6">
           <ScrollInView className="rounded-2xl border border-border bg-card p-4 sm:p-6 md:p-8">
             <div className="flex flex-col gap-4 md:gap-6">
-            {/* Search */}
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search posts..."
-                defaultValue={searchQuery}
-                onChange={(e) => debouncedSearch(e.target.value)}
-                className="w-full rounded-lg border border-border bg-background py-2.5 pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-            </div>
-
-            {/* Category Filter */}
-            <div className="relative">
-              <div
-                ref={categoriesRef}
-                className="flex gap-2 overflow-x-auto px-2 pb-2 scrollbar-none sm:gap-4"
-              >
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => {
-                      setActiveCategory(category);
-                      setPage(1);
-                    }}
-                    className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                      activeCategory === category
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-background text-muted-foreground hover:bg-muted"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
+              {/* Search */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  type="text"
+                  placeholder="Search posts..."
+                  defaultValue={searchQuery}
+                  onChange={(e) => debouncedSearch(e.target.value)}
+                  className="w-full rounded-lg border border-border bg-background py-2.5 pl-10 pr-4 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                />
               </div>
-              <CategoryScrollButtons containerRef={categoriesRef} />
+
+              {/* Category Filter */}
+              <div className="relative">
+                <div
+                  ref={categoriesRef}
+                  className="scrollbar-none flex gap-2 overflow-x-auto px-2 pb-2 sm:gap-4"
+                >
+                  {categories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => {
+                        setActiveCategory(category);
+                        setPage(1);
+                      }}
+                      className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                        activeCategory === category
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-background text-muted-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+                <CategoryScrollButtons containerRef={categoriesRef} />
+              </div>
             </div>
-          </div>
-        </ScrollInView>
-      </div>
-    </section>
+          </ScrollInView>
+        </div>
+      </section>
 
-    {/* Blog Posts Grid */}
-    <section className="pb-16 sm:pb-20 md:pb-24">
-      <div className="container mx-auto px-4 sm:px-6">
-        {displayedItems.length > 0 ? (
-          <div className="grid gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {displayedItems.map((post, index) => (
-              <BlogCard key={post.slug} post={post} index={index} />
-            ))}
-          </div>
-        ) : (
-          <div className="mt-12">
-            <BlogNoResults />
-          </div>
-        )}
-
-        {/* Loading and Load More */}
-        <div ref={loadingRef} className="mt-8">
-          {loading && <BlogLoadingSpinner />}
-          {!hasMore && displayedItems.length > 0 && (
-            <div className="mt-12 text-center text-muted-foreground">
-              No more posts to load
+      {/* Blog Posts Grid */}
+      <section className="pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          {displayedItems.length > 0 ? (
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+              {displayedItems.map((post, index) => (
+                <BlogCard key={post.slug} post={post} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-12">
+              <BlogNoResults />
             </div>
           )}
-        </div>
-      </div>
-    </section>
 
-    {/* Newsletter Section - Optional */}
-    <section className="bg-muted py-16 sm:py-20 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6">
-        <ScrollInView className="mx-auto max-w-2xl text-center">
-          <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-            STAY UPDATED
-          </span>
-          <h2 className="mb-4 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
-            Subscribe to Our Newsletter
-          </h2>
-          <p className="mb-8 text-muted-foreground">
-            Get the latest insights and updates delivered straight to your inbox.
-          </p>
-          <form className="flex flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-            />
-            <Button className="whitespace-nowrap">
-              Subscribe Now
-            </Button>
-          </form>
-        </ScrollInView>
-      </div>
-    </section>
-  </main>
-);
+          {/* Loading and Load More */}
+          <div ref={loadingRef} className="mt-8">
+            {loading && <BlogLoadingSpinner />}
+            {!hasMore && displayedItems.length > 0 && (
+              <div className="mt-12 text-center text-muted-foreground">
+                No more posts to load
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section - Optional */}
+      <section className="bg-muted py-16 sm:py-20 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <ScrollInView className="mx-auto max-w-2xl text-center">
+            <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+              STAY UPDATED
+            </span>
+            <h2 className="mb-4 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
+              Subscribe to Our Newsletter
+            </h2>
+            <p className="mb-8 text-muted-foreground">
+              Get the latest insights and updates delivered straight to your
+              inbox.
+            </p>
+            <form
+              className="flex flex-col gap-4 sm:flex-row"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+              <Button className="whitespace-nowrap">Subscribe Now</Button>
+            </form>
+          </ScrollInView>
+        </div>
+      </section>
+    </main>
+  );
 };

@@ -66,7 +66,6 @@ export default {
             "500": "hsl(var(--theme-primary-500))",
             "600": "hsl(var(--theme-primary-600))",
             "700": "hsl(var(--theme-primary-700))",
-            
           },
           secondary: {
             "300": "hsl(var(--theme-secondary-300))",

@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { FC } from 'react';
-import { Button } from '@/components/ui/button';
-import { ScrollInView } from '@/components/motion/ScrollInView';
-import { ArrowRight } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { siteConfig } from '@/config';
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config";
+import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
 
 interface CTACardProps {
   title: string;
   description: string;
   buttonText: string;
   path?: string;
-  variant?: 'primary' | 'custom';
+  variant?: "primary" | "custom";
   showArrow?: boolean;
   className?: string;
 }
@@ -22,9 +22,9 @@ export const CTACard: FC<CTACardProps> = ({
   description,
   buttonText,
   path,
-  variant = 'primary',
+  variant = "primary",
   showArrow = false,
-  className = '',
+  className = "",
 }) => {
   const router = useRouter();
 
@@ -35,9 +35,9 @@ export const CTACard: FC<CTACardProps> = ({
   return (
     <ScrollInView
       className={`mx-auto mt-16 max-w-3xl rounded-2xl ${
-        variant === 'primary'
-          ? 'bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600'
-          : 'bg-gradient-to-r from-theme-primary-600 to-purple-700'
+        variant === "primary"
+          ? "bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600"
+          : "bg-gradient-to-r from-theme-primary-600 to-purple-700"
       } p-8 text-center text-white ${className}`}
     >
       <h3 className="mb-4 text-2xl font-bold">{title}</h3>

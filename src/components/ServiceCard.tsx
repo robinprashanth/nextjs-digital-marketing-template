@@ -15,7 +15,12 @@ interface ServiceCardProps {
   delay?: number;
 }
 
-export function ServiceCard({ service, iconMap, index, delay = 0.1 }: ServiceCardProps) {
+export function ServiceCard({
+  service,
+  iconMap,
+  index,
+  delay = 0.1,
+}: ServiceCardProps) {
   const IconComponent = iconMap[service.icon as keyof typeof iconMap];
 
   return (
@@ -35,17 +40,19 @@ export function ServiceCard({ service, iconMap, index, delay = 0.1 }: ServiceCar
         {service.description}
       </p>
 
-      {service?.bullets && <ul className="space-y-3">
-        {service.bullets.map((bullet, bulletIndex) => (
-          <li
-            key={bulletIndex}
-            className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
-          >
-            <div className="h-1.5 w-1.5 rounded-full bg-theme-primary-600" />
-            {bullet}
-          </li>
-        ))}
-      </ul>}
+      {service?.bullets && (
+        <ul className="space-y-3">
+          {service.bullets.map((bullet, bulletIndex) => (
+            <li
+              key={bulletIndex}
+              className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
+            >
+              <div className="h-1.5 w-1.5 rounded-full bg-theme-primary-600" />
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
     </ScrollInView>

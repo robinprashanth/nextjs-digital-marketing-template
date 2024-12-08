@@ -1,9 +1,10 @@
 "use client";
-import { FC } from "react";
+
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { ArrowUpRight } from "lucide-react";
+import { FC } from "react";
 import type { MetricCard as MetricCardType } from "../data/content";
 import { getIcon } from "../utils/icons";
-import { ScrollInView } from "@/components/motion/ScrollInView";
 
 export const MetricCard: FC<MetricCardType> = ({
   title,
@@ -15,12 +16,12 @@ export const MetricCard: FC<MetricCardType> = ({
   const IconComponent = getIcon(icon);
 
   return (
-    <ScrollInView
-      className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
-    >
+    <ScrollInView className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">{title}</p>
+          <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
+            {title}
+          </p>
           <h3 className="mt-2 text-2xl font-bold text-theme-neutral-900 dark:text-white">
             {value}
           </h3>

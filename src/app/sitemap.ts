@@ -1,7 +1,14 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/config";
 
-type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
+type ChangeFreq =
+  | "always"
+  | "hourly"
+  | "daily"
+  | "weekly"
+  | "monthly"
+  | "yearly"
+  | "never";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = `https://${siteConfig.domainName}`;
@@ -17,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: route === "" ? "daily" : "weekly" as ChangeFreq,
+    changeFrequency: route === "" ? "daily" : ("weekly" as ChangeFreq),
     priority: route === "" ? 1 : 0.8,
   }));
 

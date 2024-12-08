@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { FC } from 'react';
 import {
-  FacebookShareButton,
-  TwitterShareButton,
-  LinkedinShareButton,
-  WhatsappShareButton,
-  EmailShareButton,
-} from 'react-share';
-import { 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Share2,
+  Facebook,
+  Linkedin,
   Mail,
-  MessageCircle
-} from 'lucide-react';
+  MessageCircle,
+  Share2,
+  Twitter,
+} from "lucide-react";
+import { FC } from "react";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 const domain = process.env.NEXT_PUBLIC_APP_URL!;
 
@@ -36,11 +36,10 @@ export const SocialShareModern: FC<SocialShareModernProps> = ({
         <Share2 className="h-5 w-5 text-theme-primary-500" />
         <span className="font-medium text-foreground">Share this article</span>
       </div>
-      
+
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-        <FacebookShareButton 
-         url={`${domain}${url}`}
-          
+        <FacebookShareButton
+          url={`${domain}${url}`}
           className="w-full rounded-lg bg-theme-primary-500/5 px-4 py-2.5 text-theme-primary-500 transition-colors hover:bg-theme-primary-500/10"
         >
           <div className="flex items-center justify-center gap-2">
@@ -49,8 +48,8 @@ export const SocialShareModern: FC<SocialShareModernProps> = ({
           </div>
         </FacebookShareButton>
 
-        <TwitterShareButton 
-         url={`${domain}${url}`}
+        <TwitterShareButton
+          url={`${domain}${url}`}
           title={title}
           className="w-full rounded-lg bg-theme-ocean-500/5 px-4 py-2.5 text-theme-ocean-500 transition-colors hover:bg-theme-ocean-500/10"
         >
@@ -60,8 +59,8 @@ export const SocialShareModern: FC<SocialShareModernProps> = ({
           </div>
         </TwitterShareButton>
 
-        <LinkedinShareButton 
-         url={`${domain}${url}`}
+        <LinkedinShareButton
+          url={`${domain}${url}`}
           title={title}
           summary={description}
           className="w-full rounded-lg bg-blue-500/5 px-4 py-2.5 text-blue-500 transition-colors hover:bg-blue-500/10"
@@ -72,8 +71,8 @@ export const SocialShareModern: FC<SocialShareModernProps> = ({
           </div>
         </LinkedinShareButton>
 
-        <WhatsappShareButton 
-         url={`${domain}${url}`}
+        <WhatsappShareButton
+          url={`${domain}${url}`}
           title={title}
           className="w-full rounded-lg bg-emerald-500/5 px-4 py-2.5 text-emerald-500 transition-colors hover:bg-emerald-500/10"
         >
@@ -83,8 +82,8 @@ export const SocialShareModern: FC<SocialShareModernProps> = ({
           </div>
         </WhatsappShareButton>
 
-        <EmailShareButton 
-         url={`${domain}${url}`}
+        <EmailShareButton
+          url={`${domain}${url}`}
           subject={title}
           body={description}
           className="w-full rounded-lg bg-theme-rose-500/5 px-4 py-2.5 text-theme-rose-500 transition-colors hover:bg-theme-rose-500/10"

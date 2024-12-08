@@ -1,20 +1,20 @@
-import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog";
-import { BlogPostLayoutAlt } from "../_components/BlogPostLayoutAlt";
+import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog";
+import { getSEOTags } from "@/lib/seo";
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import { getSEOTags } from "@/lib/seo";
+import { BlogPostLayoutAlt } from "../_components/BlogPostLayoutAlt";
 
 type Props = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const slug = (await params).slug;
     const { frontMatter } = await getBlogPostBySlug(slug);
-    
+
     return getSEOTags({
       title: frontMatter.title,
       description: frontMatter.excerpt,
@@ -42,8 +42,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-
-
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
   return posts.map((post) => ({
@@ -51,9 +49,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function AltBlogPostPage( { params }: Props
-) {
-  const slug = (await params).slug
+export default async function AltBlogPostPage({ params }: Props) {
+  const slug = (await params).slug;
   try {
     const { frontMatter, content } = await getBlogPostBySlug(slug);
 

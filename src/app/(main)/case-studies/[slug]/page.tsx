@@ -1,19 +1,17 @@
-import { getCaseStudyBySlug, getAllCaseStudies } from "@/lib/case-studies";
-import { CaseStudyLayout } from "../_components/CaseStudyLayout";
+import { getAllCaseStudies, getCaseStudyBySlug } from "@/lib/case-studies";
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import { CaseStudyLayout } from "../_components/CaseStudyLayout";
 
 type Props = {
-  params: Promise<{ slug: string }>
-}
- 
+  params: Promise<{ slug: string }>;
+};
+
 // Generate metadata for the page
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-   // read route params
-   const slug = (await params).slug
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const slug = (await params).slug;
   try {
     const { frontMatter } = await getCaseStudyBySlug(slug);
     return {
@@ -34,8 +32,8 @@ export async function generateMetadata(
     };
   } catch {
     return {
-      title: 'Case Study Not Found',
-      description: 'The requested case study could not be found.',
+      title: "Case Study Not Found",
+      description: "The requested case study could not be found.",
     };
   }
 }
@@ -48,18 +46,15 @@ export async function generateStaticParams() {
   }));
 }
 
-
-export default async function CaseStudyPage(
-  { params }: Props
-) {
-  const slug = (await params).slug
+export default async function CaseStudyPage({ params }: Props) {
+  const slug = (await params).slug;
 
   try {
     const { frontMatter, content } = await getCaseStudyBySlug(slug);
 
     return (
       <CaseStudyLayout metadata={frontMatter} slug={slug}>
-        <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-pre:bg-theme-neutral-800 prose-pre:border prose-pre:border-theme-neutral-700 prose-img:rounded-xl max-w-none">
+        <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-pre:border prose-pre:border-theme-neutral-700 prose-pre:bg-theme-neutral-800 prose-img:rounded-xl">
           <MDXRemote source={content} />
         </div>
       </CaseStudyLayout>

@@ -1,11 +1,6 @@
 "use client";
 
-import { FC } from "react";
-import { motion } from "motion/react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,8 +9,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { newsletterSchema, type NewsletterFormData } from "@/lib/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 export const Newsletter: FC = () => {
   const form = useForm<NewsletterFormData>({
@@ -82,11 +82,11 @@ export const Newsletter: FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="flex gap-3 flex-col md:flex-row">
+                    <div className="flex flex-col gap-3 md:flex-row">
                       <div className="relative flex-1">
                         <Input
                           placeholder="Enter your email"
-                          className="text-white rounded-full border-theme-primary-500/20 bg-white/5 pr-12 backdrop-blur-sm placeholder:text-theme-neutral-500 focus:border-theme-primary-500/40 focus:ring-theme-primary-500/40"
+                          className="rounded-full border-theme-primary-500/20 bg-white/5 pr-12 text-white backdrop-blur-sm placeholder:text-theme-neutral-500 focus:border-theme-primary-500/40 focus:ring-theme-primary-500/40"
                           {...field}
                         />
                         {/* Email icon or validation status */}

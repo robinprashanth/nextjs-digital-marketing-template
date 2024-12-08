@@ -1,18 +1,18 @@
 "use client";
 
-import { FC, useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageSquare } from "lucide-react";
+import { FC, useState } from "react";
 
 interface ContactDialogProps {
   trigger?: React.ReactNode;
@@ -26,7 +26,7 @@ export const ContactDialog: FC<ContactDialogProps> = ({ trigger }) => {
     e.preventDefault();
     setLoading(true);
     // Add your contact form logic here
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setSent(true);
     setLoading(false);
   };
@@ -47,9 +47,12 @@ export const ContactDialog: FC<ContactDialogProps> = ({ trigger }) => {
           </div>
         </div>
         <DialogHeader>
-          <DialogTitle className="text-center text-xl font-bold">Get in Touch</DialogTitle>
+          <DialogTitle className="text-center text-xl font-bold">
+            Get in Touch
+          </DialogTitle>
           <DialogDescription className="text-center">
-            Have a question or project in mind? Let&apos;s discuss how we can help.
+            Have a question or project in mind? Let&apos;s discuss how we can
+            help.
           </DialogDescription>
         </DialogHeader>
         {!sent ? (
@@ -59,7 +62,12 @@ export const ContactDialog: FC<ContactDialogProps> = ({ trigger }) => {
                 <Input placeholder="Name" required className="h-12 bg-muted" />
               </div>
               <div>
-                <Input type="email" placeholder="Email" required className="h-12 bg-muted" />
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  className="h-12 bg-muted"
+                />
               </div>
             </div>
             <div>

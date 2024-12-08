@@ -1,6 +1,7 @@
-"use client"
+"use client";
+
+import { HTMLMotionProps, motion, Variants } from "motion/react";
 import { FC, PropsWithChildren } from "react";
-import { motion, Variants, HTMLMotionProps } from "motion/react";
 
 interface ScrollInViewProps extends PropsWithChildren {
   className?: string;
@@ -28,15 +29,14 @@ export const ScrollInView: FC<ScrollInViewProps> = ({
 }) => {
   const initialAnimation = { opacity: 0, y, x };
   const finalAnimation = { opacity: 1, y: 0, x: 0 };
-  
+
   return (
     <motion.div
       initial={initialAnimation}
       // Only include the appropriate animation prop based on useInView
       {...(useInView
         ? { whileInView: finalAnimation }
-        : { animate: finalAnimation }
-      )}
+        : { animate: finalAnimation })}
       viewport={useInView ? { once, amount, ...viewport } : undefined}
       transition={{ duration, delay }}
       className={className}
@@ -114,16 +114,11 @@ export const ScrollInViewStaggerItem: FC<ScrollInViewStaggerItemProps> = ({
   };
 
   return (
-    <motion.div
-      variants={customItemVariants}
-      className={className}
-    >
+    <motion.div variants={customItemVariants} className={className}>
       {children}
     </motion.div>
   );
 };
-
-
 
 // Export all components
 export const ScrollAnimations = {

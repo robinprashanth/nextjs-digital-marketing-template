@@ -1,14 +1,18 @@
 "use client";
 
-import { FC } from "react";
-import { ScrollInView, ScrollInViewStagger, ScrollInViewStaggerItem } from "@/components/motion/ScrollInView";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
 import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { FloatIn } from "@/components/motion/FloatIn";
-import { ScaleIn } from "@/components/motion/ScaleIn";
 import { GridPattern } from "@/components/motion/GridPattern";
+import { ScaleIn } from "@/components/motion/ScaleIn";
+import {
+  ScrollInView,
+  ScrollInViewStagger,
+  ScrollInViewStaggerItem,
+} from "@/components/motion/ScrollInView";
 import { Button } from "@/components/ui/button";
+import { FC } from "react";
 
 const AnimationsPage: FC = () => {
   return (
@@ -18,7 +22,8 @@ const AnimationsPage: FC = () => {
         <div className="mb-8">
           <h1 className="mb-2 text-3xl font-bold">Animations</h1>
           <p className="text-lg text-muted-foreground">
-            A collection of reusable animation components for creating engaging user experiences.
+            A collection of reusable animation components for creating engaging
+            user experiences.
           </p>
         </div>
       </FadeIn>
@@ -91,7 +96,7 @@ const AnimationsPage: FC = () => {
             <h3 className="text-xl font-medium">ScrollInView</h3>
             <div className="rounded-lg border border-border p-6">
               <div className="h-[200px] overflow-auto p-4">
-                <div className="h-[400px] flex items-center justify-center">
+                <div className="flex h-[400px] items-center justify-center">
                   Scroll down ↓
                 </div>
                 <ScrollInView useInView className="w-fit">
@@ -148,7 +153,7 @@ const AnimationsPage: FC = () => {
             <h3 className="text-xl font-medium">ScrollInViewStagger</h3>
             <div className="rounded-lg border border-border p-6">
               <div className="h-[200px] overflow-auto p-4">
-                <div className="h-[400px] flex items-center justify-center">
+                <div className="flex h-[400px] items-center justify-center">
                   Scroll down ↓
                 </div>
                 <ScrollInViewStagger className="flex flex-col gap-2">
@@ -182,7 +187,7 @@ const AnimationsPage: FC = () => {
       <section className="space-y-8">
         <ScrollInView>
           <h2 className="mb-6 text-2xl font-semibold">Pattern Animations</h2>
-          
+
           <div className="space-y-4">
             <h3 className="text-xl font-medium">GridPattern</h3>
             <div className="rounded-lg border border-border p-6">

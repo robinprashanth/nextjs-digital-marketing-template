@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { motion } from "motion/react";
-import { Users, Video, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Check, Users, Video } from "lucide-react";
+import { motion } from "motion/react";
+import { FC } from "react";
 
 export const CommunitySection: FC = () => (
   <section className="border-t border-theme-neutral-800">

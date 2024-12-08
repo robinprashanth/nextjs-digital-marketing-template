@@ -46,19 +46,19 @@ export const Footer: FC = () => {
                 <div className="relative h-10 w-10">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 blur-sm" />
                   <div className="relative flex h-full w-full items-center justify-center rounded-full bg-[#0B0B1E]">
-                  <Image 
-        src="/logo.svg" 
-        alt="Digitra Logo" 
-        width={32} 
-        height={32} 
-        className="rounded-full" 
-        priority // Ensures the logo loads quickly as it's a primary visual
-      />
+                    <Image
+                      src="/logo.svg"
+                      alt="Digitra Logo"
+                      width={32}
+                      height={32}
+                      className="rounded-full"
+                      priority // Ensures the logo loads quickly as it's a primary visual
+                    />
                   </div>
                 </div>
-                <span className=" bg-clip-text text-2xl font-bold text-white">
-    {siteConfig.appName}
-  </span>
+                <span className="bg-clip-text text-2xl font-bold text-white">
+                  {siteConfig.appName}
+                </span>
               </div>
               <p className="text-theme-neutral-400">
                 Transforming digital presence through innovative marketing
@@ -69,7 +69,9 @@ export const Footer: FC = () => {
             <Newsletter />
 
             <div className="space-y-4">
-              <p className="text-sm text-theme-neutral-400">Follow us on social media</p>
+              <p className="text-sm text-theme-neutral-400">
+                Follow us on social media
+              </p>
               <SocialLinks />
             </div>
           </div>
@@ -101,7 +103,9 @@ export const Footer: FC = () => {
         {/* Bottom Bar */}
         <div className="mt-16 border-t border-theme-neutral-800 py-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-theme-neutral-400 sm:flex-row">
-            <div>© {currentYear} {siteConfig.appName}. All rights reserved.</div>
+            <div>
+              © {currentYear} {siteConfig.appName}. All rights reserved.
+            </div>
             <div className="flex gap-8">
               <a href="#" className="hover:text-theme-primary-400">
                 Privacy Policy

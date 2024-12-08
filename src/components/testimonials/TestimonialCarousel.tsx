@@ -1,14 +1,16 @@
-import { FC, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { TestimonialCardProps } from "@/types";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { FC, useState } from "react";
 
 interface TestimonialCarouselProps {
   testimonials: TestimonialCardProps[];
 }
 
-export const TestimonialCarousel: FC<TestimonialCarouselProps> = ({ testimonials }) => {
+export const TestimonialCarousel: FC<TestimonialCarouselProps> = ({
+  testimonials,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -36,13 +38,13 @@ export const TestimonialCarousel: FC<TestimonialCarouselProps> = ({ testimonials
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
-    setCurrentIndex((prevIndex) => (
+    setCurrentIndex((prevIndex) =>
       newDirection === 1
         ? (prevIndex + 1) % testimonials.length
         : prevIndex - 1 < 0
           ? testimonials.length - 1
-          : prevIndex - 1
-    ));
+          : prevIndex - 1,
+    );
   };
 
   return (
@@ -93,8 +95,12 @@ export const TestimonialCarousel: FC<TestimonialCarouselProps> = ({ testimonials
                   {testimonials[currentIndex].role}
                 </div>
                 <div className="mt-1 flex items-center gap-1">
-                  {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                    <div key={i} className="text-theme-sunflower-400">★</div>
+                  {Array.from({
+                    length: testimonials[currentIndex].rating,
+                  }).map((_, i) => (
+                    <div key={i} className="text-theme-sunflower-400">
+                      ★
+                    </div>
                   ))}
                 </div>
               </div>
@@ -114,7 +120,7 @@ export const TestimonialCarousel: FC<TestimonialCarouselProps> = ({ testimonials
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
-          
+
           {/* Dots */}
           <div className="flex items-center gap-2">
             {testimonials.map((_, index) => (

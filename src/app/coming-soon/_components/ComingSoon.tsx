@@ -1,48 +1,54 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { FloatingShape } from '@/components/motion/FloatingShape';
-import { Button } from '@/components/ui/button';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { ArrowRight, Mail } from 'lucide-react';
-import { FadeIn } from '@/components/motion/FadeIn';
-import { FadeInStagger } from '@/components/motion/FadeInStagger';
-import { FadeInStaggerItem } from '@/components/motion/FadeInStaggerItem';
+import { FadeIn } from "@/components/motion/FadeIn";
+import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { FloatingShape } from "@/components/motion/FloatingShape";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowRight, Mail } from "lucide-react";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 // Form Schema
 const formSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
+  email: z.string().email("Please enter a valid email address"),
 });
 
 const decorativeShapes = [
   {
-    type: 'blur',
-    color: 'bg-theme-primary-400/30',
-    size: 'w-64 h-64',
-    position: 'top-20 -right-32',
+    type: "blur",
+    color: "bg-theme-primary-400/30",
+    size: "w-64 h-64",
+    position: "top-20 -right-32",
     delay: 0.2,
   },
   {
-    type: 'star',
-    color: 'text-theme-rose-400',
-    position: 'top-40 left-20',
+    type: "star",
+    color: "text-theme-rose-400",
+    position: "top-40 left-20",
     delay: 0.4,
   },
   {
-    type: 'plus',
-    color: 'text-theme-ocean-400',
-    position: 'bottom-32 right-48',
+    type: "plus",
+    color: "text-theme-ocean-400",
+    position: "bottom-32 right-48",
     delay: 0.6,
   },
   {
-    type: 'blur',
-    color: 'bg-theme-secondary-400/30',
-    size: 'w-96 h-96',
-    position: '-bottom-48 -left-48',
+    type: "blur",
+    color: "bg-theme-secondary-400/30",
+    size: "w-96 h-96",
+    position: "-bottom-48 -left-48",
     delay: 0.8,
   },
 ];
@@ -51,7 +57,7 @@ export default function ComingSoon() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: '',
+      email: "",
     },
   });
 
@@ -60,16 +66,20 @@ export default function ComingSoon() {
     // Handle form submission
   };
 
-  const renderShape = (shape: typeof decorativeShapes[0]) => {
+  const renderShape = (shape: (typeof decorativeShapes)[0]) => {
     let content;
     switch (shape.type) {
-      case 'blur':
-        content = <div className={`rounded-full blur-lg ${shape.size} ${shape.color}`} />;
+      case "blur":
+        content = (
+          <div
+            className={`rounded-full blur-lg ${shape.size} ${shape.color}`}
+          />
+        );
         break;
-      case 'star':
+      case "star":
         content = <div className={`text-4xl ${shape.color}`}>✦</div>;
         break;
-      case 'plus':
+      case "plus":
         content = <div className={`text-3xl ${shape.color}`}>+</div>;
         break;
     }
@@ -82,7 +92,7 @@ export default function ComingSoon() {
   };
 
   return (
-    <div className="relative min-h-screen w-full bg-[conic-gradient(from_45deg_at_50%_50%,#0B0B1E_0%,#1A1A2E_100%)] overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-hidden bg-[conic-gradient(from_45deg_at_50%_50%,#0B0B1E_0%,#1A1A2E_100%)]">
       {/* Render decorative shapes */}
       {decorativeShapes.map((shape, index) => (
         <React.Fragment key={`${shape.type}-${index}`}>
@@ -119,32 +129,36 @@ export default function ComingSoon() {
 
               <FadeInStaggerItem>
                 <p className="mt-8 max-w-xl text-lg text-theme-neutral-400">
-                  We&apos;re crafting a new era of digital marketing excellence. 
-                  Join us on this journey to revolutionize your brand&apos;s digital presence.
+                  We&apos;re crafting a new era of digital marketing excellence.
+                  Join us on this journey to revolutionize your brand&apos;s
+                  digital presence.
                 </p>
               </FadeInStaggerItem>
 
               <FadeInStaggerItem>
                 <div className="mt-10">
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-4 max-w-md">
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="flex max-w-md flex-col gap-4 sm:flex-row"
+                    >
                       <FormField
                         control={form.control}
                         name="email"
                         render={({ field }) => (
                           <FormItem className="flex-1">
                             <FormControl>
-                              <Input 
-                                placeholder="Enter your email" 
+                              <Input
+                                placeholder="Enter your email"
                                 {...field}
-                                className="h-14 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                                className="h-14 border-white/20 bg-white/10 text-white placeholder:text-white/50"
                               />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
-                      <Button 
+                      <Button
                         type="submit"
                         size="lg"
                         className="h-14 rounded-full bg-white px-8 text-black hover:bg-theme-neutral-100"

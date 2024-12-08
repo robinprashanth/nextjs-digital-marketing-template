@@ -1,10 +1,10 @@
 "use client";
 
-import React, { FC, useState, useCallback } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import Image from "next/image";
+import React, { FC, useCallback, useState } from "react";
 
 interface AnimatedTestimonial {
   id: number;
@@ -23,7 +23,8 @@ const testimonials: AnimatedTestimonial[] = [
     name: "Sarah Johnson",
     role: "Marketing Director",
     company: "TechCorp",
-    content: "Working with this team has been transformative for our digital presence. Their strategic approach and attention to detail resulted in a 200% increase in our online engagement.",
+    content:
+      "Working with this team has been transformative for our digital presence. Their strategic approach and attention to detail resulted in a 200% increase in our online engagement.",
     image: "/assets/profile1.jpg",
     rating: 5,
   },
@@ -32,7 +33,8 @@ const testimonials: AnimatedTestimonial[] = [
     name: "Michael Chen",
     role: "CEO",
     company: "Innovate Labs",
-    content: "The ROI we've seen since partnering with them has been incredible. They took the time to understand our unique challenges and crafted solutions that perfectly aligned with our goals.",
+    content:
+      "The ROI we've seen since partnering with them has been incredible. They took the time to understand our unique challenges and crafted solutions that perfectly aligned with our goals.",
     image: "/assets/profile2.jpg",
     rating: 5,
   },
@@ -41,7 +43,8 @@ const testimonials: AnimatedTestimonial[] = [
     name: "James Rodriguez",
     role: "Product Lead",
     company: "Future Tech",
-    content: "Their innovative approach to problem-solving and dedication to excellence has made them an invaluable partner. The results speak for themselves - our user engagement has doubled.",
+    content:
+      "Their innovative approach to problem-solving and dedication to excellence has made them an invaluable partner. The results speak for themselves - our user engagement has doubled.",
     image: "/assets/profile4.jpg",
     rating: 5,
   },
@@ -61,9 +64,16 @@ export const AnimatedTestimonialSection: FC = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background to-theme-neutral-900/10 py-24">
       <div className="container mx-auto px-4">
-        <ScrollInView useInView={true} className="mx-auto mb-16 max-w-2xl text-center">
-          <h2 className="mb-6 text-4xl font-bold text-foreground">What Our Clients Say</h2>
-          <p className="text-lg text-muted-foreground">Discover why leading companies choose to work with us</p>
+        <ScrollInView
+          useInView={true}
+          className="mx-auto mb-16 max-w-2xl text-center"
+        >
+          <h2 className="mb-6 text-4xl font-bold text-foreground">
+            What Our Clients Say
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Discover why leading companies choose to work with us
+          </p>
         </ScrollInView>
 
         <div className="relative mx-auto max-w-4xl">
@@ -102,16 +112,24 @@ export const AnimatedTestimonialSection: FC = () => {
                   </div>
 
                   <div className="text-center">
-                    <h4 className="font-semibold text-foreground">{testimonials[activeIndex].name}</h4>
+                    <h4 className="font-semibold text-foreground">
+                      {testimonials[activeIndex].name}
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      {testimonials[activeIndex].role} at {testimonials[activeIndex].company}
+                      {testimonials[activeIndex].role} at{" "}
+                      {testimonials[activeIndex].company}
                     </p>
                   </div>
 
                   <div className="flex gap-1">
-                    {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-theme-primary-400 text-theme-primary-400" />
-                    ))}
+                    {[...Array(testimonials[activeIndex].rating)].map(
+                      (_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-theme-primary-400 text-theme-primary-400"
+                        />
+                      ),
+                    )}
                   </div>
                 </div>
               </div>

@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import Link from "next/link";
-import { X, ChevronRight, ChevronDown } from "lucide-react";
-import type { NavSection, NavLink, MegaMenuSection } from "@/types";
 import { Button } from "@/components/ui/button";
+import type { MegaMenuSection, NavLink, NavSection } from "@/types";
+import { ChevronDown, ChevronRight, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import Link from "next/link";
+import { FC, useState } from "react";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -197,7 +197,6 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                             className="flex items-center justify-between rounded-lg px-2 py-2 text-theme-neutral-300 transition-colors hover:bg-white/5"
                           >
                             <div className="flex items-center gap-3">
-                              
                               <div>
                                 <span>{item.title}</span>
                                 {item.description && (

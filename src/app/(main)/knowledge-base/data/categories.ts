@@ -1,11 +1,11 @@
 import { Category } from "@/types";
 import {
   Book,
-  FileText,
-  Video,
   Code,
-  Settings,
+  FileText,
   MessagesSquare,
+  Settings,
+  Video,
 } from "lucide-react";
 
 export const categories: Category[] = [

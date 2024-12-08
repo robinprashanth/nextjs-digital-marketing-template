@@ -1,9 +1,9 @@
-import { FC } from "react";
-import Link from "next/link";
-import { Star, ArrowRight, TrendingUp, Book, Users } from "lucide-react";
-import { KnowledgeArticle } from "@/types";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import { KnowledgeArticle } from "@/types";
+import { ArrowRight, Book, Star, TrendingUp, Users } from "lucide-react";
+import Link from "next/link";
+import { FC } from "react";
 
 interface PopularTopicsProps {
   articles: KnowledgeArticle[];
@@ -39,21 +39,21 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
   return (
     <section className="border-t border-theme-neutral-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
-      <AnimatedHeading
-  title="TRENDING TOPICS"
-  heading="Most Viewed Articles"
-  description="Check out our most popular articles and frequently asked questions."
-  theme="badge"
-  useInView={true}
-  className="mx-auto mb-12 max-w-3xl text-center"
-/>
+        <AnimatedHeading
+          title="TRENDING TOPICS"
+          heading="Most Viewed Articles"
+          description="Check out our most popular articles and frequently asked questions."
+          theme="badge"
+          useInView={true}
+          className="mx-auto mb-12 max-w-3xl text-center"
+        />
 
         <div className="grid gap-8 md:grid-cols-2">
           {topCategories.map((categoryGroup, index) => (
             <ScrollInView
-            useInView={true}
-            key={index}
-            delay={index * 0.1}
+              useInView={true}
+              key={index}
+              delay={index * 0.1}
               className="rounded-2xl border border-theme-neutral-800 bg-background p-6"
             >
               {/* Category Header */}
@@ -132,7 +132,7 @@ export const PopularTopics: FC<PopularTopicsProps> = ({ articles }) => {
 
         {/* Featured Stats */}
         <ScrollInView
-         useInView={true}
+          useInView={true}
           className="mt-16 grid gap-8 rounded-2xl border border-theme-neutral-800 bg-background p-8 md:grid-cols-3"
         >
           {[

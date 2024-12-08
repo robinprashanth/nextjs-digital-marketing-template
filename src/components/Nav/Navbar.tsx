@@ -1,16 +1,17 @@
 "use client";
-import { FC, useState } from "react";
-import { AnimatePresence } from "motion/react";
-import Link from "next/link";
-import { Menu } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { MegaMenu } from "./MegaMenu";
-import { DropdownMenu } from "./DropdownMenu";
-import { MobileMenu } from "./MobileMenu";
-import { features, services, more, moreMenuSections } from "@/data/navigation";
-import { AdvancedMegaMenu } from "./AdvancedMegaMenu";
 import { siteConfig } from "@/config";
+import { features, more, moreMenuSections, services } from "@/data/navigation";
+import { Menu } from "lucide-react";
+import { AnimatePresence } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
+import { FC, useState } from "react";
+import { AdvancedMegaMenu } from "./AdvancedMegaMenu";
+import { DropdownMenu } from "./DropdownMenu";
+import { MegaMenu } from "./MegaMenu";
+import { MobileMenu } from "./MobileMenu";
 
 interface HoverState {
   features: boolean;
@@ -45,20 +46,20 @@ export const Navbar: FC = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-2">
-  <div className="relative h-8 w-8">
-     <Image 
-        src="/logo.svg" 
-        alt="Digitra Logo" 
-        width={32} 
-        height={32} 
-        className="rounded-full" 
-        priority // Ensures the logo loads quickly as it's a primary visual
-      />
-  </div>
-  <span className=" bg-clip-text text-2xl font-bold text-white">
-    {siteConfig.appName}
-  </span>
-</Link>
+            <div className="relative h-8 w-8">
+              <Image
+                src="/logo.svg"
+                alt="Digitra Logo"
+                width={32}
+                height={32}
+                className="rounded-full"
+                priority // Ensures the logo loads quickly as it's a primary visual
+              />
+            </div>
+            <span className="bg-clip-text text-2xl font-bold text-white">
+              {siteConfig.appName}
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
@@ -147,9 +148,9 @@ export const Navbar: FC = () => {
           {/* CTA Buttons */}
           <div className="hidden items-center gap-4 md:flex">
             <Link href="/contact">
-            <Button variant="submit" rounded="full" >
-              <span className="relative z-10">Get Started</span>
-            </Button>
+              <Button variant="submit" rounded="full">
+                <span className="relative z-10">Get Started</span>
+              </Button>
             </Link>
           </div>
 

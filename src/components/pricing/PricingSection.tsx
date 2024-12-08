@@ -18,15 +18,15 @@ export const PricingSection: FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <SectionHeading
-            alignment="center"
-            title={["Choose the Right Plan for Your Growth"]}
-            subtitle="PRICING PLANS"
-            subtitleColor="ocean"
-            animated={true}
-            paragraph="Flexible pricing options designed to scale with your business needs"
-          />
+          alignment="center"
+          title={["Choose the Right Plan for Your Growth"]}
+          subtitle="PRICING PLANS"
+          subtitleColor="ocean"
+          animated={true}
+          paragraph="Flexible pricing options designed to scale with your business needs"
+        />
         <ScrollInView
-        useInView={true}
+          useInView={true}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
           <PricingToggle

@@ -1,15 +1,15 @@
+import type { MegaMenuSection, NavLink, NavSection } from "@/types";
 import {
   BarChart,
+  MessageSquare,
+  Rocket,
   Settings,
   Shield,
-  Terminal,
-  MessageSquare,
-  Users,
-  Rocket,
   Target,
+  Terminal,
   TrendingUp,
+  Users,
 } from "lucide-react";
-import type { MegaMenuSection, NavLink, NavSection } from "@/types";
 
 export const features: NavSection[] = [
   {
@@ -103,7 +103,7 @@ export const services: NavLink[] = [
     title: "Social Media",
     href: "/services/social-media",
     description: "Social media management and growth",
-  }
+  },
 ];
 
 export const more: NavLink[] = [
@@ -160,7 +160,7 @@ export const moreMenuSections: MegaMenuSection[] = [
       },
     ],
   },
-  
+
   {
     title: "UI Components",
     items: [

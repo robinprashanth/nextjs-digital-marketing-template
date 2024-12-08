@@ -1,17 +1,17 @@
 "use client";
 
-import { FC, useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
+import { FC, useState } from "react";
 
 interface SubscribeDialogProps {
   trigger?: React.ReactNode;
@@ -22,7 +22,7 @@ interface SubscribeDialogProps {
 export const SubscribeDialog: FC<SubscribeDialogProps> = ({
   trigger,
   title = "Stay Ahead of the Curve",
-  description = "Subscribe to our newsletter for the latest digital marketing insights delivered to your inbox."
+  description = "Subscribe to our newsletter for the latest digital marketing insights delivered to your inbox.",
 }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ export const SubscribeDialog: FC<SubscribeDialogProps> = ({
     e.preventDefault();
     setLoading(true);
     // Add your subscription logic here
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setSubscribed(true);
     setLoading(false);
   };
@@ -53,7 +53,9 @@ export const SubscribeDialog: FC<SubscribeDialogProps> = ({
           </div>
         </div>
         <DialogHeader>
-          <DialogTitle className="text-center text-xl font-bold">{title}</DialogTitle>
+          <DialogTitle className="text-center text-xl font-bold">
+            {title}
+          </DialogTitle>
           <DialogDescription className="text-center">
             {description}
           </DialogDescription>
@@ -86,7 +88,8 @@ export const SubscribeDialog: FC<SubscribeDialogProps> = ({
               )}
             </Button>
             <p className="text-center text-xs text-muted-foreground">
-              By subscribing, you agree to our Privacy Policy and consent to receive updates.
+              By subscribing, you agree to our Privacy Policy and consent to
+              receive updates.
             </p>
           </form>
         ) : (
@@ -107,7 +110,9 @@ export const SubscribeDialog: FC<SubscribeDialogProps> = ({
               </svg>
             </div>
             <div>
-              <h3 className="mb-1 text-lg font-semibold">Thanks for subscribing!</h3>
+              <h3 className="mb-1 text-lg font-semibold">
+                Thanks for subscribing!
+              </h3>
               <p className="text-muted-foreground">
                 Check your email to confirm your subscription.
               </p>

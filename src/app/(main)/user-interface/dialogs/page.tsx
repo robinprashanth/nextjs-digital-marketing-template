@@ -1,10 +1,10 @@
 "use client";
 
-import { FC } from "react";
+import { ContactDialog } from "@/components/dialog/ContactDialog";
+import { SubscribeDialog } from "@/components/dialog/SubscribeDialog";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { Button } from "@/components/ui/button";
-import { SubscribeDialog } from "@/components/dialog/SubscribeDialog";
-import { ContactDialog } from "@/components/dialog/ContactDialog";
+import { FC } from "react";
 
 const DialogsPage: FC = () => {
   return (
@@ -14,7 +14,8 @@ const DialogsPage: FC = () => {
         <div className="mb-8">
           <h1 className="mb-2 text-3xl font-bold">Dialog Components</h1>
           <p className="text-lg text-muted-foreground">
-            A collection of reusable dialog components with beautiful animations and modern styling.
+            A collection of reusable dialog components with beautiful animations
+            and modern styling.
           </p>
         </div>
       </ScrollInView>
@@ -23,10 +24,10 @@ const DialogsPage: FC = () => {
       <section className="space-y-6">
         <ScrollInView>
           <h2 className="mb-6 text-2xl font-semibold">Subscribe Dialog</h2>
-          
+
           <div className="flex flex-wrap gap-4">
             <SubscribeDialog />
-            <SubscribeDialog 
+            <SubscribeDialog
               title="Join Our Newsletter"
               description="Get weekly insights on digital marketing trends."
               trigger={<Button variant="secondary">Custom Subscribe</Button>}
@@ -54,9 +55,20 @@ const DialogsPage: FC = () => {
             <div className="rounded-lg border border-border p-4">
               <h4 className="mb-2 font-medium">Props</h4>
               <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
-                <li><code className="text-primary">trigger?: React.ReactNode</code> - Custom trigger element</li>
-                <li><code className="text-primary">title?: string</code> - Custom dialog title</li>
-                <li><code className="text-primary">description?: string</code> - Custom dialog description</li>
+                <li>
+                  <code className="text-primary">
+                    trigger?: React.ReactNode
+                  </code>{" "}
+                  - Custom trigger element
+                </li>
+                <li>
+                  <code className="text-primary">title?: string</code> - Custom
+                  dialog title
+                </li>
+                <li>
+                  <code className="text-primary">description?: string</code> -
+                  Custom dialog description
+                </li>
               </ul>
             </div>
           </div>
@@ -67,10 +79,10 @@ const DialogsPage: FC = () => {
       <section className="space-y-6">
         <ScrollInView>
           <h2 className="mb-6 text-2xl font-semibold">Contact Dialog</h2>
-          
+
           <div className="flex flex-wrap gap-4">
             <ContactDialog />
-            <ContactDialog 
+            <ContactDialog
               trigger={<Button variant="secondary">Custom Contact Form</Button>}
             />
           </div>

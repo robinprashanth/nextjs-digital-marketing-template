@@ -1,12 +1,12 @@
-import { FC } from "react";
 import {
   Facebook,
-  Twitter,
+  Github,
   Instagram,
   Linkedin,
+  Twitter,
   Youtube,
-  Github,
 } from "lucide-react";
+import { FC } from "react";
 
 const socialLinks = [
   { name: "Facebook", icon: Facebook, url: "#" },

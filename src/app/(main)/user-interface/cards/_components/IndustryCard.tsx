@@ -1,5 +1,4 @@
-import { FC } from "react";
-import { Star } from "lucide-react";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import {
   Card,
   CardContent,
@@ -9,7 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import type { Industry } from "@/types";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Star } from "lucide-react";
+import { FC } from "react";
 
 interface IndustryCardProps {
   industry: Industry;
@@ -24,9 +24,7 @@ export const IndustryCard: FC<IndustryCardProps> = ({
   onClick,
   delay = 0,
 }) => (
-  <ScrollInView
-  delay={delay}
-  >
+  <ScrollInView delay={delay}>
     <Card
       className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
         isActive ? "ring-2 ring-theme-primary-500" : ""

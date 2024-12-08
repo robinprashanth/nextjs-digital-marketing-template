@@ -1,7 +1,9 @@
 "use client";
 
-import { FC } from "react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,27 +12,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-  BarChart3,
-  DollarSign,
   ArrowUpRight,
+  BarChart3,
+  Bell,
   Calendar,
-  Star,
+  CheckCircle2,
   Clock,
   CreditCard,
-  Sparkles,
-  ShieldCheck,
+  DollarSign,
   Lock,
-  CheckCircle2,
-  Zap,
   MessageSquare,
-  Bell,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  Zap,
 } from "lucide-react";
 import Image from "next/image";
+import { FC } from "react";
 import { Industries } from "./_components/Industries";
 
 const CardsShowcase: FC = () => {
@@ -41,7 +41,8 @@ const CardsShowcase: FC = () => {
         <div className="mb-8">
           <h1 className="mb-2 text-3xl font-bold">Cards</h1>
           <p className="text-lg text-muted-foreground">
-            A collection of beautiful and futuristic card components for various use cases.
+            A collection of beautiful and futuristic card components for various
+            use cases.
           </p>
         </div>
       </ScrollInView>
@@ -59,7 +60,9 @@ const CardsShowcase: FC = () => {
                   <span>Total Balance</span>
                   <DollarSign className="h-5 w-5 text-theme-primary-500" />
                 </CardTitle>
-                <CardDescription>Your current balance across all accounts</CardDescription>
+                <CardDescription>
+                  Your current balance across all accounts
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="mb-4 text-3xl font-bold">$24,685.00</div>
@@ -69,14 +72,18 @@ const CardsShowcase: FC = () => {
                 </div>
               </CardContent>
               <CardFooter className="justify-between border-t border-border/50 bg-card/50">
-                <div className="text-sm text-muted-foreground">Updated 2 mins ago</div>
-                <Button variant="ghost" size="sm">View Details</Button>
+                <div className="text-sm text-muted-foreground">
+                  Updated 2 mins ago
+                </div>
+                <Button variant="ghost" size="sm">
+                  View Details
+                </Button>
               </CardFooter>
             </Card>
 
             {/* Transaction Card */}
             <Card className="relative overflow-hidden bg-gradient-to-br from-theme-primary-600 to-theme-ocean-600">
-              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat hover:animate-градиент" />
+              <div className="hover:animate-градиент absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat" />
               <CardHeader>
                 <div className="flex justify-between">
                   <div className="space-y-1">
@@ -146,7 +153,6 @@ const CardsShowcase: FC = () => {
       </section>
       <section className="space-y-6">
         <Industries />
-        
       </section>
 
       {/* Profile Cards */}
@@ -173,7 +179,9 @@ const CardsShowcase: FC = () => {
                 <div className="flex justify-between border-t border-border/50 py-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold">25</div>
-                    <div className="text-xs text-muted-foreground">Projects</div>
+                    <div className="text-xs text-muted-foreground">
+                      Projects
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold">1.2k</div>
@@ -200,7 +208,9 @@ const CardsShowcase: FC = () => {
                   </div>
                   <div>
                     <CardTitle>Elite Status</CardTitle>
-                    <CardDescription className="text-white/60">Level 5 Achiever</CardDescription>
+                    <CardDescription className="text-white/60">
+                      Level 5 Achiever
+                    </CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -226,7 +236,9 @@ const CardsShowcase: FC = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button variant="secondary" className="w-full">View Achievements</Button>
+                <Button variant="secondary" className="w-full">
+                  View Achievements
+                </Button>
               </CardFooter>
             </Card>
 
@@ -265,7 +277,9 @@ const CardsShowcase: FC = () => {
                 </div>
               </CardContent>
               <CardFooter className="border-t border-border/50">
-                <Button variant="ghost" className="w-full">View Details</Button>
+                <Button variant="ghost" className="w-full">
+                  View Details
+                </Button>
               </CardFooter>
             </Card>
           </div>
@@ -282,7 +296,9 @@ const CardsShowcase: FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
               <CardHeader>
                 <CardTitle>Pro Plan</CardTitle>
-                <CardDescription>Perfect for growing businesses</CardDescription>
+                <CardDescription>
+                  Perfect for growing businesses
+                </CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">$49</span>
                   <span className="text-muted-foreground">/month</span>
@@ -290,7 +306,12 @@ const CardsShowcase: FC = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {['Unlimited Projects', 'Priority Support', 'Custom Domain', 'Analytics'].map((feature) => (
+                  {[
+                    "Unlimited Projects",
+                    "Priority Support",
+                    "Custom Domain",
+                    "Analytics",
+                  ].map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-theme-tulip-500" />
                       {feature}
@@ -312,7 +333,9 @@ const CardsShowcase: FC = () => {
               <CardHeader>
                 <div className="space-y-2">
                   <CardTitle>Tech Conference 2024</CardTitle>
-                  <CardDescription>Join us for the biggest tech event of the year</CardDescription>
+                  <CardDescription>
+                    Join us for the biggest tech event of the year
+                  </CardDescription>
                 </div>
               </CardHeader>
               <CardContent>
@@ -328,38 +351,38 @@ const CardsShowcase: FC = () => {
                   <div className="flex -space-x-2">
                     {[1, 2, 3, 4].map((i) => (
                       <Avatar key={i}>
-                      <AvatarImage src={`https://avatar.vercel.sh/${i}`} />
-                      <AvatarFallback>U{i}</AvatarFallback>
-                    </Avatar>
-                  ))}
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-background bg-muted text-sm">
-                    +12
+                        <AvatarImage src={`https://avatar.vercel.sh/${i}`} />
+                        <AvatarFallback>U{i}</AvatarFallback>
+                      </Avatar>
+                    ))}
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-background bg-muted text-sm">
+                      +12
+                    </div>
                   </div>
                 </div>
-                </div>
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full">Register Now</Button>
-            </CardFooter>
-          </Card>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full">Register Now</Button>
+              </CardFooter>
+            </Card>
           </div>
 
           {/* Product Card */}
-          <Card className="group relative overflow-hidden mt-10">
+          <Card className="group relative mt-10 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
             <CardHeader>
               <div className="aspect-square overflow-hidden rounded-lg bg-muted">
-              <div className="relative h-full w-full">
-        <Image
-          src="/images/portfolio/healthcare.jpg"
-          alt="Product"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          priority={false}
-          quality={90}
-        />
-      </div>
+                <div className="relative h-full w-full">
+                  <Image
+                    src="/images/portfolio/healthcare.jpg"
+                    alt="Product"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    priority={false}
+                    quality={90}
+                  />
+                </div>
               </div>
             </CardHeader>
             <CardContent>
@@ -385,127 +408,151 @@ const CardsShowcase: FC = () => {
               <Button>Buy Now</Button>
             </CardFooter>
           </Card>
-      </ScrollInView>
-    </section>
+        </ScrollInView>
+      </section>
 
-    {/* Dashboard Cards */}
-    <section className="space-y-6">
-      <ScrollInView>
-        <h2 className="mb-6 text-2xl font-semibold">Dashboard Cards</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Task Card */}
-          <Card className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span>Active Tasks</span>
-                <Badge>5 Tasks</Badge>
-              </CardTitle>
-              <CardDescription>Your current task overview</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <div>
-                    <div className="font-medium">Design System</div>
-                    <div className="text-sm text-muted-foreground">Due in 3 days</div>
+      {/* Dashboard Cards */}
+      <section className="space-y-6">
+        <ScrollInView>
+          <h2 className="mb-6 text-2xl font-semibold">Dashboard Cards</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Task Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-theme-primary-500/5 via-transparent to-theme-ocean-500/5" />
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Active Tasks</span>
+                  <Badge>5 Tasks</Badge>
+                </CardTitle>
+                <CardDescription>Your current task overview</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <div>
+                      <div className="font-medium">Design System</div>
+                      <div className="text-sm text-muted-foreground">
+                        Due in 3 days
+                      </div>
+                    </div>
+                    <Progress value={75} className="w-20" />
                   </div>
-                  <Progress value={75} className="w-20" />
-                </div>
-                <div className="flex justify-between">
-                  <div>
-                    <div className="font-medium">User Research</div>
-                    <div className="text-sm text-muted-foreground">Due tomorrow</div>
-                  </div>
-                  <Progress value={45} className="w-20" />
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter className="justify-between border-t border-border/50">
-              <Button variant="ghost" size="sm">View All</Button>
-              <Button variant="ghost" size="sm">Add Task</Button>
-            </CardFooter>
-          </Card>
-
-          {/* Notification Card */}
-          <Card className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-theme-rose-500/5 via-transparent to-theme-primary-500/5" />
-            <CardHeader>
-              <CardTitle>Recent Notifications</CardTitle>
-              <CardDescription>Latest updates and activities</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {[
-                { title: "New comment on your post", time: "2m ago", icon: MessageSquare },
-                { title: "Your project was approved", time: "1h ago", icon: CheckCircle2 },
-                { title: "Server update completed", time: "2h ago", icon: Sparkles },
-              ].map((notification, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="rounded-full bg-muted p-2">
-                    <notification.icon className="h-4 w-4" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm font-medium">{notification.title}</div>
-                    <div className="text-xs text-muted-foreground">{notification.time}</div>
+                  <div className="flex justify-between">
+                    <div>
+                      <div className="font-medium">User Research</div>
+                      <div className="text-sm text-muted-foreground">
+                        Due tomorrow
+                      </div>
+                    </div>
+                    <Progress value={45} className="w-20" />
                   </div>
                 </div>
-              ))}
-            </CardContent>
-            <CardFooter>
-              <Button variant="ghost" className="w-full">
-                View All Notifications
-              </Button>
-            </CardFooter>
-          </Card>
+              </CardContent>
+              <CardFooter className="justify-between border-t border-border/50">
+                <Button variant="ghost" size="sm">
+                  View All
+                </Button>
+                <Button variant="ghost" size="sm">
+                  Add Task
+                </Button>
+              </CardFooter>
+            </Card>
 
-          {/* Settings Card */}
-          <Card className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-theme-ocean-500/5 via-transparent to-theme-primary-500/5" />
-            <CardHeader>
-              <CardTitle>Quick Settings</CardTitle>
-              <CardDescription>Manage your preferences</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-theme-tulip-500" />
-                  <span>Two-Factor Auth</span>
-                </div>
-                <Badge>Enabled</Badge>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Bell className="h-5 w-5 text-theme-ocean-500" />
-                  <span>Notifications</span>
-                </div>
-                <Badge variant="outline">Configured</Badge>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Lock className="h-5 w-5 text-theme-rose-500" />
-                  <span>Privacy Mode</span>
-                </div>
-                <Badge variant="secondary">Active</Badge>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button variant="outline" className="w-full">
-                Manage Settings
-              </Button>
-            </CardFooter>
-          </Card>
-        </div>
-      </ScrollInView>
-    </section>
+            {/* Notification Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-theme-rose-500/5 via-transparent to-theme-primary-500/5" />
+              <CardHeader>
+                <CardTitle>Recent Notifications</CardTitle>
+                <CardDescription>Latest updates and activities</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {[
+                  {
+                    title: "New comment on your post",
+                    time: "2m ago",
+                    icon: MessageSquare,
+                  },
+                  {
+                    title: "Your project was approved",
+                    time: "1h ago",
+                    icon: CheckCircle2,
+                  },
+                  {
+                    title: "Server update completed",
+                    time: "2h ago",
+                    icon: Sparkles,
+                  },
+                ].map((notification, i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="rounded-full bg-muted p-2">
+                      <notification.icon className="h-4 w-4" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium">
+                        {notification.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {notification.time}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button variant="ghost" className="w-full">
+                  View All Notifications
+                </Button>
+              </CardFooter>
+            </Card>
 
-    {/* Usage Examples */}
-    <section className="space-y-4">
-      <ScrollInView>
-        <h2 className="text-2xl font-semibold">Implementation</h2>
-        <Card>
-          <CardContent className="pt-6">
-            <pre className="text-sm">
-              <code>{`import {
+            {/* Settings Card */}
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-theme-ocean-500/5 via-transparent to-theme-primary-500/5" />
+              <CardHeader>
+                <CardTitle>Quick Settings</CardTitle>
+                <CardDescription>Manage your preferences</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="h-5 w-5 text-theme-tulip-500" />
+                    <span>Two-Factor Auth</span>
+                  </div>
+                  <Badge>Enabled</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Bell className="h-5 w-5 text-theme-ocean-500" />
+                    <span>Notifications</span>
+                  </div>
+                  <Badge variant="outline">Configured</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Lock className="h-5 w-5 text-theme-rose-500" />
+                    <span>Privacy Mode</span>
+                  </div>
+                  <Badge variant="secondary">Active</Badge>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" className="w-full">
+                  Manage Settings
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </ScrollInView>
+      </section>
+
+      {/* Usage Examples */}
+      <section className="space-y-4">
+        <ScrollInView>
+          <h2 className="text-2xl font-semibold">Implementation</h2>
+          <Card>
+            <CardContent className="pt-6">
+              <pre className="text-sm">
+                <code>{`import {
 Card,
 CardContent,
 CardDescription,
@@ -529,13 +576,13 @@ CardTitle,
 <div className="absolute inset-0 bg-gradient-to-br from-theme-primary-500/10 to-theme-ocean-500/10" />
 {/* Card content */}
 </Card>`}</code>
-            </pre>
-          </CardContent>
-        </Card>
-      </ScrollInView>
-    </section>
-  </div>
-);
+              </pre>
+            </CardContent>
+          </Card>
+        </ScrollInView>
+      </section>
+    </div>
+  );
 };
 
 export default CardsShowcase;

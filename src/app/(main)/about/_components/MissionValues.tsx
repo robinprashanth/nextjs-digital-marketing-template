@@ -1,13 +1,17 @@
 "use client";
 
-import { FC } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { FC } from "react";
 
+import SubTitleBadge from "@/components/badge/SubTitleBadge";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import { companyValues, missionValuesContent, type CompanyValue } from "../data/content";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight } from "lucide-react";
-import SubTitleBadge from "@/components/badge/SubTitleBadge";
+import {
+  companyValues,
+  missionValuesContent,
+  type CompanyValue,
+} from "../data/content";
 
 const ValueCard: FC<CompanyValue & { delay?: number }> = ({
   icon: Icon,
@@ -18,8 +22,8 @@ const ValueCard: FC<CompanyValue & { delay?: number }> = ({
   size = "default",
   delay = 0,
 }) => (
-  <ScrollInView 
-    delay={delay} 
+  <ScrollInView
+    delay={delay}
     duration={0.5}
     useInView={true}
     className={`group col-span-1 ${size === "large" ? "md:col-span-2" : ""}`}
@@ -27,7 +31,9 @@ const ValueCard: FC<CompanyValue & { delay?: number }> = ({
     <Card className="relative h-full overflow-hidden bg-gradient-to-br from-background via-muted/50 to-background">
       {/* Animated border effect */}
       <div className="absolute inset-0 rounded-[inherit]">
-        <div className={`absolute inset-px rounded-[inherit] bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
+        <div
+          className={`absolute inset-px rounded-[inherit] bg-gradient-to-br ${gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+        />
       </div>
 
       <CardContent className="relative space-y-4 p-6">
@@ -52,7 +58,7 @@ const ValueCard: FC<CompanyValue & { delay?: number }> = ({
           <div className="space-y-2 pt-2">
             <div className="grid grid-cols-2 gap-2">
               {features.map((feature, i) => (
-                <div 
+                <div
                   key={i}
                   className="flex items-center gap-2 text-sm text-muted-foreground"
                 >
@@ -78,7 +84,7 @@ export const MissionValues: FC = () => {
           className="mx-auto mb-20 max-w-3xl text-center"
         >
           <SubTitleBadge text={missionValuesContent.subtitle} />
-        
+
           <h2 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
             {missionValuesContent.title.prefix}
             <span className="bg-gradient-to-r from-theme-primary-400 to-theme-primary-600 bg-clip-text text-transparent">
@@ -92,17 +98,14 @@ export const MissionValues: FC = () => {
         </ScrollInView>
 
         {/* Mission Statement */}
-        <ScrollInView
-          useInView={true}
-          className="mx-auto mb-20"
-        >
+        <ScrollInView useInView={true} className="mx-auto mb-20">
           <Card className="relative overflow-hidden bg-gradient-to-br from-theme-primary-500/5 via-transparent to-theme-ocean-500/5">
             <CardContent className="p-8 text-center md:p-12">
               <h3 className="mb-4 text-2xl font-bold text-foreground">
                 {missionValuesContent.mission.title}
               </h3>
               <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              &ldquo;{missionValuesContent.mission.statement}&ldquo;
+                &ldquo;{missionValuesContent.mission.statement}&ldquo;
               </p>
             </CardContent>
           </Card>
@@ -111,14 +114,9 @@ export const MissionValues: FC = () => {
         {/* Values Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {companyValues.map((value, index) => (
-            <ValueCard
-              key={index}
-              {...value}
-              delay={index * 0.1}
-            />
+            <ValueCard key={index} {...value} delay={index * 0.1} />
           ))}
         </div>
-
       </div>
     </section>
   );

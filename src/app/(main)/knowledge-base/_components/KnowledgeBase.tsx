@@ -1,17 +1,17 @@
 "use client";
 
-import { FC, useState, useEffect } from "react";
-import { MessagesSquare, Video } from "lucide-react";
-import { SearchBar } from "./SearchBar";
-import { CategoryGrid } from "./CategoryGrid";
-import { FeaturedArticles } from "./FeaturedArticles";
-import { PopularTopics } from "./PopularTopics";
-import { CommunitySection } from "./CommunitySection";
-import { NewsletterSection } from "./NewsletterSection";
-import { KnowledgeArticle } from "@/types";
-import { categories } from "../data/categories";
-import { Button } from "@/components/ui/button";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { Button } from "@/components/ui/button";
+import { KnowledgeArticle } from "@/types";
+import { MessagesSquare, Video } from "lucide-react";
+import { FC, useEffect, useState } from "react";
+import { categories } from "../data/categories";
+import { CategoryGrid } from "./CategoryGrid";
+import { CommunitySection } from "./CommunitySection";
+import { FeaturedArticles } from "./FeaturedArticles";
+import { NewsletterSection } from "./NewsletterSection";
+import { PopularTopics } from "./PopularTopics";
+import { SearchBar } from "./SearchBar";
 
 interface KnowledgeBaseProps {
   articles: KnowledgeArticle[];
@@ -101,7 +101,7 @@ export const KnowledgeBase: FC<KnowledgeBaseProps> = ({
       <section className="border-t border-theme-neutral-800">
         <div className="container mx-auto px-4 py-24 sm:px-6">
           <ScrollInView
-           useInView={true}
+            useInView={true}
             className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-theme-primary-500 to-purple-700 p-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">

@@ -1,12 +1,13 @@
 import { getAllBlogPosts } from "@/lib/blog";
-import { Blogs } from "./_components/Blog";
-import { Metadata } from "next";
 import { getSEOTags } from "@/lib/seo";
+import { Metadata } from "next";
+import { Blogs } from "./_components/Blog";
 
 // Generate metadata for SEO
 export const metadata: Metadata = getSEOTags({
   title: "Blog | Digital Marketing Insights",
-  description: "Explore our latest insights on digital marketing strategies, SEO, content marketing, and industry trends.",
+  description:
+    "Explore our latest insights on digital marketing strategies, SEO, content marketing, and industry trends.",
   canonicalUrlRelative: "/blog",
   type: "website",
   images: [

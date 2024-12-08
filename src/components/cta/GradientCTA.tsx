@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { FC } from "react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { FC } from "react";
 
 interface CTAButton {
   text: string;
@@ -41,7 +41,7 @@ export const GradientCTA: FC<GradientCTAProps> = ({
       className={cn(
         "mt-16 rounded-2xl bg-gradient-to-r p-12 text-center",
         gradientStyles[gradient],
-        className
+        className,
       )}
     >
       <h2 className="mb-4 text-3xl font-bold text-white">{title}</h2>
@@ -55,7 +55,7 @@ export const GradientCTA: FC<GradientCTAProps> = ({
               "rounded-full px-8 py-3 text-base font-semibold transition-all",
               button.variant === "primary"
                 ? "bg-white text-theme-primary-600 hover:bg-theme-neutral-100"
-                : "border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                : "border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20",
             )}
           >
             {button.text}

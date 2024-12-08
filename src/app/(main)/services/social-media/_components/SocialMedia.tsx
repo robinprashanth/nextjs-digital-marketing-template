@@ -1,43 +1,44 @@
 "use client";
-import { FC } from "react";
+
+import { SocialMediaCTA } from "@/components/cta/Presets";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { PlatformCard } from "@/components/PlatformCard";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import {
-  Instagram,
-  Linkedin,
-  Facebook,
-  Video,
-  FileText,
-  Users,
-  MessageCircle,
-  LineChart,
-  Shield,
-  TrendingUp,
-  Target,
-  Settings,
-  BarChart,
-  PiSquare,
   ActivitySquare,
-  DollarSign,
-  Lightbulb,
-  Calendar,
-  BarChart2,
-  PenTool,
-  MessageSquare,
   ArrowUpRight,
+  BarChart,
+  BarChart2,
+  Calendar,
   Camera,
+  DollarSign,
+  Facebook,
+  FileText,
+  Instagram,
+  Lightbulb,
+  LineChart,
+  Linkedin,
+  MessageCircle,
+  MessageSquare,
+  PenTool,
+  PiSquare,
+  Settings,
+  Shield,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
 } from "lucide-react";
 import Image from "next/image";
+import { FC } from "react";
 import {
   metrics,
   platforms,
-  services,
   processSteps,
+  services,
   successStories,
   tools,
 } from "../data/content";
-import { ScrollInView } from "@/components/motion/ScrollInView";
-import { SocialMediaCTA } from "@/components/cta/Presets";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import { PlatformCard } from "@/components/PlatformCard";
 
 const iconMap = {
   Instagram,
@@ -82,9 +83,7 @@ export const SocialMedia: FC = () => {
         <div className="absolute right-1/4 top-1/3 h-32 w-32 rounded-full bg-theme-ocean-500/20 blur-xl" />
 
         <div className="container relative mx-auto px-4 py-24 sm:px-6">
-          <ScrollInView
-            className="max-w-4xl"
-          >
+          <ScrollInView className="max-w-4xl">
             <div className="mb-6 inline-block rounded-full bg-theme-indigo-500/10 px-4 py-1 text-sm text-theme-indigo-400">
               SOCIAL MEDIA MANAGEMENT
             </div>
@@ -101,12 +100,14 @@ export const SocialMedia: FC = () => {
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {metrics.map((metric, index) => (
                 <ScrollInView
-                useInView={true}
-                key={index}
-                delay={ index * 0.1}
+                  useInView={true}
+                  key={index}
+                  delay={index * 0.1}
                   className="rounded-2xl bg-white/5 p-6 backdrop-blur-lg"
                 >
-                  <p className="text-sm text-theme-neutral-400">{metric.label}</p>
+                  <p className="text-sm text-theme-neutral-400">
+                    {metric.label}
+                  </p>
                   <p className="text-2xl font-bold text-white">
                     {metric.value}
                   </p>
@@ -124,13 +125,13 @@ export const SocialMedia: FC = () => {
       {/* Platforms Grid */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="PLATFORMS WE MANAGE"
-  heading="Multi-Platform Social Excellence"
-  description="Comprehensive social media management across all major platforms."
-  theme="indigo"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="PLATFORMS WE MANAGE"
+            heading="Multi-Platform Social Excellence"
+            description="Comprehensive social media management across all major platforms."
+            theme="indigo"
+            useInView={true}
+          />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {platforms.map((platform, index) => {
@@ -138,9 +139,9 @@ export const SocialMedia: FC = () => {
                 iconMap[platform.icon as keyof typeof iconMap];
               return (
                 <ScrollInView
-                useInView={true}
-                key={index}
-                delay={ index * 0.1}
+                  useInView={true}
+                  key={index}
+                  delay={index * 0.1}
                   className="group cursor-pointer"
                 >
                   <div
@@ -179,20 +180,20 @@ export const SocialMedia: FC = () => {
       {/* Services Section */}
       <section className="bg-gray-50 py-24 dark:bg-theme-neutral-900/50">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="OUR SERVICES"
-  heading="Comprehensive Social Media Solutions"
-  description="Full-service social media management tailored to your business goals."
-  theme="indigo"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="OUR SERVICES"
+            heading="Comprehensive Social Media Solutions"
+            description="Full-service social media management tailored to your business goals."
+            theme="indigo"
+            useInView={true}
+          />
 
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
-             <ScrollInView
-             useInView={true}
-             key={index}
-             delay={ index * 0.1}
+              <ScrollInView
+                useInView={true}
+                key={index}
+                delay={index * 0.1}
                 className="rounded-3xl bg-white p-8 shadow-lg dark:bg-theme-neutral-800"
               >
                 <h3 className="mb-4 text-2xl font-bold text-theme-neutral-900 dark:text-white">
@@ -235,19 +236,19 @@ export const SocialMedia: FC = () => {
       {/* Success Stories Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="SUCCESS STORIES"
-  heading="Real Results for Real Brands"
-  theme="indigo"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="SUCCESS STORIES"
+            heading="Real Results for Real Brands"
+            theme="indigo"
+            useInView={true}
+          />
 
           <div className="grid gap-8 md:grid-cols-3">
             {successStories.map((story, index) => (
               <ScrollInView
-              useInView={true}
-              key={index}
-              delay={ index * 0.1}
+                useInView={true}
+                key={index}
+                delay={index * 0.1}
                 className="group relative overflow-hidden rounded-3xl"
               >
                 <div className="relative aspect-[4/5]">
@@ -296,19 +297,19 @@ export const SocialMedia: FC = () => {
       {/* Process Section */}
       <section className="bg-navy py-24">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="OUR PROCESS"
-  heading="How We Drive Social Media Success"
-  theme="indigo_light"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="OUR PROCESS"
+            heading="How We Drive Social Media Success"
+            theme="indigo_light"
+            useInView={true}
+          />
 
           <div className="grid gap-8 md:grid-cols-4">
             {processSteps.map((step, index) => (
-             <ScrollInView
-             useInView={true}
-             key={index}
-             delay={ index * 0.1}
+              <ScrollInView
+                useInView={true}
+                key={index}
+                delay={index * 0.1}
                 className="relative"
               >
                 <div className="rounded-3xl bg-white/5 p-8 backdrop-blur-lg">
@@ -332,22 +333,22 @@ export const SocialMedia: FC = () => {
       {/* Tools Section */}
       <section className="bg-white py-24 dark:bg-theme-neutral-900">
         <div className="container mx-auto px-4 sm:px-6">
-        <AnimatedHeading
-  title="TOOLS & TECHNOLOGY"
-  heading="Professional Tools We Use"
-  theme="indigo_small"
-  useInView={true}
-/>
+          <AnimatedHeading
+            title="TOOLS & TECHNOLOGY"
+            heading="Professional Tools We Use"
+            theme="indigo_small"
+            useInView={true}
+          />
 
           <div className="grid gap-6 md:grid-cols-4">
-          {tools.map((platform, index) => (
-        <PlatformCard
-          key={index}
-          platform={platform}
-          iconMap={iconMap}
-          index={index}
-        />
-      ))}
+            {tools.map((platform, index) => (
+              <PlatformCard
+                key={index}
+                platform={platform}
+                iconMap={iconMap}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>

@@ -1,12 +1,12 @@
-import { FC, PropsWithChildren } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { format } from 'date-fns';
-import { Clock, ArrowLeft, Hash, Share2 } from 'lucide-react';
-import { BlogPostMetadata } from '@/types';
-import { SocialShareMinimal } from '@/components/SocialShareMinimal';
-import { FadeInStagger } from '@/components/motion/FadeInStagger';
-import { FadeInStaggerItem } from '@/components/motion/FadeInStaggerItem';
+import { SocialShareMinimal } from "@/components/SocialShareMinimal";
+import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { BlogPostMetadata } from "@/types";
+import { format } from "date-fns";
+import { ArrowLeft, Clock, Hash, Share2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC, PropsWithChildren } from "react";
 
 interface BlogPostLayoutPopProps extends PropsWithChildren {
   metadata: BlogPostMetadata;
@@ -25,12 +25,15 @@ export const BlogPostLayoutPop: FC<BlogPostLayoutPopProps> = ({
         {/* Gradient Background */}
         <div className="absolute inset-0 h-[70vh] bg-gradient-to-br from-theme-primary-400 via-theme-secondary-400 to-theme-primary-500">
           {/* Pattern Overlay */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent)`,
-            backgroundSize: '100px 100px',
-            opacity: 0.5
-          }} />
-          
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent)`,
+              backgroundSize: "100px 100px",
+              opacity: 0.5,
+            }}
+          />
+
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
         </div>
@@ -38,7 +41,7 @@ export const BlogPostLayoutPop: FC<BlogPostLayoutPopProps> = ({
         {/* Content Container */}
         <div className="container relative mx-auto px-4 pt-24 sm:px-6">
           {/* Back Button */}
-          <Link 
+          <Link
             href="/blog"
             className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/20"
           >
@@ -60,7 +63,7 @@ export const BlogPostLayoutPop: FC<BlogPostLayoutPopProps> = ({
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  
+
                   {/* Category Badge */}
                   <div className="absolute right-6 top-6">
                     <span className="inline-flex items-center rounded-full bg-theme-primary-500 px-4 py-1.5 text-sm font-medium text-white">
@@ -73,7 +76,7 @@ export const BlogPostLayoutPop: FC<BlogPostLayoutPopProps> = ({
                 <div className="p-8 sm:p-12">
                   {/* Meta Info */}
                   <div className="mb-6 flex flex-wrap items-center gap-4">
-                    <time 
+                    <time
                       dateTime={metadata.date}
                       className="text-sm text-muted-foreground"
                     >
@@ -112,13 +115,16 @@ export const BlogPostLayoutPop: FC<BlogPostLayoutPopProps> = ({
                   </div>
 
                   {/* Main Content */}
-                  <div className="prose prose-lg dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-theme-primary-500 hover:prose-a:text-theme-primary-600 prose-strong:text-foreground prose-code:text-theme-primary-500 max-w-none">
+                  <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-theme-primary-500 hover:prose-a:text-theme-primary-600 prose-strong:text-foreground prose-code:text-theme-primary-500">
                     {children}
                   </div>
 
                   {/* Tags */}
                   <div className="mt-12 border-t border-border pt-8">
-                    <FadeInStagger className="flex flex-wrap gap-2" delayStep={0.1}>
+                    <FadeInStagger
+                      className="flex flex-wrap gap-2"
+                      delayStep={0.1}
+                    >
                       {metadata.tags.map((tag) => (
                         <FadeInStaggerItem key={tag}>
                           <span className="inline-flex items-center gap-1 rounded-full bg-theme-primary-500/10 px-3 py-1 text-sm text-theme-primary-500">
@@ -136,7 +142,7 @@ export const BlogPostLayoutPop: FC<BlogPostLayoutPopProps> = ({
                       <Share2 className="h-5 w-5" />
                       <span className="font-medium">Share this article</span>
                     </div>
-                    <SocialShareMinimal 
+                    <SocialShareMinimal
                       url={slug}
                       title={metadata.title}
                       description={metadata.excerpt}

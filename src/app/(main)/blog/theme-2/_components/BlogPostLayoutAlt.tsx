@@ -1,13 +1,13 @@
-import { FadeInStagger } from '@/components/motion/FadeInStagger';
-import { FadeInStaggerItem } from '@/components/motion/FadeInStaggerItem';
-import { ScrollInView } from '@/components/motion/ScrollInView';
-import { SocialShareMinimal } from '@/components/SocialShareMinimal';
-import { BlogPostMetadata } from '@/types';
-import { format } from 'date-fns';
-import { ArrowLeft, Clock, Hash } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FC, PropsWithChildren } from 'react';
+import { FadeInStagger } from "@/components/motion/FadeInStagger";
+import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
+import { ScrollInView } from "@/components/motion/ScrollInView";
+import { SocialShareMinimal } from "@/components/SocialShareMinimal";
+import { BlogPostMetadata } from "@/types";
+import { format } from "date-fns";
+import { ArrowLeft, Clock, Hash } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC, PropsWithChildren } from "react";
 
 interface BlogPostLayoutAltProps extends PropsWithChildren {
   metadata: BlogPostMetadata;
@@ -28,7 +28,7 @@ export const BlogPostLayoutAlt: FC<BlogPostLayoutAltProps> = ({
           <div className="relative z-10 w-full">
             <ScrollInView>
               {/* Back Button */}
-              <Link 
+              <Link
                 href="/blog"
                 className="mb-12 inline-flex items-center gap-2 rounded-full bg-theme-primary-500/5 px-4 py-2 text-sm font-medium text-theme-primary-500 transition-colors hover:bg-theme-primary-500/10"
               >
@@ -84,9 +84,7 @@ export const BlogPostLayoutAlt: FC<BlogPostLayoutAltProps> = ({
                   <div className="font-medium text-foreground">
                     {metadata.author.name}
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    Author
-                  </div>
+                  <div className="text-sm text-muted-foreground">Author</div>
                 </div>
               </div>
             </ScrollInView>
@@ -115,17 +113,17 @@ export const BlogPostLayoutAlt: FC<BlogPostLayoutAltProps> = ({
       <div className="container relative mx-auto px-4 py-16 sm:px-6 lg:py-24">
         <div className="mx-auto max-w-3xl">
           {/* Article */}
-          <article className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-a:text-theme-primary-500 hover:prose-a:text-theme-primary-400 prose-pre:bg-theme-neutral-900/50 prose-pre:border prose-pre:border-border max-w-none">
+          <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-theme-primary-500 hover:prose-a:text-theme-primary-400 prose-pre:border prose-pre:border-border prose-pre:bg-theme-neutral-900/50">
             {children}
           </article>
 
           <div className="mt-12 border-t border-border pt-8">
-  <SocialShareMinimal 
-    url={`/blog/theme-1/${slug}`}
-    title={metadata.title}
-    description={metadata.excerpt}
-  />
-</div>
+            <SocialShareMinimal
+              url={`/blog/theme-1/${slug}`}
+              title={metadata.title}
+              description={metadata.excerpt}
+            />
+          </div>
 
           {/* Newsletter */}
           <div className="mt-16 rounded-2xl border border-border bg-card p-8">

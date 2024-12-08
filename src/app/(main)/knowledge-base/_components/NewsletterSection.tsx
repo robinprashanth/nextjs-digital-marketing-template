@@ -1,5 +1,5 @@
-import { FC, useState } from "react";
 import { ScrollInView } from "@/components/motion/ScrollInView";
+import { FC, useState } from "react";
 
 export const NewsletterSection: FC = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ export const NewsletterSection: FC = () => {
     <section className="border-t border-theme-neutral-800 bg-card">
       <div className="container mx-auto px-4 py-24 sm:px-6">
         <ScrollInView
-         useInView={true}
+          useInView={true}
           className="mx-auto max-w-2xl text-center"
         >
           <h2 className="mb-4 text-2xl font-bold text-foreground">
