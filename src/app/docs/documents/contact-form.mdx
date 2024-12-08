@@ -1,0 +1,224 @@
+---
+title: Contact Form
+description: A comprehensive contact form component with email integration, form validation, and responsive design.
+---
+
+# Contact Form Component
+
+The template includes a full-featured contact form with email integration. It supports form validation, file uploads, and provides real-time feedback to users.
+
+## Basic Usage
+
+```tsx
+import { Contact } from "@/components/contact/Contact";
+
+export default function ContactPage() {
+  return <Contact />;
+}
+```
+
+## Features
+
+- Form validation with Zod
+- Email integration
+- File uploads
+- Real-time feedback
+- Responsive design
+- Dark mode support
+
+## Form Fields
+
+The contact form includes the following fields:
+
+```typescript
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  company?: string;
+  subject: string;
+  services: string[];
+  budget: string;
+  message: string;
+}
+```
+
+## API Route Setup
+
+Create an API route for handling form submissions:
+
+```typescript
+// app/api/contact/route.ts
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+export async function POST(req: Request) {
+  try {
+    const data = await req.json();
+    const { name, email, phone, company, subject, services, budget, message } =
+      data;
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: "contact@gmail.com",
+      subject: `New Contact Form Submission: ${subject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        ${company ? `<p><strong>Company:</strong> ${company}</p>` : ""}
+        <p><strong>Services Interested:</strong> ${services.join(", ")}</p>
+        <p><strong>Budget Range:</strong> ${budget}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return NextResponse.json(
+      { message: "Email sent successfully" },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error("Error sending email:", error);
+    return NextResponse.json(
+      { error: "Failed to send email" },
+      { status: 500 },
+    );
+  }
+}
+```
+
+## Environment Variables
+
+Add these variables to your `.env` file:
+
+```bash
+EMAIL_USER=your-gmail@gmail.com
+EMAIL_PASS=your-app-specific-password
+```
+
+## Form Validation
+
+Form validation is handled using Zod schema:
+
+```typescript
+// lib/validation.ts
+import { z } from "zod";
+
+export const contactFormSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Invalid phone number"),
+  company: z.string().optional(),
+  subject: z.string().min(2, "Subject is required"),
+  services: z.array(z.string()).min(1, "Please select at least one service"),
+  budget: z.string().min(1, "Please select a budget range"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+export type ContactFormData = z.infer<typeof contactFormSchema>;
+```
+
+## Email Services
+
+### Gmail Setup
+
+1. Enable 2-Step Verification in your Google Account
+2. Generate an App Password:
+   - Go to Google Account Settings
+   - Security > App Passwords
+   - Select "Mail" and your device
+   - Use the generated password in your .env file
+
+### Alternative: SendGrid
+
+```typescript
+import sgMail from "@sendgrid/mail";
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+
+export async function POST(req: Request) {
+  try {
+    const data = await req.json();
+    const msg = {
+      to: "contact@gmail.com",
+      from: process.env.VERIFIED_SENDER_EMAIL!,
+      subject: `New Contact Form Submission: ${data.subject}`,
+      html: `...`, // Email template
+    };
+
+    await sgMail.send(msg);
+    return NextResponse.json({ message: "Email sent successfully" });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to send email" },
+      { status: 500 },
+    );
+  }
+}
+```
+
+## Customization
+
+### Styling
+
+The contact form uses Tailwind CSS classes and can be customized:
+
+```tsx
+<form className="space-y-6">
+  {/* Custom field styling */}
+  <input className="border-theme-neutral-800 bg-background text-foreground focus:border-theme-primary-500 focus:ring-theme-primary-500 w-full rounded-lg border px-4 py-2.5 focus:outline-none focus:ring-1" />
+</form>
+```
+
+### Success/Error Messages
+
+Customize the feedback messages:
+
+```tsx
+{
+  isSuccess && (
+    <motion.div className="bg-theme-tulip-500/10 rounded-lg p-4">
+      <div className="text-theme-tulip-500 flex items-center gap-2">
+        <CheckCircle2 className="h-5 w-5" />
+        <p className="text-sm font-medium">
+          Your message has been sent successfully!
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+```
+
+## Examples
+
+### Basic Contact Form
+
+```tsx
+<Contact />
+```
+
+### Custom Styling
+
+```tsx
+<Contact className="mx-auto max-w-4xl" />
+```
+
+### With Custom Services
+
+```tsx
+const customServices = ["Web Design", "SEO", "Marketing"];
+
+<Contact services={customServices} />;
+```

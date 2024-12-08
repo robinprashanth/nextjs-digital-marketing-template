@@ -74,7 +74,7 @@ const MethodStep: FC<MethodStepProps> = ({
                   useInView={true}
                 >
                   <Image
-                    src="/images/working-method/strategy-4.jpg"
+                    src="/images/working-method/strategy-2.jpg"
                     alt="Creative Development"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

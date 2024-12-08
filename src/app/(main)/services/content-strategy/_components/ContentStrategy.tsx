@@ -31,6 +31,7 @@ import {
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import { ContentStrategyCTA } from "@/components/cta/Presets";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import { PlatformCard } from "@/components/PlatformCard";
 
 const iconMap = {
   FileText,
@@ -319,27 +320,16 @@ export const ContentStrategy: FC = () => {
   theme="indigo_small"
 />
           <div className="grid gap-6 md:grid-cols-4">
-            {tools.map((tool, index) => {
-              const IconComponent = iconMap[tool.icon as keyof typeof iconMap];
-              return (
-                <ScrollInView
-                useInView={true}
-                  key={index}
-                  delay={ index * 0.1 }
-                  className="rounded-2xl bg-gray-50 p-6 dark:bg-theme-neutral-800"
-                >
-                  <div className="mb-4 rounded-xl bg-theme-indigo-500/10 p-2 dark:bg-theme-indigo-500/5">
-                    <IconComponent className="h-6 w-6 text-theme-indigo-600" />
-                  </div>
-                  <h3 className="mb-2 font-bold text-theme-neutral-900 dark:text-white">
-                    {tool.name}
-                  </h3>
-                  <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
-                    {tool.description}
-                  </p>
-                </ScrollInView>
-              );
-            })}
+          {tools.map((platform, index) => (
+        <PlatformCard
+          key={index}
+          platform={platform}
+          iconMap={iconMap}
+          index={index}
+        />
+      ))}
+          
+
           </div>
         </div>
       </section>

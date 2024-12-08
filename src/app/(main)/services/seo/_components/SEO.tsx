@@ -1,22 +1,23 @@
 "use client";
-import { FC } from "react";
-import {
-  Search,
-  FileText,
-  LinkIcon,
-  BarChart2,
-  Globe,
-  Smartphone,
-  ArrowUpRight,
-  BarChart,
-  MonitorCog,
-} from "lucide-react";
-import Image from "next/image";
-import { features, metrics, processSteps, toolsUsed } from "../data/content";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { ScrollInView } from "@/components/motion/ScrollInView";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowUpRight,
+  BarChart,
+  BarChart2,
+  FileText,
+  Globe,
+  LinkIcon,
+  MonitorCog,
+  Search,
+  Smartphone,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
+import { features, metrics, processSteps, toolsUsed } from "../data/content";
+import { FeatureCard } from "@/components/FeatureCard";
 
 const iconMap = {
   Search,
@@ -99,38 +100,16 @@ export const SEO: FC = () => {
   description="Strategic SEO services designed to improve your search rankings, drive organic traffic, and increase conversions."
   theme="indigo"
 />
-
           {/* Features Grid */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => {
-              const IconComponent =
-                iconMap[feature.icon as keyof typeof iconMap];
-              return (
-                <ScrollInView
-                useInView={true}
-                  key={index}
-                  delay={index * 0.1}
-                  className="group cursor-pointer"
-                >
-                  <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800">
-                    <div
-                      className={`mb-6 inline-block rounded-2xl p-3 ${feature.gradient}`}
-                    >
-                      <IconComponent className="h-6 w-6 text-white" />
-                    </div>
-
-                    <h3 className="mb-4 text-xl font-bold text-theme-neutral-900 dark:text-white">
-                      {feature.title}
-                    </h3>
-                    <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
-                      {feature.description}
-                    </p>
-
-                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-emerald-500/10 to-theme-ocean-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
-                  </div>
-                </ScrollInView>
-              );
-            })}
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+        <FeatureCard
+          key={index}
+          feature={feature}
+          iconMap={iconMap}
+          index={index}
+        />
+      ))}
           </div>
         </div>
       </section>

@@ -28,6 +28,8 @@ import { ScrollInView } from "@/components/motion/ScrollInView";
 import { DigitalMarketingCTA } from "@/components/cta/Presets";
 import ModernTestimonials from "@/components/testimonials/ModernTestimonials";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import { ServiceCard } from "@/components/ServiceCard";
+import { PlatformCard } from "@/components/PlatformCard";
 
 const iconMap = {
   BarChart,
@@ -114,43 +116,14 @@ export const DigitalMarketing: FC = () => {
           />
 
           <div className="grid gap-8 md:grid-cols-2">
-            {services.map((service, index) => {
-              const IconComponent =
-                iconMap[service.icon as keyof typeof iconMap];
-              return (
-                <ScrollInView
-                useInView={true}
-                  key={index}
-                 delay={index * 0.1}
-                  className="group relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800"
-                >
-                  <div className="mb-6 inline-block rounded-2xl bg-theme-primary-500/10 p-3 dark:bg-theme-primary-500/5">
-                    <IconComponent className="h-6 w-6 text-theme-primary-600" />
-                  </div>
-
-                  <h3 className="mb-3 text-xl font-bold text-theme-neutral-900 dark:text-white">
-                    {service.title}
-                  </h3>
-                  <p className="mb-6 text-theme-neutral-600 dark:text-theme-neutral-400">
-                    {service.description}
-                  </p>
-
-                  <ul className="space-y-3">
-                    {service.bullets.map((bullet, bulletIndex) => (
-                      <li
-                        key={bulletIndex}
-                        className="flex items-center gap-2 text-sm text-theme-neutral-600 dark:text-theme-neutral-400"
-                      >
-                        <div className="h-1.5 w-1.5 rounded-full bg-theme-primary-600" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
-                </ScrollInView>
-              );
-            })}
+          {services.map((service, index) => (
+        <ServiceCard
+          key={index}
+          service={service}
+          iconMap={iconMap}
+          index={index}
+        />
+      ))}
           </div>
         </div>
       </section>
@@ -165,28 +138,14 @@ export const DigitalMarketing: FC = () => {
           
 
           <div className="grid gap-6 md:grid-cols-4">
-            {platforms.map((platform, index) => {
-              const IconComponent =
-                iconMap[platform.icon as keyof typeof iconMap];
-              return (
-                <ScrollInView
-                useInView={true}
-                  key={index}
-                  delay={index * 0.1}
-                  className="rounded-2xl bg-white p-6 shadow-lg dark:bg-theme-neutral-800"
-                >
-                  <div className="mb-4 rounded-xl bg-theme-primary-500/10 p-2 dark:bg-theme-primary-500/5">
-                    <IconComponent className="h-6 w-6 text-theme-primary-600" />
-                  </div>
-                  <h3 className="mb-2 font-bold text-theme-neutral-900 dark:text-white">
-                    {platform.name}
-                  </h3>
-                  <p className="text-sm text-theme-neutral-600 dark:text-theme-neutral-400">
-                    {platform.description}
-                  </p>
-                </ScrollInView>
-              );
-            })}
+          {platforms.map((platform, index) => (
+        <PlatformCard
+          key={index}
+          platform={platform}
+          iconMap={iconMap}
+          index={index}
+        />
+      ))}
           </div>
         </div>
       </section>
@@ -288,35 +247,14 @@ export const DigitalMarketing: FC = () => {
 />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => {
-              const IconComponent =
-                iconMap[feature.icon as keyof typeof iconMap];
-              return (
-                <ScrollInView
-                useInView={true}
-                  key={index}
-                  delay={index * 0.1}
-                  className="group cursor-pointer"
-                >
-                  <div className="relative overflow-hidden rounded-3xl bg-gray-50 p-8 dark:bg-theme-neutral-800">
-                    <div
-                      className={`mb-6 inline-block rounded-2xl p-3 ${feature.gradient}`}
-                    >
-                      <IconComponent className="h-6 w-6 text-white" />
-                    </div>
-
-                    <h3 className="mb-4 text-xl font-bold text-theme-neutral-900 dark:text-white">
-                      {feature.title}
-                    </h3>
-                    <p className="text-theme-neutral-600 dark:text-theme-neutral-400">
-                      {feature.description}
-                    </p>
-
-                    <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-theme-primary-500/10 to-pink-500/10 blur-xl transition-all duration-500 group-hover:scale-150" />
-                  </div>
-                </ScrollInView>
-              );
-            })}
+            {features.map((feature, index) => (
+              <ServiceCard
+              key={index}
+              service={feature}
+              iconMap={iconMap}
+              index={index}
+            />
+            ))}
           </div>
         </div>
       </section>

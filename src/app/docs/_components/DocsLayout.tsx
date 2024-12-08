@@ -34,7 +34,7 @@ const sidebarItems = [
       { href: '/docs/cta', title: 'CTAs' },
       { href: '/docs/testimonials', title: 'Testimonials' },
       { href: '/docs/headings', title: 'Headings' },
-      { href: '/docs/components/contact', title: 'Contact Form' },
+      { href: '/docs/contact-form', title: 'Contact Form' },
     ],
   },
   {
@@ -42,15 +42,12 @@ const sidebarItems = [
     items: [
       { href: '/docs/animations', title: 'Animations' },
       { href: '/docs/seo', title: 'SEO' },
-      { href: '/docs/features/forms', title: 'Form Handling' },
     ],
   },
   {
     title: 'Guides',
     items: [
-      { href: '/docs/guides/deployment', title: 'Deployment' },
-      { href: '/docs/guides/customization', title: 'Customization' },
-      { href: '/docs/guides/analytics', title: 'Analytics Setup' },
+      { href: '/docs/deployment', title: 'Deployment' }
     ],
   },
 ];
@@ -59,7 +56,7 @@ const DocsSidebar = () => {
   const pathname = usePathname();
 
   return (
-    <ScrollArea className="h-full py-6 pl-4 pr-6">
+    <ScrollArea className="h-screen py-6 pl-4 pr-6">
       <div className="space-y-6">
         {sidebarItems.map((section, i) => (
           <div key={i} className="space-y-2">
@@ -92,7 +89,7 @@ const DocsSidebar = () => {
 
 export function DocsLayout({ children }: DocsLayoutProps) {
   return (
-    <div className="flex-1 items-start md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10">
+    <div className="flex min-h-screen">
       {/* Mobile Sidebar */}
       <div className="fixed top-4 right-4 z-50 md:hidden">
         <Sheet>
@@ -108,13 +105,13 @@ export function DocsLayout({ children }: DocsLayoutProps) {
       </div>
 
       {/* Desktop Sidebar */}
-      <aside className="fixed hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r md:sticky md:block">
+      <aside className="fixed top-0 left-0 hidden h-screen w-[240px] border-r border-border bg-background md:block">
         <DocsSidebar />
       </aside>
 
       {/* Main Content */}
-      <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_200px]">
-        <div className="mx-auto w-full min-w-0">
+      <main className="flex-1 ml-0 md:ml-[240px]">
+        <div className="container max-w-3xl py-6 mx-auto">
           <div className="space-y-2">
             {children}
           </div>

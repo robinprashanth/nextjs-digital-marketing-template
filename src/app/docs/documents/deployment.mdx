@@ -1,0 +1,99 @@
+---
+title: Deployment
+description: Learn how to deploy your Digital Marketing template to Vercel.
+---
+
+# Deployment Guide
+
+This guide will walk you through deploying your Next.js 15 application to Vercel, covering both Git integration and manual deployment methods.
+
+## Prerequisites
+
+Before deploying, ensure you have:
+
+- A [Vercel account](https://vercel.com/signup)
+- Your project pushed to a Git repository (GitHub, GitLab, or Bitbucket)
+- All environment variables ready
+- Node.js v20.18.1 or higher
+
+## Pre-Deployment Checklist
+
+1. Run build locally to check for issues:
+
+   <CodeBlock>npm run build</CodeBlock>
+
+2. Ensure all environment variables are set in `.env.local`
+3. Update `next.config.js` if needed
+4. Check all API routes are working
+5. Verify all dependencies are correctly listed in `package.json`
+
+## Deployment Methods
+
+### 1. Git Integration (Recommended)
+
+This method enables automatic deployments when you push to your repository.
+
+1. Push your code to GitHub:
+
+   <CodeBlock>
+     git add . git commit -m "Ready for deployment" git push origin main
+   </CodeBlock>
+
+2. Import your project:
+
+   - Go to [Vercel Dashboard](https://vercel.com/new)
+   - Select "Import Project"
+   - Choose your repository
+   - Select "Next.js" as the framework
+
+3. Configure project:
+
+   - Project Name: `your-project-name`
+   - Framework Preset: `Next.js`
+   - Root Directory: `./`
+   - Build Command: `npm run build`
+   - Output Directory: `.next`
+
+4. Add environment variables:
+
+   - Click "Environment Variables"
+   - Add all variables from your `.env.local`
+   - Make sure to add:
+     ```
+     NEXT_PUBLIC_SITE_URL=your-production-url
+     NODE_VERSION=20.18.1
+     ```
+
+5. Click "Deploy"
+
+### 2. Manual Deployment
+
+If you prefer to deploy without Git integration:
+
+1. Install Vercel CLI:
+
+   <CodeBlock>npm i -g vercel</CodeBlock>
+
+2. Login to Vercel:
+
+   <CodeBlock>vercel login</CodeBlock>
+
+3. Deploy:
+   <CodeBlock>vercel</CodeBlock>
+
+## Environment Setup
+
+Configure these environment variables in your Vercel project settings:
+
+```bash
+# Email Configuration
+GMAIL_USER=your-gmail@gmail.com
+GMAIL_APP_PASSWORD=your-app-specific-password
+CONTACT_EMAIL=contact@gmail.com
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+
+# Node Version
+NODE_VERSION=20.18.1
+```

@@ -35,14 +35,24 @@ const Contact: FC = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setError(null);
-    console.log(data);
+    
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+  
       setIsSuccess(true);
       reset();
     } catch {
-      setError("Something went wrong. Please try again later.");
+      setError("Failed to send message. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
