@@ -21,7 +21,7 @@ export const MegaMenu: FC<MegaMenuProps> = ({ sections, isOpen, onClose }) => {
 
       {/* Main content */}
       <div className="relative">
-        <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="mx-auto max-w-7xl px-6 py-6">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {sections.map((section) => (
               <div key={section.title} className="space-y-6">

@@ -35,11 +35,11 @@ export const AdvancedMegaMenu: FC<AdvancedMegaMenuProps> = ({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.2 }}
-      className="fixed left-0 right-0 top-16 z-50 mx-auto w-full"
+      className="fixed left-0 right-0 z-50 mx-auto max-w-7xl" // Changed to fixed and top-16
       onMouseLeave={onClose}
     >
       {/* Clean backdrop */}
-      <div className="absolute inset-0 bg-white dark:bg-theme-neutral-900/95" />
+      <div className="absolute inset-0 rounded-lg bg-white dark:bg-theme-neutral-900/95" />
 
       {/* Content Container */}
       <div className="relative">
