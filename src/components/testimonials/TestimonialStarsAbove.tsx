@@ -9,6 +9,7 @@ export type TestimonialStars = {
   company: string;
   image: string;
 };
+
 export type Testimonials = {
   delay: number;
   testimonial: TestimonialStars;

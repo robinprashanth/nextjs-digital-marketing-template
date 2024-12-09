@@ -1,4 +1,4 @@
-import { TechTool } from "@/types";
+import { TechTool } from "../../types";
 
 export const techTools: TechTool[] = [
   {

@@ -1,9 +1,9 @@
-import { FC } from "react";
-import Image from "next/image";
+import { ScrollInView } from "@/components/motion/ScrollInView";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import type { TechTool } from "@/types";
-import { ScrollInView } from "@/components/motion/ScrollInView";
+import Image from "next/image";
+import { FC } from "react";
+import { TechTool } from "../../types";
 
 interface TechCardProps {
   tool: TechTool;
@@ -12,8 +12,8 @@ interface TechCardProps {
 
 export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
   <ScrollInView
-  useInView={true}
-  delay={delay}
+    useInView={true}
+    delay={delay}
     className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:bg-theme-neutral-800"
   >
     <div className="flex items-start justify-between">
@@ -49,7 +49,9 @@ export const TechCard: FC<TechCardProps> = ({ tool, delay = 0 }) => (
         <span className="text-theme-neutral-600 dark:text-theme-neutral-400">
           Expertise Level
         </span>
-        <span className="font-medium text-theme-primary-600">{tool.expertise}%</span>
+        <span className="font-medium text-theme-primary-600">
+          {tool.expertise}%
+        </span>
       </div>
       <Progress value={tool.expertise} className="mt-2" />
     </div>

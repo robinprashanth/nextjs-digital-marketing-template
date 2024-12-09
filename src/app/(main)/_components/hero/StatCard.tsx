@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { motion } from "motion/react";
-import { StatCardProps } from "@/types";
+import { StatCardProps } from "../../types";
 
 export const StatCard: FC<StatCardProps> = ({
   icon,

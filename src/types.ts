@@ -15,46 +15,9 @@ export interface TestimonialCardProps {
   quote: string;
 }
 
-export interface StatCardProps {
-  icon: string;
-  title: string;
-  value: string;
-  gradient: string;
-  borderColor: string;
-}
-
 export interface ClientAvatarProps {
   image: string;
   index: number;
-}
-
-export interface MethodStepProps {
-  number: string;
-  title: string;
-  description: string;
-  icon?: React.ReactNode;
-  image?: React.ReactNode | string;
-  delay?: number;
-  isHighlighted?: boolean;
-}
-
-export interface WorkingStatCardProps {
-  title: string;
-  value: string;
-  description: string;
-}
-
-export interface PortfolioItemProps {
-  title: string;
-  category: string;
-  metrics: {
-    label: string;
-    value: string;
-    change: string;
-  }[];
-  image: string;
-  color: string;
-  gradient: string;
 }
 
 export interface TestimonialProps {
@@ -106,32 +69,6 @@ export interface PricingPlan {
     text: string;
     href: string;
   };
-}
-
-export interface ContactFormData {
-  fullName: string;
-  email: string;
-  company: string;
-  phone?: string;
-  service: string;
-  budget: string;
-  message: string;
-}
-
-export interface TechTool {
-  id: number;
-  name: string;
-  description: string;
-  icon: string;
-  category:
-    | "analytics"
-    | "marketing"
-    | "social"
-    | "seo"
-    | "advertising"
-    | "development";
-  expertise: number; // 1-100
-  certification?: string;
 }
 
 export interface IndustryMetric {
@@ -219,17 +156,6 @@ export interface MetricProps {
   icon: React.ReactNode;
 }
 
-export interface ToolProps {
-  name: string;
-  logo: string;
-  description: string;
-}
-
-export interface FAQProps {
-  question: string;
-  answer: string;
-}
-
 export interface Article {
   id: string;
   title: string;
@@ -244,21 +170,6 @@ export interface Article {
   helpful: number;
   lastUpdated: string;
   featured?: boolean;
-}
-
-export interface Category {
-  id: string;
-  name: string;
-  description: string;
-  icon: LucideIcon;
-  articleCount: number;
-}
-
-export interface PopularTopic {
-  title: string;
-  views: string;
-  category: string;
-  articles: string[];
 }
 
 export interface ArticleMetadata {
@@ -370,22 +281,6 @@ export interface AnimationProps extends PropsWithChildren {
   duration?: number;
 }
 
-export interface JobPosting {
-  id: string;
-  slug: string;
-  title: string;
-  department: string;
-  location: string;
-  type: "Full-time" | "Part-time" | "Contract" | "Remote";
-  experience: string;
-  salary: string;
-  posted: string;
-  description: string;
-  responsibilities: string[];
-  requirements: string[];
-  benefits: string[];
-}
-
 export interface DocMetadata {
   title: string;
   description: string;
@@ -417,4 +312,20 @@ export interface Testimonial {
   image: string;
   content: string;
   rating?: number;
+}
+
+export interface JobPosting {
+  id: string;
+  slug: string;
+  title: string;
+  department: string;
+  location: string;
+  type: "Full-time" | "Part-time" | "Contract" | "Remote";
+  experience: string;
+  salary: string;
+  posted: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  benefits: string[];
 }

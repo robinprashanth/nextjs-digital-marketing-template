@@ -1,4 +1,3 @@
-import { Category } from "@/types";
 import {
   Book,
   Code,
@@ -7,6 +6,7 @@ import {
   Settings,
   Video,
 } from "lucide-react";
+import { Category } from "../../types";
 
 export const categories: Category[] = [
   {
