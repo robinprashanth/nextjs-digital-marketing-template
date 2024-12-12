@@ -6,12 +6,11 @@ import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { FloatingShape } from "@/components/motion/FloatingShape";
 import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
 import { TestimonialSmall } from "@/components/testimonials/TestimonialSmall";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import React, { FC } from "react";
 import { decorativeShapes } from "../data/content";
 import { clientAvatars, stats, testimonials } from "./hero/heroData";
 import { StatCard } from "./hero/StatCard";
+import AnimatedCtaButton from "@/components/AnimatedCtaButton";
 
 export const HeroSection: FC = () => {
   const renderShape = (shape: (typeof decorativeShapes)[0]) => {
@@ -80,12 +79,9 @@ export const HeroSection: FC = () => {
 
               <FadeInStaggerItem>
                 <div className="mt-10 flex flex-wrap items-center gap-6">
-                  <Button
-                    size="lg"
-                    className="h-14 rounded-full bg-white px-8 text-black hover:bg-theme-neutral-100"
-                  >
-                    GET IN TOUCH <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
+                  <AnimatedCtaButton className="bg-white text-black hover:bg-theme-neutral-100">
+                    GET IN TOUCH
+                  </AnimatedCtaButton>
 
                   <TestimonialSmall clientAvatars={clientAvatars} />
                 </div>
