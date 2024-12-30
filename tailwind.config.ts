@@ -21,6 +21,8 @@ export default {
   			'8xl': '7rem'
   		},
   		colors: {
+			gold: '#FFD700',
+			royalblue: '#4169E1',
   			navy: '#0B0B1E',
   			navyLight: '#1A1A2E',
   			background: 'hsl(var(--background))',

@@ -358,3 +358,204 @@ body {
     linear-gradient(to bottom, rgb(0 0 0 / 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* Chalkboard Background Styles */
+.chalkboard {
+  background-color: #0a0a0a;
+  position: relative;
+}
+
+.chalkboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    /* Chalk dust texture */
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 1%
+    ),
+    /* Fine grain texture */
+      repeating-linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 1px,
+        rgba(255, 255, 255, 0.02) 1px,
+        rgba(255, 255, 255, 0.02) 2px
+      ),
+    /* Coarse grain texture */
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 255, 255, 0.01) 3px,
+        rgba(255, 255, 255, 0.01) 4px
+      );
+  opacity: 0.15;
+}
+
+/* Chalk Text Effect */
+.chalk-text {
+  text-shadow:
+    1px 1px 2px rgba(255, 255, 255, 0.3),
+    2px 2px 4px rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Chalk Drawing Effect */
+.chalk-drawing {
+  filter: url(#chalk-filter);
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Chalk Dust Animation */
+@keyframes chalk-dust {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+}
+
+.chalk-dust {
+  animation: chalk-dust 3s ease-in-out infinite;
+}
+
+/* Eraser Marks Effect */
+.eraser-mark {
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent
+  );
+  border-radius: 100%;
+  mix-blend-mode: overlay;
+}
+
+/* Chalk Line Effect */
+.chalk-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent
+  );
+  height: 1px;
+  opacity: 0.2;
+}
+
+/* Grid Pattern */
+.chalkboard-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 25px 25px;
+}
+
+/* Math Symbols Style */
+.math-symbol {
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Chalk Underline */
+.chalk-underline {
+  position: relative;
+}
+
+.chalk-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6) 20%,
+    rgba(255, 255, 255, 0.6) 80%,
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* Chalk Glow Effect */
+.chalk-glow {
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Additional Chalk Effects */
+.chalk-effect {
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow:
+    0.5px 0.5px 1px rgba(255, 255, 255, 0.2),
+    1px 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.chalk-effect::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chalk-effect:hover::before {
+  opacity: 1;
+}
+
+/* Chalk Dust Particles */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.chalk-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Chalk Writing Animation */
+@keyframes write {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.chalk-write {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: write 2s ease forwards;
+}
