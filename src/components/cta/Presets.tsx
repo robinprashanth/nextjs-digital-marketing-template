@@ -2,6 +2,7 @@ import { FC } from "react";
 import { CTACard } from "./CTACard";
 import { CTASection } from "./CTASection";
 import { GradientCTA } from "./GradientCTA";
+import { SplineCTA } from "./SplineCTA";
 
 export const JoinTeamCTA: FC<{ path?: string }> = ({ path }) => (
   <CTACard
@@ -290,6 +291,22 @@ export const ContactCTA: FC<{ className?: string }> = ({ className }) => (
       },
     ]}
     gradient="purple"
+    className={className}
+  />
+);
+
+export const CreativeSplineCTA: FC<{ className?: string }> = ({ className }) => (
+  <SplineCTA
+    title="LET'S COLLABORATE AND CREATE"
+    description="SOMETHING EXTRAORDINARY. CONTACT US TODAY TO EXPLORE LIMITLESS DESIGN SOLUTIONS TAILORED TO YOUR VISION."
+    primaryButton={{
+      text: "Start Your Project",
+      href: "/contact",
+    }}
+    secondaryButton={{
+      text: "Learn More",
+      href: "/about",
+    }}
     className={className}
   />
 );

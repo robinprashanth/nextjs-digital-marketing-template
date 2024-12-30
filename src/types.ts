@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 import { LucideIcon } from "lucide-react";
+import { StaticImageData } from "next/image";
 
 export interface FloatingShapeProps {
   className: string;
@@ -328,4 +329,15 @@ export interface JobPosting {
   responsibilities: string[];
   requirements: string[];
   benefits: string[];
+}
+
+export interface Testimonials {
+  id?: string;
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+  image: string | StaticImageData;
+  companyLogo: string | StaticImageData;
+  rating: number;
 }

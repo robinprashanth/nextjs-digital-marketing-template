@@ -129,6 +129,10 @@ export const moreMenuSections: MegaMenuSection[] = [
     title: "Main Pages",
     items: [
       {
+        title: "Home Page 2",
+        href: "/home-2",
+      },
+      {
         title: "Case Studies",
         href: "/case-studies",
       },
