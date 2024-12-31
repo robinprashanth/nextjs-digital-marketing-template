@@ -34,7 +34,7 @@ export function HeroSection() {
           <FadeInStagger>
             {/* Main Heading */}
             <FadeInStaggerItem>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mb-6 font-bold tracking-tight text-5xl lg:text-6xl">
                 The all-in-one for
                 <span className="mt-2 block bg-gradient-to-r from-theme-primary-500 to-theme-secondary-500 bg-clip-text text-transparent">
                   teams of one

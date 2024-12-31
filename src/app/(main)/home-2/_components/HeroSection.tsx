@@ -26,12 +26,12 @@ export function HeroSection() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12 lg:py-24">
+    <div className="container mx-auto px-4  py-24">
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         {/* Left content */}
         <div className="flex-1 space-y-8 lg:space-y-12 w-full">
           <FadeInStagger>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter">
+            <h1 className="text-5xl lg:text-7xl font-bold tracking-tighter">
               <FadeInStaggerItem className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent inline-block">
                 TRANSFORM
               </FadeInStaggerItem>

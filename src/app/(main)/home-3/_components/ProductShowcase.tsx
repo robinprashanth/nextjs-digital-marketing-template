@@ -78,7 +78,7 @@ export function ProductShowcase() {
       {/* Main content with background */}
       <div className="relative bg-[#FEF1E7]">
         <div className="flex min-h-screen items-center justify-center">
-          <div className="container relative z-10 px-4 py-24">
+          <div className="container relative z-10 px-4 pb-24">
             <FadeIn className="text-center">
               <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-theme-primary-500">
                 Features
