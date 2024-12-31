@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/motion/FadeIn";
+import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown, Laptop, Book, Users, Shield } from "lucide-react";
 import { useState } from "react";
@@ -42,81 +43,70 @@ const faqs = [
 export function FAQ() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [openQuestion, setOpenQuestion] = useState<number | null>(null);
 
-  // Filter FAQs based on category and search query
-  const filteredFaqs = faqs.filter((faq) => {
-    const matchesCategory = activeCategory === "all" || faq.category === activeCategory;
-    const matchesSearch = faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredFaqs = faqs.filter(faq => 
+    (activeCategory === "all" || faq.category === activeCategory) &&
+    (faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+     faq.answer.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   return (
-    <section className="relative py-24">
-      <div className="container relative z-10 mx-auto max-w-7xl px-4">
+    <section className="relative py-16 sm:py-24">
+      <div className="container relative z-10 mx-auto max-w-4xl px-4">
         {/* Header */}
         <FadeIn>
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-6xl font-black tracking-tight">
-              FREQUENTLY ASKED
+          <div className="mb-8 sm:mb-12 text-center">
+            <h2 className="mb-4 text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight">
+              Frequently Asked
+              <br />
+              <span className="text-purple-600">Questions</span>
             </h2>
-            <div className="relative inline-block">
-              <span className="relative z-10 px-6 text-4xl font-bold">
-                QUESTIONS
-              </span>
-              <motion.div
-                className="absolute -inset-2 -z-10 rounded-lg bg-[#90EE90]"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5 }}
-              />
-            </div>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
-              Find answers to common questions about our platform, courses, and learning experience.
+            <p className="text-base sm:text-lg text-gray-600">
+              Find answers to common questions about our platform and courses
             </p>
           </div>
-        </FadeIn>
 
-        {/* Search and Filters */}
-        <div className="mb-12 space-y-6">
           {/* Search Bar */}
-          <div className="relative mx-auto max-w-2xl">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+          <div className="relative mb-6 sm:mb-8">
+            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
               placeholder="Search questions..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-full bg-white/5 py-4 pl-12 pr-4 text-black backdrop-blur-sm transition-colors placeholder:text-gray-400 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-theme-primary-500"
+              className="w-full rounded-full border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm sm:text-base focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500"
             />
           </div>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* Category Tabs */}
+          <div className="mb-8 flex flex-wrap gap-2 sm:gap-4">
             {categories.map((category) => {
+              const isActive = activeCategory === category.id;
               const Icon = category.icon;
               return (
                 <motion.button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   whileHover={{ scale: 1.05 }}
-                  className={`flex items-center gap-2 rounded-full px-6 py-3 transition-colors ${
-                    activeCategory === category.id
-                      ? "bg-theme-primary-500 text-black"
-                      : "bg-white/5 text-black/50 hover:bg-white/10"
-                  }`}
+                  whileTap={{ scale: 0.95 }}
+                  className={cn(
+                    "flex items-center gap-2 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base transition-colors",
+                    isActive
+                      ? "bg-purple-600 text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  )}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   {category.label}
                 </motion.button>
               );
             })}
           </div>
-        </div>
+        </FadeIn>
 
         {/* FAQ List */}
-        <div className="mx-auto max-w-3xl space-y-4">
+        <div className="space-y-4">
           <AnimatePresence>
             {filteredFaqs.map((faq, index) => (
               <motion.div
@@ -124,33 +114,34 @@ export function FAQ() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm"
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden rounded-2xl border border-gray-200 bg-white"
               >
+                {/* Question */}
                 <motion.button
-                  onClick={() => setExpandedId(expandedId === index ? null : index)}
-                  className="flex w-full items-center justify-between p-6 text-left"
+                  onClick={() => setOpenQuestion(openQuestion === index ? null : index)}
+                  className="flex w-full items-center justify-between p-4 sm:p-6 text-left"
                 >
-                  <span className="text-lg font-semibold text-black">
-                    {faq.question}
-                  </span>
-                  <motion.div
-                    animate={{ rotate: expandedId === index ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronDown className="h-5 w-5 text-gray-400" />
-                  </motion.div>
+                  <span className="text-sm sm:text-base font-medium">{faq.question}</span>
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 sm:h-5 sm:w-5 text-gray-500 transition-transform",
+                      openQuestion === index ? "rotate-180" : ""
+                    )}
+                  />
                 </motion.button>
 
+                {/* Answer */}
                 <AnimatePresence>
-                  {expandedId === index && (
+                  {openQuestion === index && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="px-6 pb-6"
+                      className="px-4 pb-4 sm:px-6 sm:pb-6"
                     >
-                      <p className="text-gray-600">{faq.answer}</p>
+                      <p className="text-sm sm:text-base text-gray-600">{faq.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -158,29 +149,38 @@ export function FAQ() {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* No Results Message */}
+        {filteredFaqs.length === 0 && (
+          <div className="mt-8 text-center text-gray-500">
+            <p className="text-sm sm:text-base">No matching questions found.</p>
+          </div>
+        )}
       </div>
 
-      {/* Decorative Background Elements */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360],
-        }}
-        transition={{ duration: 20, repeat: Infinity }}
-        className="absolute right-10 bottom-20"
-      >
-        <div className="h-20 w-20 rounded-full bg-purple-600/20" />
-      </motion.div>
-      
-      <motion.div
-        animate={{
-          y: [0, -20, 0],
-        }}
-        transition={{ duration: 5, repeat: Infinity }}
-        className="absolute left-20 top-20"
-      >
-        <div className="h-16 w-16 rounded-full bg-blue-500/20" />
-      </motion.div>
+      {/* Background Decorative Elements - Hide on mobile */}
+      <div className="hidden sm:block">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{ duration: 20, repeat: Infinity }}
+          className="absolute right-10 bottom-20"
+        >
+          <div className="h-20 w-20 rounded-full bg-purple-600/20" />
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+          }}
+          transition={{ duration: 5, repeat: Infinity }}
+          className="absolute left-20 top-20"
+        >
+          <div className="h-16 w-16 rounded-full bg-blue-500/20" />
+        </motion.div>
+      </div>
     </section>
   );
 } 

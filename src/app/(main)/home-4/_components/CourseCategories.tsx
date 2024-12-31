@@ -29,17 +29,18 @@ const categories = [
 
 export function CourseCategories() {
   return (
-    <section className="relative py-24">
+    <section className="relative py-16 sm:py-24">
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
         {/* Header with 3D Style */}
         <FadeIn>
-          <div className="mb-20">
+          <div className="mb-12 sm:mb-20">
             <div className="relative text-center">
-              <h2 className="text-7xl font-black tracking-tight text-black">
-                COURSE CATEGORIES
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-black">
+                COURSE
+                <br className="sm:hidden" /> CATEGORIES
               </h2>
               <div className="relative mt-4 inline-block">
-                <span className="relative z-10 px-6 text-4xl font-bold">
+                <span className="relative z-10 px-4 sm:px-6 text-2xl sm:text-4xl font-bold">
                   FOR YOUR FUTURE
                 </span>
                 <motion.div
@@ -55,25 +56,25 @@ export function CourseCategories() {
 
         {/* Cards Grid */}
         <FadeInStagger>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {categories.map((category, i) => (
               <FadeInStaggerItem key={i}>
                 <motion.div
                   whileHover={{ y: -10 }}
-                  className="group relative overflow-hidden rounded-[32px]"
+                  className="group relative overflow-hidden rounded-[20px] sm:rounded-[32px]"
                   style={{ backgroundColor: category.bgColor }}
                 >
                   {/* Main Content */}
-                  <div className="relative z-10 p-8">
+                  <div className="relative z-10 p-6 sm:p-8">
                     {/* 3D Icon Container */}
-                    <div className="mb-8 flex justify-center">
+                    <div className="mb-6 sm:mb-8 flex justify-center">
                       <motion.div
                         whileHover={{ 
                           rotateY: 180,
                           scale: 1.1
                         }}
                         transition={{ duration: 0.5 }}
-                        className="relative h-48 w-48"
+                        className="relative h-32 w-32 sm:h-48 sm:w-48"
                       >
                         <Image
                           src={category.icon}
@@ -87,10 +88,10 @@ export function CourseCategories() {
 
                     {/* Text Content */}
                     <div className="text-center">
-                      <h3 className="mb-3 text-2xl font-bold text-white">
+                      <h3 className="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-white">
                         {category.title}
                       </h3>
-                      <p className="text-white/90">
+                      <p className="text-sm sm:text-base text-white/90">
                         {category.description}
                       </p>
                     </div>
@@ -100,33 +101,35 @@ export function CourseCategories() {
                   </div>
 
                   {/* Decorative Elements */}
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
-                  <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-white/10" />
+                  <div className="absolute -right-8 -top-8 h-24 sm:h-32 w-24 sm:w-32 rounded-full bg-white/10" />
+                  <div className="absolute -bottom-8 -left-8 h-24 sm:h-32 w-24 sm:w-32 rounded-full bg-white/10" />
                   
                   {/* Connection Points */}
-                  <div className="absolute -left-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-black/20" />
-                  <div className="absolute -right-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-black/20" />
+                  <div className="absolute -left-3 top-1/2 h-4 sm:h-6 w-4 sm:w-6 -translate-y-1/2 rounded-full bg-black/20" />
+                  <div className="absolute -right-3 top-1/2 h-4 sm:h-6 w-4 sm:w-6 -translate-y-1/2 rounded-full bg-black/20" />
                 </motion.div>
               </FadeInStaggerItem>
             ))}
           </div>
         </FadeInStagger>
 
-        {/* Decorative Background Elements */}
-        <motion.div
-          className="absolute -right-20 top-20"
-          animate={{ y: [0, -20, 0], rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity }}
-        >
-          <div className="h-40 w-40 rounded-full bg-purple-600/20" />
-        </motion.div>
-        <motion.div
-          className="absolute -left-10 bottom-20"
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 15, repeat: Infinity }}
-        >
-          <div className="h-24 w-24 rounded-full bg-blue-500/20" />
-        </motion.div>
+        {/* Decorative Background Elements - Hide on mobile */}
+        <div className="hidden sm:block">
+          <motion.div
+            className="absolute -right-20 top-20"
+            animate={{ y: [0, -20, 0], rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity }}
+          >
+            <div className="h-40 w-40 rounded-full bg-purple-600/20" />
+          </motion.div>
+          <motion.div
+            className="absolute -left-10 bottom-20"
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 15, repeat: Infinity }}
+          >
+            <div className="h-24 w-24 rounded-full bg-blue-500/20" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

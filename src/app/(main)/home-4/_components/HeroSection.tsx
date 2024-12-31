@@ -21,7 +21,7 @@ const ChalkboardBackground = () => (
     <div className="absolute inset-0 bg-[#0A0A0A]" />
     
     {/* Chalk dust texture */}
-    <div className="absolute inset-0 bg-[url('/images/chalk-texture.png')] opacity-5" />
+    <div className="absolute inset-0 bg-[url('/images/chalk-texture1.jpeg')] opacity-30" />
     
     {/* Chalk drawings */}
     <svg
@@ -66,84 +66,17 @@ const ChalkboardBackground = () => (
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center chalkboard px-4">
-      {/* Replace the old background with new ChalkboardBackground */}
+    <section className="relative flex min-h-screen items-center justify-center chalkboard px-4 py-20">
       <ChalkboardBackground />
-
-      {/* Decorative Elements */}
-      <FloatingElement className="left-[5%] top-[20%]">
-        <motion.div
-          animate={{ rotate: [-10, 10, -10] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        >
-          <svg width="60" height="60" viewBox="0 0 60 60">
-            <g transform="rotate(-30 30 30)">
-              <rect x="20" y="10" width="20" height="40" fill="#FFA07A" />
-              <rect x="20" y="5" width="20" height="8" rx="2" fill="#FFC0CB" />
-              <path d="M20 45L30 50L40 45" fill="#FFA07A" />
-            </g>
-          </svg>
-        </motion.div>
-      </FloatingElement>
-
-      <FloatingElement className="right-[10%] top-[15%]">
-        <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="relative h-12 w-12 rounded-full border-2 border-[#4169E1] p-1"
-        >
-          <div className="h-full w-full rounded-full border-2 border-dashed border-[#87CEEB]" />
-        </motion.div>
-      </FloatingElement>
-
-      <FloatingElement className="left-[15%] top-[60%]">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="h-14 w-14 rounded-full bg-purple-600"
-        >
-          <div className="h-full w-full rounded-full bg-gradient-to-tr from-purple-800 to-transparent" />
-        </motion.div>
-      </FloatingElement>
-
-      <FloatingElement className="right-[15%] top-[65%]">
-        <motion.div
-          animate={{ y: [-5, 5, -5] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="relative"
-        >
-          <div className="relative h-14 w-12">
-            <div className="absolute h-full w-full rounded bg-blue-500" />
-            <div className="absolute left-1 top-1 h-full w-full rounded bg-white">
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute -right-2 -top-2 h-5 w-5 rounded-full bg-yellow-300"
-              />
-            </div>
-          </div>
-        </motion.div>
-      </FloatingElement>
-
-      <FloatingElement className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="relative h-16 w-16 rounded-full border border-dashed border-orange-400"
-        >
-          <div className="absolute -right-1 top-1/2 h-2 w-2 rounded-full bg-orange-400" />
-          <div className="absolute -top-1 left-1/2 h-2 w-2 rounded-full bg-orange-400" />
-        </motion.div>
-      </FloatingElement>
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto max-w-5xl text-center">
         <FadeIn>
-          <h1 className="flex flex-col gap-2 text-[3.5rem] font-black leading-none tracking-tight sm:text-7xl lg:text-8xl">
+          <h1 className="flex flex-col gap-2 text-5xl font-black leading-none tracking-tight sm:text-7xl lg:text-8xl">
             <span className="text-white">UNLOCK YOUR</span>
             <span className="font-outline-2 text-[#FFD700]">POTENTIAL</span>
             <span className="text-white">WITH SMART</span>
-            <div className="mt-2 flex items-center justify-center gap-4">
+            <div className="mt-2 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <span className="text-white">ONLINE</span>
               <span className="relative">
                 <span className="relative z-10 text-[#4169E1]">LEARNING</span>
@@ -165,7 +98,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-8 text-xl text-gray-400"
+            className="mt-8 text-base sm:text-xl text-gray-400 px-4 sm:px-0"
           >
             Expert-led courses, interactive workshops, and personalized learning paths
           </motion.p>
@@ -174,16 +107,65 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="mt-10 flex justify-center gap-4"
+            className="mt-10 flex flex-col sm:flex-row justify-center gap-4 px-4"
           >
-            <button className="rounded-full bg-[#4169E1] px-8 py-4 font-semibold text-white transition-transform hover:scale-105">
+            <button className="rounded-full bg-[#4169E1] px-6 py-3 sm:px-8 sm:py-4 font-semibold text-white transition-transform hover:scale-105">
               Start Learning
             </button>
-            <button className="rounded-full border-2 border-[#FFD700] px-8 py-4 font-semibold text-[#FFD700] transition-transform hover:scale-105">
+            <button className="rounded-full border-2 border-[#FFD700] px-6 py-3 sm:px-8 sm:py-4 font-semibold text-[#FFD700] transition-transform hover:scale-105">
               View Courses
             </button>
           </motion.div>
         </FadeIn>
+      </div>
+
+      {/* Decorative Elements - Hide on mobile, show on larger screens */}
+      <div className="hidden sm:block">
+        <FloatingElement className="left-[5%] top-[20%]">
+          <motion.div
+            animate={{ rotate: [-10, 10, -10] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          >
+            <svg width="60" height="60" viewBox="0 0 60 60">
+              <g transform="rotate(-30 30 30)">
+                <rect x="20" y="10" width="20" height="40" fill="#FFA07A" />
+                <rect x="20" y="5" width="20" height="8" rx="2" fill="#FFC0CB" />
+                <path d="M20 45L30 50L40 45" fill="#FFA07A" />
+              </g>
+            </svg>
+          </motion.div>
+        </FloatingElement>
+
+        <FloatingElement className="right-[10%] top-[15%]">
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="relative h-12 w-12 rounded-full border-2 border-[#4169E1] p-1"
+          >
+            <div className="h-full w-full rounded-full border-2 border-dashed border-[#87CEEB]" />
+          </motion.div>
+        </FloatingElement>
+
+        <FloatingElement className="left-[15%] top-[60%]">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="h-14 w-14 rounded-full bg-purple-600"
+          >
+            <div className="h-full w-full rounded-full bg-gradient-to-tr from-purple-800 to-transparent" />
+          </motion.div>
+        </FloatingElement>
+
+        <FloatingElement className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="relative h-16 w-16 rounded-full border border-dashed border-orange-400"
+          >
+            <div className="absolute -right-1 top-1/2 h-2 w-2 rounded-full bg-orange-400" />
+            <div className="absolute -top-1 left-1/2 h-2 w-2 rounded-full bg-orange-400" />
+          </motion.div>
+        </FloatingElement>
       </div>
 
       {/* Add chalk effect styles */}
