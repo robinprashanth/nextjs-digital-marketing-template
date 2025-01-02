@@ -1,7 +1,8 @@
 "use client";
 
 import { FadeIn } from "@/components/motion/FadeIn";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import { Calendar, Clock, Users, Video } from "lucide-react";
 
 const events = [

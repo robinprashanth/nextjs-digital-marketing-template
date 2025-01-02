@@ -1,5 +1,5 @@
 import { TestimonialCardProps } from "@/types";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FC, useState } from "react";

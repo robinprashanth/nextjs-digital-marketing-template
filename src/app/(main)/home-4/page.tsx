@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getSEOTags } from "@/lib/seo";
 import { HeroSection } from "./_components/HeroSection";
 import { CourseCategories } from "./_components/CourseCategories";
 import { LearningPaths } from "./_components/LearningPaths";
@@ -14,10 +15,32 @@ import { MobileAppPromo } from "./_components/MobileAppPromo";
 import { UpcomingEvents } from "./_components/UpcomingEvents";
 import { CareerSupport } from "./_components/CareerSupport";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = getSEOTags({
   title: "EduPro - Modern Learning Platform",
   description: "Transform your future with our comprehensive online learning platform. Expert-led courses, interactive learning paths, and recognized certifications.",
-};
+  canonicalUrlRelative: "/home-4",
+  type: "website",
+  images: [
+    {
+      url: "/images/homepage4/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "EduPro Learning Platform",
+    }
+  ],
+  keywords: [
+    "Online Learning",
+    "E-Learning Platform",
+    "Professional Courses",
+    "Career Development",
+    "Digital Education",
+    "Online Certification",
+    "Skill Development",
+    "Virtual Classroom",
+    "Interactive Learning",
+    "Professional Training"
+  ]
+});
 
 export default function Home4() {
   return (

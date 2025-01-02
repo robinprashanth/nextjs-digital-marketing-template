@@ -3,7 +3,8 @@
 import { BackgroundPattern } from "@/components/SVG/TestimonialSVGs";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { TestimonialProps } from "@/types";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { FC, useState } from "react";

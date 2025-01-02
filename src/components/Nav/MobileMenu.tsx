@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config";
 import type { MegaMenuSection, NavLink, NavSection } from "@/types";
 import { ChevronDown, ChevronRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -64,7 +65,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({
                     </div>
                   </div>
                   <span className="bg-gradient-to-r from-theme-primary-600 to-theme-ocean-600 bg-clip-text text-xl font-bold text-transparent">
-                    REVENTO
+                    {siteConfig.appName}
                   </span>
                 </Link>
                 <button

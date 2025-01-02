@@ -1,7 +1,8 @@
 "use client";
 
 import { FadeIn } from "@/components/motion/FadeIn";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 
 const FloatingElement = ({ children, className }: { children: React.ReactNode; className: string }) => (
   <motion.div

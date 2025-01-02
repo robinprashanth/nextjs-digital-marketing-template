@@ -69,7 +69,7 @@ export function HeroSection() {
 
         {/* Right content - CTA Card */}
         <ScaleIn delay={0.4} className="flex-1 w-full">
-          <div className="bg-gradient-to-br from-purple-200 to-pink-200 rounded-[2.5rem] p-6 sm:p-10 text-black relative overflow-hidden">
+          <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 text-black relative overflow-hidden">
             {/* Background blur effect */}
             <FloatIn 
               className="absolute top-0 right-0 w-32 h-32 bg-purple-300 rounded-full blur-3xl opacity-60"

@@ -1,5 +1,6 @@
-import { HeroSection } from "./_components/HeroSection";
 import { Metadata } from "next";
+import { getSEOTags } from "@/lib/seo";
+import { HeroSection } from "./_components/HeroSection";
 import { FeaturesGrid } from "./_components/FeaturesGrid";
 import { SocialProofSection } from "./_components/SocialProofSection";
 import { ProductShowcase } from "./_components/ProductShowcase";
@@ -10,10 +11,32 @@ import { FAQ } from "./_components/FAQ";
 import { Updates } from "./_components/Updates";
 import { Support } from "./_components/Support";
 
-export const metadata: Metadata = {
-  title: "Mobile App - All-in-one Platform",
-  description: "Transform your business with our comprehensive mobile app solution. All the tools you need to grow, in one simple platform.",
-};
+export const metadata: Metadata = getSEOTags({
+  title: "All-in-One Platform - Simplify Your Workflow",
+  description: "Transform your workflow with our comprehensive platform. Powerful features, seamless integration, and intuitive design to help teams work smarter, not harder.",
+  canonicalUrlRelative: "/home-3",
+  type: "website",
+  images: [
+    {
+      url: "/images/homepage3/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "All-in-One Platform Features",
+    }
+  ],
+  keywords: [
+    "Workflow Management",
+    "Team Collaboration",
+    "Project Management",
+    "Task Automation",
+    "Business Software",
+    "Productivity Tools",
+    "Team Communication",
+    "Work Management",
+    "Remote Work",
+    "Business Efficiency"
+  ]
+});
 
 export default function Home3() {
   return (
@@ -36,17 +59,6 @@ export default function Home3() {
         <FAQ />
         <Updates />
         <Support />
-        {/* We'll add other sections here as we build them:
-          <FeaturesGrid />
-          <SocialProofSection />
-          <ProductShowcase />
-          <CoreFeatures />
-          <AnalyticsDashboard />
-          <CommunitySection />
-          <DesignGallery />
-          <FeaturesList />
-          <CtaSection />
-        */}
       </div>
     </main>
   );

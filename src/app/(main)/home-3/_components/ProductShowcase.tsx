@@ -6,7 +6,7 @@ import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const screenshots = [
   {

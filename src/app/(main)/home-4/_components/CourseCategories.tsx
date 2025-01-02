@@ -3,7 +3,8 @@
 import { FadeIn } from "@/components/motion/FadeIn";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
 import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import Image from "next/image";
 
 const categories = [

@@ -3,7 +3,8 @@
 import { FadeIn } from "@/components/motion/FadeIn";
 import { FadeInStagger } from "@/components/motion/FadeInStagger";
 import { FadeInStaggerItem } from "@/components/motion/FadeInStaggerItem";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import { BookOpen, Code2, FileText, Headphones, Layout, MessageSquare, PenTool, Video } from "lucide-react";
 
 const tools = [

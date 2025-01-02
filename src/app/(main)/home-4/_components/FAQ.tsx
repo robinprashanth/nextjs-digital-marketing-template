@@ -2,7 +2,7 @@
 
 import { FadeIn } from "@/components/motion/FadeIn";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Search, ChevronDown, Laptop, Book, Users, Shield } from "lucide-react";
 import { useState } from "react";
 

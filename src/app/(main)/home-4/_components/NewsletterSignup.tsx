@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/motion/FadeIn";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Bell, Mail, Send, Star } from "lucide-react";
 import { useState } from "react";
 

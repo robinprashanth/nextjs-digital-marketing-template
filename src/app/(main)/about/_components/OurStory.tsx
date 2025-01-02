@@ -3,7 +3,8 @@
 import SubTitleBadge from "@/components/badge/SubTitleBadge";
 import { ScrollAnimations } from "@/components/motion/ScrollInView";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import { FC } from "react";
 import { companyTimeline } from "../data/content";
 
