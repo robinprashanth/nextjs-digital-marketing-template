@@ -3,7 +3,6 @@ import { getSEOTags } from "@/lib/seo";
 import { Metadata } from "next";
 import { Blogs } from "./_components/Blog";
 
-// Generate metadata for SEO
 export const metadata: Metadata = getSEOTags({
   title: "Blog | Digital Marketing Insights",
   description:
