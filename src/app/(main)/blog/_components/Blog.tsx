@@ -20,7 +20,7 @@ interface BlogsProps {
 }
 
 const CategoryScrollButtons: FC<{
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }> = ({ containerRef }) => {
   const [showButtons, setShowButtons] = useState({
     left: false,
