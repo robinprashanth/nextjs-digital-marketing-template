@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { cn } from "@/lib/utils";
@@ -24,14 +25,14 @@ type Metric = {
   value: string;
   status?: string;
   color?: string;
-  icon?: JSX.Element;
+  icon?: ReactNode;
 };
 
 type Process = {
   title: string;
   description: string;
   size: "small" | "medium" | "large";
-  icon: JSX.Element;
+  icon: ReactNode;
   bgColor?: string;
 } & (
   | { metrics: Metric[] }
@@ -195,7 +196,7 @@ export function ProcessSection() {
                     ? "md:col-span-2"
                     : "md:col-span-1",
                 process.bgColor,
-                "hover:bg-white transition-colors duration-300"
+                "transition-colors duration-300 hover:bg-white",
               )}
               content={
                 <>
